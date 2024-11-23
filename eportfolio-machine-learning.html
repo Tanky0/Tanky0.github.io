@@ -123,17 +123,19 @@
 										</div>
 									</header>
 									<h3>Topic</h3>
-										<p>Reviewed Schwab's (2016) article on Industry 4.0's automation and researched its impact on a media sector information system failure.</p>
+										<p>Reviewed Schwab's (2016) article on Industry 4.0's automation and its impact on a media sector information system failure.</p>
 									<h3>Outcomes</h3>
-										<p><b>1:</b> Explained the evolution to Industry 5.0's augmentation and how Channel 4 failed to meet Ofcom regulations when Red Bee Media service outage occurred due to an automated response. This demonstrated a need for improved disaster recovery and communication.</p>	
-										<p><b>4:</b> My peer responses to others let me identify areas I had missed in my own analysis, like personal costs, not just monetary impact, by seeing it missing in their writing.</p>	
-									<h3>Feedback</h3>
-										<p>Positive peer responses to me further identified opportunities to add human impact and cloud computing, which I did.</p>
+										<h4>What (1)</h4>
+											<p>Explained evolution to Industry 5.0's augmentation, Channel 4's regulatory failure when Red Bee Media service outage occurred due to an automated response, and mitigation (Ofcom, 2022; Ziatdinov et al., 2024)</p>	
+										<h4>So What (4)</h4>
+											<p>Peer responses to others identified areas missed in my own analysis, like personal costs, not just monetary impact, by seeing it missing in their writing.</p>	
+										<h4>Now What / Feedback (3)</h4>
+											<p>Summary contradicted peer feedback on interconnectedness and utilising cloud computing but concurred on mitigation via disaster recovery and communication (Adams, 2024; Zapka, 2024).</p>
 									<footer>
 										<ul class="actions">
 											<li><a href="artefacts/6_ML_1_C1InitalPost_MI24.pdf" target="_blank" class="button large">1: Initial Post</a></li>
 											<li><a href="artefacts/6_ML_2_C1PeerResponses_MI24.pdf" target="_blank" class="button large">2: Peer Responses</a></li>
-											<li><a href="artefacts/5_RMPP_3_C1SummaryPost_MI24.pdf" target="_blank" class="button large">3: Summary Post</a></li>
+											<li><a href="artefacts/6_ML_3_C1Summary_MI24.pdf" target="_blank" class="button large">3: Summary Post</a></li>
 										</ul>
 									</footer>
 								</article>
@@ -145,23 +147,114 @@
 									<header>
 										<div class="title">
 											<h2><a href="#eda_tutorial">EDA Tutorial</a></h2>
-											<p>Auto MPG dataset</p>
+											<p>AutoMPG dataset</p>
 										</div>
 										<div class="meta">
 											<h2><a href="#eda_tutorial">Unit: 2</a></h2>
 										</div>
 									</header>
 									<a href="#eda_tutorial" class="image fit"><img src="images/6_ML_2_EDA_Correlation.png" alt="EDA Correlation" /></a>
+									<p><b>FIGURE 1 |</b> Correlation</p>
 									<h3>Topic</h3>
-										<p>Exploratory Data Analysis (EDA) on Auto MPG dataset using Google Colab.</p>
+										<p>Exploratory Data Analysis (EDA) on AutoMPG dataset using Google Colab.</p>
 									<h3>Outcomes</h3>
-										<p><b>2:</b> Positive first experience using Google Colab, including GitHub connection. While EDA with Python was conceptually similar to R, syntactically it differed. Unlike the tutorial dataset, Auto MPG had no missing numeric data, but horsepower was a nominal because it contained question marks (?), which taught me that missing values can take unexpected forms, so I will look out for them in the future.</p>
-									<h3>Feedback</h3>
-										<p>Shared experience in Seminar 2.</p>
+										<h4>What (2)</h4>
+											<p>EDA on AutoMPG had no missing numeric data, but horsepower was nominal because it contained “?”. High negative correlation demonstrated in Figure 1 indicates lower miles per gallon (MPG) for higher weight, displacement and cylinders.</p>
+										<h4>So What (2)</h4>
+											<p>Missing values can take unexpected forms, so text-based EDA is essential, in addition to visualisations (Oluleye, 2023).</p>
+										<h4>Now What (2)</h4>
+											<p>Use range of tools in future EDA.</p>
+									<h3>Feedback (4)</h3>
+											<p>Shared experience in Seminar 2. Positive feedback on my "Using Google Colab with GitHub".</p>
+									<h3>Skills</h3>
+										<p>Google Colab, GitHub, Python, Pandas, Matplotlib, Seaborn, NumPy, SciPy, Missingno</p>
 									<footer>
 										<ul class="actions">
 											<li><a href="https://github.com/mariaingold/EDA_AutoMPG" target="_blank" class="button large">2: GitHub (Code and Dataset)</a></li>
 											<li><a href="https://colab.research.google.com/github/mariaingold/EDA_AutoMPG/blob/main/2_AutoMPG_EDA.ipynb" target="_blank" class="button large">2: Google Colab</a></li>
+										</ul>
+									</footer>
+									<footer>
+										<ul class="actions">
+											<li><a href="artefacts/6_ML_2_GoogleColabGitHub_Setup.pdf" target="_blank" class="button large">2: Using Google Colab and GitHub</a></li>
+										</ul>
+									</footer>									
+								</article>
+							</section>
+
+							<!-- Correlation and Regression -->
+							<section id="correlation_regression">
+								<article class="post">
+									<header>
+										<div class="title">
+											<h2><a href="#correlation_regression">Correlation and Regression</a></h2>
+										</div>
+										<div class="meta">
+											<h2><a href="#correlation_regression">Unit: 3</a></h2>
+										</div>
+									</header>
+									<a href="#correlation_regression" class="image fit"><img src="images/6_ML_3_linear-polynomial.jpg" alt="Regression" /></a>
+									<p><b>FIGURE 2 |</b> Linear versus polynomial regression</p>
+									<h3>Topic</h3>
+										<p>Correlation and regression.</p>
+									<h3>Outcomes</h3>
+										<h4>What (2)</h4>
+											<p>Experimented with bivariate (two variables) covariance (directional relationship), and Pearson's Correlation (linear relationship). Performed linear and polynomial regression and experimented with multiple regression coefficient.</p>
+										<h4>So What (2)</h4>
+											<p>Covariance impacted by changes in standard deviation (sd). Pearson Correlation not affected by shifts to mean or sd (Oluleye, 2023). As seen in Figure 2, linear regression predicts y from x, but polynomial regression uses a non-linear relationship.</p>
+										<h4>Now What (1)</h4>
+											<p>Linear relationships can use Pearson's Correlation and linear regression. Non-linear could use polynomial regression.</p>
+									<h3>Skills</h3>
+										<p>Google Colab, GitHub, Python, NumPy, Matplotlib, Seaborn, SciPy, Pandas, Scikit-Learn</p>
+									<footer>
+										<ul class="actions">
+											<li><a href="https://github.com/mariaingold/CorrelationAndRegression/tree/main" target="_blank" class="button large">3: GitHub (Code and Dataset)</a></li>
+										</ul>
+									</footer>	
+									<footer>
+										<ul class="actions">
+											<li><a href="https://colab.research.google.com/github/mariaingold/CorrelationAndRegression/blob/main/Unit03_Ex1_covariance_pearson_correlation.ipynb" target="_blank" class="button large">3: Google Colab Ex 1</a></li>
+											<li><a href="https://colab.research.google.com/github/mariaingold/CorrelationAndRegression/blob/main/Unit03_Ex2_linear_regression.ipynb" target="_blank" class="button large">3: Google Colab Ex 2</a></li>
+										</ul>
+									</footer>
+									<footer>
+										<ul class="actions">	
+											<li><a href="https://colab.research.google.com/github/mariaingold/CorrelationAndRegression/blob/main/Unit03_Ex3_multiple_linear_regression.ipynb" target="_blank" class="button large">3: Google Colab Ex 3</a></li>
+											<li><a href="https://colab.research.google.com/github/mariaingold/CorrelationAndRegression/blob/main/Unit03_Ex4_polynomial_regression.ipynb" target="_blank" class="button large">3: Google Colab Ex 4</a></li>
+										</ul>
+									</footer>								
+								</article>
+							</section>
+
+							<!-- Linear Regression with Scikit-Learn -->
+							<section id="linear_regression">
+								<article class="post">
+									<header>
+										<div class="title">
+											<h2><a href="#linear_regression">Linear Regression</a></h2>
+											<p>With Scikit-Learn</p>
+										</div>
+										<div class="meta">
+											<h2><a href="#linear_regression">Unit: 4</a></h2>
+										</div>
+									</header>
+									<a href="#linear_regression" class="image fit"><img src="images/6_ML_4_linear_log.jpg" alt="Linear and Log-Linear Regression" /></a>
+									<p><b>FIGURE 3 |</b> Linear versus Log-Linear Regression</p>
+									<h3>Topic</h3>
+										<p>Correlation and linear regression with Scikit-Learn.</p>
+									<h3>Outcomes</h3>
+										<h4>What (2)</h4>
+											<p>Pre-processed population and GDP data per country (2001-2021), investigated Pearson Correlation coefficient, and performed linear regression.</p>
+										<h4>So What (2)</h4>
+											<p>Discovered missing NaN values, missing 2021 column in global_GDP, and global_population as all objects instead of numeric. Pre-processing was necessary to have usable data (Oluleye, 2023).</p>
+										<h4>Now What (2)</h4>
+											<p>Learned linear regression is not just one type. Data may have to be further transformed, for instance logarithmically as in Figure 3, to be meaningful.</p>
+									<h3>Skills</h3>
+										<p>Google Colab, GitHub, Python, Matplotlib, Pandas, Scikit-Learn</p>
+									<footer>
+										<ul class="actions">
+											<li><a href="https://github.com/mariaingold/LinearRegression-SciKit" target="_blank" class="button large">4: GitHub (Code and Dataset)</a></li>
+											<li><a href="https://colab.research.google.com/github/mariaingold/LinearRegression-SciKit/blob/main/4_correlation_regression.ipynb" target="_blank" class="button large">4: Google Colab</a></li>
 										</ul>
 									</footer>
 								</article>
@@ -310,6 +403,24 @@
 												<time class="published" datetime="2024-11-06">6 November, 2024</time>
 											</header>
 											<a href="#eda_tutorial" class="image"><img src="images/portfolio.png" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#correlation_regression">Correlation and Regression (3)</a></h3>
+												<time class="published" datetime="2024-11-11">11 November, 2024</time>
+											</header>
+											<a href="#correlation_regression" class="image"><img src="images/portfolio.png" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#linear_regression">Linear Regression (4)</a></h3>
+												<time class="published" datetime="2024-11-18">18 November, 2024</time>
+											</header>
+											<a href="#linear_regression" class="image"><img src="images/portfolio.png" alt="" /></a>
 										</article>
 									</li>
 									<li>
