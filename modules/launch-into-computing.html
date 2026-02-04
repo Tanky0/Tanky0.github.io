@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch into Computing - Anne Dayer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --text: #2c3e50;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: #f5f6fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--accent);
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .assignment-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .assignment-box h4 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.375rem;     
+    font-weight: 600;         
+}
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .status-submitted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .placeholder {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #856404;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .skill-rating {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                min-width: 100%;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Launch into Computing</h1>
+            <p>Tutor: Dr Zeeshan Siddiqui</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About Me</a></li>
+                <li><a href="../index.html#modules">Modules</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <span>Launch into Computing</span>
+            </div>
+
+            <!-- Module Overview -->
+            <section class="content-section">
+                <h2>Module Overview</h2>
+                <p>Launch into Computing provides a comprehensive introduction to core computing disciplines, including Software Engineering, Artificial Intelligence, Cybersecurity, Data Science, and Enterprise IT Management. The module establishes theoretical foundations whilst engaging with practical applications relevant to real-world enterprise computing challenges. Through this module, I examine fundamental principles, methodologies, and emerging trends within computing fields, developing a strong theoretical foundation alongside practical problem-solving capabilities.</p>
+                
+                <h3>Learning Outcomes</h3>
+                <p>The module aims to develop understanding of core computing concepts, application of critical thinking and problem-solving to computing challenges, evaluation of ethical, legal, and social implications of computing technologies, demonstration of professional skills appropriate for postgraduate study, and exploration of the role of computing in equality, diversity, and inclusion contexts. These outcomes align with my professional need to bridge technical understanding with strategic governance responsibilities.</p>
+            </section>
+
+            <!-- Assignments -->
+            <section class="content-section">
+                <h2>Assignments</h2>
+                
+                <div class="assignment-box">
+                    <h4>Collaborative Learning Discussion: The Evolution of Computing and Its Impact on Business and Society</h4>
+                    <p><strong>Brief Description:</strong>Four-week discussion (1,000 words total). Reflect on how computing has transformed industries and societies. Choose one computing discipline (AI, Cybersecurity, Software Engineering, Data Science, or Enterprise IT Management) and explain its impact on a specific industry with a recent example from the past three years. Week 1: Initial post (300 words) using academic references. Weeks 2-3: Two peer responses (200 words each). Week 4: Summary post (300 words) demonstrating personal growth and critical engagement with peer contributions.</p>
+                    
+                    <p><span class="status-badge status-submitted"> 70 % (Distinction)</span></p>
+                    
+                    <p><strong>Feedback Received:</strong> Your contribution demonstrates strong critical engagement with the ethical and regulatory dimensions of AI, and you extend the discussion by introducing relevant frameworks such as the EU AI Act and AIEBOK. You effectively link policy, engineering practice, and sustainability, showing a mature understanding of how ethical principles must translate into operational steps. However, while your response is well-informed and analytically sound, it does not always fully connect your points back to the peer’s original post, and some arguments would benefit from clearer reference to the specific claims made by the peer. Strengthening the alignment between critique, evidence, and the initial post would enhance the overall coherence.</p>
+
+                    <a href="../assets/documents/Collaborative Learning Discussion.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+                    
+                </div>
+
+                <div class="assignment-box">
+                    <h4>End of Module Assignment: Programming Languages and Computing Ethics</h4>
+    <p><strong>Brief Description:</strong> Two-part assessment. Part A (3,000 words, 40%): Compare tutor-provided Python and JavaScript scripts through code exploration, language comparison report, and professional reflection on ethical coding practices. Test scripts, make light modifications, analyse programming models, readability, and error handling. Reflect on bias, privacy, and real-world impact of coding choices. Part B (15-minute presentation, 40%): Critically evaluate one emerging technology (AI, Quantum Computing, or Blockchain), discussing technical aspects, ethical concerns, security risks, and governance frameworks. Include 10 slides, transcript, and eight peer-reviewed sources.</p>
+    
+    <p><span class="status-badge status-submitted"> 77 % (Distinction)</span></p>
+    
+    <p><strong>Feedback Received:</strong> Knowledge and understanding: You show strong understanding of Python and JavaScript, explaining how the original scripts behave, why case-sensitive de-duplication is misleading, and comparing paradigms, readability, error handling and suitability with good use of sources; in Part B you accurately explain AI use, risks and key frameworks (EU AI Act, NIST, OECD, GDPR) and link them to real cases.     
+Application of knowledge and understanding: You apply ideas well by adding sensible lowercasing changes to both scripts and using them to discuss “silent semantic failures” and business impacts, and in Part B by turning AI risk and regulation into a governance prototype and practical safeguards; marks drop because you still lose original capitalisation/order and do not show a structured set of edge/error tests or performance trade-offs.   
+Structure and Presentation: Part A is a well organised single report with clear Part 1–3 sections, headings, tables and readable code snippets, and Part B has a clear slide narrative with a transcript that matches and fits the time limit; a few dense text blocks, slightly merged tests/outputs, and some slide titles that do not fully foreground your central “contestability-centred governance” message keep this just below the top band.     
+Academic integrity: You use a wide range of academic, technical, legal and policy sources with consistent Harvard referencing, clearly acknowledge limited use of Grammarly/Copilot for proofreading, and the writing and code read as your own with no sign of unacknowledged copying, which matches the top level of the marking guide. 
+</p>
+    
+    <a href="../assets/documents/Part%20A%20-%20Evaluating%20the%20development%20models%20of%20two%20programming%20languages.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+          
+                </div>
+            </section>
+
+            <!-- Reflective Piece -->
+            <section class="content-section">
+                <h2>Reflective Piece</h2>
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Reflective writing covering the module experience, learning outcomes achieved, and connections between module content and professional practice will be added upon module completion.</p>
+                </div>
+            </section>
+
+            <!-- Meeting Notes -->
+            <section class="content-section">
+                <h2>Meeting Notes</h2>
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Notes from tutorials, team meetings, and supervisor consultations will be documented here as the module progresses.</p>
+                </div>
+            </section>
+
+            <!-- Professional Skills Matrix -->
+            <section class="content-section">
+                <h2>Professional Skills Matrix and Action Plan</h2>
+                
+                <p>This skills matrix provides an honest assessment of my current capabilities relevant to the Launch into Computing module learning outcomes, drawing on my professional experience whilst acknowledging areas requiring development through the MSc programme.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competency</th>
+                            <th>Essex Graduate</th>
+                            <th>Skill</th>
+                            <th>Skill Level</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Subject understanding, research, critical thinking</td>
+                            <td>Identify and critically analyse computing challenges and processes in business systems, accounting for the current enterprise landscape</td>
+                            <td><span class="skill-rating">Trained</span></td>
+                            <td>Strong capability in analysing computing challenges at strategic and business impact level, evidenced through leading AI Governance Steering Group and managing AI portfolio across Labcorp's central lab operations. Can identify technical-business interfaces and enterprise landscape implications. Currently developing deeper technical analysis skills through MSc programme to complement strategic understanding with hands-on computing knowledge of system architecture, implementation constraints, and technical trade-offs that underpin business decisions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional</strong></td>
+                            <td>Literacy, communication, research skills</td>
+                            <td>Gather and synthesise information from multiple sources (including internet resources and business publications) to aid in the systematic design and analysis of computing challenges</td>
+                            <td><span class="skill-rating">Trained</span></td>
+                            <td>Highly proficient at gathering and synthesising business, strategic, and regulatory information from diverse sources for AI governance frameworks. Developing skills in synthesising technical computing information (technical documentation, academic papers on algorithms, developer communities, technical forums) specifically for systematic design and analysis of computing implementations. The MSc programme is strengthening ability to engage with technical literature and resources that inform hands-on computing problem-solving.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Decision making, initiative, problem solving</td>
+                            <td>Critically evaluate appropriate methodologies, tools and techniques to mitigate and/or solve computing issues and their business impact</td>
+                            <td><span class="skill-rating">Trained</span></td>
+                            <td>Evaluate AI methodologies and tools at conceptual level in professional context (workload forecasting, document mining, quality analysis). Can assess business impact and strategic fit but lack deep technical implementation knowledge. Rely on technical teams for detailed methodology evaluation.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Legal and Ethical</strong></td>
+                            <td>Ethical awareness, professional conduct</td>
+                            <td>Articulate the legal, social, ethical, and professional issues faced by computing professionals</td>
+                            <td><span class="skill-rating">Trained</span></td>
+                            <td>Participate in regulatory discussions on AI governance and ethics in healthcare context, relying on teams of legal and technical experts for detailed compliance and implementation. Strong understanding of strategic ethical considerations but developing knowledge of computing-specific issues such as software licensing, code intellectual property, technical privacy implementation, algorithmic bias in code, and security vulnerability disclosure that programmers and data scientists encounter directly.</td>
+                        </tr>
+                     </tbody>
+                </table>
+
+                <h3>Action Plan</h3>
+                <p><strong>Immediate Actions (Current Module):</strong></p>
+                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                    <li>Dedicate weekly study time specifically to programming practice, working through Python tutorials systematically to build from Aware to Trained level</li>
+                    <li>Create glossary of technical terms encountered in readings, with precise definitions and usage examples to strengthen technical vocabulary</li>
+                    <li>Read at least one academic paper per week beyond required readings, practicing critical analysis skills to move from Trained to Proficient in academic writing</li>
+                    <li>Deepen understanding of computing methodologies beyond conceptual level, focusing on technical implementation details to progress from Trained to Proficient</li>
+                </ul>
+
+                <p><strong>Medium-term Development (Next 2-3 Modules):</strong></p>
+                <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                    <li>Build small coding projects related to professional work, bridging theory and practice to achieve Trained level in programming</li>
+                    <li>Develop more sophisticated academic writing through iterative feedback and revision, targeting Proficient level</li>
+                    <li>Strengthen technical evaluation capabilities through hands-on engagement with different methodologies and tools</li>
+                    <li>Engage more deeply with theoretical frameworks underlying practical AI applications</li>
+                </ul>
+
+                <p><strong>Programme-level Goals:</strong></p>
+                <ul style="margin-left: 2rem;">
+                    <li>Achieve Proficient level in programming competency sufficient to prototype AI solutions and understand implementation constraints</li>
+                    <li>Reach Expert level in critically evaluating methodologies, tools and techniques by combining technical knowledge with business acumen</li>
+                    <li>Produce academic writing at Proficient to Expert level demonstrating critical engagement with scholarship</li>
+                    <li>Integrate theoretical knowledge with professional experience to contribute original insights in final project</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
+        </div>
+    </footer>
+</body>
+</html>
