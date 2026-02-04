@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anne Dayer - MSc Artificial Intelligence ePortfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --text: #2c3e50;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: #f5f6fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s;
+        }
+
+        nav li:last-child a {
+            border-right: none;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .intro-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .cv-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .cv-link:hover {
+            background: #2980b9;
+        }
+
+        /* Module Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .module-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.375rem;
+        }
+
+        .module-tutor {
+            color: #7f8c8d;
+            font-size: 0.9375rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-status {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-planned {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .module-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .module-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                min-width: 100%;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Anne Dayer</h1>
+            <p>MSc Artificial Intelligence | University of Essex | Started October 2025</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="#modules">Modules</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="intro-section">
+                <h2>Welcome to My ePortfolio</h2>
+                <p>This ePortfolio documents my learning journey through the MSc in Artificial Intelligence programme at the University of Essex. It serves as a comprehensive collection of artefacts, reflections, and evidence of skill development across all programme modules.</p>
+                <p>The portfolio demonstrates my understanding of module content and its application in wider social and global contexts, my ability to draw connections between module material and coursework to achieve learning objectives, and my capacity for self-assessment, reflecting on personal strengths and weaknesses whilst identifying achievements with supporting evidence.</p>
+                <a href="about.html" class="cv-link">About Me & CV</a>
+            </section>
+
+            <section id="modules">
+                <div class="intro-section">
+                    <h2>Programme Modules</h2>
+                    <p>The MSc Artificial Intelligence programme comprises nine modules, each building upon foundational concepts to develop comprehensive expertise in artificial intelligence theory and practice.</p>
+                </div>
+
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <h3>Induction</h3>
+                        <p class="module-tutor">Tutor: Dr Stelios Sotiriadis</p>
+                        <p>Introduction to the programme, academic expectations, and foundational computing concepts.</p>
+                        <span class="module-status status-completed">Completed</span>
+                        <br>
+                        <a href="modules/induction.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Launch into Computing</h3>
+                        <p class="module-tutor">Tutor: Dr Zeeshan Siddiqui</p>
+                        <p>Comprehensive introduction to core computing disciplines including software engineering, AI fundamentals, and professional practice.</p>
+                        <span class="module-status status-in-progress">In Progress</span>
+                        <br>
+                        <a href="modules/launch-into-computing.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Understanding Artificial Intelligence</h3>
+                        <p>Exploration of AI foundations, history, and current applications across various domains.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/understanding-ai.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Numerical Analysis</h3>
+                        <p>Mathematical foundations essential for implementing and understanding AI algorithms and computational methods.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/numerical-analysis.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Machine Learning</h3>
+                        <p>Core machine learning algorithms, supervised and unsupervised learning techniques, and practical applications.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/machine-learning.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Knowledge Representation and Reasoning</h3>
+                        <p>Techniques for representing knowledge in computational systems and enabling automated reasoning.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/knowledge-reasoning.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Intelligent Agents</h3>
+                        <p>Design and implementation of autonomous agents capable of perceiving environments and taking action.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/intelligent-agents.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Research Methods and Professional Practice</h3>
+                        <p>Academic research methodologies, ethical considerations, and professional development in AI contexts.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/research-methods.html" class="module-link">View Module →</a>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>MSc Computing Project</h3>
+                        <p>Independent research project applying AI techniques to address real-world challenges with original contribution.</p>
+                        <span class="module-status status-planned">Planned</span>
+                        <br>
+                        <a href="modules/msc-project.html" class="module-link">View Module →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
+        </div>
+    </footer>
+</body>
+</html>
