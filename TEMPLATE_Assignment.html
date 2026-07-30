@@ -1,30 +1,48 @@
 <!-- ASSIGNMENT TEMPLATE -->
-<!-- Copy this entire block and paste it into your module's Assignment section -->
-<!-- Replace all [PLACEHOLDER] text with your actual content -->
+<!-- Copy this block into the Assignments section of a module page. -->
+<!-- Replace all [PLACEHOLDER] text. Do not add any <style> - see assets/css/site.css. -->
 
 <div class="assignment-box">
-    <h4>[ASSIGNMENT TITLE]</h4>
-    <p><strong>Brief Description:</strong> [Write a brief description of the assignment requirements and objectives]</p>
-    
-    <span class="grade-badge">[Grade: XX% / Pass / Merit / Distinction]</span>
-    
-    <p><strong>Feedback Received:</strong> [Paste the feedback you received from your tutor]</p>
-    
+    <h4>[ASSIGNMENT TITLE, as it appears in the brief]</h4>
+
+    <!-- Optional: only where the assessment has a unit and deadline worth showing -->
+    <p class="deadline"><strong>Unit [N]</strong> &middot; Deadline: 23:55, [Day DD Month YYYY]</p>
+
+    <p><strong>Brief Description:</strong> [What the brief asked for - word count, weighting,
+       required components, assessed criteria.]</p>
+
+    <p><strong>Submission:</strong> [What you actually produced and the decisions behind it.
+       This is what turns the entry into evidence rather than a list.]</p>
+
+    <!-- Before the result is known -->
+    <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
+
+    <!-- Once graded, replace the badge above with this and add the feedback -->
+    <p><span class="status-badge status-submitted">[XX]% ([Distinction/Merit/Pass])</span></p>
+
+    <p><strong>Feedback Received:</strong> [Tutor feedback, quoted verbatim.]</p>
+
+    <!-- Optional, where the feedback separates them out -->
+    <p><strong>Points for development:</strong> [Quoted verbatim.]</p>
+
+    <!-- One link per artefact; label each where there are several -->
     <a href="../assets/documents/[FILENAME].pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
 </div>
 
-<!-- INSTRUCTIONS FOR USE:
-1. Copy the entire block above (from <div class="assignment-box"> to </div>)
-2. Go to your module HTML file (e.g., modules/launch-into-computing.html)
-3. Find the "Assignments" section
-4. Paste the template where you want to add the new assignment
-5. Replace all [PLACEHOLDER] text:
-   - [ASSIGNMENT TITLE]: e.g., "Collaborative Learning Discussion" or "End of Module Assignment"
-   - [Write a brief description...]: Describe what the assignment asked you to do
-   - [Grade: XX%...]: Your grade (e.g., "Grade: 72%" or "Grade: Pass")
-   - [Paste the feedback...]: Copy and paste the feedback from your tutor
-   - [FILENAME]: The name of your PDF file (must match the file in assets/documents/)
-6. Save the file
-7. Upload the PDF file to the assets/documents/ folder
-8. Commit and push to GitHub
+
+<!-- INSTRUCTIONS
+1. Paste the block above into the module page's Assignments section.
+2. Replace every [PLACEHOLDER].
+3. Keep only ONE status badge - pending OR the result.
+4. Add the PDF to assets/documents/ using the module prefix naming
+   (LiC_, UAI_, NA_ ...), and check the filename matches exactly - it is
+   case-sensitive on GitHub Pages even though Windows ignores case.
+5. Commit and push.
+
+Available badge classes:
+   status-badge status-pending     amber, for work not yet submitted
+   status-badge status-submitted   green, for a result
+
+Do NOT write inline CSS or a <style> block. Every class used here is defined
+in assets/css/site.css, which all pages share.
 -->
