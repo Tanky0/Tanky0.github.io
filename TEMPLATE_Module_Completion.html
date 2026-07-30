@@ -1,12 +1,18 @@
 <!-- MODULE COMPLETION TEMPLATE -->
 <!-- Use this when a module finishes. Replace all [PLACEHOLDER] text. -->
-<!-- See EPORTFOLIO_UPDATE_GUIDE.md section 5 for the full checklist. -->
+<!-- See EPORTFOLIO_UPDATE_GUIDE.md section 6 for the full checklist. -->
+<!-- Never add a <style> block: all styling is in assets/css/site.css. -->
 
 
 <!-- ============================================================
-     STEP 1 - Module result box
-     Paste at the END of the Module Overview section.
+     STEP 1 - Masthead and module result
+     Update the masthead eyebrow to "Completed", then paste the
+     result box at the END of the Module Overview section.
      ============================================================ -->
+
+<p class="eyebrow">Completed</p>
+<h1>[Module Name]</h1>
+<p class="lede">Tutor: [Name] &middot; [Intake, e.g. January 2026 B]</p>
 
 <div class="module-result">
     <strong>Module result: [XX]% ([Distinction/Merit/Pass])</strong><br>
@@ -15,14 +21,14 @@
 
 
 <!-- ============================================================
-     STEP 2 - Reflective Piece
-     Replace the placeholder Reflective Piece section.
-     Use OPTION A where the module was assessed by a reflective
-     piece; there is no value in retyping a submitted document.
-     Use OPTION B otherwise.
+     STEP 2 - Reflective Piece  (ONLY IF ONE WAS PRODUCED)
+     If the module did not include a reflective piece, leave this
+     section out completely. Do not add an empty or invented one -
+     Launch into Computing and Understanding AI have no Reflective
+     Piece section for exactly that reason.
      ============================================================ -->
 
-<!-- OPTION A: link the submitted reflection -->
+<!-- OPTION A: the reflection was submitted as a document - link it -->
 <section class="content-section">
     <h2>Reflective Piece</h2>
     <p>[One paragraph: what the reflection covers, and what it was awarded. If it contains
@@ -32,43 +38,40 @@
     <a href="../assets/documents/[FILENAME].pdf" class="download-link" target="_blank">Read the Reflective Piece (PDF)</a>
 </section>
 
-<!-- OPTION B: write it on the page -->
+<!-- OPTION B: written on the page -->
 <section class="content-section">
     <h2>Reflective Piece</h2>
 
     <h3>What? (Description)</h3>
-    <p>[Factual. Which units, which assessments, what you actually produced. No interpretation yet.]</p>
+    <p>[Factual. Which units, which assessments, what you actually produced.]</p>
 
     <h3>So What? (Interpretation)</h3>
     <p>[What shifted. Which assumption was challenged and by what - a specific piece of tutor
        feedback, a named peer challenge, a result that did not behave as expected. Anchor every
        claim to evidence rather than generalising about "learning a lot".]</p>
 
-    <p>[Further paragraphs as needed. Where feedback identified a weakness, say so plainly:
-       an honest reflection is worth more than a defensive one.]</p>
-
     <h3>What Next? (Outcome)</h3>
-    <p>[Concrete and checkable. What you will do differently in the next module and in
-       professional practice - actions someone could later verify, not intentions.]</p>
+    <p>[Concrete and checkable. What you will do differently next - actions someone could
+       later verify, not intentions.]</p>
 </section>
 
 
 <!-- ============================================================
      STEP 3 - Skills matrix
-     DO NOT add a matrix to the module page.
-     The matrix lives ONLY on about.html, in the section with
-     id="skills-matrix", and shows the CURRENT version only.
-     Update the existing rows in place; do not add a second table.
-     There is NO separate Action Plan section - the PDP column
-     inside each row carries the forward actions.
+     DO NOT add a matrix to the module page. It lives ONLY on
+     about.html in the section with id="skills-matrix", showing the
+     CURRENT version. Update the rows in place; never add a second
+     table. There is NO separate Action Plan section - the PDP
+     column inside each row carries the forward actions.
      ============================================================ -->
 
 <tr>
     <td><strong>[Skill name]</strong></td>
     <td>[Developing / Competent / Proficient]</td>
-    <td><span class="skill-rating">[Developing / Competent / Proficient, qualified if unchanged]</span></td>
+    <td><span class="skill-rating">[Level at module end, qualified if unchanged]</span></td>
     <td>[Evidence: a mark, a named artefact, a specific piece of feedback. Something checkable.]</td>
     <td>[Action plan (PDP): what this means for the next module and for professional practice.]</td>
+    <td>[Progress against the plan during the module now in progress.]</td>
 </tr>
 
 
@@ -98,6 +101,6 @@
      Also remember to update, on index.html:
        - the status badge to status-completed
        - the module-grade line beneath it
-     and on the module page:
-       - the header line to "Tutor: [Name] | [Intake] | Completed"
+     and on about.html:
+       - the benchmarks line, with the new module and its result
 -->
