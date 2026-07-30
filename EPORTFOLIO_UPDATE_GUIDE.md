@@ -1,324 +1,260 @@
 # ePortfolio Update Guide
 
-This guide provides step-by-step instructions for updating your ePortfolio as you progress through your MSc programme.
+Step-by-step instructions for updating the ePortfolio as each module of the MSc progresses.
+
+Live site: **https://tanky0.github.io**
+Repository: **https://github.com/Tanky0/Tanky0.github.io**
 
 ## Table of Contents
-1. [How to Remove Sections from Induction Module Only](#remove-induction-sections)
-2. [How to Update Module Information](#update-module-info)
-3. [How to Add a New Assignment](#add-assignment)
-4. [How to Add Grade and Feedback](#add-grade-feedback)
-5. [How to Complete a Module (Add Reflective Piece + Skills Matrix)](#complete-module)
-6. [How to Update Meeting Notes](#update-meetings)
-7. [How to Upload Files to GitHub](#upload-files)
+1. [Page Structure](#structure)
+2. [Starting a New Module](#start-module)
+3. [Adding an Assignment](#add-assignment)
+4. [Adding a Grade and Feedback](#add-grade-feedback)
+5. [Completing a Module](#complete-module)
+6. [Updating the Skills Matrix](#skills-matrix)
+7. [Adding Files to `assets/documents/`](#add-files)
+8. [Publishing Changes](#publishing)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
-## 1. How to Remove Sections from Induction Module Only {#remove-induction-sections}
+## 1. Page Structure {#structure}
 
-The Induction module should NOT have the following sections:
-- Reflective Piece (already completed)
-- Meeting Notes (not applicable)
-- Professional Skills Matrix and Action Plan (not applicable)
+Every module page follows the same pattern, in this order:
 
-**Steps to remove these sections from Induction:**
+| Section | When to fill it |
+|---|---|
+| **Module Overview** | At module start: description, tutor, learning outcomes. Add the result box when the module finishes. |
+| **Assignments** | One `assignment-box` per assessment, added as each is submitted. |
+| **Reflective Piece** | On module completion. |
+| **Artefacts Mapped to Learning Outcomes** | *Optional.* Only where formative work is worth evidencing separately (currently Numerical Analysis). |
 
-1. Open `modules/induction.html` in your text editor
-2. Find the section that starts with `<!-- Reflective Piece -->`
-3. Delete everything from `<!-- Reflective Piece -->` through to the end of that `</section>` tag
-4. Find the section that starts with `<!-- Meeting Notes -->`
-5. Delete everything from `<!-- Meeting Notes -->` through to the end of that `</section>` tag
-6. Find the section that starts with `<!-- Professional Skills Matrix -->`
-7. Delete everything from `<!-- Professional Skills Matrix -->` through to the end of that `</section>` tag
-8. Save the file
+**Sections that must NOT appear on module pages:**
 
-**What to delete specifically:**
-```html
-<!-- Delete this entire block for Reflective Piece -->
-<section class="content-section">
-    <h2>Reflective Piece</h2>
-    ...
-</section>
+- **Meeting Notes** — removed from the portfolio. Tutor feedback belongs inside each `assignment-box`.
+- **Professional Skills Matrix and Action Plan** — appears once only, on `about.html`. See [section 6](#skills-matrix).
 
-<!-- Delete this entire block for Meeting Notes -->
-<section class="content-section">
-    <h2>Meeting Notes</h2>
-    ...
-</section>
-
-<!-- Delete this entire block for Professional Skills Matrix -->
-<section class="content-section">
-    <h2>Professional Skills Matrix and Action Plan</h2>
-    ...
-</section>
-```
-
-**Note:** Keep the Reflective Piece, Meeting Notes, and Professional Skills Matrix sections in ALL other modules.
+Induction is the exception to everything above: it carries Module Overview and Assignment only.
 
 ---
 
-## 2. How to Update Module Information {#update-module-info}
+## 2. Starting a New Module {#start-module}
 
-When you get information about a module (tutor name, dates, etc.), here's how to update it:
+**On `index.html`:**
 
-### Update Module Name
-1. Open the module file (e.g., `modules/understanding-ai.html`)
-2. Find the `<header>` section
-3. Update the `<h1>` tag with the correct module name
-4. Update the page `<title>` tag at the top
-
-### Update Tutor Name
-1. In the same file, find the `<header>` section
-2. Find the `<p>` tag that says `Tutor: [Name]`
-3. Replace `[Name]` with the tutor's name
-4. Example: `<p>Tutor: Dr Jane Smith</p>`
-
-### Update Module Status (on Homepage)
-1. Open `index.html`
-2. Find the module card for your module
-3. Update the status badge:
+1. Find the module card and change its status badge:
    ```html
-   <!-- Change from: -->
    <span class="module-status status-planned">Planned</span>
-   
-   <!-- To one of these: -->
+   <!-- becomes -->
    <span class="module-status status-in-progress">In Progress</span>
-   <span class="module-status status-completed">Completed</span>
    ```
+2. Add the tutor above the description:
+   ```html
+   <p class="module-tutor">Tutor: Dr Jane Smith</p>
+   ```
+3. Replace the placeholder description with the real module description.
 
-### Update Module Description
-1. In the module file, find the `<!-- Module Overview -->` section
-2. Update the paragraph text to reflect what you actually learned
-3. Keep it professional and factual
+**On `modules/[module-name].html`:**
+
+1. Update the header line under the `<h1>`:
+   ```html
+   <p>Tutor: Dr Jane Smith | In Progress</p>
+   ```
+2. Replace the Module Overview placeholder with the description and the learning outcomes as a `<ul>`.
+
+Module cards on `index.html` are ordered to follow the sequence actually studied, not the generic programme order. Move the card if the order changes.
 
 ---
 
-## 3. How to Add a New Assignment {#add-assignment}
+## 3. Adding an Assignment {#add-assignment}
 
-**Step 1: Prepare your assignment PDF**
-1. Save your assignment as a PDF
-2. Name it descriptively (e.g., `UnderstandingAI_Assignment1_2025-11-15.pdf`)
-3. Upload it to the `assets/documents/` folder in GitHub
+Copy the block from `TEMPLATE_Assignment.html` into the Assignments section of the module page and fill it in:
 
-**Step 2: Add assignment to module page**
-1. Open `TEMPLATE_Assignment.html` and copy the entire template
-2. Open your module file (e.g., `modules/understanding-ai.html`)
-3. Find the `<!-- Assignments -->` section
-4. Paste the template inside the `<section class="content-section">` after the `<h2>Assignments</h2>` line
-5. Replace all the [PLACEHOLDER] text:
-   - `[ASSIGNMENT TITLE]`: Your assignment title
-   - `[Write a brief description...]`: What the assignment asked you to do
-   - `[Grade: XX%...]`: Your grade when you receive it (or remove this line if not yet graded)
-   - `[Paste the feedback...]`: Tutor feedback (or "Feedback pending" if not received)
-   - `[FILENAME]`: Must match your PDF filename exactly
-
-**Example:**
 ```html
 <div class="assignment-box">
-    <h4>Understanding AI Fundamentals Essay</h4>
-    <p><strong>Brief Description:</strong> A 1500-word essay examining the historical development of artificial intelligence and its current applications across various domains.</p>
-    
-    <span class="grade-badge">Grade: 75%</span>
-    
-    <p><strong>Feedback Received:</strong> Well-structured essay with good use of sources. Consider exploring more recent developments in deep learning.</p>
-    
-    <a href="../assets/documents/UnderstandingAI_Assignment1_2025-11-15.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+    <h4>Assignment title as it appears in the brief</h4>
+    <p><strong>Brief Description:</strong> What the brief actually asked for — word count,
+       weighting, required components, assessed criteria.</p>
+
+    <p><strong>Submission:</strong> What you actually produced and the decisions behind it.
+       This is what makes the entry evidence rather than a list.</p>
+
+    <p><span class="status-badge status-submitted">Status: Submitted &ndash; Awaiting Feedback</span></p>
+
+    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
 </div>
 ```
 
----
+Add one `download-link` per artefact. Where an assessment has several components, label each one:
 
-## 4. How to Add Grade and Feedback {#add-grade-feedback}
-
-When you receive a grade and feedback for a submitted assignment:
-
-1. Open the module file containing the assignment
-2. Find the assignment box you want to update
-3. Update the grade badge:
-   ```html
-   <!-- Change from: -->
-   <span class="status-badge status-submitted">Status: Submitted - Awaiting Feedback</span>
-   
-   <!-- To: -->
-   <span class="grade-badge">Grade: 75%</span>
-   <!-- OR -->
-   <span class="grade-badge">Grade: Pass</span>
-   <!-- OR -->
-   <span class="grade-badge">Grade: Merit</span>
-   <!-- OR -->
-   <span class="grade-badge">Grade: Distinction</span>
-   ```
-
-4. Update the feedback section:
-   ```html
-   <!-- Change from: -->
-   <p><strong>Feedback Received:</strong> Feedback pending.</p>
-   
-   <!-- To: -->
-   <p><strong>Feedback Received:</strong> [Paste your actual feedback here]</p>
-   ```
+```html
+<a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank">Part B: Slides (PDF)</a>
+<a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank">Part B: Transcript (PDF)</a>
+<a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank">Part B: Video Presentation (MP4)</a>
+```
 
 ---
 
-## 5. How to Complete a Module {#complete-module}
+## 4. Adding a Grade and Feedback {#add-grade-feedback}
 
-When you finish a module, you need to add:
-- Reflective Piece (What? So What? What Next?)
-- Professional Skills Matrix
-- Action Plan
+Replace the submitted badge with the result, and add the feedback beneath it:
 
-**Step 1: Use the Module Completion Template**
-1. Open `TEMPLATE_Module_Completion.html`
-2. Copy the entire content
-3. Open your module file
-4. Find the placeholder sections for Reflective Piece and Professional Skills Matrix
+```html
+<p><span class="status-badge status-submitted">89% (Distinction)</span></p>
 
-**Step 2: Replace Reflective Piece**
-1. Delete the placeholder Reflective Piece section
-2. Paste the Reflective Piece from the template
-3. Fill in the three sections (What? So What? What Next?)
-4. Use the framework:
-   - **What?** Describe what happened (factual)
-   - **So What?** Interpret the meaning (analysis)
-   - **What Next?** Plan forward actions (outcomes)
+<p><strong>Feedback Received:</strong> &ldquo;Paste the tutor's feedback verbatim here.&rdquo;</p>
+```
 
-**Step 3: Replace Professional Skills Matrix**
-1. Delete the placeholder Professional Skills Matrix section
-2. Paste the Professional Skills Matrix from the template
-3. Base your skills on the module's learning outcomes
-4. For each skill, fill in:
-   - **Competency**: Technical, Professional, Legal/Ethical, Social, or Subject Application
-   - **Essex Graduate**: The graduate attribute it relates to
-   - **Skill**: Copy from the module learning outcomes
-   - **Skill Level**: Aware, Trained, Proficient, or Expert
-   - **Evidence**: Specific examples from your work/studies
+Where the feedback separates strengths from development points, split them out:
 
-**Skill Level Guide:**
-- **Aware**: General understanding and basic knowledge
-- **Trained**: Able to apply knowledge, can work independently under certain conditions
-- **Proficient**: Broad and in-depth knowledge, can work independently with very little supervision
-- **Expert**: Seen as a subject matter expert, able to lead and train others
+```html
+<p><strong>Points for development:</strong> &ldquo;Quote the development point verbatim.&rdquo;</p>
+```
 
-**Step 4: Fill in Action Plan**
-1. Set immediate actions for the next module
-2. Set medium-term goals for 2-3 modules ahead
-3. Set programme-level goals for overall development
-4. Be specific and measurable
+**Quote feedback exactly as received.** Do not paraphrase or tidy it — the value of the portfolio is that it is a genuine record. Where interim and final feedback differ, use the final version.
 
 ---
 
-## 6. How to Update Meeting Notes {#update-meetings}
+## 5. Completing a Module {#complete-module}
 
-When you have meetings (team meetings, tutor consultations, etc.):
+**Step 1 — Update the status.** On `index.html`, change the badge to `status-completed` and add the result underneath it:
 
-1. Open the module file
-2. Find the `<!-- Meeting Notes -->` section
-3. Replace the placeholder with actual meeting notes
-4. Format like this:
+```html
+<span class="module-status status-completed">Completed</span>
+<span class="module-grade">Module result: 87% (Distinction)</span>
+```
+
+On the module page, update the header line:
+
+```html
+<p>Tutor: Dr Jane Smith | January 2026 B | Completed</p>
+```
+
+**Step 2 — Add the result box** to the end of Module Overview:
+
+```html
+<div class="module-result">
+    <strong>Module result: 87% (Distinction)</strong><br>
+    Assignment 1: 97% &middot; Assignment 2: 92% &middot; End of Module Assignment: 82%
+</div>
+```
+
+**Step 3 — Add the Reflective Piece.** Two options:
+
+*If the module was assessed by a reflective piece*, don't retype it — link the submitted document:
 
 ```html
 <section class="content-section">
-    <h2>Meeting Notes</h2>
-    
-    <h3>Meeting with Tutor - [Date]</h3>
-    <p><strong>Attendees:</strong> [Names]</p>
-    <p><strong>Topics Discussed:</strong></p>
-    <ul>
-        <li>[Topic 1]</li>
-        <li>[Topic 2]</li>
-    </ul>
-    <p><strong>Actions:</strong></p>
-    <ul>
-        <li>[Action 1]</li>
-        <li>[Action 2]</li>
-    </ul>
-    
-    <h3>Team Meeting - [Date]</h3>
-    <p><strong>Attendees:</strong> [Names]</p>
-    <p><strong>Topics Discussed:</strong></p>
-    <ul>
-        <li>[Topic 1]</li>
-    </ul>
+    <h2>Reflective Piece</h2>
+    <p>One paragraph saying what the reflection covers and what it was awarded.
+       Note that the skills matrix it contains is reproduced on the
+       <a href="../about.html#skills-matrix">About Me</a> page.</p>
+
+    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank">Read the Reflective Piece (PDF)</a>
 </section>
 ```
 
+*Otherwise*, write it on the page using What? / So What? / What Next?:
+
+- **What?** — factual description of the module, its assessments and what was produced.
+- **So What?** — interpretation. What shifted, what assumption was challenged, what the tutor and peer feedback exposed. Reference specific evidence rather than generalising.
+- **What Next?** — concrete, checkable actions. Not intentions.
+
+**Step 4 — Update the skills matrix** on `about.html`. See below.
+
 ---
 
-## 7. How to Upload Files to GitHub {#upload-files}
+## 6. Updating the Skills Matrix {#skills-matrix}
 
-### Method 1: Through GitHub Website (Easier)
-1. Go to https://github.com/Tanky0/Tanky0.github.io
-2. Click on the file you want to edit (e.g., `index.html`)
-3. Click the pencil icon (Edit this file)
-4. Make your changes
-5. Scroll down to "Commit changes"
-6. Add a commit message (e.g., "Update assignment grade")
-7. Click "Commit changes"
+The Professional Skills Matrix lives in **one place only**: `about.html`, in the section with `id="skills-matrix"`. It is **not** duplicated on module pages.
 
-### Method 2: Upload New Files
-1. Go to your repository on GitHub
-2. Navigate to the folder where you want to upload (e.g., `assets/documents/`)
-3. Click "Add file" → "Upload files"
-4. Drag and drop your PDF files
-5. Add a commit message
-6. Click "Commit changes"
+Rules:
 
-### Method 3: Using Git Command Line (Advanced)
+- **Show only the current version.** Replace the table on module completion rather than adding a second one. The portfolio shows where the skills stand now, not a history of every assessment.
+- **No separate Action Plan section.** Each row's *Action plan (PDP)* column carries the forward actions for that skill, so a standalone list would only repeat them.
+- **Update the benchmarks line** with the newly completed module and its result.
+- **Claim a level change only where the module worked directly on that skill.** Where progress stayed within a band, say so — *Competent (improved)* is more credible than an unearned promotion.
+- **Every Evidence cell needs something checkable**: a mark, a named artefact, or a specific piece of feedback.
+
+Row structure:
+
+```html
+<tr>
+    <td><strong>Skill name</strong></td>
+    <td>Module start level</td>
+    <td><span class="skill-rating">Module end level</span></td>
+    <td>Specific evidence — marks, artefacts, feedback.</td>
+    <td>What this means for the next module and for professional practice.</td>
+</tr>
+```
+
+**Scale:** Developing → Competent → Proficient.
+
+**The nine skills** (fixed by the Numerical Analysis reflection brief): Time management, Critical thinking & analysis, Communication & literacy, IT & digital, Numeracy, Research, Interpersonal, Problem-solving, Ethical awareness.
+
+---
+
+## 7. Adding Files to `assets/documents/` {#add-files}
+
+**Naming:** `ModulePrefix_Assessment_Component.ext`, no spaces.
+
+| Prefix | Module |
+|---|---|
+| `LiC_` | Launch into Computing |
+| `UAI_` | Understanding Artificial Intelligence |
+| `NA_` | Numerical Analysis |
+
+Examples: `NA_EMA1_Statistical_Analysis_Slides.pdf`, `UAI_CLD2_Summary_Post.pdf`, `LiC_PartB_Video_Presentation.mp4`
+
+**Convert Word and PowerPoint files to PDF** before adding them — PDFs render in the browser, while `.docx` and `.pptx` force a download.
+
+**Video:** compress before adding. GitHub rejects any single file over 100MB, and video already committed stays in the repository history permanently even if deleted later. Keep recordings well under 50MB.
+
+---
+
+## 8. Publishing Changes {#publishing}
+
+GitHub credentials are stored on this machine (Git Credential Manager), so pushing needs no login.
+
 ```bash
-# Download repository
-git clone https://github.com/Tanky0/Tanky0.github.io.git
-cd Tanky0.github.io
-
-# Make your changes to files
-# Add new files if needed
-
-# Stage changes
+cd "C:\Users\annes\Tanky0.github.io"
 git add .
-
-# Commit changes
-git commit -m "Description of changes"
-
-# Push to GitHub
+git commit -m "Describe what changed"
 git push origin main
 ```
 
----
+GitHub Pages rebuilds within a minute or two. If the live site still shows the old version, wait and hard-refresh (Ctrl+F5) — that is CDN caching, not a failed push.
 
-## Quick Reference: File Locations
+**Before pushing, check** that every `download-link` filename matches the file in `assets/documents/` exactly, including capitalisation. A broken link is the most common mistake and the least visible.
 
-- **Module pages**: `modules/[module-name].html`
-- **Homepage**: `index.html`
-- **About page**: `about.html`
-- **Assignment PDFs**: `assets/documents/`
-- **Templates**: 
-  - `TEMPLATE_Assignment.html` (for adding assignments)
-  - `TEMPLATE_Module_Completion.html` (for completing modules)
+To edit small things without a terminal, use the pencil icon on any file at github.com/Tanky0/Tanky0.github.io.
 
 ---
 
-## Common Issues and Solutions
+## 9. Troubleshooting {#troubleshooting}
 
-**Issue**: Changes don't appear on website
-- **Solution**: Wait 1-2 minutes for GitHub Pages to rebuild. Clear browser cache.
-
-**Issue**: PDF link doesn't work
-- **Solution**: Check that the filename in the HTML exactly matches the PDF filename (case-sensitive!)
-
-**Issue**: Layout looks broken
-- **Solution**: Make sure you didn't accidentally delete any HTML tags. Check that every `<div>` has a matching `</div>`.
-
-**Issue**: Can't find the section to edit
-- **Solution**: Use Ctrl+F (or Cmd+F) to search for keywords in the HTML file.
+| Problem | Cause and fix |
+|---|---|
+| Changes not appearing | GitHub Pages caching. Wait two minutes, then Ctrl+F5. Confirm the push landed with `git log origin/main -1`. |
+| PDF link 404s | Filename mismatch. Filenames are case-sensitive on GitHub Pages even though Windows treats them as equivalent locally. |
+| Layout broken | An unclosed tag. Check every `<div>`, `<section>` and `<table>` has its closing partner. |
+| Table runs off-screen on mobile | The table needs wrapping in `<div class="table-scroll"> ... </div>`. |
+| `could not read Username` on push | Credentials missing. Run the push from a normal terminal window so the GitHub sign-in can open. |
+| Links broken on `about.html` | It sits at the repository root, so its paths must be `index.html` and `assets/...`, never `../index.html`. |
 
 ---
 
-## Need Help?
+## File Locations
 
-If you get stuck:
-1. Check that you've followed the steps exactly
-2. Make sure all filenames match exactly (case-sensitive)
-3. Verify all HTML tags are properly closed
-4. Check the GitHub Pages build status in your repository settings
+| Item | Path |
+|---|---|
+| Homepage | `index.html` |
+| About Me + skills matrix | `about.html` |
+| Module pages | `modules/[module-name].html` |
+| Documents and media | `assets/documents/` |
+| Assignment template | `TEMPLATE_Assignment.html` |
+| Quick reference | `QUICK_REFERENCE.md` |
 
 ---
 
-*Last updated: November 2025*
+*Last updated: July 2026*
