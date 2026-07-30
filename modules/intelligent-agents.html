@@ -5,60 +5,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intelligent Agents - Anne Dayer</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #2c3e50; --accent: #3498db; --dark: #1a252f; --text: #2c3e50;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --text: #2c3e50;
+            --border: #bdc3c7;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8; color: var(--text); background: #f5f6fa;
+            line-height: 1.8;
+            color: var(--text);
+            background: #f5f6fa;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         header {
-            background: var(--dark); color: white; padding: 2rem 0;
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        header h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
-        nav {
-            background: var(--primary); padding: 0; position: sticky; top: 0;
-            z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
-        nav ul { list-style: none; display: flex; flex-wrap: wrap; }
-        nav li { flex: 1; min-width: 150px; }
+
+        header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
         nav a {
-            display: block; padding: 1rem 1.5rem; color: white; text-decoration: none;
-            text-align: center; border-right: 1px solid rgba(255,255,255,0.1);
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
             transition: background 0.3s;
         }
-        nav a:hover { background: var(--accent); }
-        main { padding: 3rem 0; }
-        .breadcrumb { margin-bottom: 2rem; color: #7f8c8d; }
-        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        nav a:hover {
+            background: var(--accent);
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
         .content-section {
-            background: white; padding: 2.5rem; border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 2rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
+
         .content-section h2 {
-            color: var(--primary); margin-bottom: 1.5rem; font-size: 2rem;
-            border-bottom: 3px solid var(--accent); padding-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
         }
+
         .content-section h3 {
-            color: var(--primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        .content-section p { margin-bottom: 1rem; font-size: 1.0625rem; }
-        .content-section ul, .content-section ol { margin-left: 2rem; margin-bottom: 1rem; }
+
+        .content-section h4 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .assignment-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .assignment-box h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.375rem;
+            font-weight: 600;
+        }
+
+        .assignment-box ul {
+            margin-bottom: 1rem;
+        }
+
+        .deadline {
+            color: #55606b;
+            font-size: 0.9375rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .status-submitted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .module-result {
+            background: #eaf4fb;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 1.0625rem;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 0.5rem 1.125rem;
+            margin: 0.35rem 0.5rem 0.35rem 0;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .download-link:hover {
+            background: #2980b9;
+        }
+
         .placeholder {
-            background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem;
-            margin: 1.5rem 0; color: #856404;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #856404;
         }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .skill-rating {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         footer {
-            background: var(--dark); color: white; text-align: center;
-            padding: 2rem 0; margin-top: 4rem;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
         }
+
         @media (max-width: 768px) {
-            nav ul { flex-direction: column; }
-            nav li { min-width: 100%; }
-            nav a { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                min-width: 100%;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
         }
     </style>
 </head>
@@ -69,6 +293,7 @@
             <p>Tutor: Dr Angesh Anupam | In Progress</p>
         </div>
     </header>
+
     <nav>
         <div class="container">
             <ul>
@@ -78,16 +303,19 @@
             </ul>
         </div>
     </nav>
+
     <main>
         <div class="container">
             <div class="breadcrumb">
                 <a href="../index.html">Home</a> / <span>Intelligent Agents</span>
             </div>
+
+            <!-- Module Overview -->
             <section class="content-section">
                 <h2>Module Overview</h2>
-                <p>Intelligent Agents examines the design and implementation of autonomous agents: systems that perceive an environment, reason about it, and act within it to pursue objectives. The module covers agent architectures and rational decision-making, search and problem-solving methods, multi-agent systems, and the communication and coordination mechanisms that allow agents to interact, including speech act theory and agent communication languages.</p>
+                <p>Intelligent Agents examines the design and implementation of autonomous agents: systems that perceive an environment, reason about it, and act within it to pursue objectives. The module covers agent architectures and rational decision-making, agent communication languages and dialogue, parsing and knowledge exchange between agents, multi-agent coordination, and deep learning applied to agent behaviour.</p>
 
-                <p>Core reading is drawn from Russell and Norvig's <em>Artificial Intelligence: A Modern Approach</em> and Wooldridge's <em>An Introduction to MultiAgent Systems</em>. The module builds directly on the AI foundations established in Understanding Artificial Intelligence and on the probabilistic reasoning developed in Numerical Analysis.</p>
+                <p>Core reading is drawn from Russell and Norvig's <em>Artificial Intelligence: A Modern Approach</em> and Wooldridge's <em>An Introduction to MultiAgent Systems</em>. The module builds directly on the AI foundations established in Understanding Artificial Intelligence and on the probabilistic reasoning developed in Numerical Analysis. It is the first module of the programme assessed on work produced as part of a development team.</p>
 
                 <h3>Module Aims and Learning Outcomes</h3>
                 <p>This module aims to instil amongst students:</p>
@@ -121,36 +349,179 @@
                     <li>Critical reflection</li>
                 </ul>
             </section>
+
+            <!-- Assignments -->
             <section class="content-section">
                 <h2>Assignments</h2>
-                <p>The e-portfolio for this module is expected to include:</p>
-                <ul>
-                    <li><strong>Collaborative Discussion Forum Summaries</strong> &ndash; covering learning outcomes 1 and 4.</li>
-                    <li><strong>Outcomes from the Team Exercises</strong> &ndash; covering learning outcomes 1 to 4.</li>
-                    <li><strong>Reflective Piece</strong> &ndash; covering all learning outcomes.</li>
-                </ul>
 
-                <div class="placeholder">
-                    <p><strong>In progress:</strong> Assignment briefs, outputs and feedback will be added as each assessment is completed.</p>
+                <div class="assignment-box">
+                    <h4>Development Team Project: Project Report and Peer Review</h4>
+                    <p class="deadline"><strong>Unit 6</strong> &middot; Deadline: 23:55, Monday 7 September 2026</p>
+                    <p><strong>Brief Description:</strong> To be added once the brief is released. Two components are submitted: the team project report and an individual peer review submission. Evidences learning outcomes 1 to 4, including the team-working outcome.</p>
+
+                    <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Individual Project: Presentation</h4>
+                    <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
+                    <p><strong>Brief Description:</strong> To be added once the brief is released.</p>
+
+                    <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Individual Module e-Portfolio</h4>
+                    <p class="deadline"><strong>Unit 12</strong> &middot; Deadline: 23:55, Monday 19 October 2026</p>
+                    <p><strong>Brief Description:</strong> Final e-portfolio submission for the module, drawing together the e-portfolio activities below, the reflective piece, the team meeting notes, and the peer and tutor feedback received.</p>
+
+                    <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
                 </div>
             </section>
+
+            <!-- e-Portfolio Activities -->
+            <section class="content-section">
+                <h2>e-Portfolio Activities</h2>
+
+                <p>The assessed e-portfolio activities for this module. Each will be added here as it is completed, with the output and any peer or tutor feedback received.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Unit(s)</th>
+                            <th>Activity</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1&ndash;3</td>
+                            <td>Collaborative Discussion 1: Agent Based Systems</td>
+                            <td>End of Unit 3</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                        <tr>
+                            <td>5&ndash;7</td>
+                            <td>Collaborative Discussion 2: Agent Communication Languages</td>
+                            <td>End of Unit 7</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Creating Agent Dialogues</td>
+                            <td>End of Unit 6</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Creating Parse Trees</td>
+                            <td>End of Unit 8</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                        <tr>
+                            <td>9&ndash;11</td>
+                            <td>Collaborative Discussion 3: Deep Learning</td>
+                            <td>End of Unit 11</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Deep Learning in Action</td>
+                            <td>End of Unit 10</td>
+                            <td><span class="skill-rating">Not yet submitted</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Collaborative Discussion 1: Agent Based Systems</h4>
+                    <p class="deadline"><strong>Units 1&ndash;3</strong> &middot; Due end of Unit 3 &middot; Evidences learning outcomes 1 and 4</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Initial post, peer responses and summary post to be added on completion, with the feedback received.</p>
+                    </div>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Creating Agent Dialogues</h4>
+                    <p class="deadline"><strong>Unit 6</strong> &middot; Due end of Unit 6</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Activity output to be added on completion.</p>
+                    </div>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Collaborative Discussion 2: Agent Communication Languages</h4>
+                    <p class="deadline"><strong>Units 5&ndash;7</strong> &middot; Due end of Unit 7 &middot; Evidences learning outcomes 1 and 4</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Initial post, peer responses and summary post to be added on completion, with the feedback received.</p>
+                    </div>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Creating Parse Trees</h4>
+                    <p class="deadline"><strong>Unit 8</strong> &middot; Due end of Unit 8</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Activity output to be added on completion.</p>
+                    </div>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Deep Learning in Action</h4>
+                    <p class="deadline"><strong>Unit 10</strong> &middot; Due end of Unit 10</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Activity output to be added on completion.</p>
+                    </div>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Collaborative Discussion 3: Deep Learning</h4>
+                    <p class="deadline"><strong>Units 9&ndash;11</strong> &middot; Due end of Unit 11 &middot; Evidences learning outcomes 1 and 4</p>
+                    <div class="placeholder">
+                        <p><strong>Placeholder:</strong> Initial post, peer responses and summary post to be added on completion, with the feedback received.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Artefacts -->
+            <section class="content-section">
+                <h2>Artefacts Mapped to Learning Outcomes</h2>
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Each artefact produced during the module will be listed here against the learning outcomes it evidences, as required for the final e-portfolio submission in Unit 12.</p>
+                </div>
+            </section>
+
+            <!-- Reflective Piece -->
             <section class="content-section">
                 <h2>Reflective Piece</h2>
                 <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Reflective writing will be added upon module completion.</p>
+                    <p><strong>Placeholder:</strong> Reflective piece covering all four learning outcomes, to be written on module completion. Notes to be kept weekly rather than reconstructed at the end.</p>
                 </div>
             </section>
+
+            <!-- Team Meeting Notes -->
             <section class="content-section">
-                <h2>Meeting Notes</h2>
+                <h2>Team Meeting Notes</h2>
                 <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Meeting notes will be documented as the module progresses.</p>
+                    <p><strong>Placeholder:</strong> Team meeting notes are a required component of the final e-portfolio for this module. Notes from the Development Team Project meetings will be recorded here as the project proceeds, covering attendees, topics discussed and actions agreed.</p>
+                </div>
+            </section>
+
+            <!-- Peer and Tutor Feedback -->
+            <section class="content-section">
+                <h2>Peer and Tutor Feedback</h2>
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Feedback received from peers and tutors across the module, required as part of the final e-portfolio submission. Feedback on individual assessments is also recorded within each assignment above.</p>
                 </div>
             </section>
         </div>
     </main>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex Online</p>
+            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
         </div>
     </footer>
 </body>
