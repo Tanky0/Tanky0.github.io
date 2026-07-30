@@ -369,45 +369,9 @@
             <!-- Reflective Piece -->
             <section class="content-section">
                 <h2>Reflective Piece</h2>
+                <p>The reflective piece for this module was submitted as End of Module Assessment 2 and awarded 100% (Distinction). It covers the development of my data analysis skills and statistical knowledge, my confidence in using R and the challenges encountered, the experience of interpreting findings through p-values and confidence intervals, and the peer feedback that revised my thinking. The professional skills matrix and personal development plan it contains are reproduced on the <a href="../about.html#skills-matrix">About Me</a> page.</p>
 
-                <p>The module did not teach me to trust data more. It taught me to trust my own interpretations less until they had been tested through statistical scrutiny.</p>
-
-                <p>That realisation built up slowly across twelve increasingly demanding weeks. After more than twenty years in clinical operations and project management, AI governance became my role only recently, and my last real contact with quantitative methods dated back to my economics studies at HEC Lausanne. Coming back to formal statistics was disorienting in a way I had not expected. A lot of what I considered evidence-based reasoning in my professional life had never been checked statistically. I simply assumed it had. Gibbs (1988) writes that experience alone is not enough, and that without reflection, its learning potential is lost; this module kept proving him right.</p>
-
-                <h3>The Scope of the Learning</h3>
-                <p>The module moved from descriptive statistics and plots in R to hypothesis testing, regression and Bayesian reasoning. Every unit added a technique and a harder question about what the evidence could be asked to show. The artefacts below follow this progression against the module learning outcomes, from cross-tabulations and chi-square through correlation and simple regression to Bayesian conditional probability.</p>
-
-                <h3>Technical Development and Growing Discomfort</h3>
-                <p>R gave me the most persistent difficulties. I had never programmed before, and the exactness it demands (one wrong variable name and nothing runs) caused real frustration early on. What I slowly understood is that R forces the reasoning into the open. Every assumption has to be written down, which also means it can be questioned. For the Unit 9 cross-tabulations, the brief specified grouping states into regions and banding cases into levels; implementing them in R still left the cut-offs to me, and the table shifted with every boundary I tried. The same applied to the ggplot2 scatter plots on the blood pressure data, where scale and annotation shape what a reader takes away. Unit 8 introduced the Wilcoxon and Kruskal-Wallis tests; understanding why they fit when normality cannot be assumed felt less like a workaround than learning to pick the correct tool over the comfortable one.</p>
-
-                <h3>Peer Feedback and Revised Thinking</h3>
-                <p>The formative discussion around Brown (1994) tested these habits in front of others. I had redesigned his Table 2 as a diverging stacked bar chart ranking the reasons discouraging GPs from intrapartum care, and argued that the data pointed towards the willing minority already involved. My peers were not convinced. One colleague, citing Kankaraš and Capecchi (2025), challenged where I had put the no-opinion answers. A neutral midpoint assumes balance, but those responses can just as easily mean uncertainty or reluctance to answer. Another saw a possible selection effect: with cross-sectional data, there is no way to tell whether home deliveries made those GPs willing, or whether they were willing to begin with. They were right on both counts, and seeing the data through their eyes showed me that my chart carried assumptions I never argued. The dot plot I raised in my initial post, separating certainty from direction, still looks the stronger design. Reviewing two peers' charts put me on the other side, questioning their grouping and midpoint choices. Hatton and Smith (1995) rank critical reflection above dialogic reflection because it situates conclusions in a wider context; peer correction moved me in that direction.</p>
-
-                <h3>Critical Transformation</h3>
-                <p>Nothing changed my thinking more than the work on p-values and confidence intervals. I used to read a p-value as a verdict, significant or not, which is also how most governance documents I encounter treat it. Schober, Bossers and Schwarte (2018) took that reading apart for me: statistical significance and practical importance are different things, and p below 0.05 says nothing about how large an effect is. Confidence intervals turned out to be more useful for decisions, since a range of plausible values keeps uncertainty visible instead of collapsing it. When I reported the 95% interval for my regression slope (0.45 to 0.54), I learnt more from that range than from the p-value next to it.</p>
-
-                <p>I cannot separate this from my professional role. If a governance lead is unable to judge the method, they cannot judge whether the conclusion follows from it, and the review becomes ratification rather than oversight. My own governance questions used to stop at controls, ethical risk and regulatory compliance; I rarely asked how statistically sound the evidence underneath was. Informatica (2026) reports that 76% of organisations find their AI governance cannot keep pace with AI usage, a gap attributed to insufficient data literacy that I recognise.</p>
-
-                <p>The Bayesian unit pushed this furthest. Van de Schoot et al. (2021) describe Bayesian inference as the principled revision of prior beliefs in the light of new data, with uncertainty treated as part of reasoning rather than a flaw to remove. For AI governance, that framing feels more honest than threshold-based testing, since organisational decisions are rarely final and new evidence should move existing assessments.</p>
-
-                <h3>New Practice and Professional Development</h3>
-                <p>Rolfe, Freshwater and Jasper (2001) would ask what I do differently now. In governance contexts, I no longer let statistical claims pass unexamined. I ask which method was used, whether it suited the data, and what the result can support; the same questions now apply to AI model performance claims inside my organisation.</p>
-
-                <p>My professional experience has not lost its value. Reading a situation quickly and framing the right strategic questions still comes naturally to me. What statistics added is a brake, a habit of separating a plausible explanation from a demonstrated one before acting on it. Looking back, the module has not made me trust data more. It has made me slower to trust my own interpretation of it, until the numbers have been given the chance to disagree.</p>
-
-                <h3>References</h3>
-                <ul class="references">
-                    <li>Brown, D.J. (1994) 'Opinions of general practitioners in Nottinghamshire about provision of intrapartum care', <em>British Medical Journal</em>, 309(6957), pp. 777&ndash;779.</li>
-                    <li>Gibbs, G. (1988) <em>Learning by doing: a guide to teaching and learning methods</em>. Oxford: Oxford Centre for Staff and Learning Development, Oxford Brookes University.</li>
-                    <li>Hatton, N. and Smith, D. (1995) 'Reflection in teacher education: towards definition and implementation', <em>Teaching and Teacher Education</em>, 11(1), pp. 33&ndash;49.</li>
-                    <li>Informatica (2026) <em>CDO Insights 2026: data governance and the trust paradox of data and AI literacy take centre stage</em>.</li>
-                    <li>Kankaraš, M. and Capecchi, S. (2025) 'Neither agree nor disagree: use and misuse of the neutral response category in Likert-type scales', <em>METRON</em>, 83(1), pp. 111&ndash;140.</li>
-                    <li>Rolfe, G., Freshwater, D. and Jasper, M. (2001) <em>Critical reflection for nursing and the helping professions: a user's guide</em>. Basingstoke: Palgrave.</li>
-                    <li>Schober, P., Bossers, S.M. and Schwarte, L.A. (2018) 'Statistical significance versus clinical importance of observed effect sizes', <em>Anesthesia and Analgesia</em>, 126(3), pp. 1068&ndash;1072.</li>
-                    <li>van de Schoot, R. et al. (2021) 'Bayesian statistics and modelling', <em>Nature Reviews Methods Primers</em>, 1, article 3.</li>
-                </ul>
-
-                <p><em>AI Acknowledgement: Generative AI tools (Grammarly and Copilot) were used for proofreading and clarity refinement. The intellectual content remains entirely my own work.</em></p>
+                <a href="../assets/documents/NA_EMA2_Individual_Reflection.pdf" class="download-link" target="_blank">Read the Reflective Piece (PDF)</a>
             </section>
 
             <!-- Artefacts -->
@@ -466,118 +430,6 @@
                 </div>
             </section>
 
-            <!-- Professional Skills Matrix -->
-            <section class="content-section">
-                <h2>Professional Skills Matrix and Action Plan</h2>
-
-                <p>This is the current skills assessment for the programme, submitted as Appendix A of the End of Module Assessment 2 reflection and awarded full marks.</p>
-
-                <p><strong>Self-assessment scale:</strong> Developing, Competent, Proficient. <strong>Baseline benchmarks:</strong> Launch into Computing, 76 (October 2025); Understanding Artificial Intelligence, 87 (January 2026). Peer feedback given and received in the Unit 5 collaborative discussion is incorporated below. A level change is claimed only where the module focused directly (numeracy and R skills); elsewhere the improvement stayed within the same band, and the remaining gaps are what the upcoming modules and the dissertation should address.</p>
-
-                <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Skill</th>
-                            <th>Module start</th>
-                            <th>Module end</th>
-                            <th>Evidence</th>
-                            <th>Action plan (PDP)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Time management</strong></td>
-                            <td>Competent</td>
-                            <td><span class="skill-rating">Competent (maintained)</span></td>
-                            <td>Kept pace with the weekly R activities and formative tasks around a full-time role; the notes behind this reflection were written as the module went on, not rebuilt at the end.</td>
-                            <td>For future modules, continue to set my own deadlines, protect weekly study slots from Unit 1 onwards, and scope the dissertation timeline early rather than under pressure.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Critical thinking &amp; analysis</strong></td>
-                            <td>Competent</td>
-                            <td><span class="skill-rating">Competent (improved)</span></td>
-                            <td>Reworked Brown's (1994) Table 2 and had to defend the encoding choices; revised my reading after a peer raised a selection effect; checked normality before choosing tests rather than defaulting to the familiar ones.</td>
-                            <td>Carry the assumption-checking habit into future modules (evaluating and optimising models, what a model can and cannot claim) and into AI model validation evidence reviewed at work.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Communication &amp; literacy</strong></td>
-                            <td>Proficient</td>
-                            <td><span class="skill-rating">Proficient (spoken still developing)</span></td>
-                            <td>Three forum posts (initial, peer responses, summary) with full referencing; earlier written work marked at 87 (Understanding Artificial Intelligence).</td>
-                            <td>Machine Learning is assessed partly through a project presentation; keep working on spoken delivery as a non-native speaker, and reuse the same plain-language approach when presenting statistical evidence to leadership at work.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>IT &amp; digital</strong></td>
-                            <td>Developing</td>
-                            <td><span class="skill-rating">Competent</span></td>
-                            <td>Working R scripts for Units 8 to 12 (readr, dplyr, haven, ggplot2), written and debugged with no prior programming background; started from a baseline of 76 in Launch into Computing.</td>
-                            <td>Machine Learning will bring new programming demands (its seminars include live coding); transfer the habits learnt in R rather than starting from zero.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Numeracy</strong></td>
-                            <td>Developing</td>
-                            <td><span class="skill-rating">Competent</span></td>
-                            <td>96% (Distinction) in the mid-module mathematics test; chi-square, correlation (r = 0.847), regression with confidence intervals, and Bayes' theorem all computed and checked in R.</td>
-                            <td>Regression and probability feed straight into Machine Learning (linear regression reappears in supervised learning, followed by model evaluation and optimisation); revisit both before Unit 1, and read model performance statistics at work with the same scrutiny.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Research</strong></td>
-                            <td>Competent</td>
-                            <td><span class="skill-rating">Competent (improved)</span></td>
-                            <td>Went beyond the reading list to source Schober, Bossers and Schwarte (2018), van de Schoot et al. (2021) and Kankaraš and Capecchi (2025) for the forum work and the reflection.</td>
-                            <td>Start a running literature log now: Research Methods and Professional Practice will expect a defined topic, and AI governance in clinical research is the likely dissertation direction.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Interpersonal</strong></td>
-                            <td>Proficient</td>
-                            <td><span class="skill-rating">Proficient</span></td>
-                            <td>Took two corrections publicly in the forum and worked them into my summary post; gave detailed responses on two peers' charts in return, including questions they picked up.</td>
-                            <td>Future modules are partly assessed on working in a virtual team; at work, run the planned Data &amp; AI literacy sessions, where explaining data and AI to non-specialists will test the same skill.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Problem-solving</strong></td>
-                            <td>Competent</td>
-                            <td><span class="skill-rating">Competent (improved)</span></td>
-                            <td>Debugged data-type and missing-value errors in R without support; switched to Wilcoxon and Kruskal-Wallis when normality failed; implemented the Unit 9 groupings and saw how much the cut-offs changed the table.</td>
-                            <td>Future modules will raise harder versions of the same problems (the challenges of different datasets, designing a machine learning system); professionally, apply the same troubleshooting mindset when AI tools under governance review behave inconsistently.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ethical awareness</strong></td>
-                            <td>Proficient</td>
-                            <td><span class="skill-rating">Proficient</span></td>
-                            <td>The Brown (1994) redesign showed me that category and chart choices shape conclusions; this connected directly to the data integrity principles (GCP, ALCOA+) I already work with.</td>
-                            <td>Machine Learning and Research Methods both carry explicit ethics outcomes; professionally, build evidence-quality questions into the AI governance review criteria I maintain.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-
-                <h3>Action Plan</h3>
-                <p><strong>Immediate Actions (Intelligent Agents, current module):</strong></p>
-                <ul>
-                    <li>Revisit regression and probability before the first unit, since both feed directly into agent decision-making and later Machine Learning content</li>
-                    <li>Transfer the R debugging habits developed here rather than treating each new programming environment as a fresh start</li>
-                    <li>Continue writing reflective notes weekly rather than reconstructing them at the end of the module</li>
-                    <li>Start a running literature log now, ahead of Research Methods and the dissertation</li>
-                </ul>
-
-                <p><strong>Medium-term Development (Next 2-3 Modules):</strong></p>
-                <ul>
-                    <li>Move IT and digital skills from Competent towards Proficient through the live coding demands of Machine Learning</li>
-                    <li>Strengthen spoken delivery in English as a non-native speaker, ahead of assessed project presentations</li>
-                    <li>Apply assumption-checking systematically to model evaluation and optimisation, not only to statistical tests</li>
-                    <li>Define a dissertation direction around AI governance in clinical research and build the supporting literature base</li>
-                </ul>
-
-                <p><strong>Programme-level Goals:</strong></p>
-                <ul>
-                    <li>Reach Proficient in numeracy and IT/digital, sufficient to prototype and independently critique AI solutions</li>
-                    <li>Build evidence-quality and statistical-soundness questions into the AI governance review criteria maintained at work</li>
-                    <li>Run internal Data and AI literacy sessions, testing the ability to explain quantitative evidence to non-specialists</li>
-                    <li>Integrate professional experience with the technical and statistical foundations built here to produce an original dissertation contribution</li>
-                </ul>
-            </section>
         </div>
     </main>
 
