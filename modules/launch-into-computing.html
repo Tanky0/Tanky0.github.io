@@ -139,12 +139,55 @@
             margin: 1.5rem 0;
         }
 
+        .content-section h4 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
         .assignment-box h4 {
-    color: var(--primary);
-    margin-bottom: 0.75rem;
-    font-size: 1.375rem;     
-    font-weight: 600;         
-}
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.375rem;
+            font-weight: 600;
+        }
+
+        .module-result {
+            background: #eaf4fb;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 1.0625rem;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 0.5rem 1.125rem;
+            margin: 0.35rem 0.5rem 0.35rem 0;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .download-link:hover {
+            background: #2980b9;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
 
         .status-badge {
             display: inline-block;
@@ -179,6 +222,7 @@
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
+            vertical-align: top;
         }
 
         th {
@@ -232,7 +276,7 @@
     <header>
         <div class="container">
             <h1>Launch into Computing</h1>
-            <p>Tutor: Dr Zeeshan Siddiqui</p>
+            <p>Tutor: Dr Zeeshan Siddiqui | October 2025 B | Completed</p>
         </div>
     </header>
 
@@ -255,10 +299,23 @@
             <!-- Module Overview -->
             <section class="content-section">
                 <h2>Module Overview</h2>
-                <p>Launch into Computing provides a comprehensive introduction to core computing disciplines, including Software Engineering, Artificial Intelligence, Cybersecurity, Data Science, and Enterprise IT Management. The module establishes theoretical foundations whilst engaging with practical applications relevant to real-world enterprise computing challenges. Through this module, I examine fundamental principles, methodologies, and emerging trends within computing fields, developing a strong theoretical foundation alongside practical problem-solving capabilities.</p>
-                
+                <p>Launch into Computing provides a comprehensive introduction to core computing disciplines, including Software Engineering, Artificial Intelligence, Cybersecurity, Data Science, and Enterprise IT Management. The module establishes theoretical foundations whilst engaging with practical applications relevant to real-world enterprise computing challenges. Through this module, I examined fundamental principles, methodologies, and emerging trends within computing fields, developing a strong theoretical foundation alongside practical problem-solving capabilities.</p>
+
+                <p>As the first substantive module of the programme, it was also my first direct contact with source code. The end of module assignment required running, modifying and comparing tutor-provided Python and JavaScript scripts &ndash; the point at which programming stopped being something other people did on my behalf.</p>
+
+                <div class="module-result">
+                    <strong>Module result: 76% (Distinction)</strong><br>
+                    Collaborative Learning Discussion: 70% &middot; End of Module Assignment (Part A and Part B): 77%
+                </div>
+
                 <h3>Learning Outcomes</h3>
                 <p>The module aims to develop understanding of core computing concepts, application of critical thinking and problem-solving to computing challenges, evaluation of ethical, legal, and social implications of computing technologies, demonstration of professional skills appropriate for postgraduate study, and exploration of the role of computing in equality, diversity, and inclusion contexts. These outcomes align with my professional need to bridge technical understanding with strategic governance responsibilities.</p>
+                <ul>
+                    <li>Identify and critically analyse computing challenges and processes in business systems, accounting for the current enterprise landscape.</li>
+                    <li>Gather and synthesise information from multiple sources (including internet resources and business publications) to aid in the systematic design and analysis of computing challenges.</li>
+                    <li>Critically evaluate appropriate methodologies, tools and techniques to mitigate and/or solve computing issues and their business impact.</li>
+                    <li>Articulate the legal, social, ethical, and professional issues faced by computing professionals.</li>
+                </ul>
             </section>
 
             <!-- Assignments -->
@@ -268,7 +325,9 @@
                 <div class="assignment-box">
                     <h4>Collaborative Learning Discussion: The Evolution of Computing and Its Impact on Business and Society</h4>
                     <p><strong>Brief Description:</strong>Four-week discussion (1,000 words total). Reflect on how computing has transformed industries and societies. Choose one computing discipline (AI, Cybersecurity, Software Engineering, Data Science, or Enterprise IT Management) and explain its impact on a specific industry with a recent example from the past three years. Week 1: Initial post (300 words) using academic references. Weeks 2-3: Two peer responses (200 words each). Week 4: Summary post (300 words) demonstrating personal growth and critical engagement with peer contributions.</p>
-                    
+
+                    <p><strong>Contribution:</strong> The discipline chosen was Enterprise IT Management, applied to NHS digital transformation and examined through the EITBOK governance lens, weighing clinical coordination benefits against cybersecurity vulnerabilities and digital exclusion. Peer contributions reframed enterprise IT as defining access, equity and confidence rather than efficiency, and connected this to culturally responsive computing &ndash; the argument that design choices carry the values and power structures of those making them. The summary post accepted the challenge to my assumption that computing solutions could be neutral, and closed by describing the shift from technical confidence towards critical humility: enterprise IT as a contested space where who designs, who decides and who benefits cannot be separated from technical choices.</p>
+
                     <p><span class="status-badge status-submitted"> 70 % (Distinction)</span></p>
                     
                     <p><strong>Feedback Received:</strong> Your contribution demonstrates strong critical engagement with the ethical and regulatory dimensions of AI, and you extend the discussion by introducing relevant frameworks such as the EU AI Act and AIEBOK. You effectively link policy, engineering practice, and sustainability, showing a mature understanding of how ethical principles must translate into operational steps. However, while your response is well-informed and analytically sound, it does not always fully connect your points back to the peer’s original post, and some arguments would benefit from clearer reference to the specific claims made by the peer. Strengthening the alignment between critique, evidence, and the initial post would enhance the overall coherence.</p>
@@ -280,7 +339,11 @@
                 <div class="assignment-box">
                     <h4>End of Module Assignment: Programming Languages and Computing Ethics</h4>
     <p><strong>Brief Description:</strong> Two-part assessment. Part A (3,000 words, 40%): Compare tutor-provided Python and JavaScript scripts through code exploration, language comparison report, and professional reflection on ethical coding practices. Test scripts, make light modifications, analyse programming models, readability, and error handling. Reflect on bias, privacy, and real-world impact of coding choices. Part B (15-minute presentation, 40%): Critically evaluate one emerging technology (AI, Quantum Computing, or Blockchain), discussing technical aspects, ethical concerns, security risks, and governance frameworks. Include 10 slides, transcript, and eight peer-reviewed sources.</p>
-    
+
+    <p><strong>Part A submission:</strong> Both scripts removed duplicates from a list, but did so case-sensitively, so &ldquo;Apple&rdquo; and &ldquo;apple&rdquo; survived as separate entries. The light modification applied to each was to normalise case before de-duplication, which fixed the counting error but discarded the original capitalisation and ordering &ndash; a trade-off the report used to develop the idea of a <em>silent semantic failure</em>: code that runs without error, returns a plausible result, and is wrong. Part 2 compared the two languages on programming model, readability, error handling and suitability for modern workloads; Part 3 reflected on readable and ethical code, bias, privacy and the business and legal consequences of small coding decisions.</p>
+
+    <p><strong>Part B submission:</strong> A 15-minute presentation on AI governance, arguing that monitoring matters more than documentation and that contestability is what connects the two. The Amazon recruiting tool and the Dutch SyRI welfare fraud system were used to separate technical correctness from ethical acceptability; the EU AI Act, NIST AI RMF and OECD Principles were assessed against the socio-technical gap none of them closes, namely what happens when a system behaves unpredictably after deployment. The argument was then tested against a prototype retrieval-and-generation system with contestability built in: drift alerts at a 2% deviation from baseline, mandatory human review below 85% confidence, full decision logs, and a four-hour escalation response target.</p>
+
     <p><span class="status-badge status-submitted"> 77 % (Distinction)</span></p>
     
     <p><strong>Feedback Received:</strong> Knowledge and understanding: You show strong understanding of Python and JavaScript, explaining how the original scripts behave, why case-sensitive de-duplication is misleading, and comparing paradigms, readability, error handling and suitability with good use of sources; in Part B you accurately explain AI use, risks and key frameworks (EU AI Act, NIST, OECD, GDPR) and link them to real cases.     
@@ -289,33 +352,71 @@ Structure and Presentation: Part A is a well organised single report with clear 
 Academic integrity: You use a wide range of academic, technical, legal and policy sources with consistent Harvard referencing, clearly acknowledge limited use of Grammarly/Copilot for proofreading, and the writing and code read as your own with no sign of unacknowledged copying, which matches the top level of the marking guide. 
 </p>
     
-    <a href="../assets/documents/Part%20A%20-%20Evaluating%20the%20development%20models%20of%20two%20programming%20languages.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
-          
+    <a href="../assets/documents/Part%20A%20-%20Evaluating%20the%20development%20models%20of%20two%20programming%20languages.pdf" class="download-link" target="_blank">Part A: Report (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank">Part B: Slides (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank">Part B: Transcript (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank">Part B: Video Presentation (MP4)</a>
+
                 </div>
             </section>
 
             <!-- Reflective Piece -->
             <section class="content-section">
                 <h2>Reflective Piece</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Reflective writing covering the module experience, learning outcomes achieved, and connections between module content and professional practice will be added upon module completion.</p>
-                </div>
+
+                <h3>What? (Description)</h3>
+                <p>Launch into Computing was the first substantive module of the programme and covered software engineering, artificial intelligence, cybersecurity, data science and enterprise IT management across twelve units. It was assessed in two parts. A four-week collaborative learning discussion required an initial post on the impact of one computing discipline on a specific industry, two peer responses and a summary post; I wrote on enterprise IT management in the NHS. The end of module assignment was itself two-part: a 3,000-word report in which I ran, modified and compared tutor-provided Python and JavaScript scripts and reflected on ethical coding practice, and a 15-minute recorded presentation critically evaluating AI as an emerging technology and how enterprises can balance innovation against security and ethical risk.</p>
+
+                <h3>So What? (Interpretation)</h3>
+                <p>I came into this module as an AI governance lead with twenty years in clinical operations and no programming experience at all. The assumption I brought with me &ndash; and did not know I was carrying &ndash; was that the technical layer was somebody else's concern, and that governance could sit above it. Part A dismantled that quite efficiently. Both scripts removed duplicates case-sensitively, so &ldquo;Apple&rdquo; and &ldquo;apple&rdquo; were counted separately. The code ran. It produced output. It was wrong. Working out why, and then writing a fix that introduced a second problem by discarding the original capitalisation and ordering, taught me more about the limits of oversight-by-documentation than any framework I had read. A system that fails loudly gets attention; a system that fails silently gets signed off.</p>
+
+                <p>That idea became the spine of Part B. My starting position was that governance is paperwork &ndash; document it, submit it, move on. Preparing the presentation changed that. The Amazon recruiting tool inherited bias from a decade of hiring data without anyone designing prejudice into it; the Dutch SyRI system was ruled a human rights violation while functioning exactly as specified. Neither is a technical failure. Both are failures of contestability: no mechanism existed by which a decision could be challenged, reviewed or overridden. Reading the EU AI Act, the NIST AI RMF and the OECD Principles side by side, I found that all three emphasise transparency and human oversight, and none of them adequately addresses what happens after deployment, when a model drifts away from the conditions it was trained on. Building a small prototype with drift thresholds, confidence-triggered human review and decision logging was the point at which the argument stopped being rhetorical for me.</p>
+
+                <p>The collaborative discussion produced a different kind of correction. My initial post treated NHS enterprise IT as infrastructure to be governed well. Peers reframed it as a system that defines access, equity and confidence, and pointed me towards culturally responsive computing &ndash; the argument that design choices encode the values of those making them. The tutor feedback on that discussion was fair and useful: my responses were analytically sound but did not always connect back to the specific claims my peers had made. I was arguing alongside them rather than with them, which is a habit worth naming early.</p>
+
+                <p>The end of module feedback identified the same pattern in the technical work. Part A lost marks because I did not present a structured set of edge and error tests or examine performance trade-offs, and because my modification, while sensible, still discarded information. I had reasoned about the problem well and tested it thinly. That is precisely the weakness of someone who understands systems conceptually and has never had to make one behave.</p>
+
+                <h3>What Next? (Outcome)</h3>
+                <p>The action plan set at the end of this module prioritised moving programming from Aware towards Trained, deepening technical evaluation beyond the conceptual level, and building the habit of structured testing rather than single-case verification. Those objectives carried directly into the following modules.</p>
+
+                <p>Two of them have since been met and can be evidenced. In Understanding Artificial Intelligence I built and evaluated four regression models under cross-validation, identified and removed leaky features, and reported a proxy-to-production mapping setting out explicitly what did and did not transfer &ndash; the structured-testing discipline that was missing here. In Numerical Analysis I wrote and debugged working R scripts across five units with no prior programming background, moving IT and digital skills from Developing to Competent, and passed the mid-module mathematics test at 96%. The habit that started with a case-sensitivity bug &ndash; assume the output is wrong until the assumptions behind it have been made explicit and tested &ndash; is now the one I apply first, both in coursework and in AI governance reviews at work.</p>
+
+                <p>The peer-engagement point remains live. Connecting critique explicitly to the specific claims made by others, rather than developing a parallel argument, is something I worked on deliberately in the subsequent collaborative discussions, where summary posts were built around named peer challenges and the revisions they forced.</p>
             </section>
 
             <!-- Meeting Notes -->
             <section class="content-section">
                 <h2>Meeting Notes</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Notes from tutorials, team meetings, and supervisor consultations will be documented here as the module progresses.</p>
-                </div>
+
+                <h3>Weekly Live Seminars and Lecturecasts</h3>
+                <p>Attended throughout the twelve units, covering software engineering, AI, cybersecurity, data science and enterprise IT management. Tutor guidance on the end of module assignment was delivered through these sessions and shaped the submission directly: the requirement to keep the report structure strictly aligned to Parts 1&ndash;3, to keep code modifications light rather than advanced, to place detailed code in annexes rather than the main body, and to evidence every claim against external sources rather than asserting a personal view.</p>
+
+                <h3>Collaborative Learning Discussion &ndash; Units 1&ndash;4</h3>
+                <p><strong>Format:</strong> Four-week asynchronous discussion forum &ndash; initial post, two peer responses, summary post.</p>
+                <p><strong>Topics discussed:</strong></p>
+                <ul>
+                    <li>NHS digital transformation assessed through the EITBOK governance lens</li>
+                    <li>Clinical coordination benefits weighed against cybersecurity vulnerabilities and digital exclusion</li>
+                    <li>Enterprise IT as a definer of access, equity and confidence rather than merely efficiency</li>
+                    <li>Culturally responsive computing and whether technical design choices can be value-neutral</li>
+                    <li>Centralised versus vendor-led cloud architecture, and the tension between standardisation and local decision rights</li>
+                </ul>
+                <p><strong>Actions taken:</strong> Accepted the socio-technical reframing offered by peers and rebuilt the summary post around it, connecting Unit 2 material on Boolean logic to the way architectural choices encode exclusionary logics at enterprise scale, and evidencing digital exclusion with published figures. Position moved from technical confidence to critical humility.</p>
+
+                <h3>Tutor Feedback Points</h3>
+                <ul>
+                    <li><strong>Collaborative Learning Discussion (70%):</strong> Strong critical engagement with ethical and regulatory dimensions and effective use of the EU AI Act and AIEBOK. Development point &ndash; connect critique more explicitly to the specific claims made in peers' original posts.</li>
+                    <li><strong>End of Module Assignment (77%):</strong> Strong on language comparison, governance frameworks and Harvard referencing. Development points &ndash; the code modification still loses original capitalisation and ordering; no structured set of edge and error tests or performance trade-offs; some slide titles did not fully foreground the central contestability argument.</li>
+                </ul>
             </section>
 
             <!-- Professional Skills Matrix -->
             <section class="content-section">
                 <h2>Professional Skills Matrix and Action Plan</h2>
                 
-                <p>This skills matrix provides an honest assessment of my current capabilities relevant to the Launch into Computing module learning outcomes, drawing on my professional experience whilst acknowledging areas requiring development through the MSc programme.</p>
+                <p>This skills matrix provides an honest assessment of my capabilities relevant to the Launch into Computing module learning outcomes, drawing on my professional experience whilst acknowledging areas requiring development through the MSc programme. It was compiled during the module and is retained here as the programme baseline; the end-of-module position and subsequent progress are recorded beneath it.</p>
 
+                <div class="table-scroll">
                 <table>
                     <thead>
                         <tr>
@@ -357,6 +458,12 @@ Academic integrity: You use a wide range of academic, technical, legal and polic
                         </tr>
                      </tbody>
                 </table>
+                </div>
+
+                <h3>End-of-Module Review</h3>
+                <p>All four competencies above were assessed at Trained on entry and remained at Trained on completion, which is the honest position: a single twelve-week module does not move strategic capability into technical proficiency. What did change is the quality of the evidence behind each rating. Legal and ethical articulation, previously grounded in professional participation in AI governance discussions, is now also evidenced by the Part B analysis of the EU AI Act, NIST AI RMF and OECD Principles against real deployment failures, marked at the top band for academic integrity and source use. Critical evaluation of methodologies and tools is now evidenced by a direct comparison of two programming languages on paradigm, readability, error handling and workload suitability, rather than by conceptual assessment alone.</p>
+
+                <p>The genuinely new capability sits outside the four rows above, because it did not exist at module start: writing, running and modifying code. At completion this was Aware &ndash; able to read two short scripts, identify a case-sensitivity defect, and implement a working fix, but not able to design a test suite around it, which is precisely what the tutor feedback identified as missing.</p>
 
                 <h3>Action Plan</h3>
                 <p><strong>Immediate Actions (Current Module):</strong></p>
@@ -381,6 +488,16 @@ Academic integrity: You use a wide range of academic, technical, legal and polic
                     <li>Reach Expert level in critically evaluating methodologies, tools and techniques by combining technical knowledge with business acumen</li>
                     <li>Produce academic writing at Proficient to Expert level demonstrating critical engagement with scholarship</li>
                     <li>Integrate theoretical knowledge with professional experience to contribute original insights in final project</li>
+                </ul>
+
+                <h3>Progress Against This Plan</h3>
+                <p>Recorded here so the plan can be judged against outcomes rather than intentions.</p>
+                <ul>
+                    <li><strong>Programming from Aware to Trained &ndash; achieved.</strong> Understanding Artificial Intelligence required building and evaluating four regression models under stratified cross-validation; Numerical Analysis required working R scripts across five units, written and debugged without prior programming experience, moving IT and digital skills from Developing to Competent.</li>
+                    <li><strong>Technical evaluation beyond the conceptual level &ndash; partially achieved.</strong> Tutor feedback on the Understanding AI implementation report still identified over-reliance on a single performance metric. That gap was closed in Numerical Analysis through work on confidence intervals, assumption checking and regression diagnostics, assessed at 100%.</li>
+                    <li><strong>Academic writing towards Proficient &ndash; achieved.</strong> Subsequent written work was marked at 89% and 97%, with feedback describing the consultancy report as showing &ldquo;a very coherent flow of writing&rdquo; and the collaborative summary post as demonstrating &ldquo;professionalism and publishability&rdquo;.</li>
+                    <li><strong>Small coding projects bridging theory and professional work &ndash; achieved.</strong> The Understanding AI implementation report took the kit supply forecasting use case proposed for my own organisation and tested it empirically on proxy data, establishing what the approach can and cannot yet support.</li>
+                    <li><strong>Structured edge and error testing &ndash; outstanding.</strong> This remains the clearest unresolved development point from this module and carries forward into Intelligent Agents and Machine Learning.</li>
                 </ul>
             </section>
         </div>

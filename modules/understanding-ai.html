@@ -5,56 +5,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Artificial Intelligence - Anne Dayer</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #2c3e50; --accent: #3498db; --dark: #1a252f; --text: #2c3e50;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --text: #2c3e50;
+            --border: #bdc3c7;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8; color: var(--text); background: #f5f6fa;
+            line-height: 1.8;
+            color: var(--text);
+            background: #f5f6fa;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         header {
-            background: var(--dark); color: white; padding: 2rem 0;
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        header h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
-        header p { font-size: 1.125rem; opacity: 0.9; }
-        nav {
-            background: var(--primary); padding: 0; position: sticky; top: 0;
-            z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
-        nav ul { list-style: none; display: flex; flex-wrap: wrap; }
-        nav li { flex: 1; min-width: 150px; }
+
+        header p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
         nav a {
-            display: block; padding: 1rem 1.5rem; color: white; text-decoration: none;
-            text-align: center; border-right: 1px solid rgba(255,255,255,0.1);
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
             transition: background 0.3s;
         }
-        nav a:hover { background: var(--accent); }
-        main { padding: 3rem 0; }
-        .breadcrumb { margin-bottom: 2rem; color: #7f8c8d; }
-        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        nav a:hover {
+            background: var(--accent);
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
         .content-section {
-            background: white; padding: 2.5rem; border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 2rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
+
         .content-section h2 {
-            color: var(--primary); margin-bottom: 1.5rem; font-size: 2rem;
-            border-bottom: 3px solid var(--accent); padding-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
         }
+
+        .content-section h3 {
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .content-section h4 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .assignment-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .assignment-box h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.375rem;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .status-submitted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .module-result {
+            background: #eaf4fb;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 1.0625rem;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 0.5rem 1.125rem;
+            margin: 0.35rem 0.5rem 0.35rem 0;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .download-link:hover {
+            background: #2980b9;
+        }
+
         .placeholder {
-            background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem;
-            margin: 1.5rem 0; color: #856404;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #856404;
         }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .skill-rating {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         footer {
-            background: var(--dark); color: white; text-align: center;
-            padding: 2rem 0; margin-top: 4rem;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
         }
+
         @media (max-width: 768px) {
-            nav ul { flex-direction: column; }
-            nav li { min-width: 100%; }
-            nav a { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                min-width: 100%;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
         }
     </style>
 </head>
@@ -62,8 +276,10 @@
     <header>
         <div class="container">
             <h1>Understanding Artificial Intelligence</h1>
+            <p>January 2026 B | Completed</p>
         </div>
     </header>
+
     <nav>
         <div class="container">
             <ul>
@@ -73,46 +289,258 @@
             </ul>
         </div>
     </nav>
+
     <main>
         <div class="container">
             <div class="breadcrumb">
                 <a href="../index.html">Home</a> / <span>Understanding Artificial Intelligence</span>
             </div>
+
+            <!-- Module Overview -->
             <section class="content-section">
                 <h2>Module Overview</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Module overview and learning outcomes will be added when the module begins.</p>
+                <p>Understanding Artificial Intelligence examines the essential concepts, principles, methods and problems of AI, together with the legal, ethical and professional issues these technologies raise and their wider impact on society. The module runs from foundational AI concepts and agent architectures, through machine learning paradigms and the CRISP-DM/CRISP-ML(Q) process models, to the practical application of modelling tools on a real dataset.</p>
+
+                <p>The four assessments moved deliberately from discussion to delivery: two collaborative learning discussions establishing conceptual and critical foundations, an individual consultancy-style essay proposing three AI use cases for a business, and a hands-on implementation report producing and evaluating actual models. For me the module was the point at which AI stopped being something I governed in the abstract and became something I had built, however modestly, and could therefore interrogate on its own terms.</p>
+
+                <div class="module-result">
+                    <strong>Module result: 87% (Distinction)</strong><br>
+                    Collaborative Learning Discussion 1: 97% &middot; Collaborative Learning Discussion 2: 92% &middot; Individual Essay (AI Solution Implementation): 89% &middot; AI Solution Implementation Report: 82%
                 </div>
+
+                <h3>Learning Outcomes</h3>
+                <ul>
+                    <li><strong>LO1:</strong> Understand the legal, ethical and professional issues brought up by AI and the impact of AI on society.</li>
+                    <li><strong>LO2:</strong> Understand and critically analyse the essential concepts, principles, methods, techniques and problems of AI.</li>
+                    <li><strong>LO3:</strong> Apply and evaluate critically the various methods, tools and technologies applied to an AI project in order to develop an effective plan and delivery of solutions to a business problem.</li>
+                </ul>
             </section>
+
+            <!-- Assignments -->
             <section class="content-section">
-                <h2>Assignment</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Assignment details, output, and feedback will be added upon completion.</p>
+                <h2>Assignments</h2>
+
+                <div class="assignment-box">
+                    <h4>Collaborative Learning Discussion 1: AI Adoption in a Chosen Sector</h4>
+                    <p><strong>Brief Description:</strong> Three-week asynchronous discussion requiring an initial post defining a sector use case for AI and describing its adoption, economic benefits and risks with academic support, followed by peer responses and a summary post evidencing personal growth. Assessed on knowledge and understanding, collaboration, criticality, structure, academic integrity and use of sources.</p>
+
+                    <p><strong>Contribution:</strong> The initial post argued that AI investment is justified by the convergence of large-scale digital health data, falling computational costs and algorithmic maturation, which together make AI operationally ubiquitous rather than experimental, and proposed an Accountability-Embedded Governance model built on three defined roles. Peer engagement exposed a limitation in that framing: I had conflated regulatory compliance with operational readiness. The summary post revised the position from a linear to a systems perspective, treating governance, trust, data stewardship and workforce readiness as interdependent conditions requiring co-calibration rather than sequential gates.</p>
+
+                    <p><span class="status-badge status-submitted">97% (Distinction)</span></p>
+
+                    <p><strong>Feedback Received:</strong> &ldquo;An excellent demonstration of knowledge, displaying some originality and in-depth understanding in key areas of knowledge relevant to the work. Consistently demonstrates excellent ability to take ownership of an individual area of work... An excellent demonstration of critical analysis, thought/reflection, with regard to linking theory and practice where appropriate. An excellent structure and presentation that demonstrates professionalism and publishability. Excellent evidence of extensive use of source material (primary sources/research), accurately in support of their work... The initial post defines financial services as a use case, as required, and describes the use of AI well. The economic benefits are clearly listed. Good descriptions of benefits and risks, and the initial post is well written overall. The peer posts are 6. The references are ample, and that affects the quality of critical discussions and analysis. This facilitates very good critical discussions. The peer posts are well described with good, cited critical discussions... It is a very well-written summary post supported by a good number of citations. The contents show good insight and understanding of the relevant topics. The summary post redresses the learning from units material and peer posts, which is needed for a better learning experience. The interweaving of findings from peer discussions and unit material is very well done, offering clear insights and conclusions.&rdquo;</p>
+
+                    <a href="../assets/documents/UAI_CLD1_Summary_Post.pdf" class="download-link" target="_blank">View Summary Post (PDF)</a>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Collaborative Learning Discussion 2: Machine Learning Algorithms and Their Contexts of Use</h4>
+                    <p><strong>Brief Description:</strong> Three-week asynchronous discussion (Units 6&ndash;8) identifying and discussing two machine learning algorithms and the contexts in which they can be employed, considering supervised and unsupervised approaches and the strengths and weaknesses of each. Required an initial post of at least 200 words, responses to at least three peers, and a 300-word summary post.</p>
+
+                    <p><strong>Contribution:</strong> The discussion compared a supervised approach (Random Forest) against an unsupervised one (k-means) and their differing normative assumptions. Peer exchange reoriented the argument: one peer established that unsupervised methods carry their own assumptions through parameter selection, so neither paradigm is epistemically neutral; another identified that CRISP-DM's linearisation removes critical review at the deployment stage; a third pushed back hardest, arguing that bias is a data collection problem that no architectural choice can resolve. The summary post accepted that challenge and developed it through Celi et al. (2022) on dataset provenance, Jones et al. (2023) on the causal roots of data disparity, and Schr&ouml;er et al. (2021) on absent deployment monitoring, concluding that audit protocols can detect deviation from intended behaviour but cannot detect exact conformity to a misspecified intention.</p>
+
+                    <p><span class="status-badge status-submitted">92% (Distinction)</span></p>
+
+                    <p><strong>Feedback Received:</strong> &ldquo;Clear demonstration of your understanding on theories and practices. Excellent research on the learning techniques, and specifically highlighted a widely used learning algorithm. You demonstrate an excellent appreciation of machine learning concepts and their application contexts in your initial post, citing how ML could be applied through both theory and practice... You responded to all major threads... You demonstrated criticality in your posts, drawing links between sectors and how the various types of learning are applied. Your discussion around algorithms and arguing when to use them provided your critical thoughts. Good literature review... Summary is also well-constructed; it reflects the contributions of your peers and how they have shaped your view and the discussion. Use of references was excellent.&rdquo;</p>
+
+                    <p><strong>Points for development:</strong> &ldquo;Evaluation techniques and using scenario analysis to discuss what learning algorithm to use can be helpful.&rdquo;</p>
+
+                    <a href="../assets/documents/UAI_CLD2_Summary_Post.pdf" class="download-link" target="_blank">View Summary Post (PDF)</a>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Individual Essay: Artificial Intelligence and its Applications</h4>
+                    <p><strong>Brief Description:</strong> A 1,500-word consultancy report (40% of the module) persuading the senior management of a company with reservations about AI to adopt it. The report had to identify three key areas where AI could improve operations and return on investment, the problems likely to be encountered in each, the data required, the development approaches needed, and the strengths and weaknesses of each solution with reference to real deployments.</p>
+
+                    <p><strong>Submission:</strong> An AI transformation proposal for Labcorp Central Laboratory Services, framed against the Industry 4.0 to 5.0 transition. Three use cases were proposed: Protocol Intelligence, a retrieval-augmented advisory system for study design targeting the 76% protocol amendment rate at $141,000&ndash;$535,000 per event; Start-Up Kit Supply Optimisation, using gradient boosting with a quantile regression objective against ~$2.5m of excess kit per trial; and Automated Gating for flow cytometry using vendor-qualified platforms. Rather than adopt an off-the-shelf process model, the report compared CRISP-DM, CRISP-ML(Q) and the NIST AI RMF, showed that none alone covers the combined operational, regulatory and accountability demands of a GCP-regulated laboratory, and proposed a synthesised LC-CLS AI Framework with a non-removable human-in-the-loop layer, governance controls mapped to EU AI Act Article 9 and 21 CFR Part 11, before/after tables for each use case, and measurable IT KPIs.</p>
+
+                    <p><span class="status-badge status-submitted">89% (Distinction)</span></p>
+
+                    <p><strong>Feedback Received:</strong> &ldquo;You discuss potential benefits of AI in a number of areas within the start-up business... You further outlined approaches to implement the solutions, which is excellent. Great discussions on the data points, ethics, and data quality. Excellent discussion on the comparison of 'before' and 'after'. You demonstrate a high degree of criticality in your discussion and appraisal of the proposed solutions. You have identified potential issues that need to be mindful of in each application area &ndash; for example, issues around privacy, bias, and data quality are excellent. Excellent discussion on the framework, models and technology selection. Framework integration aspect for each area highlighted in the report. Excellent use of sources to support your analysis... The report included an executive summary and a TOC; this is great. Great use of tables and images, which helped engage the readers. A very coherent flow of writing that provided the clarity of the report. The report is well written and reads very well &ndash; a delight to read.&rdquo;</p>
+
+                    <a href="../assets/documents/UAI_Individual_Essay_LC-CLS_AI_Proposal.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+                </div>
+
+                <div class="assignment-box">
+                    <h4>Artificial Intelligence (AI) Solution Implementation</h4>
+                    <p><strong>Brief Description:</strong> A report evidencing the implementation of an AI solution using an appropriate tool and dataset, with screenshots of model outputs and commentary demonstrating data pre- and post-processing, experiment design, training principles, algorithm selection and performance analysis in a justified business context.</p>
+
+                    <p><strong>Submission:</strong> A quantity forecasting feasibility study taking forward the kit supply use case proposed in the individual essay. Because LC-CLS production data engages GDPR Article 9 special category obligations, the experiment used the open USAID Supply Chain Management System delivery history (10,306 instances after cleaning, 43 countries) as a healthcare-domain proxy. Preprocessing reduced 33 columns to 12 analytical attributes, with two leaky features removed on the grounds that Line Item Value is derivable from the target by division. Following CRISP-ML(Q) quality gates, four regressors were evaluated under stratified 10-fold cross-validation in WEKA: ZeroR as baseline, Linear Regression for full coefficient traceability, M5P for auditable node-level rules, and Random Forest as the performance benchmark. Random Forest achieved R = 0.660 and MAE 13,011, a 43.0% reduction in mean absolute error over the baseline, confirmed by an 80/20 holdout. The report's central argument was that procedural validity and production readiness are different problems: the process, feature engineering and evaluation framework transfer to LC-CLS, but the performance figures do not, and a proxy-to-production mapping table set out exactly which elements fail to carry across.</p>
+
+                    <p><span class="status-badge status-submitted">82% (Distinction)</span></p>
+
+                    <p><strong>Feedback Received:</strong> &ldquo;Excellent use of data pre- and post-processing requirements... The solution is implemented using an appropriate dataset from a repository and a modeling tool used to provide insights into the data. Algorithms are appropriately discussed to demonstrate predictive modeling. Appropriate experiment design and training principles are used. There is excellent justification for the business context and the use of data and algorithms. You demonstrate very good knowledge and understanding of machine learning modeling and the algorithm used to train the model. Providing appropriate screenshots with commentary in the document, highlighting when and how the modeling principles are applied, has improved the quality of the work... You produced deeper insights into the business and its possible improvement using AI models. Overall, the report presented the business's context and goals very well. The model selection, model training cycles, and model performance analysis have enhanced the quality of the work. The report is well written with good background information... Harvard style references are used. Recent journal articles are added to support your commentary and steps.&rdquo;</p>
+
+                    <p><strong>Points for development:</strong> &ldquo;The analysis could be more detailed by examining performance using additional metrics rather than focusing solely on accuracy&rdquo; and &ldquo;A table of contents can be added.&rdquo;</p>
+
+                    <a href="../assets/documents/UAI_AI_Solution_Implementation_Report.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
                 </div>
             </section>
+
+            <!-- Reflective Piece -->
             <section class="content-section">
                 <h2>Reflective Piece</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Reflective writing will be added upon module completion.</p>
-                </div>
+
+                <h3>What? (Description)</h3>
+                <p>Understanding Artificial Intelligence ran across twelve units and four assessments. Two collaborative learning discussions came first: one on the case for AI investment in a chosen sector, one comparing supervised and unsupervised machine learning algorithms and their contexts of use. Both required an initial post, sustained peer engagement and a summary post evidencing how my position had moved. The individual essay then asked for a 1,500-word consultancy report proposing three AI use cases to a sceptical senior management team, which I wrote for Labcorp Central Laboratory Services, the organisation I actually work for. The final assessment required me to implement an AI solution, evaluate it, and report on the outputs; I built a regression feasibility study in WEKA on an open USAID healthcare supply chain dataset, running ZeroR, Linear Regression, M5P and Random Forest under 10-fold cross-validation.</p>
+
+                <h3>So What? (Interpretation)</h3>
+                <p>The most useful thing this module did was force the sequence: argue, then propose, then build. I came in as an AI governance lead, comfortable discussing frameworks, risk and accountability, and much less comfortable with the technical substrate underneath them. Writing the LC-CLS proposal was familiar territory; the implementation report was not, and it was the more valuable of the two.</p>
+
+                <p>The second collaborative discussion produced the sharpest correction. I had framed the choice between a supervised and an unsupervised approach as a question with a defensible technical answer. A peer argued that both operate on data whose representativeness was already determined before any practitioner made a paradigm choice, so bias is a collection problem that architecture cannot fix. Following that challenge into the literature &ndash; Celi et al. (2022) on the concentration of clinical AI datasets in two countries, Jones et al. (2023) on why bias mitigation applied at the model level routinely fails &ndash; changed what I think an AI audit can actually establish. Audit protocols detect deviation from intended behaviour; they cannot detect exact conformity to a misspecified intention. That distinction has since shaped how I frame governance review questions at work.</p>
+
+                <p>The first discussion produced a similar shift in a different direction. My initial post treated governance as the mechanism that converts technical capability into operational value, effectively as a precondition to be satisfied before deployment. Peers pointed out that trust develops alongside governance rather than from it, and that well-resourced systems still fail when governance fragments across jurisdictions. I had conflated regulatory compliance with operational readiness. The revised position &ndash; governance, trust, data stewardship and workforce readiness as interdependent conditions requiring co-calibration &ndash; is one I now use directly in my professional role.</p>
+
+                <p>The implementation report was where the module's assumptions met my own. Having proposed gradient boosting with a quantile regression objective in the essay, I had to establish whether the underlying claim held at all, and the honest answer was partial. Random Forest reduced mean absolute error by 43% over the naive baseline, which confirms a real signal. But the errors concentrated in the high-volume tail and in very small shipments, the proxy dataset lacked the site-level features that matter most in the real problem, and the operational asymmetry &ndash; a site short of kits delays patient visits, whereas surplus stock only wastes cold-chain logistics &ndash; is not something a symmetric loss function represents. Writing that down as a limitation rather than smoothing over it was the point at which the work felt genuinely like analysis rather than advocacy.</p>
+
+                <h3>What Next? (Outcome)</h3>
+                <p>Two pieces of tutor feedback pointed the same way. The second discussion suggested that evaluation techniques and scenario analysis would strengthen the argument for choosing one learning algorithm over another; the implementation report noted that the analysis relied too heavily on a single performance measure. Both identify the same gap: I could select and run models, but I could not yet interrogate their performance with the range or rigour the question deserved. That gap set the agenda for Numerical Analysis, where the work on p-values, confidence intervals and diagnostic plots gave me the vocabulary I was missing here, and it remains the through-line into Machine Learning.</p>
+
+                <p>Concretely, the outcomes I set at the end of this module were: to stop treating a single headline metric as an evaluation; to learn enough statistics to challenge a model performance claim rather than accept it; to move from tool-driven work in a GUI towards programmatic modelling; and to carry the proxy-to-production discipline &ndash; being explicit about which parts of an experiment transfer and which do not &ndash; into every subsequent piece of technical work. Professionally, the LC-CLS proposal is not a hypothetical exercise: the governance framework, the human-in-the-loop layer and the KPI structure developed for it are directly applicable to the AI portfolio I oversee, and the module's central lesson &ndash; that problem specification is an open negotiation rather than a technical precondition &ndash; is the question I now ask first in any AI review.</p>
             </section>
+
+            <!-- Meeting Notes -->
             <section class="content-section">
                 <h2>Meeting Notes</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Meeting notes will be documented as the module progresses.</p>
-                </div>
+
+                <h3>Collaborative Learning Discussion 1 &ndash; Units 1&ndash;3</h3>
+                <p><strong>Format:</strong> Asynchronous discussion forum &ndash; initial post, six peer posts, summary post.</p>
+                <p><strong>Topics discussed:</strong></p>
+                <ul>
+                    <li>Whether AI investment in the chosen sector is justified by the convergence of large-scale digital data, falling computational costs and algorithmic maturation</li>
+                    <li>The proposed Accountability-Embedded Governance model and its three defined roles</li>
+                    <li>Whether trust in AI develops from governance or alongside it</li>
+                    <li>Federated and fragmented institutional structures, dataset representativeness, and governance capacity as a competitive advantage</li>
+                    <li>Reinforcement learning and the problem of delayed reward signals for accountability frameworks designed around immediate attribution</li>
+                </ul>
+                <p><strong>Actions taken:</strong> Accepted the distinction between regulatory compliance and operational readiness, which I had conflated. Revised the summary post from a linear model (governance enables adoption) to a systems model in which governance, trust, data stewardship and workforce readiness are co-calibrated. Repositioned the three accountability roles as operating within adaptive ecosystems rather than as gatekeeping mechanisms preceding deployment.</p>
+
+                <h3>Collaborative Learning Discussion 2 &ndash; Units 6&ndash;8</h3>
+                <p><strong>Format:</strong> Asynchronous discussion forum &ndash; initial post, responses to all major threads, summary post.</p>
+                <p><strong>Topics discussed:</strong></p>
+                <ul>
+                    <li>Random Forest and k-means as representative supervised and unsupervised approaches, and their respective contexts of use</li>
+                    <li>Whether unsupervised methods offer a more neutral starting point, and the normative assumptions carried through parameter selection</li>
+                    <li>CRISP-DM's linearisation and the absence of critical review at the deployment stage</li>
+                    <li>The limits of EU non-discrimination frameworks for harms distributed across data, design and deployment contexts</li>
+                    <li>Whether bias is fundamentally a data collection problem rather than an architectural one</li>
+                </ul>
+                <p><strong>Actions taken:</strong> Accepted the challenge that no architectural choice resolves unrepresentative data, and reoriented the summary post around it. Sourced Celi et al. (2022), Jones et al. (2023), Schr&ouml;er et al. (2021) and Mehrabi et al. (2021) to support the revised argument. Concluded with the position that responsible deployment requires treating problem specification as an open negotiation rather than a technical precondition.</p>
+
+                <h3>Tutor Feedback Points</h3>
+                <ul>
+                    <li><strong>CLD 1 (97%):</strong> Strong on sources, criticality and the integration of peer contributions into the summary post.</li>
+                    <li><strong>CLD 2 (92%):</strong> Development point &ndash; add evaluation techniques and scenario analysis when arguing for one learning algorithm over another.</li>
+                    <li><strong>Individual Essay (89%):</strong> Strong on framework selection, before/after comparison and the treatment of privacy, bias and data quality.</li>
+                    <li><strong>Implementation Report (82%):</strong> Development points &ndash; broaden performance analysis beyond a single metric, and add a table of contents.</li>
+                </ul>
             </section>
+
+            <!-- Professional Skills Matrix -->
             <section class="content-section">
                 <h2>Professional Skills Matrix and Action Plan</h2>
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Professional skills matrix and action plan will be developed during the module.</p>
+
+                <p>This matrix assesses my capabilities against the Understanding Artificial Intelligence learning outcomes at the point of module completion, evidenced by the four assessments and the tutor feedback received on each.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Competency</th>
+                            <th>Essex Graduate</th>
+                            <th>Skill</th>
+                            <th>Skill Level</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Subject understanding, research, critical thinking</td>
+                            <td>Understand and critically analyse the essential concepts, principles, methods, techniques and problems of AI</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Both collaborative discussions marked at 97% and 92%, with feedback recording &ldquo;an excellent appreciation of machine learning concepts and their application contexts&rdquo;. Able to compare supervised and unsupervised paradigms on their assumptions rather than their performance alone, and to locate the limits of process models such as CRISP-DM. Development point noted by the tutor: scenario analysis as a structured method for algorithm selection.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Decision making, initiative, problem solving</td>
+                            <td>Apply and evaluate critically the various methods, tools and technologies applied to an AI project</td>
+                            <td><span class="skill-rating">Trained</span></td>
+                            <td>Built and evaluated a four-model regression experiment in WEKA under stratified 10-fold cross-validation with an 80/20 holdout, identifying and removing two leaky features and documenting a 43.0% MAE improvement over baseline. Work performed through a graphical tool rather than code, and tutor feedback identified over-reliance on a single performance measure &ndash; both the reason this sits at Trained rather than Proficient.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Legal and Ethical</strong></td>
+                            <td>Ethical awareness, professional conduct</td>
+                            <td>Understand the legal, ethical and professional issues brought up by AI and the impact of AI on society</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Governance controls mapped by use case to EU AI Act Article 9, ICH E6(R3) GCP and 21 CFR Part 11, with named accountability owners and stated failure consequences. GDPR Article 9 special category obligations identified as a binding constraint on dataset assembly, which directly determined the choice of an open proxy dataset. Tutor feedback: &ldquo;issues around privacy, bias, and data quality are excellent&rdquo;.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subject Application</strong></td>
+                            <td>Decision making, initiative, emotional intelligence</td>
+                            <td>Develop an effective plan and delivery of AI solutions to a business problem</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Three-use-case AI proposal with before/after analysis, quantified cost avoidance, an impact/effort prioritisation, a change management and risk architecture covering six governance roles, and measurable IT KPIs with baselines and measurement methods. Assessed at 89% with feedback describing the framework, model and technology selection as excellent.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional</strong></td>
+                            <td>Literacy, communication, research skills</td>
+                            <td>Gather and synthesise academic, technical and regulatory sources into work directed at a non-specialist business audience</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Consultancy report structured with executive summary, contents, comparison tables and figures, described in feedback as &ldquo;a very coherent flow of writing&rdquo; and &ldquo;a delight to read&rdquo;. Consistent Harvard referencing across all four assessments, drawing on recent journal literature, regulatory instruments and industry sources.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social</strong></td>
+                            <td>Teamwork, collaboration, cultural awareness</td>
+                            <td>Contribute to and learn from asynchronous collaborative discussion with an international peer group</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Six peer posts in the first discussion and responses to all major threads in the second. Both summary posts document positions revised in response to specific peer challenges rather than restating the initial argument, which the tutor identified as reflecting &ldquo;how they have shaped your view and the discussion&rdquo;.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Subject understanding, problem solving</td>
+                            <td>Evaluate model performance and interpret quantitative results critically</td>
+                            <td><span class="skill-rating">Aware</span></td>
+                            <td>Reported R, MAE, RMSE, RAE and RRSE and reasoned about the effect of a right-skewed target on RMSE, but the analysis remained descriptive and did not extend to the fuller evaluation the tutor identified as missing. The weakest area of the module and the explicit reason for prioritising statistical grounding in Numerical Analysis, where this subsequently moved to Competent.</td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
+
+                <h3>Action Plan</h3>
+                <p><strong>Immediate Actions (set at module completion, for Numerical Analysis):</strong></p>
+                <ul>
+                    <li>Build the statistical grounding needed to interrogate model performance claims, directly addressing the tutor's point about relying on a single metric</li>
+                    <li>Learn to work programmatically rather than through a graphical modelling tool, starting with R</li>
+                    <li>Adopt scenario analysis as a structured method for justifying algorithm selection, as recommended in the second discussion feedback</li>
+                    <li>Apply the proxy-to-production discipline to all subsequent technical work: state explicitly what transfers and what does not</li>
+                </ul>
+
+                <p><strong>Medium-term Development (Next 2-3 Modules):</strong></p>
+                <ul>
+                    <li>Move practical modelling from Trained to Proficient by building models in code rather than assembling them in a GUI</li>
+                    <li>Extend evaluation practice from single-metric reporting to diagnostics, assumption checking and uncertainty quantification</li>
+                    <li>Strengthen spoken presentation of technical findings, ahead of assessed project presentations</li>
+                    <li>Deepen understanding of agent architectures and multi-agent design, building on the AI foundations established here</li>
+                </ul>
+
+                <p><strong>Programme-level Goals:</strong></p>
+                <ul>
+                    <li>Reach Proficient in applying and evaluating AI methods, sufficient to prototype and independently critique solutions</li>
+                    <li>Carry the LC-CLS AI Framework developed here forward into professional practice and, potentially, the dissertation</li>
+                    <li>Maintain the habit of documenting limitations honestly rather than presenting prototypes as production-ready</li>
+                    <li>Make problem specification, not algorithm selection, the first question in any AI governance review</li>
+                </ul>
+
+                <h3>Progress Against This Plan</h3>
+                <p>The statistical grounding objective was met in Numerical Analysis, where R moved from no prior programming experience to working scripts across five units, the mid-module mathematics test was passed at 96%, and the statistical analysis presentation was awarded 100% with specific credit for running parametric and non-parametric tests in parallel and for working through regression diagnostics rather than reporting coefficients alone. The single-metric weakness identified here was the explicit target of that work.</p>
             </section>
         </div>
     </main>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex Online</p>
+            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
         </div>
     </footer>
 </body>
