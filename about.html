@@ -117,6 +117,43 @@
             font-size: 1.0625rem;
         }
 
+        .content-section h2.section-rule {
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .skill-rating {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         .cv-link {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -201,6 +238,93 @@
                 <p>My name is Anne Dayer, AI Governance Lead for the global Central Laboratory and Bioanalytical services of Labcorp, a US-based life sciences company with a global footprint. Based in Switzerland with over twenty years navigating the intersection of life sciences, data strategy, and innovation, current responsibilities encompass AI strategy, governance, and portfolio oversight. This includes identifying and selecting appropriate AI projects, establishing operating models, driving adoption of AI tools by staff and clients, and developing general AI literacy across the organisation. Pursuing an MSc in Artificial Intelligence at the University of Essex builds the technical depth needed to bridge strategic vision with responsible implementation.</p>
 
                 <a href="assets/documents/Anne_Dayer_CV.pdf" class="cv-link" target="_blank">View Full CV (PDF)</a>
+            </section>
+
+            <section class="content-section" id="skills-matrix">
+                <h2 class="section-rule">Professional Skills Matrix and Action Plan</h2>
+
+                <p>A single, current assessment of my professional skills across the programme, with the personal development plan for each skill held in the final column. It is updated as each module completes; the version below was submitted as Appendix A of the Numerical Analysis End of Module Assessment 2 reflection and awarded full marks.</p>
+
+                <p><strong>Self-assessment scale:</strong> Developing, Competent, Proficient. <strong>Benchmarks:</strong> Launch into Computing, 76 (October 2025); Understanding Artificial Intelligence, 87 (January 2026); Numerical Analysis, 99 (April 2026). A level change is claimed only where a module focused directly on that skill; elsewhere the improvement stayed within the same band, and the remaining gaps are what the upcoming modules and the dissertation should address.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Module start</th>
+                            <th>Module end</th>
+                            <th>Evidence</th>
+                            <th>Action plan (PDP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Time management</strong></td>
+                            <td>Competent</td>
+                            <td><span class="skill-rating">Competent (maintained)</span></td>
+                            <td>Kept pace with the weekly R activities and formative tasks around a full-time role; the notes behind this reflection were written as the module went on, not rebuilt at the end.</td>
+                            <td>For future modules, continue to set my own deadlines, protect weekly study slots from Unit 1 onwards, and scope the dissertation timeline early rather than under pressure.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Critical thinking &amp; analysis</strong></td>
+                            <td>Competent</td>
+                            <td><span class="skill-rating">Competent (improved)</span></td>
+                            <td>Reworked Brown's (1994) Table 2 and had to defend the encoding choices; revised my reading after a peer raised a selection effect; checked normality before choosing tests rather than defaulting to the familiar ones.</td>
+                            <td>Carry the assumption-checking habit into future modules (evaluating and optimising models, what a model can and cannot claim) and into AI model validation evidence reviewed at work.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Communication &amp; literacy</strong></td>
+                            <td>Proficient</td>
+                            <td><span class="skill-rating">Proficient (spoken still developing)</span></td>
+                            <td>Three forum posts (initial, peer responses, summary) with full referencing; earlier written work marked at 87 (Understanding Artificial Intelligence).</td>
+                            <td>Machine Learning is assessed partly through a project presentation; keep working on spoken delivery as a non-native speaker, and reuse the same plain-language approach when presenting statistical evidence to leadership at work.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IT &amp; digital</strong></td>
+                            <td>Developing</td>
+                            <td><span class="skill-rating">Competent</span></td>
+                            <td>Working R scripts for Units 8 to 12 (readr, dplyr, haven, ggplot2), written and debugged with no prior programming background; started from a baseline of 76 in Launch into Computing.</td>
+                            <td>Machine Learning will bring new programming demands (its seminars include live coding); transfer the habits learnt in R rather than starting from zero.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Numeracy</strong></td>
+                            <td>Developing</td>
+                            <td><span class="skill-rating">Competent</span></td>
+                            <td>96% (Distinction) in the mid-module mathematics test; chi-square, correlation (r = 0.847), regression with confidence intervals, and Bayes' theorem all computed and checked in R.</td>
+                            <td>Regression and probability feed straight into Machine Learning (linear regression reappears in supervised learning, followed by model evaluation and optimisation); revisit both before Unit 1, and read model performance statistics at work with the same scrutiny.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Research</strong></td>
+                            <td>Competent</td>
+                            <td><span class="skill-rating">Competent (improved)</span></td>
+                            <td>Went beyond the reading list to source Schober, Bossers and Schwarte (2018), van de Schoot et al. (2021) and Kankaraš and Capecchi (2025) for the forum work and the reflection.</td>
+                            <td>Start a running literature log now: Research Methods and Professional Practice will expect a defined topic, and AI governance in clinical research is the likely dissertation direction.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interpersonal</strong></td>
+                            <td>Proficient</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>Took two corrections publicly in the forum and worked them into my summary post; gave detailed responses on two peers' charts in return, including questions they picked up.</td>
+                            <td>Future modules are partly assessed on working in a virtual team; at work, run the planned Data &amp; AI literacy sessions, where explaining data and AI to non-specialists will test the same skill.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Problem-solving</strong></td>
+                            <td>Competent</td>
+                            <td><span class="skill-rating">Competent (improved)</span></td>
+                            <td>Debugged data-type and missing-value errors in R without support; switched to Wilcoxon and Kruskal-Wallis when normality failed; implemented the Unit 9 groupings and saw how much the cut-offs changed the table.</td>
+                            <td>Future modules will raise harder versions of the same problems (the challenges of different datasets, designing a machine learning system); professionally, apply the same troubleshooting mindset when AI tools under governance review behave inconsistently.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ethical awareness</strong></td>
+                            <td>Proficient</td>
+                            <td><span class="skill-rating">Proficient</span></td>
+                            <td>The Brown (1994) redesign showed me that category and chart choices shape conclusions; this connected directly to the data integrity principles (GCP, ALCOA+) I already work with.</td>
+                            <td>Machine Learning and Research Methods both carry explicit ethics outcomes; professionally, build evidence-quality questions into the AI governance review criteria I maintain.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </section>
         </div>
     </main>
