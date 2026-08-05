@@ -409,6 +409,32 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 
 .content-section em { color: var(--ink-2); }
 
+.epigraph {
+    border-left: 2px solid var(--accent-line);
+    padding-left: 1.5rem;
+    margin: 0 0 1.75rem;
+    max-width: var(--prose);
+}
+
+.epigraph p {
+    font-family: var(--display);
+    font-size: var(--step-1);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+}
+
+.epigraph cite {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
 .references { font-size: var(--step--1); color: var(--ink-2); }
 .references li { margin-bottom: 0.7rem; }
 
@@ -546,6 +572,7 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 
 .assignment-box:hover { border-left-color: var(--accent); }
 
+.assignment-box h3,
 .assignment-box h4 {
     font-family: var(--display);
     font-size: var(--step-2);

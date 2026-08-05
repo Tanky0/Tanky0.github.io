@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numerical Analysis - Anne Dayer</title>
+    <meta name="description" content="Numerical Analysis, 99% (Distinction): statistical analysis of the Pima Indian Diabetes dataset in R, with artefacts mapped to the module learning outcomes.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/numerical-analysis.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Anne Dayer &mdash; MSc AI ePortfolio">
+    <meta property="og:title" content="Numerical Analysis - Anne Dayer">
+    <meta property="og:description" content="Numerical Analysis, 99% (Distinction): statistical analysis of the Pima Indian Diabetes dataset in R, with artefacts mapped to the module learning outcomes.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/numerical-analysis.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -53,7 +64,7 @@
                 <h2>Module Overview</h2>
                 <p>Numerical Analysis develops the mathematical and statistical foundations that underpin Data Science and Artificial Intelligence, taught and assessed through applied work in R. The module moves from descriptive statistics and data visualisation, through hypothesis testing and non-parametric alternatives, to correlation, linear and logistic regression, and finally Bayesian reasoning. Each unit adds a technique alongside a harder question about what the evidence can legitimately be asked to show.</p>
 
-                <p>Coming into the module with no prior programming experience, the practical work in R (readr, dplyr, haven, ggplot2) represented the steepest learning curve of the programme to date. The module's central contribution to my professional practice has been the shift from treating statistical output as a verdict to treating it as an argument that must be interrogated: which method was used, whether it suited the data, and what the result can actually support.</p>
+                <p>I had never programmed before, and the practical work in R (readr, dplyr, haven, ggplot2) was the steepest learning curve of the programme so far. I used to read a p-value as a verdict. What changed is what I now ask of a statistical claim: which method was used, whether it suited the data, and what the result can support.</p>
 
                 <div class="module-result">
                     <strong>Module result: 99% (Distinction)</strong><br>
@@ -84,7 +95,7 @@
                 <h2>Assignments</h2>
 
                 <div class="assignment-box">
-                    <h4>Mid-Module Assignment: Mathematics Test</h4>
+                    <h3>Mid-Module Assignment: Mathematics Test</h3>
                     <p><strong>Brief Description:</strong> Timed test covering the core mathematical and statistical concepts taught in the first half of the module, assessing systematic understanding of the techniques underpinning Data Science and AI (LO1).</p>
 
                     <p><span class="status-badge status-submitted">96% (Distinction)</span></p>
@@ -93,7 +104,7 @@
                 </div>
 
                 <div class="assignment-box">
-                    <h4>End of Module Assessment 1: Statistical Analysis Presentation</h4>
+                    <h3>End of Module Assessment 1: Statistical Analysis Presentation</h3>
                     <p><strong>Brief Description:</strong> A 20-minute recorded presentation with transcript analysing the Pima Indian Diabetes Database (768 women, nine variables). The brief required data exploration and descriptive statistics with appropriate visualisations and outlier discussion; diabetes rates across age, BMI and pregnancy categories; and inferential work covering hypothesis testing, a correlation matrix, chi-square association tests, ANOVA across age groups, a multiple linear regression predicting glucose, a logistic regression predicting diabetes outcome evaluated with Hosmer-Lemeshow and classification metrics, and likelihood ratio tests for a BMI&times;Age interaction. Conclusions and recommendations were required throughout. All analysis and visualisation was performed in R using RStudio.</p>
 
                     <p><strong>Approach taken:</strong> Zero values in glucose, blood pressure, BMI, skin thickness and insulin were treated as missing rather than valid, reducing the regression sample from 768 to 392 and creating a missingness problem reported openly as a limitation. Where normality could not be assumed, non-parametric tests were run alongside parametric ones (Welch's t-test with Wilcoxon rank-sum; ANOVA with Kruskal-Wallis) rather than relying on a single result. Diagnostic plots were worked through in detail: the scale-location plot showed error variance rising with predicted glucose, meaning confidence intervals become least reliable exactly where diabetic cases concentrate. The logistic model reached 77% accuracy and 87.9% specificity but only 56.8% sensitivity at the 0.50 threshold &mdash; 114 missed diagnoses &mdash; which drove the recommendation to lower the threshold to 0.30&ndash;0.35 and to adopt multiple imputation, cross-validation, and Bayesian logistic regression before any clinical use.</p>
@@ -102,29 +113,35 @@
 
                     <p><strong>Feedback Received:</strong> Full marks were awarded in every assessed section (Knowledge/Understanding, Data Analysis, Criticality, Sources, Structure/Presentation and Communication Skills). &ldquo;Overall, an Excellent Presentation. Excellent Slides &amp; R Plots. Sound Understanding, Good Identification of Reasons &amp; Faulty Data. Descriptive Statistics &ndash; well covered, Idea of Mean +/&ndash; SD was new, Good Boxplots, Excellent usage of Histograms. Valid Reasoning, why using Wilcoxon Rank Test. Always remembers to relate calculations to the situation &ndash; Glucose... Clinically as well as Statistically Significant. Excellent further Research &ndash; WHO Data. Sound Idea: running both Welch t-test &amp; Wilcoxon Rank Sum Test. Kruskal-Wallis and ANOVA Tests also used well. Multiple/Linear/Logistic Regression Analyses carried out well. Excellent Summary/Conclusions, Limitations &amp; Recommendations.&rdquo;</p>
 
-                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Slides.pdf" class="download-link" target="_blank">View Presentation Slides (PDF)</a>
-                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Transcript.pdf" class="download-link" target="_blank">View Transcript (PDF)</a>
-                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Presentation.mp4" class="download-link" target="_blank">View Recorded Presentation (MP4)</a>
+                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Slides.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Presentation Slides (PDF)</a>
+                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Transcript.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Transcript (PDF)</a>
+                    <a href="../assets/documents/NA_EMA1_Statistical_Analysis_Presentation.mp4" class="download-link" target="_blank" rel="noopener noreferrer">View Recorded Presentation (MP4)</a>
                 </div>
 
                 <div class="assignment-box">
-                    <h4>End of Module Assessment 2: Individual Reflection</h4>
+                    <h3>End of Module Assessment 2: Individual Reflection</h3>
                     <p><strong>Brief Description:</strong> A 1,000-word reflective piece on the data analysis skills and statistical knowledge gained during the module, addressing confidence in using R, the challenges encountered, the experience of interpreting findings through p-values and confidence intervals, and the production of summary tables, contingency tables and plots. The brief required a summary of learning outcomes, feedback from peers and tutors, a professional skills matrix and action plan (PDP), and module artefacts mapped to the learning outcomes.</p>
 
                     <p><span class="status-badge status-submitted">100% (Distinction)</span></p>
 
                     <p><strong>Feedback Received:</strong> Full marks in every section (Knowledge and Understanding, Criticality, Application, Independent Working, Academic Integrity, Structure and Presentation). &ldquo;A good personal report, contrasting the experience of this course with 20+ years in the workplace. Being new to programming, the demoralising issues felt here are simply part and parcel of the learning process everyone goes through and generally overcomes.&rdquo;</p>
 
-                    <a href="../assets/documents/NA_EMA2_Individual_Reflection.pdf" class="download-link" target="_blank">View Reflective Piece (PDF)</a>
+                    <a href="../assets/documents/NA_EMA2_Individual_Reflection.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Reflective Piece (PDF)</a>
                 </div>
             </section>
 
             <!-- Reflective Piece -->
             <section class="content-section">
                 <h2>Reflective Piece</h2>
+
+                <blockquote class="epigraph">
+                    <p>&ldquo;The module did not teach me to trust data more. It taught me to trust my own interpretations less until they had been tested through statistical scrutiny.&rdquo;</p>
+                    <cite>Opening lines, End of Module Assessment 2</cite>
+                </blockquote>
+
                 <p>The reflective piece for this module was submitted as End of Module Assessment 2 and awarded 100% (Distinction). It covers the development of my data analysis skills and statistical knowledge, my confidence in using R and the challenges encountered, the experience of interpreting findings through p-values and confidence intervals, and the peer feedback that revised my thinking. The professional skills matrix and personal development plan it contains are reproduced on the <a href="../about.html#skills-matrix">About Me</a> page.</p>
 
-                <a href="../assets/documents/NA_EMA2_Individual_Reflection.pdf" class="download-link" target="_blank">Read the Reflective Piece (PDF)</a>
+                <a href="../assets/documents/NA_EMA2_Individual_Reflection.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Read the Reflective Piece (PDF)</a>
             </section>
 
             <!-- Artefacts -->
@@ -188,7 +205,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
         </div>
     </footer>
 </body>

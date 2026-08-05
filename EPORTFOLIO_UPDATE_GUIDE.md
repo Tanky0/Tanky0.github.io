@@ -70,6 +70,8 @@ Sections that are **not** part of the structure: a general "Meeting Notes" secti
 
 Induction is the exception to all of the above: Module Overview and Assignment only.
 
+**Modules not yet started stay a light guide, not a build.** A planned module page carries its learning outcomes, its skills list and the e-portfolio components it expects &mdash; nothing more. Only the module currently in progress is built out to its brief with sections and placeholders. Building future modules early creates sections that go stale before you reach them.
+
 ### Check the module's own brief
 
 Each module publishes its required e-portfolio components. Build the page from that list rather than copying the previous module — they differ. Intelligent Agents and Machine Learning require team exercise outcomes and team meeting notes; Knowledge Representation and Research Methods do not.
@@ -121,21 +123,21 @@ Copy the block from `TEMPLATE_Assignment.html` into the Assignments section and 
 
 ```html
 <div class="assignment-box">
-    <h4>Assignment title as it appears in the brief</h4>
+    <h3>Assignment title as it appears in the brief</h3>
     <p class="deadline"><strong>Unit 6</strong> &middot; Deadline: 23:55, Monday 7 September 2026</p>
     <p><strong>Brief Description:</strong> What the brief asked for.</p>
     <p><strong>Submission:</strong> What you produced and the decisions behind it.</p>
     <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
-    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Assignment Output (PDF)</a>
 </div>
 ```
 
 Add one `download-link` per artefact, labelling each where there are several:
 
 ```html
-<a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank">Part B: Slides (PDF)</a>
-<a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank">Part B: Transcript (PDF)</a>
-<a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank">Part B: Video Presentation (MP4)</a>
+<a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Slides (PDF)</a>
+<a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Transcript (PDF)</a>
+<a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Video Presentation (MP4)</a>
 ```
 
 ---
@@ -190,7 +192,7 @@ On the module page, the eyebrow becomes `Completed` and the lede gains the intak
     <p>[One paragraph: what it covers, and what it was awarded. If it contains a skills matrix,
        note that this is reproduced on the <a href="../about.html#skills-matrix">About Me</a> page.]</p>
 
-    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank">Read the Reflective Piece (PDF)</a>
+    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Read the Reflective Piece (PDF)</a>
 </section>
 ```
 
@@ -214,7 +216,7 @@ The Professional Skills Matrix lives in **one place only**: `about.html`, in the
 <section class="content-section">
     <h2>Professional Skills Matrix and Action Plan (PDP)</h2>
     <div class="assignment-box">
-        <h4>Maintained on the About Me page</h4>
+        <h3>Maintained on the About Me page</h3>
         <p>[One or two sentences explaining that it is kept as a single current record.]</p>
         <a href="../about.html#skills-matrix" class="download-link">View the Professional Skills Matrix and Action Plan</a>
     </div>
@@ -295,6 +297,7 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 | Changes not appearing | GitHub Pages caching. Wait two minutes, then Ctrl+F5. Confirm the push landed with `git log origin/main -1`. |
 | A page looks unstyled | The stylesheet link is wrong or missing. Root pages need `assets/css/site.css`; pages in `modules/` need `../assets/css/site.css`. |
 | Fonts look wrong | The Google Fonts `<link>` is missing from `<head>`. Copy the three font lines from any working page. |
+| Link preview on LinkedIn is blank | The page is missing its Open Graph tags. Copy the `og:` block from any existing page and update title, description and URL. |
 | Section index missing | It only appears with three or more `<h2>` sections, and only on screens wider than about 1180px. Both are intentional. |
 | PDF link 404s | Filename mismatch. Filenames are case-sensitive on GitHub Pages even though Windows ignores case. |
 | Layout broken | An unclosed tag. Check every `<div>`, `<section>` and `<table>` has its closing partner. |
@@ -315,6 +318,8 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 | Stylesheet | `assets/css/site.css` |
 | Script | `assets/js/site.js` |
 | Documents and media | `assets/documents/` |
+| Custom 404 page | `404.html` |
+| Favicon | `assets/favicon.svg` |
 | Assignment template | `TEMPLATE_Assignment.html` |
 | Module completion template | `TEMPLATE_Module_Completion.html` |
 | Quick reference | `QUICK_REFERENCE.md` |

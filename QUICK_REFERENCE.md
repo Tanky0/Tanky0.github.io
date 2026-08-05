@@ -8,13 +8,13 @@ Snippets for common edits. Full instructions in `EPORTFOLIO_UPDATE_GUIDE.md`.
 
 ```html
 <div class="assignment-box">
-    <h4>Assignment title</h4>
+    <h3>Assignment title</h3>
     <p class="deadline"><strong>Unit 6</strong> &middot; Deadline: 23:55, Monday 7 September 2026</p>
     <p><strong>Brief Description:</strong> What the brief asked for.</p>
     <p><strong>Submission:</strong> What you produced and the decisions behind it.</p>
     <p><span class="status-badge status-submitted">89% (Distinction)</span></p>
     <p><strong>Feedback Received:</strong> Tutor feedback, quoted verbatim.</p>
-    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+    <a href="../assets/documents/FILENAME.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Assignment Output (PDF)</a>
 </div>
 ```
 
@@ -150,10 +150,13 @@ Create a branch for the module section being submitted and configure the GitHub 
 
 Copy an existing page and replace what is inside `<main>`. Check:
 
+- `<meta name="description">`, `<link rel="canonical">`, `<link rel="icon">` and the `og:` block, all with this page's own title, description and URL
 - Google Fonts `<link>` present in `<head>`
 - `assets/css/site.css` and `assets/js/site.js` linked with the right prefix
   (`../` from `modules/`, nothing from the root)
 - `<main id="main">` for the skip link
+- every `target="_blank"` also carries `rel="noopener noreferrer"`
+- assignment titles are `<h3>`, never `<h4>` (heading order)
 - no `<style>` block anywhere
 
 ## File Naming
@@ -185,4 +188,6 @@ git push origin main
 | Stylesheet | `assets/css/site.css` |
 | Script | `assets/js/site.js` |
 | Documents and media | `assets/documents/` |
+| Custom 404 page | `404.html` |
+| Favicon | `assets/favicon.svg` |
 | Full guide | `EPORTFOLIO_UPDATE_GUIDE.md` |
