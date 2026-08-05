@@ -53,18 +53,34 @@ Module pages use these sections, in this order. Only Module Overview and Assignm
 
 | Section | When to include it |
 |---|---|
-| **Module Overview** | Always. Description, aims, learning outcomes, skills. Add the result box when the module finishes. |
+| **Module Overview** | Always. Description, aims, learning outcomes, skills to be gained. Add the result box when the module finishes. |
 | **Assignments** | Always. One `assignment-box` per assessment. |
 | **e-Portfolio Activities** | Where the module sets assessed portfolio activities separately from the assignments (Intelligent Agents). |
-| **Artefacts Mapped to Learning Outcomes** | Where formative work is worth evidencing against the outcomes (Numerical Analysis). |
+| **Outcomes from the Team Exercises** | Team-assessed modules only (Intelligent Agents, Machine Learning). A named component in its own right &mdash; **not** the same as the assessed team project report. |
+| **Summary of Learning Outcomes** | Where the brief lists it. A table: each outcome, how it was met, the evidence. |
+| **Artefacts Mapped to Learning Outcomes** | Where artefacts must be shown against the outcomes. Include a brief description of each and any feedback received. |
 | **Reflective Piece** | **Only where a reflective piece was actually produced.** Do not add an empty one. |
-| **Team Meeting Notes** | Only where the module requires them — the team-assessed modules (Intelligent Agents, Machine Learning). |
+| **Team Meeting Notes** | Team-assessed modules only. Covers both team meetings and tutor meetings. |
 | **Peer and Tutor Feedback** | Where the module requires it as a distinct portfolio component. |
 | **Professional Skills Matrix and Action Plan (PDP)** | A short box linking to About Me. Never the matrix itself — see [section 7](#skills-matrix). |
+
+Order the professional-development sections as the brief lists them: summary of learning outcomes, meeting notes, peer and tutor feedback, then the PDP.
 
 Sections that are **not** part of the structure: a general "Meeting Notes" section on modules without team assessment, and a per-module copy of the skills matrix.
 
 Induction is the exception to all of the above: Module Overview and Assignment only.
+
+### Check the module's own brief
+
+Each module publishes its required e-portfolio components. Build the page from that list rather than copying the previous module — they differ. Intelligent Agents and Machine Learning require team exercise outcomes and team meeting notes; Knowledge Representation and Research Methods do not.
+
+### The reflective piece is graded against a published rubric
+
+The department publishes the criteria, and the top band (*Reflective Review*) needs more than description: analysis of the choices made, multiple perspectives on them, critique of the artefacts produced, engagement with and critique of literature, and an action plan that follows from it. It is also the only component with a strict word limit. Keep reflective notes weekly as the module runs — a contemporaneous account reads very differently from one reconstructed at the end.
+
+### Before submitting a module e-portfolio
+
+The department requires you to create a **branch** for the module section being submitted and to configure the GitHub Pages source accordingly. Do a dry run well before the deadline rather than on the night.
 
 ---
 
