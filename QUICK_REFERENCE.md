@@ -102,18 +102,49 @@ Qualify rather than promote where progress stayed in a band: `Competent (improve
 
 ## Module Page Sections
 
-Only the first two are required.
+Only the first two are required. Build the rest from the module's own brief — they differ by module.
 
 1. Module Overview
 2. Assignments
 3. e-Portfolio Activities *(where the module sets them)*
-4. Artefacts Mapped to Learning Outcomes *(optional)*
-5. Reflective Piece *(only if one was actually produced)*
-6. Team Meeting Notes *(team-assessed modules only)*
-7. Peer and Tutor Feedback *(where required)*
-8. Professional Skills Matrix and Action Plan *(link box only)*
+4. Outcomes from the Team Exercises *(team-assessed modules only)*
+5. Summary of Learning Outcomes *(where the brief lists it)*
+6. Artefacts Mapped to Learning Outcomes
+7. Reflective Piece *(only if one was actually produced)*
+8. Team Meeting Notes *(team-assessed only; covers team and tutor meetings)*
+9. Peer and Tutor Feedback *(where required)*
+10. Professional Skills Matrix and Action Plan *(link box only)*
+
+Sections 5 onwards follow the order the brief lists them in.
 
 The sticky section index on the right builds itself from the `<h2>` headings — nothing to maintain.
+
+## Summary of Learning Outcomes Table
+
+```html
+<div class="table-scroll">
+<table>
+    <thead>
+        <tr><th>Learning Outcome</th><th>How it was met</th><th>Evidence</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>LO1</strong><br>Outcome text as published.</td>
+            <td>To be completed.</td>
+            <td>To be completed.</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+```
+
+## Reflective Piece — Top Band
+
+Strict word limit. The *Reflective Review* band needs: analysis of choices · multiple perspectives · critique of artefacts · reference to and critique of literature · action plan. Structure as What? / So What? / What Next?, with What? the shortest part.
+
+## Before Submitting a Module e-Portfolio
+
+Create a branch for the module section being submitted and configure the GitHub Pages source. Dry-run it early.
 
 ## New Page Checklist
 
