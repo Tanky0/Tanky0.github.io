@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Launch into Computing - Anne Dayer</title>
+    <meta name="description" content="Launch into Computing, 76% (Distinction): comparing Python and JavaScript development models, and an AI governance presentation on contestability. Assignment outputs and tutor feedback.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/launch-into-computing.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Anne Dayer &mdash; MSc AI ePortfolio">
+    <meta property="og:title" content="Launch into Computing - Anne Dayer">
+    <meta property="og:description" content="Launch into Computing, 76% (Distinction): comparing Python and JavaScript development models, and an AI governance presentation on contestability. Assignment outputs and tutor feedback.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/launch-into-computing.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -53,7 +64,7 @@
                 <h2>Module Overview</h2>
                 <p>Launch into Computing provides a comprehensive introduction to core computing disciplines, including Software Engineering, Artificial Intelligence, Cybersecurity, Data Science, and Enterprise IT Management. The module establishes theoretical foundations whilst engaging with practical applications relevant to real-world enterprise computing challenges. Through this module, I examined fundamental principles, methodologies, and emerging trends within computing fields, developing a strong theoretical foundation alongside practical problem-solving capabilities.</p>
 
-                <p>As the first substantive module of the programme, it was also my first direct contact with source code. The end of module assignment required running, modifying and comparing tutor-provided Python and JavaScript scripts &ndash; the point at which programming stopped being something other people did on my behalf.</p>
+                <p>It was also my first direct contact with source code. The end of module assignment required running, modifying and comparing tutor-provided Python and JavaScript scripts; both de-duplicated case-sensitively, so the counts they returned were wrong while the code itself ran without error. That gap, between code that runs and code that is right, is what the report ended up being about, and what I called silent semantic failures.</p>
 
                 <div class="module-result">
                     <strong>Module result: 76% (Distinction)</strong><br>
@@ -87,7 +98,7 @@
                 <h2>Assignments</h2>
                 
                 <div class="assignment-box">
-                    <h4>Collaborative Learning Discussion: The Evolution of Computing and Its Impact on Business and Society</h4>
+                    <h3>Collaborative Learning Discussion: The Evolution of Computing and Its Impact on Business and Society</h3>
                     <p><strong>Brief Description:</strong>Four-week discussion (1,000 words total). Reflect on how computing has transformed industries and societies. Choose one computing discipline (AI, Cybersecurity, Software Engineering, Data Science, or Enterprise IT Management) and explain its impact on a specific industry with a recent example from the past three years. Week 1: Initial post (300 words) using academic references. Weeks 2-3: Two peer responses (200 words each). Week 4: Summary post (300 words) demonstrating personal growth and critical engagement with peer contributions.</p>
 
                     <p><strong>Contribution:</strong> The discipline chosen was Enterprise IT Management, applied to NHS digital transformation and examined through the EITBOK governance lens, weighing clinical coordination benefits against cybersecurity vulnerabilities and digital exclusion. Peer contributions reframed enterprise IT as defining access, equity and confidence rather than efficiency, and connected this to culturally responsive computing &ndash; the argument that design choices carry the values and power structures of those making them. The summary post accepted the challenge to my assumption that computing solutions could be neutral, and closed by describing the shift from technical confidence towards critical humility: enterprise IT as a contested space where who designs, who decides and who benefits cannot be separated from technical choices.</p>
@@ -96,12 +107,12 @@
                     
                     <p><strong>Feedback Received:</strong> Your contribution demonstrates strong critical engagement with the ethical and regulatory dimensions of AI, and you extend the discussion by introducing relevant frameworks such as the EU AI Act and AIEBOK. You effectively link policy, engineering practice, and sustainability, showing a mature understanding of how ethical principles must translate into operational steps. However, while your response is well-informed and analytically sound, it does not always fully connect your points back to the peer’s original post, and some arguments would benefit from clearer reference to the specific claims made by the peer. Strengthening the alignment between critique, evidence, and the initial post would enhance the overall coherence.</p>
 
-                    <a href="../assets/documents/Collaborative Learning Discussion.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+                    <a href="../assets/documents/Collaborative Learning Discussion.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Assignment Output (PDF)</a>
                     
                 </div>
 
                 <div class="assignment-box">
-                    <h4>End of Module Assignment: Programming Languages and Computing Ethics</h4>
+                    <h3>End of Module Assignment: Programming Languages and Computing Ethics</h3>
     <p><strong>Brief Description:</strong> Two-part assessment. Part A (3,000 words, 40%): Compare tutor-provided Python and JavaScript scripts through code exploration, language comparison report, and professional reflection on ethical coding practices. Test scripts, make light modifications, analyse programming models, readability, and error handling. Reflect on bias, privacy, and real-world impact of coding choices. Part B (15-minute presentation, 40%): Critically evaluate one emerging technology (AI, Quantum Computing, or Blockchain), discussing technical aspects, ethical concerns, security risks, and governance frameworks. Include 10 slides, transcript, and eight peer-reviewed sources.</p>
 
     <p><strong>Part A submission:</strong> Both scripts removed duplicates from a list, but did so case-sensitively, so &ldquo;Apple&rdquo; and &ldquo;apple&rdquo; survived as separate entries. The light modification applied to each was to normalise case before de-duplication, which fixed the counting error but discarded the original capitalisation and ordering &ndash; a trade-off the report used to develop the idea of a <em>silent semantic failure</em>: code that runs without error, returns a plausible result, and is wrong. Part 2 compared the two languages on programming model, readability, error handling and suitability for modern workloads; Part 3 reflected on readable and ethical code, bias, privacy and the business and legal consequences of small coding decisions.</p>
@@ -116,10 +127,10 @@ Structure and Presentation: Part A is a well organised single report with clear 
 Academic integrity: You use a wide range of academic, technical, legal and policy sources with consistent Harvard referencing, clearly acknowledge limited use of Grammarly/Copilot for proofreading, and the writing and code read as your own with no sign of unacknowledged copying, which matches the top level of the marking guide. 
 </p>
     
-    <a href="../assets/documents/Part%20A%20-%20Evaluating%20the%20development%20models%20of%20two%20programming%20languages.pdf" class="download-link" target="_blank">Part A: Report (PDF)</a>
-    <a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank">Part B: Slides (PDF)</a>
-    <a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank">Part B: Transcript (PDF)</a>
-    <a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank">Part B: Video Presentation (MP4)</a>
+    <a href="../assets/documents/Part%20A%20-%20Evaluating%20the%20development%20models%20of%20two%20programming%20languages.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Part A: Report (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Presentation_Slides.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Slides (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Presentation_Transcript.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Transcript (PDF)</a>
+    <a href="../assets/documents/LiC_PartB_Video_Presentation.mp4" class="download-link" target="_blank" rel="noopener noreferrer">Part B: Video Presentation (MP4)</a>
 
                 </div>
             </section>
@@ -129,7 +140,7 @@ Academic integrity: You use a wide range of academic, technical, legal and polic
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
         </div>
     </footer>
 </body>

@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Artificial Intelligence - Anne Dayer</title>
+    <meta name="description" content="Understanding Artificial Intelligence, 87% (Distinction): collaborative discussions, an AI solution proposal for a clinical laboratory, and a machine learning implementation report, with tutor feedback.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/understanding-ai.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Anne Dayer &mdash; MSc AI ePortfolio">
+    <meta property="og:title" content="Understanding Artificial Intelligence - Anne Dayer">
+    <meta property="og:description" content="Understanding Artificial Intelligence, 87% (Distinction): collaborative discussions, an AI solution proposal for a clinical laboratory, and a machine learning implementation report, with tutor feedback.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/understanding-ai.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -53,7 +64,7 @@
                 <h2>Module Overview</h2>
                 <p>Understanding Artificial Intelligence examines the essential concepts, principles, methods and problems of AI, together with the legal, ethical and professional issues these technologies raise and their wider impact on society. The module runs from foundational AI concepts and agent architectures, through machine learning paradigms and the CRISP-DM/CRISP-ML(Q) process models, to the practical application of modelling tools on a real dataset.</p>
 
-                <p>The four assessments moved deliberately from discussion to delivery: two collaborative learning discussions establishing conceptual and critical foundations, an individual consultancy-style essay proposing three AI use cases for a business, and a hands-on implementation report producing and evaluating actual models. For me the module was the point at which AI stopped being something I governed in the abstract and became something I had built, however modestly, and could therefore interrogate on its own terms.</p>
+                <p>The four assessments move from discussion to delivery: two collaborative learning discussions, an individual consultancy report proposing three AI use cases, and an implementation report in which one of those cases was actually built and evaluated. The proposal was written for Labcorp Central Laboratory Services, where I work. The implementation report then tested its kit supply forecasting case against open healthcare supply chain data, and found that the process transferred while the performance figures did not. Procedural validity and production readiness are different problems.</p>
 
                 <div class="module-result">
                     <strong>Module result: 87% (Distinction)</strong><br>
@@ -84,7 +95,7 @@
                 <h2>Assignments</h2>
 
                 <div class="assignment-box">
-                    <h4>Collaborative Learning Discussion 1: AI Adoption in a Chosen Sector</h4>
+                    <h3>Collaborative Learning Discussion 1: AI Adoption in a Chosen Sector</h3>
                     <p><strong>Brief Description:</strong> Three-week asynchronous discussion requiring an initial post defining a sector use case for AI and describing its adoption, economic benefits and risks with academic support, followed by peer responses and a summary post evidencing personal growth. Assessed on knowledge and understanding, collaboration, criticality, structure, academic integrity and use of sources.</p>
 
                     <p><strong>Contribution:</strong> The initial post argued that AI investment is justified by the convergence of large-scale digital health data, falling computational costs and algorithmic maturation, which together make AI operationally ubiquitous rather than experimental, and proposed an Accountability-Embedded Governance model built on three defined roles. Peer engagement exposed a limitation in that framing: I had conflated regulatory compliance with operational readiness. The summary post revised the position from a linear to a systems perspective, treating governance, trust, data stewardship and workforce readiness as interdependent conditions requiring co-calibration rather than sequential gates.</p>
@@ -93,11 +104,11 @@
 
                     <p><strong>Feedback Received:</strong> &ldquo;An excellent demonstration of knowledge, displaying some originality and in-depth understanding in key areas of knowledge relevant to the work. Consistently demonstrates excellent ability to take ownership of an individual area of work... An excellent demonstration of critical analysis, thought/reflection, with regard to linking theory and practice where appropriate. An excellent structure and presentation that demonstrates professionalism and publishability. Excellent evidence of extensive use of source material (primary sources/research), accurately in support of their work... The initial post defines financial services as a use case, as required, and describes the use of AI well. The economic benefits are clearly listed. Good descriptions of benefits and risks, and the initial post is well written overall. The peer posts are 6. The references are ample, and that affects the quality of critical discussions and analysis. This facilitates very good critical discussions. The peer posts are well described with good, cited critical discussions... It is a very well-written summary post supported by a good number of citations. The contents show good insight and understanding of the relevant topics. The summary post redresses the learning from units material and peer posts, which is needed for a better learning experience. The interweaving of findings from peer discussions and unit material is very well done, offering clear insights and conclusions.&rdquo;</p>
 
-                    <a href="../assets/documents/UAI_CLD1_Summary_Post.pdf" class="download-link" target="_blank">View Summary Post (PDF)</a>
+                    <a href="../assets/documents/UAI_CLD1_Summary_Post.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Summary Post (PDF)</a>
                 </div>
 
                 <div class="assignment-box">
-                    <h4>Collaborative Learning Discussion 2: Machine Learning Algorithms and Their Contexts of Use</h4>
+                    <h3>Collaborative Learning Discussion 2: Machine Learning Algorithms and Their Contexts of Use</h3>
                     <p><strong>Brief Description:</strong> Three-week asynchronous discussion (Units 6&ndash;8) identifying and discussing two machine learning algorithms and the contexts in which they can be employed, considering supervised and unsupervised approaches and the strengths and weaknesses of each. Required an initial post of at least 200 words, responses to at least three peers, and a 300-word summary post.</p>
 
                     <p><strong>Contribution:</strong> The discussion compared a supervised approach (Random Forest) against an unsupervised one (k-means) and their differing normative assumptions. Peer exchange reoriented the argument: one peer established that unsupervised methods carry their own assumptions through parameter selection, so neither paradigm is epistemically neutral; another identified that CRISP-DM's linearisation removes critical review at the deployment stage; a third pushed back hardest, arguing that bias is a data collection problem that no architectural choice can resolve. The summary post accepted that challenge and developed it through Celi et al. (2022) on dataset provenance, Jones et al. (2023) on the causal roots of data disparity, and Schr&ouml;er et al. (2021) on absent deployment monitoring, concluding that audit protocols can detect deviation from intended behaviour but cannot detect exact conformity to a misspecified intention.</p>
@@ -108,11 +119,11 @@
 
                     <p><strong>Points for development:</strong> &ldquo;Evaluation techniques and using scenario analysis to discuss what learning algorithm to use can be helpful.&rdquo;</p>
 
-                    <a href="../assets/documents/UAI_CLD2_Summary_Post.pdf" class="download-link" target="_blank">View Summary Post (PDF)</a>
+                    <a href="../assets/documents/UAI_CLD2_Summary_Post.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Summary Post (PDF)</a>
                 </div>
 
                 <div class="assignment-box">
-                    <h4>Individual Essay: Artificial Intelligence and its Applications</h4>
+                    <h3>Individual Essay: Artificial Intelligence and its Applications</h3>
                     <p><strong>Brief Description:</strong> A 1,500-word consultancy report (40% of the module) persuading the senior management of a company with reservations about AI to adopt it. The report had to identify three key areas where AI could improve operations and return on investment, the problems likely to be encountered in each, the data required, the development approaches needed, and the strengths and weaknesses of each solution with reference to real deployments.</p>
 
                     <p><strong>Submission:</strong> An AI transformation proposal for Labcorp Central Laboratory Services, framed against the Industry 4.0 to 5.0 transition. Three use cases were proposed: Protocol Intelligence, a retrieval-augmented advisory system for study design targeting the 76% protocol amendment rate at $141,000&ndash;$535,000 per event; Start-Up Kit Supply Optimisation, using gradient boosting with a quantile regression objective against ~$2.5m of excess kit per trial; and Automated Gating for flow cytometry using vendor-qualified platforms. Rather than adopt an off-the-shelf process model, the report compared CRISP-DM, CRISP-ML(Q) and the NIST AI RMF, showed that none alone covers the combined operational, regulatory and accountability demands of a GCP-regulated laboratory, and proposed a synthesised LC-CLS AI Framework with a non-removable human-in-the-loop layer, governance controls mapped to EU AI Act Article 9 and 21 CFR Part 11, before/after tables for each use case, and measurable IT KPIs.</p>
@@ -121,11 +132,11 @@
 
                     <p><strong>Feedback Received:</strong> &ldquo;You discuss potential benefits of AI in a number of areas within the start-up business... You further outlined approaches to implement the solutions, which is excellent. Great discussions on the data points, ethics, and data quality. Excellent discussion on the comparison of 'before' and 'after'. You demonstrate a high degree of criticality in your discussion and appraisal of the proposed solutions. You have identified potential issues that need to be mindful of in each application area &ndash; for example, issues around privacy, bias, and data quality are excellent. Excellent discussion on the framework, models and technology selection. Framework integration aspect for each area highlighted in the report. Excellent use of sources to support your analysis... The report included an executive summary and a TOC; this is great. Great use of tables and images, which helped engage the readers. A very coherent flow of writing that provided the clarity of the report. The report is well written and reads very well &ndash; a delight to read.&rdquo;</p>
 
-                    <a href="../assets/documents/UAI_Individual_Essay_LC-CLS_AI_Proposal.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+                    <a href="../assets/documents/UAI_Individual_Essay_LC-CLS_AI_Proposal.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Assignment Output (PDF)</a>
                 </div>
 
                 <div class="assignment-box">
-                    <h4>Artificial Intelligence (AI) Solution Implementation</h4>
+                    <h3>Artificial Intelligence (AI) Solution Implementation</h3>
                     <p><strong>Brief Description:</strong> A report evidencing the implementation of an AI solution using an appropriate tool and dataset, with screenshots of model outputs and commentary demonstrating data pre- and post-processing, experiment design, training principles, algorithm selection and performance analysis in a justified business context.</p>
 
                     <p><strong>Submission:</strong> A quantity forecasting feasibility study taking forward the kit supply use case proposed in the individual essay. Because LC-CLS production data engages GDPR Article 9 special category obligations, the experiment used the open USAID Supply Chain Management System delivery history (10,306 instances after cleaning, 43 countries) as a healthcare-domain proxy. Preprocessing reduced 33 columns to 12 analytical attributes, with two leaky features removed on the grounds that Line Item Value is derivable from the target by division. Following CRISP-ML(Q) quality gates, four regressors were evaluated under stratified 10-fold cross-validation in WEKA: ZeroR as baseline, Linear Regression for full coefficient traceability, M5P for auditable node-level rules, and Random Forest as the performance benchmark. Random Forest achieved R = 0.660 and MAE 13,011, a 43.0% reduction in mean absolute error over the baseline, confirmed by an 80/20 holdout. The report's central argument was that procedural validity and production readiness are different problems: the process, feature engineering and evaluation framework transfer to LC-CLS, but the performance figures do not, and a proxy-to-production mapping table set out exactly which elements fail to carry across.</p>
@@ -136,7 +147,7 @@
 
                     <p><strong>Points for development:</strong> &ldquo;The analysis could be more detailed by examining performance using additional metrics rather than focusing solely on accuracy&rdquo; and &ldquo;A table of contents can be added.&rdquo;</p>
 
-                    <a href="../assets/documents/UAI_AI_Solution_Implementation_Report.pdf" class="download-link" target="_blank">View Assignment Output (PDF)</a>
+                    <a href="../assets/documents/UAI_AI_Solution_Implementation_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View Assignment Output (PDF)</a>
                 </div>
             </section>
 
@@ -145,7 +156,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Anne Dayer | MSc Artificial Intelligence | University of Essex</p>
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
         </div>
     </footer>
 </body>
