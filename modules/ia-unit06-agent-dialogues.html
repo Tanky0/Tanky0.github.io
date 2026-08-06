@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Agent Dialogues (KQML / KIF) - Anne Dayer</title>
+    <meta name="description" content="Intelligent Agents Unit 6 e-portfolio artefact: a KQML and KIF dialogue between a procurement agent and a warehouse agent, with the supporting ontology, a critical evaluation and a reflection.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-unit06-agent-dialogues.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Creating Agent Dialogues (KQML / KIF) - Anne Dayer">
+    <meta property="og:description" content="Intelligent Agents Unit 6 e-portfolio artefact: a KQML and KIF dialogue between a procurement agent and a warehouse agent, with the supporting ontology, a critical evaluation and a reflection.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-unit06-agent-dialogues.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    /* Artefact-local styles. The site stylesheet has no code or figure rules,
+       so these are scoped to .artefact and built from the existing tokens. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        line-height: 1.62;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 1rem 1.15rem;
+        margin: 1.15rem 0;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+        white-space: nowrap;
+    }
+
+    .artefact pre code {
+        background: none;
+        padding: 0;
+        font-size: inherit;
+        white-space: pre;
+    }
+
+    .artefact figure {
+        margin: 2rem 0;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.25rem 1rem 0.9rem;
+    }
+
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figure svg { display: block; min-width: 620px; width: 100%; height: auto; }
+
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.9rem;
+        text-align: center;
+    }
+
+    .artefact .msg-head {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        color: var(--accent);
+        margin-top: 2rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .artefact .reflist p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+
+    /* Diagram tokens, so the SVG follows the light/dark toggle. */
+    .seqdiag { color: var(--ink-2); }
+    .seqdiag .lifeline { stroke: var(--rule-strong); stroke-dasharray: 3 4; }
+    .seqdiag .actorbox { fill: var(--paper-3); stroke: var(--rule-strong); }
+    .seqdiag .actorname { fill: var(--ink); font-family: var(--sans); font-size: 13px; font-weight: 600; }
+    .seqdiag .actorrole { fill: var(--ink-3); font-family: var(--mono); font-size: 10px; }
+    .seqdiag .arrow { stroke: currentColor; stroke-width: 1.2; }
+    .seqdiag .perf { fill: var(--accent); font-family: var(--mono); font-size: 11.5px; font-weight: 500; }
+    .seqdiag .gloss { fill: var(--ink-3); font-family: var(--sans); font-size: 10.5px; }
+    .seqdiag .head { fill: currentColor; }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow">Intelligent Agents · Unit 6 e-Portfolio Activity</p>
+            <h1>Creating Agent Dialogues</h1>
+            <p class="lede">A KQML and KIF dialogue between a procurement agent and a warehouse agent, with the ontology it depends on and an assessment of where it fails.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Creating Agent Dialogues</span>
+            </div>
+
+            <section class="content-section" id="the-task">
+                <h2>The Task</h2>
+
+                <p class="deadline"><strong>Unit 6</strong> · Formative practical activity · Tutor: Dr Angesh Anupam</p>
+
+                <p>The Unit 6 activity asks for an agent dialogue, written in KQML and KIF, between two named agents. Alice is an agent designed to procure stock and Bob is an agent that controls the stock levels for a warehouse. The dialogue should see Alice asking Bob about the available stock of 50 inch televisions, and also querying the number of HDMI slots the televisions have.</p>
+
+                <p>The unit learning outcomes attached to it are the ability to develop dialogues using KQML/KIF, and an understanding of the use and deployment of ontologies as a means of knowledge sharing.</p>
+
+                <p>I have treated the second outcome as the harder one. Writing eight well-formed messages is a matter of following the syntax in Finin <em>et al.</em> (1994). Deciding what <code>50 inch</code> and <code>HDMI slot</code> actually denote, and who gets to decide, is where the interesting work sits, so the artefact begins with the ontology rather than with the dialogue.</p>
+            </section>
+
+            <section class="content-section" id="why-an-agent-communication-language">
+                <h2>Why an Agent Communication Language at All</h2>
+
+                <p>Wooldridge draws the distinction that motivates the whole exercise. If a Java object <code>o2</code> invokes <code>o1.m1(arg)</code>, the decision to execute <code>m1</code> belongs entirely to <code>o2</code>, and <code>o1</code> has no say in it (2009, pp. 131-132). An agent cannot be commanded that way, because it is autonomous over both its state and its behaviour. Agents can neither force other agents to act nor write onto another agent's internal state. What they can do is perform communicative actions in an attempt to influence one another.</p>
+
+                <p>That framing comes from speech act theory, which begins with Austin's observation that some utterances are themselves actions changing the state of the world (Austin, 1975, cited in University of Essex Online, no date). Searle (1969) then classified illocutionary acts into five kinds, summarised by Wooldridge (2009, pp. 133-134) as representatives, directives, commissives, expressives and declarations. The consequence is visible in one sentence. <em>The door is closed</em> can be a request, an assertion or an enquiry, and only the performative verb distinguishes them, because the propositional content is identical in all three (University of Essex Online, no date).</p>
+
+                <p>KQML makes that split structural. The performative comes first and fixes the illocutionary force. Everything else, including the content itself, is an argument (Finin <em>et al.</em>, 1994, p. 459). This is what allows Bob to receive <code>(available tv-lx50 wh-01)</code> and know without parsing it whether he is being asked, told or instructed.</p>
+            </section>
+
+            <section class="content-section" id="the-warehouse-stock-ontology">
+                <h2>The warehouse-stock Ontology</h2>
+
+                <p>Both agents declare <code>:ontology warehouse-stock</code> on every message. The Unit 5 lecturecast defines an ontology as a formal specification of the set of terms the agents will use, and notes that new terms are normally defined out of existing well understood ones (University of Essex Online, no date). I have followed the same tabular form used for the block world in Unit 5, then given the KIF axioms that make the definitions machine-readable. KIF is based on first-order logic, so the quantifiers and connectives are those covered in Unit 2 (Russell and Norvig, 2022, ch. 8).</p>
+
+                <h3>Terms</h3>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Term</th><th>Kind</th><th>Meaning</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>(Product ?x)</code></td><td>relation, arity 1</td><td><code>?x</code> is a stock-keeping product line</td></tr>
+                        <tr><td><code>(Television ?x)</code></td><td>relation, arity 1</td><td><code>?x</code> is a television; subclass of <code>Product</code></td></tr>
+                        <tr><td><code>(Warehouse ?w)</code></td><td>relation, arity 1</td><td><code>?w</code> is a physical warehouse site</td></tr>
+                        <tr><td><code>(scalar ?n ?u)</code></td><td>function, arity 2</td><td>a quantity of magnitude <code>?n</code> in unit <code>?u</code></td></tr>
+                        <tr><td><code>(screen-size ?x)</code></td><td>function, arity 1</td><td>nominal diagonal screen size of <code>?x</code>, as a <code>scalar</code></td></tr>
+                        <tr><td><code>(hdmi-ports ?x)</code></td><td>function, arity 1</td><td>count of HDMI input sockets on <code>?x</code></td></tr>
+                        <tr><td><code>(on-hand ?x ?w)</code></td><td>function, arity 2</td><td>units of <code>?x</code> physically present at <code>?w</code></td></tr>
+                        <tr><td><code>(reserved ?x ?w)</code></td><td>function, arity 2</td><td>units of <code>?x</code> at <code>?w</code> already committed to orders</td></tr>
+                        <tr><td><code>(available ?x ?w)</code></td><td>function, arity 2</td><td>units of <code>?x</code> at <code>?w</code> free to allocate</td></tr>
+                        <tr><td><code>(FiftyInchTV ?x)</code></td><td>relation, arity 1</td><td>derived term, defined below</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <h3>Axioms</h3>
+
+                <p>Class inheritance, which is the mechanism the lecturecast illustrates with the Netflix example, where an instance inherits the attributes of its class and a class those of its superclass:</p>
+
+<pre><code>(forall (?x)
+  (=&gt; (Television ?x)
+      (Product ?x)))
+
+(forall (?x)
+  (=&gt; (Television ?x)
+      (and (exists (?s) (= (screen-size ?x) ?s))
+           (exists (?n) (= (hdmi-ports ?x) ?n)))))</code></pre>
+
+                <p>Availability is defined, not stored, which matters later:</p>
+
+<pre><code>(forall (?x ?w)
+  (=&gt; (and (Product ?x) (Warehouse ?w))
+      (= (available ?x ?w)
+         (- (on-hand ?x ?w) (reserved ?x ?w)))))</code></pre>
+
+                <p>And the term the dialogue actually turns on. Alice does not need a primitive for <em>50 inch television</em>; she builds it from terms Bob already holds, exactly as the lecturecast describes Alice defining <em>Space Agents</em> out of <em>sci-fi</em>, <em>detective story</em> and <em>Blade Runner</em>:</p>
+
+<pre><code>(forall (?x)
+  (&lt;=&gt; (FiftyInchTV ?x)
+       (and (Television ?x)
+            (= (screen-size ?x) (scalar 50 inch)))))</code></pre>
+
+                <p>A note on form. KIF provides dedicated <code>defrelation</code> and <code>deffunction</code> constructs for definitions of exactly this kind, and they would be more idiomatic here. I have written the axioms as plain quantified sentences instead, because the set reading for this module establishes only that KIF is based on first-order logic and can be used to express ontologies (University of Essex Online, no date), and the sole KIF the module shows is the ground equality <code>(= (torque m1) (scalar 12 kgf.m))</code> (Wooldridge, 2009, p. 139). The biconditional carries the same definitional force and stays inside what the module actually supplies.</p>
+
+                <p>Two design decisions in that definition are worth naming, because they are the ones that fail in the ontology mismatch section below:</p>
+
+                <ol>
+                    <li><code>50</code> is the <strong>nominal marketing size</strong>. Whether a supplier's catalogue holds the marketing figure or a measured diagonal is a modelling choice, and this ontology commits to the first without saying so anywhere a reasoner could detect.</li>
+                    <li><code>hdmi-ports</code> counts sockets and carries no revision. Two sockets of different HDMI generations are indistinguishable under this vocabulary.</li>
+                </ol>
+            </section>
+
+            <section class="content-section" id="the-dialogue">
+                <h2>The Dialogue</h2>
+
+                <p>Nine messages, in order. Message flow first, then the messages themselves.</p>
+
+                <figure>
+                    <div class="fig-scroll">
+                    <svg class="seqdiag" viewBox="0 0 760 486" role="img" aria-labelledby="seqtitle seqdesc" xmlns="http://www.w3.org/2000/svg">
+                        <title id="seqtitle">Sequence of the nine KQML messages between Alice and Bob</title>
+                        <desc id="seqdesc">Bob advertises his capability. Alice sends ask-if, Bob replies tell. Alice sends ask-all, Bob replies reply. Alice sends stream-all, Bob replies with two tell messages and an eos.</desc>
+
+                        <defs>
+                            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                                <path d="M0,0 L10,5 L0,10 z" class="head"/>
+                            </marker>
+                        </defs>
+
+                        <!-- actors -->
+                        <rect class="actorbox" x="52" y="10" width="196" height="42" rx="2"/>
+                        <text class="actorname" x="150" y="30" text-anchor="middle">Alice</text>
+                        <text class="actorrole" x="150" y="44" text-anchor="middle">procurement agent</text>
+
+                        <rect class="actorbox" x="512" y="10" width="196" height="42" rx="2"/>
+                        <text class="actorname" x="610" y="30" text-anchor="middle">Bob</text>
+                        <text class="actorrole" x="610" y="44" text-anchor="middle">warehouse wh-01</text>
+
+                        <!-- lifelines -->
+                        <line class="lifeline" x1="150" y1="52" x2="150" y2="470"/>
+                        <line class="lifeline" x1="610" y1="52" x2="610" y2="470"/>
+
+                        <!-- M1 Bob to Alice -->
+                        <text class="perf"  x="380" y="82"  text-anchor="middle">M1  advertise</text>
+                        <text class="gloss" x="380" y="94"  text-anchor="middle">Bob claims he can process ask-all on available</text>
+                        <line class="arrow" x1="610" y1="102" x2="152" y2="102" marker-end="url(#ah)"/>
+
+                        <!-- M2 Alice to Bob -->
+                        <text class="perf"  x="380" y="126" text-anchor="middle">M2  ask-if  ·  :reply-with q1</text>
+                        <text class="gloss" x="380" y="138" text-anchor="middle">is any 50 inch television available?</text>
+                        <line class="arrow" x1="150" y1="146" x2="608" y2="146" marker-end="url(#ah)"/>
+
+                        <!-- M3 Bob to Alice -->
+                        <text class="perf"  x="380" y="170" text-anchor="middle">M3  tell  ·  :in-reply-to q1</text>
+                        <text class="gloss" x="380" y="182" text-anchor="middle">yes, asserted as the queried sentence</text>
+                        <line class="arrow" x1="610" y1="190" x2="152" y2="190" marker-end="url(#ah)"/>
+
+                        <!-- M4 Alice to Bob -->
+                        <text class="perf"  x="380" y="214" text-anchor="middle">M4  ask-all  ·  :reply-with q2</text>
+                        <text class="gloss" x="380" y="226" text-anchor="middle">which models, and how many of each?</text>
+                        <line class="arrow" x1="150" y1="234" x2="608" y2="234" marker-end="url(#ah)"/>
+
+                        <!-- M5 Bob to Alice -->
+                        <text class="perf"  x="380" y="258" text-anchor="middle">M5  reply  ·  :in-reply-to q2</text>
+                        <text class="gloss" x="380" y="270" text-anchor="middle">tv-lx50 = 42, tv-nb50 = 7</text>
+                        <line class="arrow" x1="610" y1="278" x2="152" y2="278" marker-end="url(#ah)"/>
+
+                        <!-- M6 Alice to Bob -->
+                        <text class="perf"  x="380" y="302" text-anchor="middle">M6  stream-all  ·  :reply-with q3</text>
+                        <text class="gloss" x="380" y="314" text-anchor="middle">how many HDMI ports per model?</text>
+                        <line class="arrow" x1="150" y1="322" x2="608" y2="322" marker-end="url(#ah)"/>
+
+                        <!-- M7 Bob to Alice -->
+                        <text class="perf"  x="380" y="346" text-anchor="middle">M7  tell  ·  :in-reply-to q3</text>
+                        <text class="gloss" x="380" y="358" text-anchor="middle">tv-lx50 has 4</text>
+                        <line class="arrow" x1="610" y1="366" x2="152" y2="366" marker-end="url(#ah)"/>
+
+                        <!-- M8 Bob to Alice -->
+                        <text class="perf"  x="380" y="390" text-anchor="middle">M8  tell  ·  :in-reply-to q3</text>
+                        <text class="gloss" x="380" y="402" text-anchor="middle">tv-nb50 has 3</text>
+                        <line class="arrow" x1="610" y1="410" x2="152" y2="410" marker-end="url(#ah)"/>
+
+                        <!-- M9 Bob to Alice -->
+                        <text class="perf"  x="380" y="434" text-anchor="middle">M9  eos  ·  :in-reply-to q3</text>
+                        <text class="gloss" x="380" y="446" text-anchor="middle">no content, no language: end of stream</text>
+                        <line class="arrow" x1="610" y1="454" x2="152" y2="454" marker-end="url(#ah)"/>
+                    </svg>
+                    </div>
+                    <figcaption>Figure 1. Message flow for the Alice and Bob dialogue.</figcaption>
+                </figure>
+
+                <p class="msg-head">M1. Bob advertises his capability</p>
+
+<pre><code>(advertise
+  :sender     bob
+  :receiver   alice
+  :language   KQML
+  :ontology   warehouse-stock
+  :content    (ask-all
+                :language KIF
+                :ontology warehouse-stock
+                :content  (available ?x wh-01)))</code></pre>
+
+                <p><code>advertise</code> is a capability-definition performative, by which a sender claims to be suited to processing a given performative (Wooldridge, 2009, p. 138). Its content is itself a KQML message, which is why <code>:language</code> on the outer message is <code>KQML</code> and only the inner message declares <code>KIF</code>. This message is what justifies Alice querying Bob at all, in the same way that the stock-ticker <code>advertise</code> justifies a later <code>monitor</code> in Finin <em>et al.</em> (1994, p. 460).</p>
+
+                <p class="msg-head">M2. Alice asks whether any 50 inch stock exists</p>
+
+<pre><code>(ask-if
+  :sender     alice
+  :receiver   bob
+  :language   KIF
+  :ontology   warehouse-stock
+  :reply-with q1
+  :content    (exists (?x)
+                (and (FiftyInchTV ?x)
+                     (&gt; (available ?x wh-01) 0))))</code></pre>
+
+                <p>A directive in Searle's scheme. <code>ask-if</code> asks whether the answer to the content sentence is present in the receiver's virtual knowledge base (Wooldridge, 2009, p. 138). Note the quantifier: Alice is asking an existential question, not requesting a list, and <code>:reply-with q1</code> names the query so that any later message can be tied back to it.</p>
+
+                <p class="msg-head">M3. Bob answers</p>
+
+<pre><code>(tell
+  :sender      bob
+  :receiver    alice
+  :language    KIF
+  :ontology    warehouse-stock
+  :in-reply-to q1
+  :content     (exists (?x)
+                 (and (FiftyInchTV ?x)
+                      (&gt; (available ?x wh-01) 0))))</code></pre>
+
+                <p>A representative. With <code>tell</code>, the sender claims that the content sentence is in its own virtual knowledge base (Wooldridge, 2009, p. 138). The content is repeated verbatim rather than reduced to a token <code>true</code>, which is deliberate: KQML has no boolean reply, so an affirmative answer is the assertion of the queried sentence. Had the answer been negative, Bob would have sent <code>untell</code>, and that carries a weaker claim than most readers expect. <code>untell</code> says the sentence is <em>not in</em> Bob's knowledge base, not that it is false. A warehouse with an unsynchronised feed and a warehouse with genuinely no 50 inch televisions produce the identical message.</p>
+
+                <p class="msg-head">M4. Alice asks for models and quantities</p>
+
+<pre><code>(ask-all
+  :sender     alice
+  :receiver   bob
+  :language   KIF
+  :ontology   warehouse-stock
+  :reply-with q2
+  :content    (and (FiftyInchTV ?x)
+                   (= (available ?x wh-01) ?n)))</code></pre>
+
+                <p><code>ask-all</code> requests every answer the receiver holds to the question posed (Wooldridge, 2009, p. 138). Two free variables, <code>?x</code> and <code>?n</code>, so Bob should return the set of pairs that satisfy the conjunction.</p>
+
+                <p class="msg-head">M5. Bob replies with the bindings</p>
+
+<pre><code>(reply
+  :sender      bob
+  :receiver    alice
+  :language    KIF
+  :ontology    warehouse-stock
+  :in-reply-to q2
+  :content     (and (= (available tv-lx50 wh-01) 42)
+                    (= (available tv-nb50 wh-01) 7)))</code></pre>
+
+                <p><code>reply</code> simply communicates an expected answer (Wooldridge, 2009, p. 138). The answer set arrives as one message containing a conjunction of ground KIF sentences. This is legal, but it is not the only reading available. Finin <em>et al.</em> (1994) set out the performative categories without fixing the form an answer set should take, and I read that silence as leaving the choice open between a set of substitutions and a conjunction of instantiated sentences. The inference is mine rather than theirs. If it holds, two conforming implementations can disagree about how to parse M5, which is precisely the interoperability weakness discussed below.</p>
+
+                <p class="msg-head">M6. Alice asks about HDMI slots as a stream</p>
+
+<pre><code>(stream-all
+  :sender     alice
+  :receiver   bob
+  :language   KIF
+  :ontology   warehouse-stock
+  :reply-with q3
+  :content    (and (FiftyInchTV ?x)
+                   (= (hdmi-ports ?x) ?n)))</code></pre>
+
+                <p><code>stream-all</code> is the multiple-response version of <code>ask-all</code>. The brief asks about the slots on <em>the televisions</em>, plural, so a stream is the natural fit: each model comes back separately and Alice can begin evaluating the first while the rest are still in flight. This follows the <code>stream-about</code>/<code>tell</code>/<code>tell</code>/<code>eos</code> pattern demonstrated in the Unit 5 lecturecast and in Wooldridge (2009, p. 139, fig. 7.2b).</p>
+
+                <p class="msg-head">M7 and M8. Bob streams one answer per model</p>
+
+<pre><code>(tell
+  :sender      bob
+  :receiver    alice
+  :language    KIF
+  :ontology    warehouse-stock
+  :in-reply-to q3
+  :content     (= (hdmi-ports tv-lx50) 4))
+
+(tell
+  :sender      bob
+  :receiver    alice
+  :language    KIF
+  :ontology    warehouse-stock
+  :in-reply-to q3
+  :content     (= (hdmi-ports tv-nb50) 3))</code></pre>
+
+                <p class="msg-head">M9. End of stream</p>
+
+<pre><code>(eos
+  :sender      bob
+  :receiver    alice
+  :in-reply-to q3)</code></pre>
+
+                <p><code>eos</code> has no <code>:content</code> and no <code>:language</code>. Wooldridge describes it as "a kind of meta-message" (2009, p. 140), a message about messages. It is worth pausing on that, because it undercuts the tidy story told earlier. <code>eos</code> is not a speech act in Searle's sense at all. It has no propositional content and performs no illocutionary act on Alice's beliefs or intentions. It is flow control that happens to live in the same namespace as <code>tell</code> and <code>ask-if</code>. The performative set is doing two jobs at once, and Wooldridge's complaint that it is "overly large and, it could be argued, rather ad hoc" (2009, p. 140) is at least partly a complaint about this conflation.</p>
+            </section>
+
+            <section class="content-section" id="what-each-message-does">
+                <h2>What Each Message Does, in Speech Act Terms</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Msg</th><th>Performative</th><th>Searle category</th><th>Illocutionary force</th><th>Propositional content</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>M1</td><td><code>advertise</code></td><td>representative</td><td>Bob asserts a fact about his own competence</td><td>Bob can process <code>ask-all</code> on <code>available</code></td></tr>
+                        <tr><td>M2</td><td><code>ask-if</code></td><td>directive</td><td>Alice attempts to make Bob answer</td><td>some 50 inch TV has availability above zero</td></tr>
+                        <tr><td>M3</td><td><code>tell</code></td><td>representative</td><td>Bob attempts to modify Alice's beliefs</td><td>as M2</td></tr>
+                        <tr><td>M4</td><td><code>ask-all</code></td><td>directive</td><td>Alice attempts to make Bob enumerate</td><td>model and quantity pairs</td></tr>
+                        <tr><td>M5</td><td><code>reply</code></td><td>representative</td><td>Bob asserts the enumeration</td><td>42 of <code>tv-lx50</code>, 7 of <code>tv-nb50</code></td></tr>
+                        <tr><td>M6</td><td><code>stream-all</code></td><td>directive</td><td>Alice attempts to make Bob enumerate serially</td><td>model and HDMI port pairs</td></tr>
+                        <tr><td>M7</td><td><code>tell</code></td><td>representative</td><td>Bob asserts</td><td><code>tv-lx50</code> has 4 ports</td></tr>
+                        <tr><td>M8</td><td><code>tell</code></td><td>representative</td><td>Bob asserts</td><td><code>tv-nb50</code> has 3 ports</td></tr>
+                        <tr><td>M9</td><td><code>eos</code></td><td>none</td><td>protocol control, not an illocutionary act</td><td>none</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <p>Two things stand out from the completed table. Every substantive message is either a directive or a representative, and there is not one commissive anywhere in the exchange. That is not an accident of my design, as the evaluation below shows.</p>
+            </section>
+
+            <section class="content-section" id="ontology-mismatch">
+                <h2>Where the Dialogue Breaks: Ontology Mismatch</h2>
+
+                <p>Suppose Alice's buyer distinguishes between HDMI revisions, which <code>hdmi-ports</code> cannot express, so she has to ask for something the ontology does not carry.</p>
+
+<pre><code>(ask-one
+  :sender     alice
+  :receiver   bob
+  :language   KIF
+  :ontology   warehouse-stock
+  :reply-with q4
+  :content    (= (hdmi-version tv-lx50) ?v))</code></pre>
+
+<pre><code>(sorry
+  :sender      bob
+  :receiver    alice
+  :in-reply-to q4)</code></pre>
+
+                <p><code>sorry</code> signals that the sender cannot provide a more informative reply (Wooldridge, 2009, p. 138). Bob is not refusing, and he is not saying the televisions lack an HDMI version. He is saying that <code>hdmi-version</code> is not a term he can interpret, because <code>warehouse-stock</code> does not define it. The <code>:ontology</code> field named a vocabulary they both claim, and it still failed, because the vocabulary was not rich enough for the question Alice needed to ask.</p>
+
+                <p>A worse variant is silent rather than noisy. If Bob's internal catalogue records screen size as a measured diagonal in millimetres, and Alice's <code>FiftyInchTV</code> term expects the nominal marketing figure, then Bob evaluates <code>(= (screen-size ?x) (scalar 50 inch))</code> against <code>(scalar 1257 mm)</code> and returns nothing. Both agents are behaving correctly. Alice concludes there is no 50 inch stock and goes to another supplier, whilst 42 units sit on Bob's floor. There is no <code>sorry</code> here and no <code>error</code>, only an empty result set that looks exactly like a truthful negative.</p>
+
+                <p>This is the semantic heterogeneity problem the Unit 5 lecturecast raises. Payne and Tamma (2014, p. 517) frame it directly: agents are not guaranteed to share a vocabulary, so correspondences have to be selected that give a coherent alignment between their ontologies, and each agent holds only a private, incomplete and typically ambiguous set of those correspondences. Their Correspondence Inclusion Dialogue lets two agents each disclose a subset and still agree an unambiguous alignment, reaching around 95% of the optimum found centrally with complete information whilst each agent discloses on average 16.76% of its own correspondences.</p>
+
+                <p>That constraint is not artificial in a procurement setting. Bob's employer has no interest in handing a buyer its full product taxonomy, and Alice's employer has no interest in publishing its buying criteria. The alignment has to be negotiated, partially, in the same message stream as the query. What the dialogue above does instead is assume the problem away by stipulating a shared <code>warehouse-stock</code> ontology in advance, which is the honest limitation of this artefact.</p>
+            </section>
+
+            <section class="content-section" id="critical-evaluation">
+                <h2>Critical Evaluation of KQML</h2>
+
+                <h3>Strengths the dialogue demonstrates</h3>
+
+                <p><strong>Force is separated from content.</strong> Bob routes on the performative without reading <code>:content</code>. Finin <em>et al.</em> note that all KQML implementations ignore the content portion except to recognise where it begins and ends (1994, p. 459), and their router is deliberately content independent (p. 461). M2 and M3 carry an identical KIF sentence and mean opposite things, which is the <em>door is closed</em> problem solved structurally.</p>
+
+                <p><strong>Content language is not fixed.</strong> Because <code>:language</code> is declared per message, the same infrastructure carries KIF, Prolog or SQL. M1 carries KQML in its content whilst M2 carries KIF, in one exchange.</p>
+
+                <p><strong>Conversations are threadable.</strong> <code>:reply-with</code> and <code>:in-reply-to</code> let M7, M8 and M9 be tied to M6 without any assumption of synchronous request and response. This is what makes the asynchronous stream possible at all.</p>
+
+                <p><strong>Autonomy is preserved.</strong> Bob's <code>sorry</code> above is a legitimate answer. There is no equivalent in a method call, where the only outcomes are a return value or an exception, and neither expresses <em>I understood you and I decline to be more informative</em>.</p>
+
+                <h3>Weaknesses the dialogue demonstrates</h3>
+
+                <p>Wooldridge (2009, p. 140) lists five criticisms. Four of them are visible in the nine messages above.</p>
+
+                <p><strong>Fluid performative set.</strong> Finin <em>et al.</em> concede it themselves, describing the reserved set as "neither a minimal required set nor a closed one" (1994, p. 460). Two implementations can both claim KQML and fail to interoperate.</p>
+
+                <p><strong>Undefined transport.</strong> Nothing in M1 to M9 says how the bytes reach Bob. Finin <em>et al.</em> report implementations over TCP/IP, email, Linda, HTTP and CORBA (1994, p. 459), so ordering guarantees differ between deployments. For M7, M8 and M9 that matters directly: if the transport does not preserve order, <code>eos</code> can arrive before the second <code>tell</code>, and Alice truncates the answer set.</p>
+
+                <p><strong>Informal semantics.</strong> The meaning of <code>tell</code> is an English gloss. Nothing lets Alice verify that Bob's <code>tell</code> in M3 reflects a genuine state of his knowledge base rather than an optimistic guess, and this is the point at which I remain least satisfied, as the reflection records.</p>
+
+                <p><strong>Overly large and ad hoc set.</strong> Forty-one performatives in the version tabulated by Wooldridge (Finin <em>et al.</em>, 1993, cited in Wooldridge, 2009, p. 138), mixing illocutionary acts with flow control such as <code>eos</code>, <code>next</code> and <code>discard</code>.</p>
+
+                <h3>The missing commissives</h3>
+
+                <p>The fifth criticism deserves its own treatment, because it is the one that stops the dialogue from doing the job the brief implies. Alice is a procurement agent. Having found 42 units, what she actually wants is to hold 20 of them.</p>
+
+<pre><code>(achieve
+  :sender     alice
+  :receiver   bob
+  :language   KIF
+  :ontology   warehouse-stock
+  :reply-with q5
+  :content    (= (reserved tv-lx50 wh-01) 20))</code></pre>
+
+                <p>With <code>achieve</code>, a sender asks the receiver to make something true of their environment (Wooldridge, 2009, p. 138). The Unit 5 lecturecast introduces <code>perform</code> for the same job, described as a request to carry out an action of some sort (University of Essex Online, no date). I have used <code>achieve</code> because it appears in the reserved set Wooldridge tabulates whilst <code>perform</code> does not, but either would carry the directive force. It is the right message. The problem is Bob's reply. The only representative available to him is:</p>
+
+<pre><code>(tell
+  :sender      bob
+  :receiver    alice
+  :language    KIF
+  :ontology    warehouse-stock
+  :in-reply-to q5
+  :content     (= (reserved tv-lx50 wh-01) 20))</code></pre>
+
+                <p>which asserts that 20 units <em>are</em> reserved, as a fact about the world at the moment of sending. It is not a promise. Nothing in it commits Bob to keeping them reserved for the next thirty seconds, and if a second procurement agent sends the same <code>achieve</code> immediately afterwards, Bob can truthfully <code>tell</code> both. Wooldridge puts it plainly: the language is missing an entire class of performatives, and it is difficult to see how many multiagent scenarios could be implemented without commissives, which appear important if agents are to coordinate their actions (Cohen and Levesque, 1990, cited in Wooldridge, 2009, p. 140).</p>
+
+                <p>Searle's five categories included commissives for a reason. A procurement dialogue that cannot express <em>I promise to hold these for you</em> is not a procurement dialogue, it is a catalogue lookup. The <code>available</code> function defined above, which subtracts <code>reserved</code> from <code>on-hand</code>, was written to make this concrete: the ontology has a place to record a commitment, and the language has no act that creates one.</p>
+            </section>
+
+            <section class="content-section" id="learning-outcomes">
+                <h2>Mapping to the Module Learning Outcomes</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Learning outcome</th><th>Evidence in this artefact</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Develop dialogues using KQML/KIF or other appropriate ACLs</td><td>Nine messages plus two failure branches, using nine distinct performatives across four of the seven Finin categories</td></tr>
+                        <tr><td>Understand the use and deployment of ontologies as a means of knowledge sharing</td><td>Term table, KIF axioms and a derived term built from existing terms; and what happens when the shared vocabulary is insufficient</td></tr>
+                        <tr><td>Identify and critically analyse agent-based systems, differentiating between architectures and approaches</td><td>Autonomy contrasted with method invocation; KQML assessed against its own designers' admissions</td></tr>
+                        <tr><td>Apply and critically evaluate intelligent agent techniques to real-world problems, particularly where technical risk and uncertainty is involved</td><td>The silent-failure variant of the ontology mismatch; the commissive gap and its commercial consequence</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section class="content-section" id="reflection">
+                <h2>Reflection</h2>
+
+                <p>Writing this artefact changed what I thought the exercise was about. My first draft was a clean four-message exchange, <code>ask-if</code>, <code>tell</code>, <code>ask-one</code>, <code>reply</code>, and it satisfied the brief. It was also close to useless as evidence, because it demonstrated nothing beyond an ability to copy a syntax. What made it worth doing was asking what would have to be true for the dialogue to work, and then noticing how much of that is assumed rather than expressed.</p>
+
+                <p>The <code>:ontology warehouse-stock</code> field is the clearest example. It looks like a guarantee and it is only a claim. Both agents assert they are using the same vocabulary, and neither can check. I spent longer on the ontology than on the whole dialogue, and the two design commitments I flagged there, nominal rather than measured screen size and version-blind port counting, are the sort of thing I would normally see raised late, after an integration has already produced wrong numbers.</p>
+
+                <p>That connects directly to my work. In central laboratory operations we exchange data with sponsor systems across organisational boundaries constantly, and the recurring failure is almost never transport. It is two parties using the same term with different referents and neither noticing until a reconciliation fails. Payne and Tamma's constraint, that agents may need to align vocabularies they are unwilling to disclose, describes a situation I recognise from commercial negotiations rather than from anything I expected to meet in a computing module. I had assumed ontology alignment was a schema-matching problem. It is at least as much a disclosure problem. I should not oversell the remedy. CID is a 2014 research proposal tested on benchmark ontologies, not deployed practice.</p>
+
+                <p>The commissive gap was the part I found genuinely uncomfortable. Bob's <code>tell</code> in the evaluation above is true when sent and worthless as an assurance, and my instinct was to look for the performative I had missed. There isn't one. Sitting with that taught me more about the limits of a specification than the successful messages did, and it explains why the criticisms Wooldridge lists led to FIPA rather than to a revision of KQML.</p>
+
+                <p>I should be honest about what I have not done. This is a paper exercise. I have not implemented these agents, so I have not met the practical problems of parsing KIF, handling out-of-order streams or deciding what a router does with an unrecognised performative, and my confidence that the KIF is well-formed rests on matching published examples rather than on running it. My background is governance rather than development, and I have not closed the gap between reading a specification and building against it. The reasonable next step, and the one I intend to take before Unit 12, is to implement M2 to M9 as a simple message-passing exercise in Python, where an unhandled <code>sorry</code> or a lost <code>eos</code> produces a visible failure rather than a paragraph in a reflection.</p>
+            </section>
+
+            <section class="content-section reflist" id="references">
+                <h2>References</h2>
+
+                <p>Finin, T. <em>et al.</em> (1994) 'KQML as an agent communication language', <em>Proceedings of the third international conference on Information and knowledge management</em>, Gaithersburg, MD, 29 November - 2 December. New York: Association for Computing Machinery, pp. 456-463. Available at: <a href="https://doi.org/10.1145/191246.191322">https://doi.org/10.1145/191246.191322</a></p>
+
+                <p>Payne, T.R. and Tamma, V. (2014) 'Negotiating over ontological correspondences with asymmetric and incomplete knowledge', <em>Proceedings of the 2014 international conference on Autonomous agents and multi-agent systems</em>, Paris, 5-9 May. Richland, SC: International Foundation for Autonomous Agents and Multiagent Systems, pp. 517-524.</p>
+
+                <p>Russell, S. and Norvig, P. (2022) <em>Artificial intelligence: a modern approach</em>. 4th edn. Harlow: Pearson Education. Available via the VitalSource Bookshelf (Accessed: 5 August 2026).</p>
+
+                <p>Searle, J.R. (1969) <em>Speech acts: an essay in the philosophy of language</em>. Cambridge: Cambridge University Press.</p>
+
+                <p>University of Essex Online (no date) 'Agent communication' [Lecturecast]. <em>IA_PCOM7E: Intelligent Agents</em>. University of Essex Online. Available at: https://www.my-course.co.uk/mod/scorm/view.php?id=1381254 (Accessed: 5 August 2026).</p>
+
+                <p>Wooldridge, M.J. (2009) <em>An introduction to multiagent systems</em>. 2nd edn. New York: John Wiley &amp; Sons. Available via the VitalSource Bookshelf (Accessed: 5 August 2026).</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025–2026 Anne Dayer · MSc Artificial Intelligence · University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
