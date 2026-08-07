@@ -92,158 +92,79 @@
             </div>
 
             <section class="content-section" id="scope">
-                <h2>Scope of This Log</h2>
+                <h2>Scope</h2>
 
-                <p class="deadline"><strong>Covers Units 1 and 2</strong> · Updated as the project proceeds · Evidences learning outcomes 1 to 4</p>
+                <p class="deadline"><strong>Covers Units 1 and 2</strong> &middot; Updated as the project runs &middot; Evidences learning outcomes 1 to 4</p>
 
-                <p>The Development Team Project asks a team of four, positioned as software consultants, to produce a 1,000-word design proposal for an LLM-powered planning agent. The domain is fixed by the brief: academic research and information gathering. The team submits one report, and each member submits an individual peer assessment separately. Both are due by the end of Unit 6. The assignment carries 20% of the module mark.</p>
-
-                <p>This log records what the team decided, when, and on what reasoning. It stops at the end of Unit 2. Later entries will be added as the project runs.</p>
+                <p>Group B, four members, producing a 1,000-word design proposal for an LLM-powered planning agent in a domain the brief fixes to academic research. One team report plus an individual peer assessment each, due end of Unit 6, worth 20% of the module.</p>
             </section>
 
-            <section class="content-section" id="team-and-contract">
-                <h2>Team and Contract</h2>
+            <section class="content-section" id="team-and-roles">
+                <h2>Team, Contract and Roles</h2>
 
-                <p>Group B has four members: Ali, Fedi, Abdullah and myself. The signed team contract was returned by Friday 31 July, the date the tutor confirmed in the Unit 1 seminar on 29 July.</p>
-
-                <p>Several contract terms have already shaped how the work runs, so they are worth recording rather than filing:</p>
-
-                <ul>
-                    <li><strong>An internal deadline of 4 September</strong>, three days ahead of the official 7 September cut-off, so that a late section does not become a late submission.</li>
-                    <li><strong>A fixed word budget per section</strong>: 250 for A, 300 for B, 250 for C, 200 for D. Anyone over cuts their own section back before handing it on, rather than leaving the merge to absorb it.</li>
-                    <li><strong>One master document with a named owner.</strong> We draft separately and the owner merges, so changes to the merged version go through one person.</li>
-                    <li><strong>Domain and architecture locked on 8 August</strong> and not reopened without unanimous agreement.</li>
-                    <li><strong>Decisions by agreement, and by majority where agreement fails.</strong> No project lead was appointed; the coordinator tracks the schedule but decisions belong to the group.</li>
-                    <li><strong>AI tools permitted</strong> for support, with everything submitted required to be our own, checked against sources, and in line with university guidance on AI in summative assessments.</li>
-                </ul>
-
-                <p>Four team roles were defined alongside the four report sections: coordinator and deadline tracker, meeting organiser and minutes taker, document owner and submitter, and quality and referencing lead. Roles were not rotated, on the reasoning that a six-week project benefits more from continuity than from breadth of exposure.</p>
-
-                <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Role allocation to be recorded here once confirmed in writing, since the peer assessment and the Collaboration criterion both turn on who held which role.</p>
-                </div>
-            </section>
-
-            <section class="content-section" id="decisions">
-                <h2>Decisions to the End of Unit 2</h2>
+                <p>The signed contract was returned on 31 July. Roles were allocated at the kick-off that day and not rotated, since a short project gains more from continuity than breadth.</p>
 
                 <div class="table-scroll">
                 <table>
-                    <thead>
-                        <tr><th>Date</th><th>Decision or event</th><th>Reasoning</th></tr>
-                    </thead>
+                    <thead><tr><th>Member</th><th>Report section</th><th>Team role</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>29 Jul</td>
-                            <td>Proposal posted to the team forum: two candidate domains, a four-way report split, four team roles, and a schedule</td>
-                            <td>Put something concrete on the table so the kick-off could start from a draft rather than a blank page</td>
-                        </tr>
-                        <tr>
-                            <td>31 Jul</td>
-                            <td>Signed team contract returned</td>
-                            <td>Tutor-confirmed hard date, not moveable</td>
-                        </tr>
-                        <tr>
-                            <td>Early Aug</td>
-                            <td>Domain settled: a literature screening assistant for a clinical and health-sciences research team</td>
-                            <td>Fits the fixed task area, has working precedents, and is feasible on free-tier APIs</td>
-                        </tr>
-                        <tr>
-                            <td>3 Aug</td>
-                            <td>Section B first draft circulated: hybrid architecture, two cooperating agents</td>
-                            <td>A planning and retrieval agent plus a curation agent, the simplest split giving each a distinct responsibility</td>
-                        </tr>
-                        <tr>
-                            <td>3 Aug</td>
-                            <td>Section A input sent, framed as options with the guesses flagged</td>
-                            <td>Section owner keeps the decisions; the contributor's job is to surface what they may not have considered</td>
-                        </tr>
-                        <tr>
-                            <td>8 Aug</td>
-                            <td>Domain and architecture lock, per the contract</td>
-                            <td>Prevents late redesign eating the writing time</td>
-                        </tr>
+                        <tr><td><strong>Anne</strong></td><td>Anticipated challenges, graphical design and final document review, with Abdullah</td><td><strong>Group Coordinator</strong></td></tr>
+                        <tr><td>Abdullah</td><td>As above, shared</td><td>&mdash;</td></tr>
+                        <tr><td>Fedi</td><td>System requirements and assumptions</td><td>&mdash;</td></tr>
+                        <tr><td>Ali</td><td>Design decisions and architecture</td><td>&mdash;</td></tr>
                     </tbody>
                 </table>
                 </div>
 
-                <h3>Why this domain</h3>
+                <p>Contract terms shaping the work: a fixed word budget per section, cut back by its own author if exceeded; one master document with a named owner; no project lead, decisions by agreement then majority; a tie-break route for a two-two split; and an agreed style note before drafting.</p>
+            </section>
 
-                <p>The concept is an LLM-powered research assistant that helps researchers search, retrieve and summarise scientific literature from publicly available sources. The team&rsquo;s case for it rested on precedent rather than novelty: working comparators were identified during the domain discussion, including OpenEvidence, automated clinical trial screening systems and general deep research tools. Those comparators are cited in the report itself; this log records only that they were the basis for the decision.</p>
+            <section class="content-section" id="decisions">
+                <h2>Decisions and Schedule</h2>
 
-                <p>The feasibility check mattered more than the concept. The team established that PubMed and Semantic Scholar both expose free APIs, which fits the free-tier constraint the brief imposes, and that full-text journal content is largely paywalled, so retrieval is scoped to abstracts and open-access sources. That limitation is not a weakness to hide. It is one of the anticipated challenges Section C has to address, and it will carry its own citation there.</p>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr><th>Date</th><th>Decision or milestone</th></tr></thead>
+                    <tbody>
+                        <tr><td>29 Jul</td><td>Opening proposal posted: candidate domains, work split, roles, schedule</td></tr>
+                        <tr><td>31 Jul</td><td>Contract signed. Kick-off meeting: roles allocated, use case agreed</td></tr>
+                        <tr><td>3 Aug</td><td>First section draft circulated. Input sent to the requirements owner</td></tr>
+                        <tr><td>8 Aug</td><td>Domain and architecture locked</td></tr>
+                        <tr><td>15 Aug</td><td>Individual drafts circulated</td></tr>
+                        <tr><td>17 Aug</td><td>Mid-point peer review</td></tr>
+                        <tr><td>24 Aug</td><td>Final sections to the document owner</td></tr>
+                        <tr><td>28 Aug</td><td>Integration review, full read-through together</td></tr>
+                        <tr><td>2 Sep</td><td>Final quality check</td></tr>
+                        <tr><td>4 Sep</td><td>Internal deadline, three days ahead of the official date</td></tr>
+                    </tbody>
+                </table>
+                </div>
 
-                <p>The domain also carries a live ethics angle. Ongoing publisher litigation over the use of academic content in model training was raised in the domain discussion as bearing directly on how our own agent should source material; the specific proceedings will be cited in the report rather than asserted here. Intellectual property, attribution, reliability of AI-generated summaries and responsible use of LLMs in research all sit naturally in this domain rather than being bolted on.</p>
+                <p>The agreed use case is a scientific literature search assistant, scoped to abstracts and open-access sources on free APIs since full text is largely paywalled. That limitation is not hidden. It is one of the challenges my own section addresses.</p>
             </section>
 
             <section class="content-section" id="my-contribution">
                 <h2>My Contribution</h2>
 
-                <p>My workstream is Sections C and D with Abdullah: anticipated challenges and mitigations, the graphical designs, and the final document review.</p>
+                <p>As Group Coordinator I track the schedule, though decisions belong to the group. My writing workstream is the anticipated challenges, the graphical designs and the final document review, shared with Abdullah.</p>
 
-                <h3>Setting the frame, 29 July</h3>
+                <p>I posted the opening proposal on 29 July so the kick-off could start from a draft. Two judgements in it have held. First, 1,000 words across four people is the binding constraint, so depth must come from precise module vocabulary rather than volume. Second, we should commit early to the Unit 3 and 4 architecture taxonomy, to Belief-Desire-Intention terminology as Rao and Georgeff (1995) set it out, and to specifying inter-agent communication through an agent communication language and a shared ontology. Saying plainly that I did not want the architecture let the work settle where the confidence was.</p>
 
-                <p>I posted the opening proposal before the kick-off. It read the brief, the criteria grid and the unit materials, and turned them into a concrete starting position: two candidate domains, a four-way split with word budgets, four roles, and a schedule with an internal deadline.</p>
-
-                <p>Two judgements in it have held up. The first is that 1,000 words for four people is the binding constraint, so bulleted lists are the only realistic format and depth has to come from precise use of module vocabulary rather than volume. The second is that we should commit early to justifying the architecture against the Unit 3 and 4 taxonomy, use Belief-Desire-Intention terminology precisely in the sense set out by Rao and Georgeff (1995), and specify inter-agent communication with an agent communication language and a shared ontology from Units 5 and 6. Naming those costs very few words and signals module-specific knowledge immediately, which matters at this length.</p>
-
-                <p>I also said plainly where I am weak. My background is strategy, governance, project management and writing rather than hands-on implementation, so I asked not to own the technical architecture and suggested Section B go to whoever was confident there. It did.</p>
-
-                <h3>Requirements analysis for the health-sciences domain</h3>
-
-                <p>Once the domain settled I produced a structured requirements analysis for AI literature discovery, organised into eleven categories: scientific, workflow, explainability, legal, regulatory, research integrity, ethical, reproducibility, transparency, security and integration, plus a set of desired agentic capabilities.</p>
-
-                <p>It is deliberately larger than the report can use. Its purpose is to give Sections A and C a menu to select from with the reasoning already attached, rather than to be pasted in. Several strands in it come straight from clinical operations practice: traceability as an acceptance criterion rather than a feature, version status as a field so that retracted or superseded papers are detectable, and reproducible search logging so that a query can be re-run for a systematic review or an audit.</p>
-
-                <h3>Input to Section A, 3 August</h3>
+                <p>I then produced a requirements analysis across eleven categories, deliberately larger than the report can use, so the requirements and challenges sections could select from it with the reasoning attached.</p>
 
                 <div class="entry">
-                    <p class="entry-meta">Forum post to the Section A owner · 3 August 2026</p>
-                    <p>Five requirements carried across from healthcare work, each argued on its own merits rather than on provenance: traceability as a pass-or-fail acceptance criterion; version status as a field; reproducible search; a declared language scope stated as an assumption rather than a capability; and an explicit exclusion of clinical decision support.</p>
-                    <p>The post flagged its own uncertainties. I had not verified that the free Crossref API exposes retraction metadata in the form we would need, and said so rather than letting it pass into the report unchecked. I also recorded that I had reversed my own earlier position on translation, moving it from requirements to exclusions once I noticed it contradicted the paragraph below it.</p>
-                    <p>The substantive argument was against listing capabilities we cannot build on a free tier. Comprehensive multi-publisher coverage, citation graph exploration and continuous monitoring are all genuine researcher needs, but claiming them weakens the feasibility case the rest of the report rests on. Naming two or three as acknowledged exclusions is more honest, and probably marks better.</p>
+                    <p class="entry-meta">Forum post to the requirements section owner &middot; 3 August 2026</p>
+                    <p>Five requirements carried across from clinical operations: traceability as a pass-or-fail criterion, version status as a field, reproducible search, a declared language scope, and an explicit exclusion of clinical decision support. I flagged what I had not verified, and recorded that I had reversed my own position on translation between drafts. The substantive argument was against listing capabilities we cannot build on a free tier, since naming exclusions is more defensible than claiming coverage we cannot deliver.</p>
                 </div>
-
-                <p>The post was framed as options rather than instructions, and said so in its opening line. Section A belongs to its owner; my role was to surface considerations he might not otherwise have, and to be explicit about which of them I was confident in.</p>
-            </section>
-
-            <section class="content-section" id="communication">
-                <h2>Communication Record</h2>
-
-                <p>The contract sets WhatsApp for day-to-day messages, email or the module forum where a record is needed, and calls where something has to be decided. In practice the substantive design exchanges have run on the forum, which has the advantage of leaving exactly the audit trail this portfolio needs.</p>
-
-                <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr><th>Date</th><th>Thread</th><th>Author</th><th>Substance</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>29 Jul</td><td>Team proposal: domain, work split, roles and schedule</td><td>Anne</td><td>Opening proposal; 7 replies</td></tr>
-                        <tr><td>3 Aug</td><td>Assignment draft</td><td>Fedi</td><td>Section B first draft, hybrid architecture and two-agent split; references added in a follow-up; 7 replies</td></tr>
-                        <tr><td>3 Aug</td><td>Section A, system requirements and assumptions</td><td>Anne</td><td>Five carried-across requirements, with uncertainties flagged</td></tr>
-                    </tbody>
-                </table>
-                </div>
-
-                <h3>Tutor clarifications obtained</h3>
-
-                <ul>
-                    <li>The application domain is fixed. Within it, each group defines its own use case, target users, organisational context and agent design.</li>
-                    <li>A full working solution is not required for this assessment. The proposal must be detailed and realistic enough that it could be implemented with the technologies specified.</li>
-                    <li>Diagrams, figures, tables and UML models do not count towards the 1,000 words. Explanatory text in the main body does.</li>
-                </ul>
-
-                <p>The third point changed how Section D is planned. With diagrams outside the count, the graphical designs can carry more of the explanatory load than the 200-word budget alone would allow.</p>
             </section>
 
             <section class="content-section" id="open-items">
                 <h2>Open at the End of Unit 2</h2>
 
                 <ul>
-                    <li>Role allocation to be confirmed in writing.</li>
-                    <li>Whether the free Crossref API exposes retraction metadata usably, before that requirement is committed to the report.</li>
-                    <li>Section C challenges to be selected and evidenced, and Section D diagrams to be drafted.</li>
-                    <li>Architecture lock on 8 August, after which Section B terminology is fixed and Sections A, C and D align to it.</li>
+                    <li>Whether the free Crossref API exposes retraction metadata usably.</li>
+                    <li>Challenges to be selected and evidenced, diagrams to be drafted.</li>
+                    <li>Architecture lock on 8 August, after which other sections align to it.</li>
                 </ul>
 
                 <div class="placeholder">
@@ -253,8 +174,6 @@
 
             <section class="content-section reflist-section" id="references">
                 <h2>References</h2>
-
-                <p>Sources cited in this log. Sources supporting the design proposal itself are carried in the report and the team&rsquo;s shared reference library.</p>
 
                 <div class="reflist">
                     <p>Rao, A.S. and Georgeff, M.P. (1995) &lsquo;BDI agents: from theory to practice&rsquo;, <em>Proceedings of the First International Conference on Multiagent Systems</em>, San Francisco, 12-14 June. Menlo Park, CA: AAAI Press, pp. 312-319.</p>
