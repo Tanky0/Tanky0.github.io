@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Team Project: Working Log - Anne Dayer</title>
+    <meta name="description" content="Group B working log for the Intelligent Agents development team project: team contract, domain decision, work split, forum discussions and my contribution, to the end of Unit 2.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-team-project-log.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Development Team Project: Working Log - Anne Dayer">
+    <meta property="og:description" content="Group B working log for the Intelligent Agents development team project: team contract, domain decision, work split, forum discussions and my contribution, to the end of Unit 2.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-team-project-log.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    .artefact .entry {
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        background: var(--paper-2);
+        padding: 1.3rem 1.5rem 1rem;
+        margin: 1.5rem 0;
+    }
+    .artefact .entry > :first-child { margin-top: 0; }
+    .artefact .entry > :last-child { margin-bottom: 0; }
+    .artefact .entry-meta {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 0.8rem;
+    }
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact .reflist p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.7rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow">Intelligent Agents · Development Team Project · Group B</p>
+            <h1>Team Working Log</h1>
+            <p class="lede">Team formation, the contract, the domain decision and the forum exchanges that produced them, recorded as the project runs rather than reconstructed afterwards.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Team Working Log</span>
+            </div>
+
+            <section class="content-section" id="scope">
+                <h2>Scope of This Log</h2>
+
+                <p class="deadline"><strong>Covers Units 1 and 2</strong> · Updated as the project proceeds · Evidences learning outcomes 1 to 4</p>
+
+                <p>The Development Team Project asks a team of four, positioned as software consultants, to produce a 1,000-word design proposal for an LLM-powered planning agent. The domain is fixed by the brief: academic research and information gathering. The team submits one report, and each member submits an individual peer assessment separately. Both are due by the end of Unit 6. The assignment carries 20% of the module mark.</p>
+
+                <p>This log records what the team decided, when, and on what reasoning. It stops at the end of Unit 2. Later entries will be added as the project runs.</p>
+            </section>
+
+            <section class="content-section" id="team-and-contract">
+                <h2>Team and Contract</h2>
+
+                <p>Group B has four members: Ali, Fedi, Abdullah and myself. The signed team contract was returned by Friday 31 July, the date the tutor confirmed in the Unit 1 seminar on 29 July.</p>
+
+                <p>Several contract terms have already shaped how the work runs, so they are worth recording rather than filing:</p>
+
+                <ul>
+                    <li><strong>An internal deadline of 4 September</strong>, three days ahead of the official 7 September cut-off, so that a late section does not become a late submission.</li>
+                    <li><strong>A fixed word budget per section</strong>: 250 for A, 300 for B, 250 for C, 200 for D. Anyone over cuts their own section back before handing it on, rather than leaving the merge to absorb it.</li>
+                    <li><strong>One master document with a named owner.</strong> We draft separately and the owner merges, so changes to the merged version go through one person.</li>
+                    <li><strong>Domain and architecture locked on 8 August</strong> and not reopened without unanimous agreement.</li>
+                    <li><strong>Decisions by agreement, and by majority where agreement fails.</strong> No project lead was appointed; the coordinator tracks the schedule but decisions belong to the group.</li>
+                    <li><strong>AI tools permitted</strong> for support, with everything submitted required to be our own, checked against sources, and in line with university guidance on AI in summative assessments.</li>
+                </ul>
+
+                <p>Four team roles were defined alongside the four report sections: coordinator and deadline tracker, meeting organiser and minutes taker, document owner and submitter, and quality and referencing lead. Roles were not rotated, on the reasoning that a six-week project benefits more from continuity than from breadth of exposure.</p>
+
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Role allocation to be recorded here once confirmed in writing, since the peer assessment and the Collaboration criterion both turn on who held which role.</p>
+                </div>
+            </section>
+
+            <section class="content-section" id="decisions">
+                <h2>Decisions to the End of Unit 2</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Decision or event</th><th>Reasoning</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>29 Jul</td>
+                            <td>Proposal posted to the team forum: two candidate domains, a four-way report split, four team roles, and a schedule</td>
+                            <td>Put something concrete on the table so the kick-off could start from a draft rather than a blank page</td>
+                        </tr>
+                        <tr>
+                            <td>31 Jul</td>
+                            <td>Signed team contract returned</td>
+                            <td>Tutor-confirmed hard date, not moveable</td>
+                        </tr>
+                        <tr>
+                            <td>Early Aug</td>
+                            <td>Domain settled: a literature screening assistant for a clinical and health-sciences research team</td>
+                            <td>Fits the fixed task area, has working precedents, and is feasible on free-tier APIs</td>
+                        </tr>
+                        <tr>
+                            <td>3 Aug</td>
+                            <td>Section B first draft circulated: hybrid architecture, two cooperating agents</td>
+                            <td>A planning and retrieval agent plus a curation agent, the simplest split giving each a distinct responsibility</td>
+                        </tr>
+                        <tr>
+                            <td>3 Aug</td>
+                            <td>Section A input sent, framed as options with the guesses flagged</td>
+                            <td>Section owner keeps the decisions; the contributor's job is to surface what they may not have considered</td>
+                        </tr>
+                        <tr>
+                            <td>8 Aug</td>
+                            <td>Domain and architecture lock, per the contract</td>
+                            <td>Prevents late redesign eating the writing time</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <h3>Why this domain</h3>
+
+                <p>The concept is an LLM-powered research assistant that helps researchers search, retrieve and summarise scientific literature from publicly available sources. It is not speculative: comparable tools already operate, including OpenEvidence, automated clinical trial screening systems, and general deep research tools.</p>
+
+                <p>The feasibility check mattered more than the concept. PubMed and Semantic Scholar both expose free APIs, which fits the free-tier constraint the brief imposes. Full-text journal content is largely paywalled, so retrieval is scoped to abstracts and open-access sources. That limitation is not a weakness to hide; it is one of the anticipated challenges Section C has to address.</p>
+
+                <p>The domain also carries a live ethics angle. Major publishers are currently litigating against AI companies over training on academic content, which bears directly on how our own agent should source material. Intellectual property, attribution, reliability of AI-generated summaries and responsible use of LLMs in research all sit naturally in this domain rather than being bolted on.</p>
+            </section>
+
+            <section class="content-section" id="my-contribution">
+                <h2>My Contribution</h2>
+
+                <p>My workstream is Sections C and D with Abdullah: anticipated challenges and mitigations, the graphical designs, and the final document review.</p>
+
+                <h3>Setting the frame, 29 July</h3>
+
+                <p>I posted the opening proposal before the kick-off. It read the brief, the criteria grid and the unit materials, and turned them into a concrete starting position: two candidate domains, a four-way split with word budgets, four roles, and a schedule with an internal deadline.</p>
+
+                <p>Two judgements in it have held up. The first is that 1,000 words for four people is the binding constraint, so bulleted lists are the only realistic format and depth has to come from precise use of module vocabulary rather than volume. The second is that we should commit early to justifying the architecture against the Unit 3 and 4 taxonomy, use BDI terminology precisely, and specify inter-agent communication with an agent communication language and a shared ontology from Units 5 and 6. Naming those costs very few words and signals module-specific knowledge immediately, which matters at this length.</p>
+
+                <p>I also said plainly where I am weak. My background is strategy, governance, project management and writing rather than hands-on implementation, so I asked not to own the technical architecture and suggested Section B go to whoever was confident there. It did.</p>
+
+                <h3>Requirements analysis for the health-sciences domain</h3>
+
+                <p>Once the domain settled I produced a structured requirements analysis for AI literature discovery, organised into eleven categories: scientific, workflow, explainability, legal, regulatory, research integrity, ethical, reproducibility, transparency, security and integration, plus a set of desired agentic capabilities.</p>
+
+                <p>It is deliberately larger than the report can use. Its purpose is to give Sections A and C a menu to select from with the reasoning already attached, rather than to be pasted in. Several strands in it come straight from clinical operations practice: traceability as an acceptance criterion rather than a feature, version status as a field so that retracted or superseded papers are detectable, and reproducible search logging so that a query can be re-run for a systematic review or an audit.</p>
+
+                <h3>Input to Section A, 3 August</h3>
+
+                <div class="entry">
+                    <p class="entry-meta">Forum post to the Section A owner · 3 August 2026</p>
+                    <p>Five requirements carried across from healthcare work, each argued on its own merits rather than on provenance: traceability as a pass-or-fail acceptance criterion; version status as a field; reproducible search; a declared language scope stated as an assumption rather than a capability; and an explicit exclusion of clinical decision support.</p>
+                    <p>The post flagged its own uncertainties. I had not verified that the free Crossref API exposes retraction metadata in the form we would need, and said so rather than letting it pass into the report unchecked. I also recorded that I had reversed my own earlier position on translation, moving it from requirements to exclusions once I noticed it contradicted the paragraph below it.</p>
+                    <p>The substantive argument was against listing capabilities we cannot build on a free tier. Comprehensive multi-publisher coverage, citation graph exploration and continuous monitoring are all genuine researcher needs, but claiming them weakens the feasibility case the rest of the report rests on. Naming two or three as acknowledged exclusions is more honest, and probably marks better.</p>
+                </div>
+
+                <p>The post was framed as options rather than instructions, and said so in its opening line. Section A belongs to its owner; my role was to surface considerations he might not otherwise have, and to be explicit about which of them I was confident in.</p>
+            </section>
+
+            <section class="content-section" id="communication">
+                <h2>Communication Record</h2>
+
+                <p>The contract sets WhatsApp for day-to-day messages, email or the module forum where a record is needed, and calls where something has to be decided. In practice the substantive design exchanges have run on the forum, which has the advantage of leaving exactly the audit trail this portfolio needs.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Thread</th><th>Author</th><th>Substance</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>29 Jul</td><td>Team proposal: domain, work split, roles and schedule</td><td>Anne</td><td>Opening proposal; 7 replies</td></tr>
+                        <tr><td>3 Aug</td><td>Assignment draft</td><td>Fedi</td><td>Section B first draft, hybrid architecture and two-agent split; references added in a follow-up; 7 replies</td></tr>
+                        <tr><td>3 Aug</td><td>Section A, system requirements and assumptions</td><td>Anne</td><td>Five carried-across requirements, with uncertainties flagged</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <h3>Tutor clarifications obtained</h3>
+
+                <ul>
+                    <li>The application domain is fixed. Within it, each group defines its own use case, target users, organisational context and agent design.</li>
+                    <li>A full working solution is not required for this assessment. The proposal must be detailed and realistic enough that it could be implemented with the technologies specified.</li>
+                    <li>Diagrams, figures, tables and UML models do not count towards the 1,000 words. Explanatory text in the main body does.</li>
+                </ul>
+
+                <p>The third point changed how Section D is planned. With diagrams outside the count, the graphical designs can carry more of the explanatory load than the 200-word budget alone would allow.</p>
+            </section>
+
+            <section class="content-section" id="open-items">
+                <h2>Open at the End of Unit 2</h2>
+
+                <ul>
+                    <li>Role allocation to be confirmed in writing.</li>
+                    <li>Whether the free Crossref API exposes retraction metadata usably, before that requirement is committed to the report.</li>
+                    <li>Section C challenges to be selected and evidenced, and Section D diagrams to be drafted.</li>
+                    <li>Architecture lock on 8 August, after which Section B terminology is fixed and Sections A, C and D align to it.</li>
+                </ul>
+
+                <div class="placeholder">
+                    <p><strong>Placeholder:</strong> Entries for Units 3 onwards, the merged draft, the peer assessment, and any tutor feedback received.</p>
+                </div>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>AI Acknowledgement: Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The intellectual content remains entirely my own work.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025–2026 Anne Dayer · MSc Artificial Intelligence · University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
