@@ -165,7 +165,7 @@
 
                 <p>That framing comes from speech act theory, which begins with Austin's observation that some utterances are themselves actions changing the state of the world (Austin, 1975, cited in University of Essex Online, no date). Searle (1969) then classified illocutionary acts into five kinds, summarised by Wooldridge (2009, pp. 133-134) as representatives, directives, commissives, expressives and declarations. The consequence is visible in one sentence. <em>The door is closed</em> can be a request, an assertion or an enquiry, and only the performative verb distinguishes them, because the propositional content is identical in all three (University of Essex Online, no date).</p>
 
-                <p>KQML makes that split structural. The performative comes first and fixes the illocutionary force. Everything else, including the content itself, is an argument (Finin <em>et al.</em>, 1994, p. 459). This is what allows Bob to receive <code>(available tv-lx50 wh-01)</code> and know without parsing it whether he is being asked, told or instructed.</p>
+                <p>KQML builds that split into the message. The performative comes first and fixes the illocutionary force, and everything after it, content included, is an argument (Finin <em>et al.</em>, 1994, p. 459). That is why Bob can receive <code>(available tv-lx50 wh-01)</code> and tell whether he is being asked, told or instructed without reading it at all.</p>
             </section>
 
             <section class="content-section" id="the-warehouse-stock-ontology">
@@ -208,7 +208,7 @@
       (and (exists (?s) (= (screen-size ?x) ?s))
            (exists (?n) (= (hdmi-ports ?x) ?n)))))</code></pre>
 
-                <p>Availability is defined, not stored, which matters later:</p>
+                <p>Nothing stores availability. It falls out of the other two functions, and that becomes the point in the evaluation below:</p>
 
 <pre><code>(forall (?x ?w)
   (=&gt; (and (Product ?x) (Warehouse ?w))
@@ -222,12 +222,12 @@
        (and (Television ?x)
             (= (screen-size ?x) (scalar 50 inch)))))</code></pre>
 
-                <p>A note on form. KIF provides dedicated <code>defrelation</code> and <code>deffunction</code> constructs for definitions of exactly this kind, and they would be more idiomatic here. I have written the axioms as plain quantified sentences instead, because the set reading for this module establishes only that KIF is based on first-order logic and can be used to express ontologies (University of Essex Online, no date), and the sole KIF the module shows is the ground equality <code>(= (torque m1) (scalar 12 kgf.m))</code> (Wooldridge, 2009, p. 139). The biconditional carries the same definitional force and stays inside what the module actually supplies.</p>
+                <p>A note on form. KIF provides dedicated <code>defrelation</code> and <code>deffunction</code> constructs for definitions of exactly this kind, and they would be more idiomatic here. I have written the axioms as plain quantified sentences instead, because the set reading for this module establishes only that KIF is based on first-order logic and can be used to express ontologies (University of Essex Online, no date), and the sole KIF the module shows is the ground equality <code>(= (torque m1) (scalar 12 kgf.m))</code> (Wooldridge, 2009, p. 139). A biconditional does the same work, and it keeps me inside the material the module actually provides.</p>
 
-                <p>Two design decisions in that definition are worth naming, because they are the ones that fail in the ontology mismatch section below:</p>
+                <p>Two choices in that definition are worth flagging now, because both come apart in the ontology mismatch section below:</p>
 
                 <ol>
-                    <li><code>50</code> is the <strong>nominal marketing size</strong>. Whether a supplier's catalogue holds the marketing figure or a measured diagonal is a modelling choice, and this ontology commits to the first without saying so anywhere a reasoner could detect.</li>
+                    <li><code>50</code> is the <strong>nominal marketing size</strong>. A catalogue could just as easily hold a measured diagonal, and nothing in the ontology records which way that choice went. No reasoner can tell the difference.</li>
                     <li><code>hdmi-ports</code> counts sockets and carries no revision. Two sockets of different HDMI generations are indistinguishable under this vocabulary.</li>
                 </ol>
             </section>
@@ -561,7 +561,7 @@
             <section class="content-section" id="ai-acknowledgement">
                 <h2>AI Acknowledgement</h2>
 
-                <p>AI Acknowledgement: Generative AI tools (Grammarly and Claude) were used for proofreading, language refinement, and formatting support. All statistical analyses, interpretations, conclusions, recommendations, slide content, and presentation structure are my own work.</p>
+                <p>AI Acknowledgement: Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The intellectual content remains entirely my own work.</p>
             </section>
 
             <section class="content-section reflist" id="references">
