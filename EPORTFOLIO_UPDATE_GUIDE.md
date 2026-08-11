@@ -8,14 +8,16 @@ Repository: **https://github.com/Tanky0/Tanky0.github.io**
 ## Table of Contents
 1. [How the Site is Built](#how-built)
 2. [Page Structure](#structure)
-3. [Starting a New Module](#start-module)
-4. [Adding an Assignment](#add-assignment)
-5. [Adding a Grade and Feedback](#add-grade-feedback)
-6. [Completing a Module](#complete-module)
-7. [Updating the Skills Matrix](#skills-matrix)
-8. [Adding Files to `assets/documents/`](#add-files)
-9. [Publishing Changes](#publishing)
-10. [Troubleshooting](#troubleshooting)
+3. [Naming Other People](#naming)
+4. [Starting a New Module](#start-module)
+5. [Adding an Assignment](#add-assignment)
+6. [Adding a Grade and Feedback](#add-grade-feedback)
+7. [Completing a Module](#complete-module)
+8. [Updating the Skills Matrix](#skills-matrix)
+9. [Adding Files to `assets/documents/`](#add-files)
+10. [Publishing Changes](#publishing)
+11. [Getting References Right](#references)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -36,6 +38,12 @@ All eleven pages share **one stylesheet** and **one script**:
 - **Colour**: warm paper ground with a muted moss accent. Both themes are defined as CSS custom properties at the top of `site.css`; changing a value there changes it everywhere.
 - **Dark mode** follows the visitor's system setting, with a toggle in the top bar that remembers their choice.
 - **Motion** is deliberately restrained and switches off entirely for visitors who set `prefers-reduced-motion`.
+
+### Where a component style already exists
+
+`.reflist` styles a reference list as hanging-indent paragraphs. It lives in `site.css` and is used two ways: as a whole section (`<section class="content-section reflist">`) and as a block inside an assignment box (`<div class="reflist">`).
+
+It carries a second, more specific selector for its `h4`, because `.assignment-box h4` sets the display font later in the file and would otherwise win. If you promote another page-local style into `site.css` and it stops working, check for exactly this: equal specificity, decided by source order.
 
 ### The page skeleton
 
@@ -62,7 +70,7 @@ Module pages use these sections, in this order. Only Module Overview and Assignm
 | **Reflective Piece** | **Only where a reflective piece was actually produced.** Do not add an empty one. |
 | **Team Meeting Notes** | Team-assessed modules only. Covers both team meetings and tutor meetings. |
 | **Peer and Tutor Feedback** | Where the module requires it as a distinct portfolio component. |
-| **Professional Skills Matrix and Action Plan (PDP)** | A short box linking to About Me. Never the matrix itself — see [section 7](#skills-matrix). |
+| **Professional Skills Matrix and Action Plan (PDP)** | A short box linking to About Me. Never the matrix itself — see [section 8](#skills-matrix). |
 
 Order the professional-development sections as the brief lists them: summary of learning outcomes, meeting notes, peer and tutor feedback, then the PDP.
 
@@ -71,6 +79,14 @@ Sections that are **not** part of the structure: a general "Meeting Notes" secti
 Induction is the exception to all of the above: Module Overview and Assignment only.
 
 **Modules not yet started stay a light guide, not a build.** A planned module page carries its learning outcomes, its skills list and the e-portfolio components it expects &mdash; nothing more. Only the module currently in progress is built out to its brief with sections and placeholders. Building future modules early creates sections that go stale before you reach them.
+
+### Large activities get their own page
+
+Where an e-portfolio activity produces more than a couple of paragraphs &mdash; a full collaborative discussion, a coded artefact &mdash; give it a page of its own in `modules/` and leave a summary plus a link in the `assignment-box` on the module page. It keeps the module page readable and gives the artefact its own section index.
+
+Naming: `ia-cd1-agent-based-systems.html`, `ia-unit06-agent-dialogues.html`. Module prefix, unit or activity, short slug.
+
+Where the activity has two strands that a reader could conflate, say so explicitly at the top. Collaborative discussions are the obvious case: replies *you* wrote on other students' threads are a different thing from replies *others* wrote on yours, and the summary post answers only the second.
 
 ### Check the module's own brief
 
@@ -86,7 +102,32 @@ The department requires you to create a **branch** for the module section being 
 
 ---
 
-## 3. Starting a New Module {#start-module}
+## 3. Naming Other People {#naming}
+
+**This site is public and indexed. Classmates are identified by initials, never by name.**
+
+That applies everywhere a fellow student appears: forum posts reproduced as evidence, team logs, meeting notes and reflections. Use initials inside the reproduced text too, not only in the surrounding commentary &mdash; a post that names someone in its body is still naming them.
+
+| Who | How they appear |
+|---|---|
+| Me | Full name |
+| Module tutors | Full name and title. They are named staff and the tutor is part of the record |
+| Published authors in references | Normal Harvard form |
+| **Fellow students** | **Initials only**, e.g. `A.B.`, `L.M.F.` |
+
+**Do not republish another student's work.** The UoEO referencing guide (p. 39, *Self and peer referencing*) says to check with your tutor before citing another student's assignment. Summarising their argument in your own words and crediting them by initials avoids the question entirely, and reads better. Do not carry their reference lists across either &mdash; those are sources you have not read.
+
+**Keep one initial per person across the whole site.** The same classmate can appear in a team log, a discussion artefact and a reflection. Before adding a new set, grep for what is already in use:
+
+```bash
+grep -rno "\b\([A-Z]\.\)\{2,\}" --include=*.html .
+```
+
+If two different people would collide on the same initials, disambiguate with a middle initial rather than inventing a label.
+
+---
+
+## 4. Starting a New Module {#start-module}
 
 **On `index.html`:**
 
@@ -117,7 +158,7 @@ Cards are ordered to follow the sequence actually studied, not the generic progr
 
 ---
 
-## 4. Adding an Assignment {#add-assignment}
+## 5. Adding an Assignment {#add-assignment}
 
 Copy the block from `TEMPLATE_Assignment.html` into the Assignments section and fill it in:
 
@@ -142,7 +183,7 @@ Add one `download-link` per artefact, labelling each where there are several:
 
 ---
 
-## 5. Adding a Grade and Feedback {#add-grade-feedback}
+## 6. Adding a Grade and Feedback {#add-grade-feedback}
 
 Swap the pending badge for the result and add the feedback beneath it:
 
@@ -162,7 +203,7 @@ Where the feedback separates strengths from development points, split them out:
 
 ---
 
-## 6. Completing a Module {#complete-module}
+## 7. Completing a Module {#complete-module}
 
 **Step 1 — Update the status.** On `index.html`:
 
@@ -208,7 +249,7 @@ On the module page, the eyebrow becomes `Completed` and the lede gains the intak
 
 ---
 
-## 7. Updating the Skills Matrix {#skills-matrix}
+## 8. Updating the Skills Matrix {#skills-matrix}
 
 The Professional Skills Matrix lives in **one place only**: `about.html`, in the section with `id="skills-matrix"`. It is never duplicated onto a module page. Where a module requires a PDP as a portfolio component, add a short box linking to it:
 
@@ -253,7 +294,7 @@ Wrap every table in `<div class="table-scroll"> ... </div>` so it scrolls on a p
 
 ---
 
-## 8. Adding Files to `assets/documents/` {#add-files}
+## 9. Adding Files to `assets/documents/` {#add-files}
 
 **Naming:** `ModulePrefix_Assessment_Component.ext`, no spaces.
 
@@ -262,6 +303,7 @@ Wrap every table in `<div class="table-scroll"> ... </div>` so it scrolls on a p
 | `LiC_` | Launch into Computing |
 | `UAI_` | Understanding Artificial Intelligence |
 | `NA_` | Numerical Analysis |
+| `IA_` | Intelligent Agents |
 
 Examples: `NA_EMA1_Statistical_Analysis_Slides.pdf`, `UAI_CLD2_Summary_Post.pdf`, `LiC_PartB_Video_Presentation.mp4`
 
@@ -271,7 +313,7 @@ Examples: `NA_EMA1_Statistical_Analysis_Slides.pdf`, `UAI_CLD2_Summary_Post.pdf`
 
 ---
 
-## 9. Publishing Changes {#publishing}
+## 10. Publishing Changes {#publishing}
 
 GitHub credentials are stored on this machine (Git Credential Manager), so pushing needs no login.
 
@@ -290,7 +332,20 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 
 ---
 
-## 10. Troubleshooting {#troubleshooting}
+## 11. Getting References Right {#references}
+
+**Check the source, not the reading list.** The Intelligent Agents reading list was wrong three separate times: Wooldridge's place of publication (it says New York; the book's copyright page says Chichester), Pollack's first initial (Michael, where the paper says Martha), and Russell and Norvig's year (2021, where the copy actually held is the 2022 Global Edition). Open the title and copyright pages of the edition you used and read the details off them.
+
+**Cite the version you consulted.** A Global Edition is a different publication from the US edition, and page numbers belong to it. Year and page must come from the same copy.
+
+**E-books read through the module.** Use the VitalSource form: `Author (Year) *Title*. Edition. Place: Publisher. Available via the VitalSource Bookshelf (Accessed: DD Month YYYY).`
+
+**Preprints.** The UoEO guide has no arXiv template, so follow Cite Them Right: the repository goes in the URL, not in the journal position. `Author (Year) 'Title' [Preprint]. Available at: URL (Accessed: date).`
+
+**When a reference is corrected after posting**, say so on the page rather than changing it silently. A short note is worth more than a clean-looking list.
+
+---
+## 12. Troubleshooting {#troubleshooting}
 
 | Problem | Cause and fix |
 |---|---|
@@ -326,4 +381,4 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 
 ---
 
-*Last updated: July 2026*
+*Last updated: August 2026*

@@ -3,6 +3,7 @@
 Snippets for common edits. Full instructions in `EPORTFOLIO_UPDATE_GUIDE.md`.
 
 > **Never write inline CSS.** All styling lives in `assets/css/site.css`, shared by every page.
+> **Never name a classmate.** Initials only, including inside reproduced posts. This site is public.
 
 ## Assignment Block
 
@@ -158,6 +159,7 @@ Copy an existing page and replace what is inside `<main>`. Check:
 - every `target="_blank"` also carries `rel="noopener noreferrer"`
 - assignment titles are `<h3>`, never `<h4>` (heading order)
 - no `<style>` block anywhere
+- no classmate named anywhere, including inside quoted posts
 
 ## File Naming
 
@@ -168,6 +170,23 @@ Copy an existing page and replace what is inside `<main>`. Check:
 | `LiC_` | Launch into Computing |
 | `UAI_` | Understanding Artificial Intelligence |
 | `NA_` | Numerical Analysis |
+| `IA_` | Intelligent Agents |
+
+## Large Activities
+
+Give a full collaborative discussion or a coded artefact its own page in `modules/`
+(`ia-cd1-agent-based-systems.html`), and leave a summary plus a link in the module
+page's `assignment-box`. Where two strands could be confused, separate them by heading.
+
+## Reference Lists
+
+```html
+<section class="content-section reflist" id="references">   <!-- whole section -->
+<div class="reflist">                                        <!-- inside a box -->
+```
+
+Check the book's own copyright page for place, year and edition. The module reading
+list has been wrong more than once.
 
 ## Publish
 
