@@ -438,6 +438,40 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 .references { font-size: var(--step--1); color: var(--ink-2); }
 .references li { margin-bottom: 0.7rem; }
 
+/* Reference lists written as paragraphs, with a hanging indent. Used both as
+   a whole section (.content-section.reflist) and as a block inside an
+   assignment box (div.reflist). Lived in three page-local <style> blocks
+   before it was promoted here. */
+
+/* The second selector is needed because .assignment-box h4 sets the display
+   font later in this file, and a reference block often sits inside one. */
+
+.reflist h4,
+.assignment-box .reflist h4 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1.4;
+    margin: 0 0 0.7rem;
+}
+
+.reflist p {
+    max-width: var(--prose);
+    padding-left: 2.2rem;
+    text-indent: -2.2rem;
+    margin-bottom: 0.6rem;
+    font-size: var(--step--1);
+}
+
+div.reflist {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+}
+
 /* ---------------------------------------------------------- breadcrumb   */
 
 .breadcrumb {

@@ -1,0 +1,19 @@
+<section class="content-section" id="summary-post">
+                <h2>Summary Post</h2>
+
+                <p class="deadline">Unit 3 &middot; 328 words &middot; Posted 10 August 2026</p>
+
+                <div class="assignment-box">
+                    <p>My initial post traced agent-based computing to five converging trends and argued for approval at the decomposition stage, since a reviewer can confirm a constraint survived planning but cannot audit an unsearched landscape. Nahhas and Almeida Ferrera both answered no: necessary, but not sufficient.</p>
+
+                    <p>Nahhas identified a failure my checkpoint could not detect. A batch finishing slowly is visibly impaired, whereas a clinical agent finishing without relevant trials still appears successful. Wang <em>et al.</em> (2016) could measure degradation, since batch time rose from 5,660 to 20,005 seconds, whereas omission carries no such measure.</p>
+
+                    <p>Unit 3 sets two architectures side by side. Brooks (1991) keeps no central world model, leaving nothing to inspect. Bratman, Israel and Pollack (1988) do represent intentions, though an intention is a desire already adopted and structured into a plan, whose function is to constrain further practical reasoning. Filtered options are not routinely revisited. For opposite reasons, neither architecture retains a record of what it discarded, which would explain why Zhan <em>et al.</em> (2026), in a preprint, measure restriction neglect externally.</p>
+
+                    <p>Unit 2 names that structure precisely. &ldquo;Randomised trials only&rdquo; is the premise of a universally quantified implication, and Russell and Norvig (2022, p. 279) warn that substituting conjunction for implication changes the sentence entirely. Restriction neglect is that premise quietly disappearing.</p>
+
+                    <p>Buqshan had asked me to name the model my argument presupposed, and naming it revealed the flaw: I justified the checkpoint because coverage is unauditable afterwards, then inspected only the plan.</p>
+
+                    <p>Bratman&rsquo;s filter override supplies the remedy, since such an override must have something to act upon. Each stage should declare failed agents, affected stages and unexecuted subquestions, which is what Almeida Ferrera&rsquo;s case for continuous oversight requires. In a regulated laboratory, an auditor cannot review what was never made visible. Adjustable autonomy returns control when uncertainty is high (Scerri <em>et al.</em>, 2003, cited in Wooldridge, 2009, p. 23), yet a pipeline blind to its own coverage loss never registers it.</p>
+                </div>
+            </section>

@@ -1,0 +1,68 @@
+<section class="content-section" id="peer-responses">
+                <h2>Peer Responses</h2>
+
+                <p class="deadline">Unit 2 &middot; Three responses where two were required &middot; Posted 4 August 2026</p>
+
+                <p>The brief asks responses to focus on the measures that could have prevented the issues raised. Each of the three below identifies a different failure and proposes a different control, and none reuses the argument of another.</p>
+
+                <div class="assignment-box">
+                    <h3>Response 1: on a coordinating planning agent</h3>
+                    <p class="deadline">291 words &middot; Peer post argued for a single coordinating planner drawing on STORM and PaSa</p>
+
+                    <p>Hi Lara,</p>
+
+                    <p>Your Bouslimi paragraph is the part I keep returning to, since it names a cost most of us skipped: efficiency held as complexity rose, yet specialised roles and rigid protocols narrowed flexibility.</p>
+
+                    <p>That is why your coordinating planning agent gives me pause. Concentrating decomposition, sequencing and control in one component compounds the rigidity Bouslimi (2024) reports, and restores the central world model whose absence Brooks (1991) links to robustness.</p>
+
+                    <p>Where the risk sits surprised me, though. In a preprint, Zhan <em>et al.</em> (2026) measure error propagation across research trajectories at 0.002 to 0.017, so a flawed plan corrupting later stages is real but rare. Restriction neglect, where planning silently drops a stated user constraint, runs from 0.04 to 0.29. Their systems are general research agents, not specialist searchers, yet the failure looks architectural. The likelier planning failure is omission, not cascade.</p>
+
+                    <p>That distinction bears on both your exemplars. STORM settles its perspectives during pre-writing, and PaSa&rsquo;s Selector judges each paper in the queue against the user&rsquo;s criteria (Shao <em>et al.</em>, 2024; He <em>et al.</em>, 2025). That queue holds only what the Crawler fetched. A constraint lost during query generation is unlikely to be recovered, since citation expansion follows the neighbourhood of what was already found. Evaluation after retrieval cannot catch an omission it never sees.</p>
+
+                    <p>The measure I would add sits before retrieval, not after. Expose the generated subquestions for approval, so a reviewer confirms that a stated restriction survived decomposition. That is adjustable autonomy in the strict sense, returning control when uncertainty is high (Scerri <em>et al.</em>, 2003, cited in Wooldridge, 2009, p. 23).</p>
+
+                    <p>Would you let the retrieval agent challenge the plan when evidence does not fit, or keep every revision with the planner?</p>
+
+                    <p>Anne</p>
+                </div>
+
+                <div class="assignment-box">
+                    <h3>Response 2: on the objects-to-agents shift</h3>
+                    <p class="deadline">282 words &middot; Peer post argued the move from passive objects to goal-pursuing agents was the enabling leap</p>
+
+                    <p>Hi Lana,</p>
+
+                    <p>Your objects-to-agents framing is the strongest part of the post, and Wooldridge sharpens it further than you claim. Section 2.2 concedes that programmers used to Java see little novelty in agents, and later grants that agents can still be built with object-oriented techniques (Wooldridge, 2009, pp. 28&ndash;29). What the basic object model lacks is not capability but control over behaviour, since once a method is public the invoker decides. The leap is about who keeps the right to refuse.</p>
+
+                    <p>That bites hardest exactly where you place your examples, because the same passage notes the problem matters most for agents built by different organisations.</p>
+
+                    <p>Here is the difficulty I would add. If the receiver decides, it decides on its own reading of the request. Finin <em>et al.</em> (1994) saw this while proposing KQML: standardised performatives fix the message, yet interpreting it depends on knowledge the message does not carry, and the authors expected many ontologies rather than one. Payne and Tamma (2014) quantify what remains. Agents holding private, incomplete and asymmetric correspondences have to negotiate an alignment, and their negotiated result reaches around 95% of what central alignment with complete information achieves.</p>
+
+                    <p>Which is why I would settle the mapping before anything is committed. In lab operations, sample received and sample accessioned are routinely different events, and two systems will reconcile straight past that gap without either flagging it. Payne and Tamma&rsquo;s agents disclose part of their private correspondence set before agreeing anything; lacking an equivalent step, smooth coordination only shows that the messages parsed.</p>
+
+                    <p>Your stakeholders sometimes compete, though, as you note. Would a supplier&rsquo;s agent volunteer its own vocabulary when the mismatch happens to favour it?</p>
+
+                    <p>Anne</p>
+                </div>
+
+                <div class="assignment-box">
+                    <h3>Response 3: on the industry evidence base</h3>
+                    <p class="deadline">280 words &middot; Peer post built the organisational case on consultancy and analyst sources</p>
+
+                    <p>Hi Fred,</p>
+
+                    <p>Including Gartner as a counterweight is the strongest move here. Most of us listed benefits and stopped, whereas you closed on the condition under which they fail to arrive.</p>
+
+                    <p>I went back to the PwC survey, though, and I think that figure reads differently. It reports 66% of 300 senior executives seeing productivity rise, which is the share answering yes rather than the size of any gain (PwC, 2025); a 66% increase in work productivity would be an extraordinary result, and I do not think the survey claims one.</p>
+
+                    <p>If that is right, it strengthens your case. Read that way, PwC and Gartner stop contradicting each other. Executives who authorised the spending perceive improvement, while Gartner forecasts over 40% of projects cancelled for escalating costs, unclear business value or inadequate risk controls (Gartner, 2025). A perception survey cannot measure output, only what respondents believe about output. What sits between the two is the redesign you describe, since automating a task changes a workflow whereas realising value means moving responsibility.</p>
+
+                    <p>Your sources answer different questions as well. Wooldridge (2009) settles what an agent is, while the industry material reports how adoption is currently perceived, and perception is not the same evidence as outcome.</p>
+
+                    <p>The measure I would settle before deployment is therefore what counts as realised benefit, certified by someone other than the sponsor. Bratman, Israel and Pollack (1988) argue that agents commit to intentions because deliberation is costly under bounded resources, and supervision shifts that boundedness onto human attention rather than dissolving it.</p>
+
+                    <p>If oversight is what keeps a project off Gartner&rsquo;s cancellation list, does the supervisory load undermine the headcount economics that motivated it?</p>
+
+                    <p>Anne</p>
+                </div>
+            </section>
