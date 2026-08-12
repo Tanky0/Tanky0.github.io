@@ -9,15 +9,17 @@ Repository: **https://github.com/Tanky0/Tanky0.github.io**
 1. [How the Site is Built](#how-built)
 2. [Page Structure](#structure)
 3. [Naming Other People](#naming)
-4. [Starting a New Module](#start-module)
-5. [Adding an Assignment](#add-assignment)
-6. [Adding a Grade and Feedback](#add-grade-feedback)
-7. [Completing a Module](#complete-module)
-8. [Updating the Skills Matrix](#skills-matrix)
-9. [Adding Files to `assets/documents/`](#add-files)
-10. [Publishing Changes](#publishing)
-11. [Getting References Right](#references)
-12. [Troubleshooting](#troubleshooting)
+4. [What Belongs at Module Level, Not in Each Assignment](#module-level)
+5. [Declaring AI Use](#ai-use)
+6. [Starting a New Module](#start-module)
+7. [Adding an Assignment](#add-assignment)
+8. [Adding a Grade and Feedback](#add-grade-feedback)
+9. [Completing a Module](#complete-module)
+10. [Updating the Skills Matrix](#skills-matrix)
+11. [Adding Files to `assets/documents/`](#add-files)
+12. [Publishing Changes](#publishing)
+13. [Getting References Right](#references)
+14. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -65,16 +67,15 @@ Module pages use these sections, in this order. Only Module Overview and Assignm
 | **Assignments** | Always. One `assignment-box` per assessment. |
 | **e-Portfolio Activities** | Where the module sets assessed portfolio activities separately from the assignments (Intelligent Agents). |
 | **Outcomes from the Team Exercises** | Team-assessed modules only (Intelligent Agents, Machine Learning). A named component in its own right &mdash; **not** the same as the assessed team project report. |
-| **Summary of Learning Outcomes** | Where the brief lists it. A table: each outcome, how it was met, the evidence. |
-| **Artefacts Mapped to Learning Outcomes** | Where artefacts must be shown against the outcomes. Include a brief description of each and any feedback received. |
+| **Summary of Learning Outcomes: Artefacts, Evidence and Growth** | Where the brief lists either a learning-outcome summary or an artefact mapping. **One table covering both**, with a row per artefact &mdash; see [section 4](#module-level). |
 | **Reflective Piece** | **Only where a reflective piece was actually produced.** Do not add an empty one. |
-| **Team Meeting Notes** | Team-assessed modules only. Covers both team meetings and tutor meetings. |
-| **Peer and Tutor Feedback** | Where the module requires it as a distinct portfolio component. |
-| **Professional Skills Matrix and Action Plan (PDP)** | A short box linking to About Me. Never the matrix itself — see [section 8](#skills-matrix). |
+| **Team Meeting Notes** | Team-assessed modules only. Covers both team meetings and tutor meetings. Guidance the tutor gives on the *group project* goes in the team log, not here. |
+| **AI Acknowledgement** | Always, once the module has artefacts. One statement covering the whole module e-portfolio &mdash; see [section 5](#ai-use). |
+| **Professional Skills Matrix and Action Plan (PDP)** | A short box linking to About Me. Never the matrix itself — see [section 10](#skills-matrix). |
 
-Order the professional-development sections as the brief lists them: summary of learning outcomes, meeting notes, peer and tutor feedback, then the PDP.
+Order the professional-development sections as the brief lists them: summary of learning outcomes, reflective piece, meeting notes, AI acknowledgement, then the PDP.
 
-Sections that are **not** part of the structure: a general "Meeting Notes" section on modules without team assessment, and a per-module copy of the skills matrix.
+Sections that are **not** part of the structure: a general "Meeting Notes" section on modules without team assessment, a per-module copy of the skills matrix, and a **Peer and Tutor Feedback** section. Feedback is recorded against the assignment it belongs to, inside that `assignment-box`. A separate section only duplicates it and spends most of the module empty.
 
 Induction is the exception to all of the above: Module Overview and Assignment only.
 
@@ -85,6 +86,15 @@ Induction is the exception to all of the above: Module Overview and Assignment o
 Where an e-portfolio activity produces more than a couple of paragraphs &mdash; a full collaborative discussion, a coded artefact &mdash; give it a page of its own in `modules/` and leave a summary plus a link in the `assignment-box` on the module page. It keeps the module page readable and gives the artefact its own section index.
 
 Naming: `ia-cd1-agent-based-systems.html`, `ia-unit06-agent-dialogues.html`. Module prefix, unit or activity, short slug.
+
+**The masthead eyebrow is navigation, so make it clickable.** On an artefact page the eyebrow names where the page sits, and a reader arriving from a search result has nothing else to climb back with. Link each part of it:
+
+```html
+<p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot;
+   <a href="intelligent-agents.html#activity-unit06">Unit 6 e-Portfolio Activity</a></p>
+```
+
+The second link needs a real target. Section ids on module pages are **generated at runtime** by `site.js`, which is too late for the browser to act on a fragment, so give the `assignment-box` you are pointing at an explicit `id` (`activity-cd1`, `activity-unit06`, `team-exercises`). `.eyebrow a` is already styled in `site.css`; add no new rule. The breadcrumb under the masthead stays as it is &mdash; the two do different jobs, one naming the context and one naming the path.
 
 Where the activity has two strands that a reader could conflate, say so explicitly at the top. Collaborative discussions are the obvious case: replies *you* wrote on other students' threads are a different thing from replies *others* wrote on yours, and the summary post answers only the second.
 
@@ -127,7 +137,60 @@ If two different people would collide on the same initials, disambiguate with a 
 
 ---
 
-## 4. Starting a New Module {#start-module}
+## 4. What Belongs at Module Level, Not in Each Assignment {#module-level}
+
+The instinct when finishing an artefact is to round it off with a reflection and a learning-outcome table. Resist it. Both belong at module level, and repeating them per artefact fragments the very thing the e-portfolio is marked on, which is development over time.
+
+| Content | Where it goes |
+|---|---|
+| Reflection on an artefact | The **running reflections** on the module page, as a dated entry |
+| Mapping an artefact to learning outcomes | **One** table at module level, one row per artefact |
+| Tutor guidance about the group project | The **team working log**, not Team Meeting Notes |
+| What an activity produced, and a link to it | The `assignment-box` on the module page |
+
+The exception is a brief that explicitly asks for a reflection inside a named artefact. Check before assuming.
+
+An artefact page may keep a short **Reflection** heading holding two sentences and a link to the module entry, so the page reads whole and the section index stays coherent. It must not hold the reflection itself.
+
+### The single learning-outcome table
+
+One table, one row per artefact, added to as each component completes. Columns: artefact, unit(s), outcomes, evidence in the artefact, **learning and changed action**.
+
+That last column is the one that earns marks. The grading criterion is *Learning and Changed Actions*: show what exactly produced the learning or the new way of thinking. "Evidences LO2" is not an answer. "Hunting for a performative that does not exist changed how I read a specification" is. Write it in the same register as the running reflections, in the first person, naming what changed rather than what was covered.
+
+Close the table with a short paragraph saying which outcomes are well evidenced, which are thin, and what will close the gap. Uneven coverage mid-module is expected, and saying so is more credible than implying otherwise.
+
+### The running reflections
+
+- **Order by unit, not by date of writing.** The reader is following a learning sequence. Put the write-date in the `deadline` line if it differs.
+- **Do not repeat a point already made in an earlier entry.** If a later unit changes an earlier conclusion, say that it changed and why. Restating it unchanged reads as padding.
+- **One entry per artefact or per stocktake**, structured on Rolfe, Freshwater and Jasper (2001): What / So what / Now what.
+- Each entry carries its own `<div class="reflist">` with the sources it actually used, Rolfe included.
+
+The grading criteria are explicit that reflection is not a summary of events, so write each entry to them:
+
+- **Emotional Response and Analysis.** How did the work make you feel, and what did that feeling *do* to the work? State the consequence, not the feeling alone. "Being wrong by an order of magnitude was uncomfortable in a productive way, and it is why I now argue for oversight at decomposition" works. "I found this challenging but rewarding" does not.
+- **Others, prior experience and literature.** Bring in what classmates argued, what your professional experience says, and what the referenced literature holds. Where they disagree, say so.
+- **Application of Knowledge.** Describe the project and the aspects of it the reflection turns on clearly enough that the entry stands alone.
+- **Structure and Presentation.** Organised, concise, minimal errors. It carries its own 10%.
+
+Write entries so they can be **lifted into the final reflective piece**. The final piece is capped and the running entries are not, so treat them as the source material rather than as a separate exercise.
+
+---
+
+## 5. Declaring AI Use {#ai-use}
+
+Two levels, and both are needed.
+
+**Per artefact.** Every artefact page carries an `AI Acknowledgement` section in the terms that apply to that page, so a page found on its own still carries the declaration. Link it back to the module statement.
+
+**Per e-portfolio.** The module page carries one statement covering the module page, every artefact linked from it, and the reflections. Give it `id="ai-acknowledgement"` so the artefact pages can link to it.
+
+Say what the tools were actually used for, and be specific. Proofreading, clarity, checking references against source documents. Then state plainly what remains your own: the arguments, the positions taken and revised, the sources selected and read, the design decisions, and every reflection. Where an AI check produced a correction, declare the correction rather than absorbing it silently.
+
+---
+
+## 6. Starting a New Module {#start-module}
 
 **On `index.html`:**
 
@@ -158,7 +221,7 @@ Cards are ordered to follow the sequence actually studied, not the generic progr
 
 ---
 
-## 5. Adding an Assignment {#add-assignment}
+## 7. Adding an Assignment {#add-assignment}
 
 Copy the block from `TEMPLATE_Assignment.html` into the Assignments section and fill it in:
 
@@ -183,7 +246,7 @@ Add one `download-link` per artefact, labelling each where there are several:
 
 ---
 
-## 6. Adding a Grade and Feedback {#add-grade-feedback}
+## 8. Adding a Grade and Feedback {#add-grade-feedback}
 
 Swap the pending badge for the result and add the feedback beneath it:
 
@@ -203,7 +266,7 @@ Where the feedback separates strengths from development points, split them out:
 
 ---
 
-## 7. Completing a Module {#complete-module}
+## 9. Completing a Module {#complete-module}
 
 **Step 1 — Update the status.** On `index.html`:
 
@@ -249,7 +312,7 @@ On the module page, the eyebrow becomes `Completed` and the lede gains the intak
 
 ---
 
-## 8. Updating the Skills Matrix {#skills-matrix}
+## 10. Updating the Skills Matrix {#skills-matrix}
 
 The Professional Skills Matrix lives in **one place only**: `about.html`, in the section with `id="skills-matrix"`. It is never duplicated onto a module page. Where a module requires a PDP as a portfolio component, add a short box linking to it:
 
@@ -294,7 +357,7 @@ Wrap every table in `<div class="table-scroll"> ... </div>` so it scrolls on a p
 
 ---
 
-## 9. Adding Files to `assets/documents/` {#add-files}
+## 11. Adding Files to `assets/documents/` {#add-files}
 
 **Naming:** `ModulePrefix_Assessment_Component.ext`, no spaces.
 
@@ -313,7 +376,7 @@ Examples: `NA_EMA1_Statistical_Analysis_Slides.pdf`, `UAI_CLD2_Summary_Post.pdf`
 
 ---
 
-## 10. Publishing Changes {#publishing}
+## 12. Publishing Changes {#publishing}
 
 GitHub credentials are stored on this machine (Git Credential Manager), so pushing needs no login.
 
@@ -332,7 +395,7 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 
 ---
 
-## 11. Getting References Right {#references}
+## 13. Getting References Right {#references}
 
 **Check the source, not the reading list.** The Intelligent Agents reading list was wrong three separate times: Wooldridge's place of publication (it says New York; the book's copyright page says Chichester), Pollack's first initial (Michael, where the paper says Martha), and Russell and Norvig's year (2021, where the copy actually held is the 2022 Global Edition). Open the title and copyright pages of the edition you used and read the details off them.
 
@@ -345,7 +408,7 @@ To edit small things without a terminal, use the pencil icon on any file at gith
 **When a reference is corrected after posting**, say so on the page rather than changing it silently. A short note is worth more than a clean-looking list.
 
 ---
-## 12. Troubleshooting {#troubleshooting}
+## 14. Troubleshooting {#troubleshooting}
 
 | Problem | Cause and fix |
 |---|---|

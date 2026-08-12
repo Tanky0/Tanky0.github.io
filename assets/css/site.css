@@ -326,6 +326,21 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     margin-bottom: 1.1rem;
 }
 
+.eyebrow a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.32em;
+    text-decoration-color: var(--accent-line);
+    transition: text-decoration-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.eyebrow a:hover,
+.eyebrow a:focus-visible {
+    color: var(--accent-hover);
+    text-decoration-color: currentColor;
+}
+
 .masthead h1 {
     font-family: var(--display);
     font-size: var(--step-4);
@@ -458,7 +473,9 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     margin: 0 0 0.7rem;
 }
 
-.reflist p {
+/* Direct children only, so an explanatory .assignment-box sitting inside a
+   reference section keeps normal prose indentation. */
+.reflist > p {
     max-width: var(--prose);
     padding-left: 2.2rem;
     text-indent: -2.2rem;

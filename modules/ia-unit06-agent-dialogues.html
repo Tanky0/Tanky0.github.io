@@ -92,7 +92,7 @@
         margin-bottom: 0.35rem;
     }
 
-    .artefact .reflist p {
+    .artefact .reflist > p {
         max-width: var(--prose);
         padding-left: 2.2rem;
         text-indent: -2.2rem;
@@ -134,7 +134,7 @@
 
     <header class="masthead">
         <div class="wrap">
-            <p class="eyebrow">Intelligent Agents · Unit 6 e-Portfolio Activity</p>
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#activity-unit06">Unit 6 e-Portfolio Activity</a></p>
             <h1>Creating Agent Dialogues</h1>
             <p class="lede">A KQML and KIF dialogue between a procurement agent and a warehouse agent, with the ontology it depends on and an assessment of where it fails.</p>
         </div>
@@ -151,11 +151,11 @@
 
                 <p class="deadline"><strong>Unit 6</strong> · Formative practical activity · Tutor: Dr Angesh Anupam</p>
 
-                <p>The Unit 6 activity asks for an agent dialogue, written in KQML and KIF, between two named agents. Alice is an agent designed to procure stock and Bob is an agent that controls the stock levels for a warehouse. The dialogue should see Alice asking Bob about the available stock of 50 inch televisions, and also querying the number of HDMI slots the televisions have.</p>
+                <p>Unit 6 sets an agent dialogue in KQML and KIF between two named agents. Alice is the agent that procures stock. Bob controls the stock levels for a warehouse, and the dialogue should see Alice asking him about available stock of 50 inch televisions, then about the number of HDMI slots those televisions carry.</p>
 
-                <p>The unit learning outcomes attached to it are the ability to develop dialogues using KQML/KIF, and an understanding of the use and deployment of ontologies as a means of knowledge sharing.</p>
+                <p>Two unit learning outcomes attach to it: developing dialogues in KQML/KIF, and understanding how ontologies are used and deployed as a means of sharing knowledge.</p>
 
-                <p>I have treated the second outcome as the harder one. Writing eight well-formed messages is a matter of following the syntax in Finin <em>et al.</em> (1994). Deciding what <code>50 inch</code> and <code>HDMI slot</code> actually denote, and who gets to decide, is where the interesting work sits, so the artefact begins with the ontology rather than with the dialogue.</p>
+                <p>The second is the harder of the two and I have treated it that way. Well-formed messages follow from the syntax in Finin <em>et al.</em> (1994) and from little else. What <code>50 inch</code> and <code>HDMI slot</code> denote, and who holds the right to decide, is where the work actually is, which is why the artefact opens with the ontology rather than the dialogue.</p>
             </section>
 
             <section class="content-section" id="why-an-agent-communication-language">
@@ -524,52 +524,18 @@
                 <p>Searle's five categories included commissives for a reason. A procurement dialogue that cannot express <em>I promise to hold these for you</em> is not a procurement dialogue, it is a catalogue lookup. The <code>available</code> function defined above, which subtracts <code>reserved</code> from <code>on-hand</code>, was written to make this concrete: the ontology has a place to record a commitment, and the language has no act that creates one.</p>
             </section>
 
-            <section class="content-section" id="learning-outcomes">
-                <h2>Mapping to the Module Learning Outcomes</h2>
-
-                <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr><th>Learning outcome</th><th>Evidence in this artefact</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Develop dialogues using KQML/KIF or other appropriate ACLs</td><td>Nine messages plus two failure branches, using nine distinct performatives across four of the seven Finin categories</td></tr>
-                        <tr><td>Understand the use and deployment of ontologies as a means of knowledge sharing</td><td>Term table, KIF axioms and a derived term built from existing terms; and what happens when the shared vocabulary is insufficient</td></tr>
-                        <tr><td>Identify and critically analyse agent-based systems, differentiating between architectures and approaches</td><td>Autonomy contrasted with method invocation; KQML assessed against its own designers' admissions</td></tr>
-                        <tr><td>Apply and critically evaluate intelligent agent techniques to real-world problems, particularly where technical risk and uncertainty is involved</td><td>The silent-failure variant of the ontology mismatch; the commissive gap and its commercial consequence</td></tr>
-                    </tbody>
-                </table>
-                </div>
-            </section>
-
             <section class="content-section" id="reflection">
                 <h2>Reflection</h2>
 
-                
-                <p>My first attempt ran to four messages: <code>ask-if</code>, <code>tell</code>, <code>ask-one</code>, <code>reply</code>. It met the brief. It also proved nothing beyond an ability to copy a syntax, which is not what a portfolio is for. The exercise only became worth doing once I asked what would have to be true before Alice and Bob could understand one another at all, and saw how little of that ever reaches the messages.</p>
+                <p>The reflection on this artefact is kept with the module&rsquo;s running reflections rather than repeated here, so that the learning across units reads as one sequence rather than as a series of self-contained postscripts. The same applies to the mapping of this artefact onto the module learning outcomes, which is held in a single growing table at module level.</p>
 
-                <p>Take <code>:ontology warehouse-stock</code>. It reads as a guarantee. It is a claim, and an unverifiable one, because neither agent can inspect the other's vocabulary. I was more uneasy about that line than about anything in the dialogue itself, and the unease is why the ontology took me longer to write than the nine messages did. Two commitments buried inside it, a marketing screen size rather than a measured one and a port count blind to revision, are the kind of thing I have watched surface late, once an integration has already produced numbers nobody trusts.</p>
-
-                <p>The parallel with my own work is a direct one. Central laboratory operations exchange data with sponsor systems daily, across organisational boundaries, and what breaks is hardly ever the pipe. It is two parties using one term for two things, undetected until a reconciliation refuses to balance. Recognising a familiar failure in an unfamiliar formalism made me slower rather than quicker, which I take to be the right response: I stopped treating the exercise as a syntax task and went back to the definitions. Payne and Tamma frame the constraint as disclosure, since agents may need to align vocabularies neither side will publish. I had filed ontology alignment under schema matching. Read properly, it looks at least as much like a negotiation problem. I gave their remedy more enthusiasm than it has earned, though. CID was proposed in 2014 and tested on benchmark ontologies, not in anyone's warehouse.</p>
-
-                <p>The commissive gap is where the exercise changed my thinking. Bob's <code>tell</code> in section 7 is true at the moment of sending and worthless as an assurance, and my first move was to look for the performative I had overlooked. There is none. Being wrong about that was more useful than being right would have been: it stopped me reading the specification as complete and made me look for what it declines to do, which is now how I read any protocol I am asked to rely on. It also explains why Wooldridge's criticisms produced FIPA rather than a patched KQML.</p>
-
-                <p>The scope is worth stating plainly. This is a design exercise rather than an implementation, so the practical questions sit outside it: parsing KIF, coping with a stream that arrives out of order, deciding what a router should do with a performative it cannot recognise. My confidence that the KIF is well formed rests on resemblance to published examples rather than on having run it, and I would not accept that standard of assurance from a supplier. Stating the limit is more comfortable than working within it, which is the honest position: my strength is governance rather than implementation, and the gap closes by building, not by writing about it.</p>
-
-                <h3>What I take from it</h3>
-
-                <p>Three lessons generalise beyond the artefact. The first is that a specification's silences matter more than its vocabulary. The performative list is quickly learned and says nothing about what the language declines to commit to, and it was the missing act rather than any of the nine present ones that proved instructive. The second is that shared meaning is asserted rather than established. <code>:ontology warehouse-stock</code> is a claim about the world that no message in the exchange can verify, and in my experience integrations fail at that seam far more often than at the transport. The third is that neither problem is new in agent form. Finin and colleagues named the ontology difficulty in 1994 and Payne and Tamma were still measuring it twenty years later, which suggests a structural constraint on communication between parties that do not share a designer, rather than a gap waiting for a better protocol.</p>
-
-                <p>That last point is the one I expect to keep using. Autonomy is usually discussed as a property of an agent, but everything difficult in this exercise came from autonomy over <em>meaning</em>: Bob may decline to act, and he may also understand the request differently, and the second is far harder to detect than the first. Central laboratory operations exchange data across organisational boundaries daily, and the governance question there is not whether a system will respond but whether both parties are describing the same event. The dialogue gave me a formal vocabulary for something I had previously handled case by case.</p>
-
-                <p>I came to this module expecting it to be the most directly applicable of the programme, and it has been, though not yet in the way I anticipated. The reading has been a mixture: much of the multi-agent material names patterns I already recognise from practice, whilst the technical apparatus, which is where my gap genuinely sits, has been the new part. It has also been theoretical throughout so far, and I am impatient to build something. I suspect the sequencing is deliberate, and I would concede it has worked on me at least once: writing this dialogue rather than coding it is why I noticed the commissive gap, which I would probably have implemented straight past. Before Unit 12 I intend to implement M2 to M9 as a plain message-passing exercise in Python, where a lost <code>eos</code> or an unhandled <code>sorry</code> fails visibly instead of becoming another paragraph in a reflection.</p>
-
+                <p><a href="intelligent-agents.html#reflective-piece"><strong>Read the Unit 6 entry: what the dialogue exposed</strong></a></p>
             </section>
 
             <section class="content-section" id="ai-acknowledgement">
                 <h2>AI Acknowledgement</h2>
 
-                <p>AI Acknowledgement: Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The intellectual content remains entirely my own work.</p>
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement on this artefact. The ontology, the dialogue, the evaluation and the source checking remain entirely my own work. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
             </section>
 
             <section class="content-section reflist" id="references">
