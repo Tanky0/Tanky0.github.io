@@ -66,7 +66,6 @@ Module pages use these sections, in this order. Only Module Overview and Assignm
 | **Module Overview** | Always. Description, aims, learning outcomes, skills to be gained. Add the result box when the module finishes. |
 | **Assignments** | Always. One `assignment-box` per assessment. |
 | **e-Portfolio Activities** | Where the module sets assessed portfolio activities separately from the assignments (Intelligent Agents). |
-| **Outcomes from the Team Exercises** | Team-assessed modules only (Intelligent Agents, Machine Learning). A named component in its own right &mdash; **not** the same as the assessed team project report. |
 | **Summary of Learning Outcomes: Artefacts, Evidence and Growth** | Where the brief lists either a learning-outcome summary or an artefact mapping. **One table covering both**, with a row per artefact &mdash; see [section 4](#module-level). |
 | **Reflective Piece** | **Only where a reflective piece was actually produced.** Do not add an empty one. |
 | **Team Meeting Notes** | Team-assessed modules only. Covers both team meetings and tutor meetings. Guidance the tutor gives on the *group project* goes in the team log, not here. |
@@ -94,7 +93,7 @@ Naming: `ia-cd1-agent-based-systems.html`, `ia-unit06-agent-dialogues.html`. Mod
    <a href="intelligent-agents.html#activity-unit06">Unit 6 e-Portfolio Activity</a></p>
 ```
 
-The second link needs a real target. Section ids on module pages are **generated at runtime** by `site.js`, which is too late for the browser to act on a fragment, so give the `assignment-box` you are pointing at an explicit `id` (`activity-cd1`, `activity-unit06`, `team-exercises`). `.eyebrow a` is already styled in `site.css`; add no new rule. The breadcrumb under the masthead stays as it is &mdash; the two do different jobs, one naming the context and one naming the path.
+The second link needs a real target. Section ids on module pages are **generated at runtime** by `site.js`, which is too late for the browser to act on a fragment, so give the `assignment-box` you are pointing at an explicit `id` (`activity-cd1`, `activity-unit06`, `assignment-team-project`). `.eyebrow a` is already styled in `site.css`; add no new rule. The breadcrumb under the masthead stays as it is &mdash; the two do different jobs, one naming the context and one naming the path.
 
 Where the activity has two strands that a reader could conflate, say so explicitly at the top. Collaborative discussions are the obvious case: replies *you* wrote on other students' threads are a different thing from replies *others* wrote on yours, and the summary post answers only the second.
 
@@ -146,7 +145,14 @@ The instinct when finishing an artefact is to round it off with a reflection and
 | Reflection on an artefact | The **running reflections** on the module page, as a dated entry |
 | Mapping an artefact to learning outcomes | **One** table at module level, one row per artefact |
 | Tutor guidance about the group project | The **team working log**, not Team Meeting Notes |
+| Team exercise outcomes | A `<h4>Team Working Log</h4>` block **inside the team project `assignment-box`**, not a section of its own |
 | What an activity produced, and a link to it | The `assignment-box` on the module page |
+
+### The team project is one box, not two sections
+
+Where a module assesses a team project, everything about it belongs in that one `assignment-box`: the brief, the use case, the role held, a `Team Working Log` subheading with a link to the log page, and the status. The working log is the evidence for the team-working outcome, so keeping it beside the report and the peer review is what makes the box a complete account of the assessment.
+
+A separate *Outcomes from the Team Exercises* section duplicates all of that and reads as a second, competing record of the same project. Give the box an explicit `id` (`assignment-team-project`) so the log page can link back to it, and set the status to **In progress** with what the log currently covers, rather than leaving it at *Not yet submitted* while work is visibly under way.
 
 The exception is a brief that explicitly asks for a reflection inside a named artefact. Check before assuming.
 

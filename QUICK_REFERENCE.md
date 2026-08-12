@@ -109,16 +109,16 @@ Only the first two are required. Build the rest from the module's own brief — 
 1. Module Overview
 2. Assignments
 3. e-Portfolio Activities *(where the module sets them)*
-4. Outcomes from the Team Exercises *(team-assessed modules only)*
-5. Summary of Learning Outcomes: Artefacts, Evidence and Growth *(one table, both jobs)*
-6. Reflective Piece, with the running reflections inside it
-7. Team Meeting Notes *(team-assessed only; covers team and tutor meetings)*
-8. AI Acknowledgement *(once, covering the whole module e-portfolio)*
-9. Professional Skills Matrix and Action Plan *(link box only)*
+4. Summary of Learning Outcomes: Artefacts, Evidence and Growth *(one table, both jobs)*
+5. Reflective Piece, with the running reflections inside it
+6. Team Meeting Notes *(team-assessed only; covers team and tutor meetings)*
+7. AI Acknowledgement *(once, covering the whole module e-portfolio)*
+8. Professional Skills Matrix and Action Plan *(link box only)*
 
-No **Peer and Tutor Feedback** section: feedback goes in the `assignment-box` it
-belongs to. No separate **Artefacts Mapped to Learning Outcomes**: section 5 does
-both jobs in one table.
+Three sections that no longer exist: **Peer and Tutor Feedback** (feedback goes in
+the `assignment-box` it belongs to), **Artefacts Mapped to Learning Outcomes**
+(section 4 does both jobs), and **Outcomes from the Team Exercises** (a
+`Team Working Log` block inside the team project `assignment-box`).
 
 Sections 5 onwards follow the order the brief lists them in.
 
@@ -208,6 +208,7 @@ late for the browser to jump to.
 | Reflection on an artefact | Running reflections, module page |
 | Artefact to learning outcomes | The single module-level table |
 | Tutor guidance on the group project | Team working log |
+| Team exercise outcomes | `Team Working Log` block in the team project box |
 | AI acknowledgement | Both: per artefact **and** once for the module |
 
 Artefact page may keep a two-sentence `Reflection` section that links to the
