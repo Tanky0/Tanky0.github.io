@@ -44,7 +44,7 @@
 
     <header class="masthead">
         <div class="wrap">
-            <p class="eyebrow">Intelligent Agents &middot; Units 1&ndash;3 e-Portfolio Activity</p>
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot; <a href="intelligent-agents.html#activity-cd1">Units 1&ndash;3 e-Portfolio Activity</a></p>
             <h1>Collaborative Discussion 1: Agent Based Systems</h1>
             <p class="lede">Two strands: my own thread, where three classmates changed my position between the initial and summary posts, and three responses written on other students&rsquo; threads.</p>
         </div>
@@ -109,24 +109,24 @@
 
                 <p class="deadline">Unit 2 &middot; 4 to 10 August 2026 &middot; Three classmates replied to my initial post</p>
 
-                <p>Summarised in my own words rather than reproduced. The UoEO referencing guide asks students to check with their tutor before formally citing another student&rsquo;s work, so each contribution is credited by name and argument without being republished here.</p>
+                <p>Summarised in my own words rather than reproduced. The UoEO referencing guide asks students to check with their tutor before formally citing another student&rsquo;s work, so each contribution below is credited by initials and by argument, with nothing republished.</p>
 
                 <div class="assignment-box">
                     <h3>A.B.: name the model the argument assumes</h3>
-                    <p>Observed that my post relied on a belief-desire-intention account of planning without ever naming it, and that saying so explicitly would ground the argument in the agent literature the module sets. He also suggested developing why human orientation matters among the five trends, and connecting restriction neglect to work treating trust and control as complementary rather than opposing forces.</p>
-                    <p><strong>What I did with it.</strong> Naming the model is what exposed the flaw in my own position, so this became the hinge of the summary post rather than a presentational fix.</p>
+                    <p>My post leaned on a belief-desire-intention account of planning without once naming it, and A.B. said so. Naming it would anchor the argument in the literature the module actually sets. Two further suggestions came with that: develop why human orientation matters among the five trends, and connect restriction neglect to work treating trust and control as complementary rather than opposed.</p>
+                    <p><strong>What I did with it.</strong> Naming the model exposed the flaw in my own position. What arrived as a presentational note became the hinge of the summary post.</p>
                 </div>
 
                 <div class="assignment-box">
                     <h3>A.N.: completion is a poor proxy for reliability</h3>
-                    <p>Argued that task completion can conceal silent degradation. A batch that finishes slowly is visibly impaired, whereas a clinical research agent that finishes while missing relevant trials still looks successful. Drawing on work on omission in language-model outputs, on model confidence persisting when answers are wrong, and on human oversight depending first on people being able to detect errors, he concluded that a plan-stage checkpoint cannot guarantee that retrieval, ranking and summarising preserve a constraint after an agent fails. He proposed measuring resilience through output quality, with the system reporting failed agents, affected stages and evidence coverage.</p>
-                    <p><strong>What I did with it.</strong> This is the objection that changed my position, and the disclosure requirement in the summary post is his proposal carried into the design.</p>
+                    <p>Completion, A.N. argued, can conceal silent degradation. A batch that finishes slowly is visibly impaired. A clinical research agent that finishes whilst missing relevant trials still looks successful, and the evidence offered for that ran across three strands: omission in language-model outputs, model confidence that persists when the answer is wrong, and oversight that depends first on people being able to detect an error at all. The conclusion followed. A plan-stage checkpoint cannot guarantee that retrieval, ranking and summarising preserve a constraint once an agent has failed, so resilience should be measured through output quality, with the system declaring failed agents, affected stages and evidence coverage.</p>
+                    <p><strong>What I did with it.</strong> This is the objection that moved me. The disclosure requirement in the summary post is that proposal carried straight into the design.</p>
                 </div>
 
                 <div class="assignment-box">
                     <h3>Y.A.F.: one approval cannot govern a system that keeps running</h3>
-                    <p>Accepted the checkpoint but argued that a single approval point is insufficient for agents which continue operating and responding to new information, citing work on keeping capable systems compatible with human intentions, on combining automation with meaningful human control, and on risk-management guidance that treats governance as continuous monitoring rather than one-time approval.</p>
-                    <p><strong>What I did with it.</strong> It reframed oversight as a property of what the system emits over time rather than a moment of sign-off, which is where the summary post ends.</p>
+                    <p>Y.A.F. accepted the checkpoint, then pressed on its scope. One approval point is not enough for agents that keep operating and keep responding to new information. The case drew on work about keeping capable systems compatible with human intentions, on combining automation with meaningful human control, and on risk-management guidance that treats governance as continuous monitoring rather than a single sign-off.</p>
+                    <p><strong>What I did with it.</strong> Oversight stopped being a moment and became a property of what the system emits over time. That is where the summary post ends.</p>
                 </div>
             </section>
 
@@ -154,9 +154,9 @@
 
                 <p class="deadline">Unit 2 &middot; 4 to 10 August 2026 &middot; Three responses where two were required</p>
 
-                <p>A separate strand from the thread above. These were written on three other students&rsquo; initial posts. They are not replies to the classmates who commented on my post, and nothing in them feeds into my summary post.</p>
+                <p>These sit apart from the thread above. They were written on three other students&rsquo; initial posts, so the classmates answered here are not the ones who commented on mine, and nothing in them feeds into my summary post.</p>
 
-                <p>The brief asks responses to focus on the measures that could have prevented the issues raised. Each of the three below identifies a different failure and proposes a different control, and none reuses the argument of another.</p>
+                <p>The brief asks each response to concentrate on the measures that could have prevented the issue raised. Each of the three identifies a different failure and proposes a different control, so none recycles the reasoning of another.</p>
 
                 <div class="assignment-box">
                     <h3>Response 1: on a coordinating planning agent</h3>
@@ -220,30 +220,20 @@
                 </div>
             </section>
 
-            <section class="content-section" id="what-changed">
-                <h2>What the Discussion Changed</h2>
+<section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
 
-                <p>This concerns my own thread. The position at the end is not the position at the start, and the reason is traceable.</p>
-
-                <p><strong>The initial claim.</strong> Restriction neglect happens during planning, so the control belongs at the plan stage. A reviewer can confirm that a stated constraint survived decomposition; nobody can audit a landscape that was never searched. That reasoning still holds.</p>
-
-                <p><strong>What two classmates showed.</strong> The checkpoint inspects the plan and nothing else. A pipeline that loses a retrieval stage after approval returns a polished summary and announces nothing, so the control cannot see the failure it was installed to prevent. The flaw was already inside my own argument: I had justified the checkpoint on the grounds that coverage is unauditable after the fact, then built a mechanism that looks only at the plan.</p>
-
-                <p><strong>What Unit 3 supplied.</strong> Reading Brooks against Bratman, Israel and Pollack explains why the failure leaves no trace. A subsumption architecture holds no central world model, so there is nothing to interrogate. A belief-desire-intention architecture does represent intentions, but an intention is a desire already adopted into a plan whose function is to constrain further reasoning, so filtered options are not routinely revisited. Two architectures, opposite reasons, same consequence: neither keeps a record of what it discarded. That is a plausible reason why restriction neglect has to be measured from outside the system.</p>
-
-                <p><strong>The revised position.</strong> Keep the checkpoint, but pair it with disclosure. Bratman&rsquo;s filter override is the mechanism that reopens a committed plan, and an override needs an input to act upon: each stage should declare which agents failed, which stages were affected and which approved subquestions went unexecuted. Oversight is a standing property of what a system emits, not a single moment of approval.</p>
-
-                <p><strong>Where this lands in the team project.</strong> The design decision carried into the two-agent clinical literature pipeline is that the planning agent surfaces its decomposition for approval <em>and</em> the curation agent reports coverage loss. Whether that is affordable inside the free-tier constraints the team is working to is a separate question, and an honest one to leave open.</p>
-
-                <div class="assignment-box">
-                    <h3>A note on the references below</h3>
-                    <p>The four pieces I wrote shared many sources, so their reference lists are consolidated rather than repeated four times. Two entries have been corrected against the source documents since posting: <strong>Wooldridge (2009)</strong> is published in Chichester, not New York as the module reading list states, and <strong>Zhan <em>et al.</em> (2026)</strong> follows the Cite Them Right preprint form, in which the repository appears in the URL rather than in the journal position. Both errors appear in the posts as submitted to the forum; they are corrected here, and the correction is noted rather than made silently.</p>
-                    <p>Sources introduced by classmates in their replies to me are described in their own section above but are not listed below, since I have not read them.</p>
-                </div>
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement across the four pieces on this page and the commentary around them. The intellectual content, the arguments and the source checking remain entirely my own work. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
             </section>
 
-<section class="content-section reflist" id="references">
+            <section class="content-section reflist" id="references">
                 <h2>References</h2>
+
+                <div class="assignment-box">
+                    <h3>A note on this list</h3>
+                    <p>Sources overlap heavily across the four pieces, so one consolidated list replaces four near-identical ones. Two entries have since been checked against the source documents and corrected. <strong>Wooldridge (2009)</strong> carries Chichester on its copyright page, not the New York given in the module reading list. <strong>Zhan <em>et al.</em> (2026)</strong> now follows the Cite Them Right preprint form, where the repository belongs in the URL rather than the journal position. Both errors stand in the posts as submitted to the forum. Correcting them here and saying so seemed better than a silent tidy-up.</p>
+                    <p>Sources my classmates brought into their replies are described in their own section above and deliberately left out of the list, since I have not read them.</p>
+                </div>
 
                 <p>Bouslimi, I. (2024) &lsquo;The scalability impact on organization-based multi-agent systems&rsquo;, <em>Procedia Computer Science</em>, 246, pp. 991-1000. Available at: <a href="https://doi.org/10.1016/j.procs.2024.09.518">https://doi.org/10.1016/j.procs.2024.09.518</a></p>
 

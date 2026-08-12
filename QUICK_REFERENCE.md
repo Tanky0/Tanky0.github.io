@@ -4,6 +4,7 @@ Snippets for common edits. Full instructions in `EPORTFOLIO_UPDATE_GUIDE.md`.
 
 > **Never write inline CSS.** All styling lives in `assets/css/site.css`, shared by every page.
 > **Never name a classmate.** Initials only, including inside reproduced posts. This site is public.
+> **Never put a reflection or a learning-outcome table inside an artefact page.** Both live at module level.
 
 ## Assignment Block
 
@@ -109,12 +110,15 @@ Only the first two are required. Build the rest from the module's own brief — 
 2. Assignments
 3. e-Portfolio Activities *(where the module sets them)*
 4. Outcomes from the Team Exercises *(team-assessed modules only)*
-5. Summary of Learning Outcomes *(where the brief lists it)*
-6. Artefacts Mapped to Learning Outcomes
-7. Reflective Piece *(only if one was actually produced)*
-8. Team Meeting Notes *(team-assessed only; covers team and tutor meetings)*
-9. Peer and Tutor Feedback *(where required)*
-10. Professional Skills Matrix and Action Plan *(link box only)*
+5. Summary of Learning Outcomes: Artefacts, Evidence and Growth *(one table, both jobs)*
+6. Reflective Piece, with the running reflections inside it
+7. Team Meeting Notes *(team-assessed only; covers team and tutor meetings)*
+8. AI Acknowledgement *(once, covering the whole module e-portfolio)*
+9. Professional Skills Matrix and Action Plan *(link box only)*
+
+No **Peer and Tutor Feedback** section: feedback goes in the `assignment-box` it
+belongs to. No separate **Artefacts Mapped to Learning Outcomes**: section 5 does
+both jobs in one table.
 
 Sections 5 onwards follow the order the brief lists them in.
 
@@ -122,17 +126,29 @@ The sticky section index on the right builds itself from the `<h2>` headings —
 
 ## Summary of Learning Outcomes Table
 
+One table for the whole module, a row per artefact, columns: artefact, unit(s),
+outcomes, evidence, **learning and changed action**. The last column is what is
+marked. Close with a note on which outcomes are still thin.
+
 ```html
 <div class="table-scroll">
 <table>
     <thead>
-        <tr><th>Learning Outcome</th><th>How it was met</th><th>Evidence</th></tr>
+        <tr>
+            <th>Artefact</th><th>Unit(s)</th><th>Outcomes</th>
+            <th>Evidence in the artefact</th><th>Learning and changed action</th>
+        </tr>
     </thead>
     <tbody>
         <tr>
-            <td><strong>LO1</strong><br>Outcome text as published.</td>
-            <td>To be completed.</td>
-            <td>To be completed.</td>
+            <td><a href="ia-unit06-agent-dialogues.html">Creating Agent Dialogues</a></td>
+            <td>6</td>
+            <td><strong>LO1, LO2</strong></td>
+            <td>What the artefact contains that evidences them</td>
+            <td>What it changed in how you work, in the first person</td>
+        </tr>
+        <tr>
+            <td colspan="5"><em>Rows added as each remaining component completes.</em></td>
         </tr>
     </tbody>
 </table>
@@ -160,6 +176,9 @@ Copy an existing page and replace what is inside `<main>`. Check:
 - assignment titles are `<h3>`, never `<h4>` (heading order)
 - no `<style>` block anywhere
 - no classmate named anywhere, including inside quoted posts
+- eyebrow links to the module page and to the activity anchor
+- AI acknowledgement section present and linked to the module statement
+- no reflection and no learning-outcome table on the artefact page
 
 ## File Naming
 
@@ -171,6 +190,47 @@ Copy an existing page and replace what is inside `<main>`. Check:
 | `UAI_` | Understanding Artificial Intelligence |
 | `NA_` | Numerical Analysis |
 | `IA_` | Intelligent Agents |
+
+## Artefact Page Eyebrow
+
+```html
+<p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot;
+   <a href="intelligent-agents.html#activity-unit06">Unit 6 e-Portfolio Activity</a></p>
+```
+
+Give the target `assignment-box` an explicit `id`. Runtime-generated ids are too
+late for the browser to jump to.
+
+## Module Level, Not Assignment Level
+
+| Content | Goes in |
+|---|---|
+| Reflection on an artefact | Running reflections, module page |
+| Artefact to learning outcomes | The single module-level table |
+| Tutor guidance on the group project | Team working log |
+| AI acknowledgement | Both: per artefact **and** once for the module |
+
+Artefact page may keep a two-sentence `Reflection` section that links to the
+module entry. Never the reflection itself.
+
+## Running Reflection Entry
+
+```html
+<div class="assignment-box">
+    <h3>Unit 6: what the dialogue exposed</h3>
+    <p class="deadline">Written 11 August 2026 &middot; <a href="...">Artefact</a></p>
+    <p><strong>What.</strong> ...</p>
+    <p><strong>So what.</strong> ...</p>
+    <p><strong>Now what.</strong> ...</p>
+    <div class="reflist">
+        <h4>References for this entry</h4>
+        <p>Rolfe, G., Freshwater, D. and Jasper, M. (2001) ...</p>
+    </div>
+</div>
+```
+
+Ordered by unit, not by write date. No point repeated from an earlier entry.
+Every feeling stated with the consequence it had for the work.
 
 ## Large Activities
 
