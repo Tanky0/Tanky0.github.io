@@ -12,7 +12,7 @@ Live at **https://tanky0.github.io/**
   - `induction.html` — Completed
   - `launch-into-computing.html` — Completed, 76% (Distinction)
   - `understanding-ai.html` — Completed, 87% (Distinction)
-  - `numerical-analysis.html` — Completed, 99% (Distinction)
+  - `numerical-analysis.html` — Completed, 81% (Distinction)
   - `intelligent-agents.html` — In progress (started 28 July 2026)
   - `machine-learning.html` — Planned
   - `knowledge-reasoning.html` — Planned
