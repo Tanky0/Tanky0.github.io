@@ -110,7 +110,7 @@
 
     <header class="masthead">
         <div class="wrap">
-            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#activity-unit08">Unit 8 e-Portfolio Activity</a></p>
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#eportfolio-activities">Unit 8 e-Portfolio Activity</a></p>
             <h1>Creating Parse Trees</h1>
             <p class="lede">Constituency-based parse trees for three sentences, each derived from an explicit phrase-structure grammar, with one sentence carried through both of its valid readings.</p>
         </div>
@@ -263,7 +263,7 @@ PP &#8594; IN NP</code></pre>
 
             <section class="content-section" id="sentence-3">
                 <h2>Sentence 3: The Man Saw the Dog With the Telescope</h2>
-                <p>This sentence is the standard example of <strong>structural ambiguity</strong>, and of prepositional-phrase attachment in particular: <em>with the telescope</em> could in principle attach in two places. The two are not on equal footing. One gives the reading the sentence actually has; the other is a structure the grammar allows but the meaning of the words rules out. The highlighted branch in each diagram marks where the prepositional phrase attaches.</p>
+                <p>This sentence is the standard example of <strong>structural ambiguity</strong>, and of prepositional-phrase attachment in particular: <em>with the telescope</em> could in principle attach in two places. The two are not on equal footing. One gives the reading the sentence actually has; the other is a structure the grammar allows but the meaning of the words rules out. In the tree below, the highlighted branch marks where the prepositional phrase attaches.</p>
 
                 <h3>The instrument reading</h3>
                 <p>Here <em>with the telescope</em> attaches to the verb phrase (VP &#8594; VBD NP PP) and says how the seeing was done: the man used the telescope to see the dog. This is what the sentence means.</p>
@@ -315,65 +315,12 @@ PP &#8594; IN NP</code></pre>
   <text class="phrase" x="346.0" y="78.0" text-anchor="middle">VP</text>
   <text class="phrase" x="216.0" y="30.0" text-anchor="middle">S</text>
 </svg></div>
-                    <figcaption>Figure 3a. The prepositional phrase attaches to the verb phrase.</figcaption>
+                    <figcaption>Figure 3. The prepositional phrase attaches to the verb phrase, the reading the sentence has.</figcaption>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]</code></pre>
 
                 <h3>The structure the meaning rules out</h3>
-                <p>The grammar also allows <em>with the telescope</em> to attach inside the object noun phrase (NP &#8594; NP PP), which would make it describe the dog rather than the seeing, the same shape as <em>the dog with the collar</em>. The words block that reading, since a dog does not carry or own a telescope. The second tree is worth drawing all the same, not as a rival reading, but to show a structure the grammar builds and the meaning then throws out.</p>
-                <figure>
-                    <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 344" role="img" aria-labelledby="s3b-t s3b-d" xmlns="http://www.w3.org/2000/svg">
-  <title id="s3b-t">Constituency parse tree, the structure the grammar allows but the meaning rules out</title>
-  <desc id="s3b-d">The prepositional phrase with the telescope attaches inside the object noun phrase, which would modify the dog.</desc>
-  <line class="branch" x1="198.5" y1="37.0" x2="86.0" y2="63.0"/>
-  <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
-  <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
-  <line class="branch" x1="86.0" y1="85.0" x2="126.0" y2="111.0"/>
-  <line class="branch" x1="126.0" y1="133.0" x2="126.0" y2="159.0"/>
-  <line class="branch" x1="198.5" y1="37.0" x2="311.0" y2="63.0"/>
-  <line class="branch" x1="311.0" y1="85.0" x2="206.0" y2="111.0"/>
-  <line class="branch" x1="206.0" y1="133.0" x2="206.0" y2="159.0"/>
-  <line class="branch" x1="311.0" y1="85.0" x2="416.0" y2="111.0"/>
-  <line class="branch" x1="416.0" y1="133.0" x2="326.0" y2="159.0"/>
-  <line class="branch" x1="326.0" y1="181.0" x2="286.0" y2="207.0"/>
-  <line class="branch" x1="286.0" y1="229.0" x2="286.0" y2="255.0"/>
-  <line class="branch" x1="326.0" y1="181.0" x2="366.0" y2="207.0"/>
-  <line class="branch" x1="366.0" y1="229.0" x2="366.0" y2="255.0"/>
-  <line class="branch hi" x1="416.0" y1="133.0" x2="506.0" y2="159.0"/>
-  <line class="branch hi" x1="506.0" y1="181.0" x2="446.0" y2="207.0"/>
-  <line class="branch hi" x1="446.0" y1="229.0" x2="446.0" y2="255.0"/>
-  <line class="branch hi" x1="506.0" y1="181.0" x2="566.0" y2="207.0"/>
-  <line class="branch hi" x1="566.0" y1="229.0" x2="526.0" y2="255.0"/>
-  <line class="branch hi" x1="526.0" y1="277.0" x2="526.0" y2="303.0"/>
-  <line class="branch hi" x1="566.0" y1="229.0" x2="606.0" y2="255.0"/>
-  <line class="branch hi" x1="606.0" y1="277.0" x2="606.0" y2="303.0"/>
-  <text class="word" x="46.0" y="174.0" text-anchor="middle">The</text>
-  <text class="pos" x="46.0" y="126.0" text-anchor="middle">DT</text>
-  <text class="word" x="126.0" y="174.0" text-anchor="middle">man</text>
-  <text class="pos" x="126.0" y="126.0" text-anchor="middle">NN</text>
-  <text class="phrase" x="86.0" y="78.0" text-anchor="middle">NP</text>
-  <text class="word" x="206.0" y="174.0" text-anchor="middle">saw</text>
-  <text class="pos" x="206.0" y="126.0" text-anchor="middle">VBD</text>
-  <text class="word" x="286.0" y="270.0" text-anchor="middle">the</text>
-  <text class="pos" x="286.0" y="222.0" text-anchor="middle">DT</text>
-  <text class="word" x="366.0" y="270.0" text-anchor="middle">dog</text>
-  <text class="pos" x="366.0" y="222.0" text-anchor="middle">NN</text>
-  <text class="phrase" x="326.0" y="174.0" text-anchor="middle">NP</text>
-  <text class="word" x="446.0" y="270.0" text-anchor="middle">with</text>
-  <text class="pos hi" x="446.0" y="222.0" text-anchor="middle">IN</text>
-  <text class="word" x="526.0" y="318.0" text-anchor="middle">the</text>
-  <text class="pos hi" x="526.0" y="270.0" text-anchor="middle">DT</text>
-  <text class="word" x="606.0" y="318.0" text-anchor="middle">telescope</text>
-  <text class="pos hi" x="606.0" y="270.0" text-anchor="middle">NN</text>
-  <text class="phrase hi" x="566.0" y="222.0" text-anchor="middle">NP</text>
-  <text class="phrase hi" x="506.0" y="174.0" text-anchor="middle">PP</text>
-  <text class="phrase" x="416.0" y="126.0" text-anchor="middle">NP</text>
-  <text class="phrase" x="311.0" y="78.0" text-anchor="middle">VP</text>
-  <text class="phrase" x="198.5" y="30.0" text-anchor="middle">S</text>
-</svg></div>
-                    <figcaption>Figure 3b. The prepositional phrase attaches inside the object NP, a structure the meaning rules out.</figcaption>
-                </figure>
-<pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]]</code></pre>
+                <p>The grammar could also attach <em>with the telescope</em> inside the object noun phrase (NP &#8594; NP PP), which would make it describe the dog rather than the seeing, the same shape as <em>the dog with the collar</em>. The words block that reading, since a dog does not carry or own a telescope. It is a structure the grammar can build and the meaning then throws out, so it is worth naming but not worth drawing as though it were a genuine second reading.</p>
 
                 <p>This is where the exercise earns its place. The grammar produces both structures and prefers neither; only knowledge of the world tells you that a dog holding a telescope is not what the sentence means. Syntax on its own cannot make that call, and that is the obstacle a language-using agent has to cross. An information-extraction agent reading these words still has to decide what to record, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not settle the meaning, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The structure a person discards without noticing is the one a parser has to be taught to rank last.</p>
             </section>
