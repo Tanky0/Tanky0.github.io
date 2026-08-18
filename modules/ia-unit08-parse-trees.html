@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Parse Trees - Anne Dayer</title>
+    <meta name="description" content="Intelligent Agents Unit 8 e-portfolio artefact: constituency-based parse trees for three sentences, derived from a phrase-structure grammar, with a worked prepositional-phrase attachment ambiguity and its significance for language-using agents.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-unit08-parse-trees.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Creating Parse Trees - Anne Dayer">
+    <meta property="og:description" content="Intelligent Agents Unit 8 e-portfolio artefact: constituency-based parse trees for three sentences, derived from a phrase-structure grammar, with a worked PP-attachment ambiguity.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-unit08-parse-trees.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no tree, code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+    /* parse-tree diagram, tokens so it follows the light/dark toggle */
+    .artefact svg.ptree { display: block; width: 100%; height: auto; min-width: 340px; }
+    .ptree .branch { stroke: var(--rule-strong); stroke-width: 1.3; }
+    .ptree .branch.hi { stroke: var(--accent); stroke-width: 1.9; }
+    .ptree .phrase { fill: var(--ink); font-family: var(--mono); font-weight: 600; font-size: 14.5px; }
+    .ptree .pos { fill: var(--ink-3); font-family: var(--mono); font-size: 12px; }
+    .ptree .word { fill: var(--ink); font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 14.5px; }
+    .ptree .phrase.hi, .ptree .pos.hi { fill: var(--accent); }
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#activity-unit08">Unit 8 e-Portfolio Activity</a></p>
+            <h1>Creating Parse Trees</h1>
+            <p class="lede">Constituency-based parse trees for three sentences, each derived from an explicit phrase-structure grammar, with one sentence carried through both of its valid readings.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Creating Parse Trees</span>
+            </div>
+
+            <section class="content-section" id="the-task">
+                <h2>The Task</h2>
+                <p class="deadline"><strong>Unit 8</strong> · Formative practical activity · Tutor: Dr Angesh Anupam · Evidences learning outcomes 1 and 2</p>
+                <p>Unit 8 asks for constituency-based parse trees of three sentences, added to the e-portfolio as the completed artefact:</p>
+                <ol>
+                    <li>The government raised interest rates.</li>
+                    <li>The internet gives everyone a voice.</li>
+                    <li>The man saw the dog with the telescope.</li>
+                </ol>
+                <p>The trees are the deliverable, so I have kept the framing brief. The third sentence carries the analytical weight, because it is the one with more than a single correct answer, and that is where an exercise in notation turns into something worth reasoning about.</p>
+            </section>
+
+            <section class="content-section" id="constituency-not-dependency">
+                <h2>Constituency, Not Dependency</h2>
+                <p>A parse tree makes the hierarchy inside a sentence explicit. We speak and read in a line, yet the words gather into nested units, and a tree shows those units directly (Zimmerman, 2019). Constituency analysis is one of two common ways to draw that structure. It groups words into phrases, a noun phrase or a verb phrase, and each phrase behaves as one unit that can sit inside a larger one.</p>
+                <p>The other approach, dependency analysis, links individual words to each other and hangs the whole sentence from the main verb. The difference is not academic for this activity. The set reading demonstrates parsing in the spaCy library, and those diagrams are dependency trees, whereas the brief asks for constituency trees (Zimmerman, 2019). Both describe one grammar from different angles. Everything below keeps to the constituency convention.</p>
+            </section>
+
+            <section class="content-section" id="grammar">
+                <h2>A Small Phrase-Structure Grammar</h2>
+                <p>Constituency trees are not drawn by intuition. Each is a derivation from a set of phrase-structure rules, and writing the rules down first makes the trees reproducible rather than merely plausible (Russell and Norvig, 2022, ch. 23). Nine rules generate all three sentences:</p>
+<pre><code>S  &#8594; NP VP
+NP &#8594; DT NN
+NP &#8594; NN NNS
+NP &#8594; NN
+NP &#8594; NP PP
+VP &#8594; VBD NP
+VP &#8594; VBD NP PP
+VP &#8594; VBZ NP NP
+PP &#8594; IN NP</code></pre>
+                <p>The tags follow the Penn Treebank set (Marcus, Santorini and Marcinkiewicz, 1993). Each tree below appears twice over: as a diagram, and beneath it as the equivalent labelled bracketing. Sentence-final punctuation is left out of the trees, since a full stop carries no constituency and only adds a node.</p>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr><th>Tag</th><th>Category</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>S</code></td><td>Sentence, the clause root</td></tr>
+                        <tr><td><code>NP</code></td><td>Noun phrase</td></tr>
+                        <tr><td><code>VP</code></td><td>Verb phrase</td></tr>
+                        <tr><td><code>PP</code></td><td>Prepositional phrase</td></tr>
+                        <tr><td><code>DT</code></td><td>Determiner</td></tr>
+                        <tr><td><code>NN</code></td><td>Noun, singular or mass</td></tr>
+                        <tr><td><code>NNS</code></td><td>Noun, plural</td></tr>
+                        <tr><td><code>VBD</code></td><td>Verb, past tense</td></tr>
+                        <tr><td><code>VBZ</code></td><td>Verb, third-person singular present</td></tr>
+                        <tr><td><code>IN</code></td><td>Preposition</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section class="content-section" id="sentence-1">
+                <h2>Sentence 1: The Government Raised Interest Rates</h2>
+                <p>A plain transitive clause with the canonical shape S &#8594; NP VP. The subject noun phrase is <em>The government</em>, and the verb phrase is <em>raised interest rates</em>. Within the verb phrase, <em>interest rates</em> is a compound noun phrase (NP &#8594; NN NNS) in which <em>interest</em> modifies <em>rates</em>, and the compound as a whole is the direct object of <em>raised</em>.</p>
+                <figure>
+                    <div class="fig-scroll"><svg class="ptree" viewBox="0 0 412 248" role="img" aria-labelledby="s1-t s1-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="s1-t">Constituency parse tree for The government raised interest rates</title>
+  <desc id="s1-d">S branches to NP (The government) and VP. VP branches to the verb raised and the object NP interest rates.</desc>
+  <line class="branch" x1="176.0" y1="37.0" x2="86.0" y2="63.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
+  <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="126.0" y2="111.0"/>
+  <line class="branch" x1="126.0" y1="133.0" x2="126.0" y2="159.0"/>
+  <line class="branch" x1="176.0" y1="37.0" x2="266.0" y2="63.0"/>
+  <line class="branch" x1="266.0" y1="85.0" x2="206.0" y2="111.0"/>
+  <line class="branch" x1="206.0" y1="133.0" x2="206.0" y2="159.0"/>
+  <line class="branch" x1="266.0" y1="85.0" x2="326.0" y2="111.0"/>
+  <line class="branch" x1="326.0" y1="133.0" x2="286.0" y2="159.0"/>
+  <line class="branch" x1="286.0" y1="181.0" x2="286.0" y2="207.0"/>
+  <line class="branch" x1="326.0" y1="133.0" x2="366.0" y2="159.0"/>
+  <line class="branch" x1="366.0" y1="181.0" x2="366.0" y2="207.0"/>
+  <text class="word" x="46.0" y="174.0" text-anchor="middle">The</text>
+  <text class="pos" x="46.0" y="126.0" text-anchor="middle">DT</text>
+  <text class="word" x="126.0" y="174.0" text-anchor="middle">government</text>
+  <text class="pos" x="126.0" y="126.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="86.0" y="78.0" text-anchor="middle">NP</text>
+  <text class="word" x="206.0" y="174.0" text-anchor="middle">raised</text>
+  <text class="pos" x="206.0" y="126.0" text-anchor="middle">VBD</text>
+  <text class="word" x="286.0" y="222.0" text-anchor="middle">interest</text>
+  <text class="pos" x="286.0" y="174.0" text-anchor="middle">NN</text>
+  <text class="word" x="366.0" y="222.0" text-anchor="middle">rates</text>
+  <text class="pos" x="366.0" y="174.0" text-anchor="middle">NNS</text>
+  <text class="phrase" x="326.0" y="126.0" text-anchor="middle">NP</text>
+  <text class="phrase" x="266.0" y="78.0" text-anchor="middle">VP</text>
+  <text class="phrase" x="176.0" y="30.0" text-anchor="middle">S</text>
+</svg></div>
+                    <figcaption>Figure 1. Constituency tree for sentence 1.</figcaption>
+                </figure>
+<pre><code>[S [NP [DT The] [NN government]] [VP [VBD raised] [NP [NN interest] [NNS rates]]]]</code></pre>
+            </section>
+
+            <section class="content-section" id="sentence-2">
+                <h2>Sentence 2: The Internet Gives Everyone a Voice</h2>
+                <p>Here the verb is ditransitive, so the verb phrase branches into two object noun phrases (VP &#8594; VBZ NP NP). <em>gives</em> takes an indirect object, <em>everyone</em>, and a direct object, <em>a voice</em>. This is the double-object construction, the pattern behind <em>gives someone something</em>.</p>
+                <figure>
+                    <div class="fig-scroll"><svg class="ptree" viewBox="0 0 492 248" role="img" aria-labelledby="s2-t s2-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="s2-t">Constituency parse tree for The internet gives everyone a voice</title>
+  <desc id="s2-d">S branches to NP (The internet) and VP. VP branches to the verb gives and two object NPs, everyone and a voice.</desc>
+  <line class="branch" x1="192.7" y1="37.0" x2="86.0" y2="63.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
+  <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="126.0" y2="111.0"/>
+  <line class="branch" x1="126.0" y1="133.0" x2="126.0" y2="159.0"/>
+  <line class="branch" x1="192.7" y1="37.0" x2="299.3" y2="63.0"/>
+  <line class="branch" x1="299.3" y1="85.0" x2="206.0" y2="111.0"/>
+  <line class="branch" x1="206.0" y1="133.0" x2="206.0" y2="159.0"/>
+  <line class="branch" x1="299.3" y1="85.0" x2="286.0" y2="111.0"/>
+  <line class="branch" x1="286.0" y1="133.0" x2="286.0" y2="159.0"/>
+  <line class="branch" x1="286.0" y1="181.0" x2="286.0" y2="207.0"/>
+  <line class="branch" x1="299.3" y1="85.0" x2="406.0" y2="111.0"/>
+  <line class="branch" x1="406.0" y1="133.0" x2="366.0" y2="159.0"/>
+  <line class="branch" x1="366.0" y1="181.0" x2="366.0" y2="207.0"/>
+  <line class="branch" x1="406.0" y1="133.0" x2="446.0" y2="159.0"/>
+  <line class="branch" x1="446.0" y1="181.0" x2="446.0" y2="207.0"/>
+  <text class="word" x="46.0" y="174.0" text-anchor="middle">The</text>
+  <text class="pos" x="46.0" y="126.0" text-anchor="middle">DT</text>
+  <text class="word" x="126.0" y="174.0" text-anchor="middle">internet</text>
+  <text class="pos" x="126.0" y="126.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="86.0" y="78.0" text-anchor="middle">NP</text>
+  <text class="word" x="206.0" y="174.0" text-anchor="middle">gives</text>
+  <text class="pos" x="206.0" y="126.0" text-anchor="middle">VBZ</text>
+  <text class="word" x="286.0" y="222.0" text-anchor="middle">everyone</text>
+  <text class="pos" x="286.0" y="174.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="286.0" y="126.0" text-anchor="middle">NP</text>
+  <text class="word" x="366.0" y="222.0" text-anchor="middle">a</text>
+  <text class="pos" x="366.0" y="174.0" text-anchor="middle">DT</text>
+  <text class="word" x="446.0" y="222.0" text-anchor="middle">voice</text>
+  <text class="pos" x="446.0" y="174.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="406.0" y="126.0" text-anchor="middle">NP</text>
+  <text class="phrase" x="299.3" y="78.0" text-anchor="middle">VP</text>
+  <text class="phrase" x="192.7" y="30.0" text-anchor="middle">S</text>
+</svg></div>
+                    <figcaption>Figure 2. Constituency tree for sentence 2.</figcaption>
+                </figure>
+<pre><code>[S [NP [DT The] [NN internet]] [VP [VBZ gives] [NP [NN everyone]] [NP [DT a] [NN voice]]]]</code></pre>
+                <p>One tagging choice is worth flagging. <em>everyone</em> is an indefinite pronoun, yet the Penn Treebank tags it <code>NN</code> rather than as a pronoun, because indefinite pronouns are treated as nouns in that scheme (Marcus, Santorini and Marcinkiewicz, 1993). I have kept <code>NN</code> for consistency with the rest of the notation, and note it here because it is the one label a reader might reasonably expect to differ.</p>
+            </section>
+
+            <section class="content-section" id="sentence-3">
+                <h2>Sentence 3: The Man Saw the Dog With the Telescope</h2>
+                <p>This sentence has two constituency analyses, and nothing in the words themselves decides between them. The difference lies in where the prepositional phrase <em>with the telescope</em> attaches, which is the classic case of prepositional-phrase attachment ambiguity. The highlighted branch in each diagram marks the single structural decision that separates the readings.</p>
+
+                <h3>Reading A: instrument</h3>
+                <p>The prepositional phrase attaches to the verb phrase (VP &#8594; VBD NP PP), so <em>with the telescope</em> modifies the act of seeing. The man used the telescope to see the dog.</p>
+                <figure>
+                    <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 296" role="img" aria-labelledby="s3a-t s3a-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="s3a-t">Constituency parse tree, reading A, instrument</title>
+  <desc id="s3a-d">The prepositional phrase with the telescope attaches to the verb phrase, modifying the act of seeing.</desc>
+  <line class="branch" x1="216.0" y1="37.0" x2="86.0" y2="63.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
+  <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="126.0" y2="111.0"/>
+  <line class="branch" x1="126.0" y1="133.0" x2="126.0" y2="159.0"/>
+  <line class="branch" x1="216.0" y1="37.0" x2="346.0" y2="63.0"/>
+  <line class="branch" x1="346.0" y1="85.0" x2="206.0" y2="111.0"/>
+  <line class="branch" x1="206.0" y1="133.0" x2="206.0" y2="159.0"/>
+  <line class="branch" x1="346.0" y1="85.0" x2="326.0" y2="111.0"/>
+  <line class="branch" x1="326.0" y1="133.0" x2="286.0" y2="159.0"/>
+  <line class="branch" x1="286.0" y1="181.0" x2="286.0" y2="207.0"/>
+  <line class="branch" x1="326.0" y1="133.0" x2="366.0" y2="159.0"/>
+  <line class="branch" x1="366.0" y1="181.0" x2="366.0" y2="207.0"/>
+  <line class="branch hi" x1="346.0" y1="85.0" x2="506.0" y2="111.0"/>
+  <line class="branch hi" x1="506.0" y1="133.0" x2="446.0" y2="159.0"/>
+  <line class="branch hi" x1="446.0" y1="181.0" x2="446.0" y2="207.0"/>
+  <line class="branch hi" x1="506.0" y1="133.0" x2="566.0" y2="159.0"/>
+  <line class="branch hi" x1="566.0" y1="181.0" x2="526.0" y2="207.0"/>
+  <line class="branch hi" x1="526.0" y1="229.0" x2="526.0" y2="255.0"/>
+  <line class="branch hi" x1="566.0" y1="181.0" x2="606.0" y2="207.0"/>
+  <line class="branch hi" x1="606.0" y1="229.0" x2="606.0" y2="255.0"/>
+  <text class="word" x="46.0" y="174.0" text-anchor="middle">The</text>
+  <text class="pos" x="46.0" y="126.0" text-anchor="middle">DT</text>
+  <text class="word" x="126.0" y="174.0" text-anchor="middle">man</text>
+  <text class="pos" x="126.0" y="126.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="86.0" y="78.0" text-anchor="middle">NP</text>
+  <text class="word" x="206.0" y="174.0" text-anchor="middle">saw</text>
+  <text class="pos" x="206.0" y="126.0" text-anchor="middle">VBD</text>
+  <text class="word" x="286.0" y="222.0" text-anchor="middle">the</text>
+  <text class="pos" x="286.0" y="174.0" text-anchor="middle">DT</text>
+  <text class="word" x="366.0" y="222.0" text-anchor="middle">dog</text>
+  <text class="pos" x="366.0" y="174.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="326.0" y="126.0" text-anchor="middle">NP</text>
+  <text class="word" x="446.0" y="222.0" text-anchor="middle">with</text>
+  <text class="pos hi" x="446.0" y="174.0" text-anchor="middle">IN</text>
+  <text class="word" x="526.0" y="270.0" text-anchor="middle">the</text>
+  <text class="pos hi" x="526.0" y="222.0" text-anchor="middle">DT</text>
+  <text class="word" x="606.0" y="270.0" text-anchor="middle">telescope</text>
+  <text class="pos hi" x="606.0" y="222.0" text-anchor="middle">NN</text>
+  <text class="phrase hi" x="566.0" y="174.0" text-anchor="middle">NP</text>
+  <text class="phrase hi" x="506.0" y="126.0" text-anchor="middle">PP</text>
+  <text class="phrase" x="346.0" y="78.0" text-anchor="middle">VP</text>
+  <text class="phrase" x="216.0" y="30.0" text-anchor="middle">S</text>
+</svg></div>
+                    <figcaption>Figure 3a. Reading A, the PP attaches to the verb phrase.</figcaption>
+                </figure>
+<pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]</code></pre>
+
+                <h3>Reading B: possession</h3>
+                <p>The prepositional phrase attaches inside the object noun phrase (NP &#8594; NP PP), so it modifies <em>the dog</em>. The dog is the one that had the telescope.</p>
+                <figure>
+                    <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 344" role="img" aria-labelledby="s3b-t s3b-d" xmlns="http://www.w3.org/2000/svg">
+  <title id="s3b-t">Constituency parse tree, reading B, possession</title>
+  <desc id="s3b-d">The prepositional phrase with the telescope attaches inside the object noun phrase, modifying the dog.</desc>
+  <line class="branch" x1="198.5" y1="37.0" x2="86.0" y2="63.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
+  <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
+  <line class="branch" x1="86.0" y1="85.0" x2="126.0" y2="111.0"/>
+  <line class="branch" x1="126.0" y1="133.0" x2="126.0" y2="159.0"/>
+  <line class="branch" x1="198.5" y1="37.0" x2="311.0" y2="63.0"/>
+  <line class="branch" x1="311.0" y1="85.0" x2="206.0" y2="111.0"/>
+  <line class="branch" x1="206.0" y1="133.0" x2="206.0" y2="159.0"/>
+  <line class="branch" x1="311.0" y1="85.0" x2="416.0" y2="111.0"/>
+  <line class="branch" x1="416.0" y1="133.0" x2="326.0" y2="159.0"/>
+  <line class="branch" x1="326.0" y1="181.0" x2="286.0" y2="207.0"/>
+  <line class="branch" x1="286.0" y1="229.0" x2="286.0" y2="255.0"/>
+  <line class="branch" x1="326.0" y1="181.0" x2="366.0" y2="207.0"/>
+  <line class="branch" x1="366.0" y1="229.0" x2="366.0" y2="255.0"/>
+  <line class="branch hi" x1="416.0" y1="133.0" x2="506.0" y2="159.0"/>
+  <line class="branch hi" x1="506.0" y1="181.0" x2="446.0" y2="207.0"/>
+  <line class="branch hi" x1="446.0" y1="229.0" x2="446.0" y2="255.0"/>
+  <line class="branch hi" x1="506.0" y1="181.0" x2="566.0" y2="207.0"/>
+  <line class="branch hi" x1="566.0" y1="229.0" x2="526.0" y2="255.0"/>
+  <line class="branch hi" x1="526.0" y1="277.0" x2="526.0" y2="303.0"/>
+  <line class="branch hi" x1="566.0" y1="229.0" x2="606.0" y2="255.0"/>
+  <line class="branch hi" x1="606.0" y1="277.0" x2="606.0" y2="303.0"/>
+  <text class="word" x="46.0" y="174.0" text-anchor="middle">The</text>
+  <text class="pos" x="46.0" y="126.0" text-anchor="middle">DT</text>
+  <text class="word" x="126.0" y="174.0" text-anchor="middle">man</text>
+  <text class="pos" x="126.0" y="126.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="86.0" y="78.0" text-anchor="middle">NP</text>
+  <text class="word" x="206.0" y="174.0" text-anchor="middle">saw</text>
+  <text class="pos" x="206.0" y="126.0" text-anchor="middle">VBD</text>
+  <text class="word" x="286.0" y="270.0" text-anchor="middle">the</text>
+  <text class="pos" x="286.0" y="222.0" text-anchor="middle">DT</text>
+  <text class="word" x="366.0" y="270.0" text-anchor="middle">dog</text>
+  <text class="pos" x="366.0" y="222.0" text-anchor="middle">NN</text>
+  <text class="phrase" x="326.0" y="174.0" text-anchor="middle">NP</text>
+  <text class="word" x="446.0" y="270.0" text-anchor="middle">with</text>
+  <text class="pos hi" x="446.0" y="222.0" text-anchor="middle">IN</text>
+  <text class="word" x="526.0" y="318.0" text-anchor="middle">the</text>
+  <text class="pos hi" x="526.0" y="270.0" text-anchor="middle">DT</text>
+  <text class="word" x="606.0" y="318.0" text-anchor="middle">telescope</text>
+  <text class="pos hi" x="606.0" y="270.0" text-anchor="middle">NN</text>
+  <text class="phrase hi" x="566.0" y="222.0" text-anchor="middle">NP</text>
+  <text class="phrase hi" x="506.0" y="174.0" text-anchor="middle">PP</text>
+  <text class="phrase" x="416.0" y="126.0" text-anchor="middle">NP</text>
+  <text class="phrase" x="311.0" y="78.0" text-anchor="middle">VP</text>
+  <text class="phrase" x="198.5" y="30.0" text-anchor="middle">S</text>
+</svg></div>
+                    <figcaption>Figure 3b. Reading B, the PP attaches inside the object NP.</figcaption>
+                </figure>
+<pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]]</code></pre>
+
+                <p>Both trees are grammatical, so syntax on its own cannot settle the sentence; a reader resolves it with context or world knowledge. For a language-using agent this is a routine obstacle rather than a curiosity. An information-extraction agent reading the same words must decide whether to record an instrument or a property of the dog, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Since structure does not determine the answer, modern parsers assign a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The ambiguity that makes the sentence awkward for a person is the same one that motivated statistical parsing.</p>
+            </section>
+
+            <section class="content-section" id="reflection">
+                <h2>Reflection</h2>
+                <p>Drawing sentence 3 twice, once for each attachment, did more than meet the brief. Two diagrams that differ by a single branch commit an agent to different facts about the world, which made structural ambiguity concrete in a way one tree could not. I have started to read a parser's output as one hypothesis among several rather than as the analysis, and that is the same shift from a single point of judgement towards continuous disclosure that the first collaborative discussion pushed me towards earlier in the module. The fuller reflection is kept with the module's running reflections rather than repeated here.</p>
+                <p><a href="intelligent-agents.html#reflective-piece"><strong>Read the running reflections for Intelligent Agents</strong></a></p>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement on this artefact. The parse trees, the grammar, the analysis and the source checking are my own work. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+            </section>
+
+            <section class="content-section reflist" id="references">
+                <h2>References</h2>
+                <p>Collins, M. (2003) 'Head-driven statistical models for natural language parsing', <em>Computational Linguistics</em>, 29(4), pp. 589-637. Available at: <a href="https://doi.org/10.1162/089120103322753356">https://doi.org/10.1162/089120103322753356</a></p>
+                <p>Marcus, M.P., Santorini, B. and Marcinkiewicz, M.A. (1993) 'Building a large annotated corpus of English: the Penn Treebank', <em>Computational Linguistics</em>, 19(2), pp. 313-330. Available at: <a href="https://aclanthology.org/J93-2004/">https://aclanthology.org/J93-2004/</a> (Accessed: 18 August 2026).</p>
+                <p>Russell, S.J. and Norvig, P. (2022) <em>Artificial intelligence: a modern approach</em>. 4th edn, Global edn. Harlow: Pearson Education. Available via the VitalSource Bookshelf (Accessed: 18 August 2026).</p>
+                <p>Zimmerman, V. (2019) 'Getting to grips with parse trees', <em>Towards Data Science</em>, 12 November. Available at: <a href="https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/">https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/</a> (Accessed: 18 August 2026).</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
