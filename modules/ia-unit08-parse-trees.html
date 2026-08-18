@@ -317,11 +317,11 @@ PP &#8594; IN NP</code></pre>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]</code></pre>
 
-                <h3>Reading B: possession</h3>
-                <p>The prepositional phrase attaches inside the object noun phrase (NP &#8594; NP PP), so it modifies <em>the dog</em>. The dog is the one that had the telescope.</p>
+                <h3>Reading B: accompaniment</h3>
+                <p>The prepositional phrase attaches inside the object noun phrase (NP &#8594; NP PP), so it modifies <em>the dog</em>. Grammatically this is the same shape as <em>the dog with the collar</em>: <em>with the telescope</em> describes the dog rather than the seeing. What makes this reading strange is not its structure but its content, since a telescope is not something a dog plausibly carries or owns.</p>
                 <figure>
                     <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 344" role="img" aria-labelledby="s3b-t s3b-d" xmlns="http://www.w3.org/2000/svg">
-  <title id="s3b-t">Constituency parse tree, reading B, possession</title>
+  <title id="s3b-t">Constituency parse tree, reading B, accompaniment</title>
   <desc id="s3b-d">The prepositional phrase with the telescope attaches inside the object noun phrase, modifying the dog.</desc>
   <line class="branch" x1="198.5" y1="37.0" x2="86.0" y2="63.0"/>
   <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
@@ -373,7 +373,7 @@ PP &#8594; IN NP</code></pre>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]]</code></pre>
 
-                <p>Both trees are grammatical, so syntax on its own cannot settle the sentence; a reader resolves it with context or world knowledge. For a language-using agent this is a routine obstacle rather than a curiosity. An information-extraction agent reading the same words must decide whether to record an instrument or a property of the dog, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Since structure does not determine the answer, modern parsers assign a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The ambiguity that makes the sentence awkward for a person is the same one that motivated statistical parsing.</p>
+                <p>Both trees are grammatical, yet they are not equally plausible. A dog is an unlikely companion for a telescope, so a reader draws on world knowledge and settles almost without noticing on reading A, the instrument. Syntax cannot make that judgement on its own: it offers both parses and ranks neither. This gap, between what the grammar permits and what the world makes likely, is the obstacle a language-using agent has to cross. An information-extraction agent reading the same words must decide whether to record an instrument or an attribute of the dog, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not fix the answer, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The reading a person discards without noticing is the one a parser has to be taught to rank last.</p>
             </section>
 
             <section class="content-section" id="reflection">
