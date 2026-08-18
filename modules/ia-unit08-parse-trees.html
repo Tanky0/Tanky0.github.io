@@ -175,6 +175,7 @@ PP &#8594; IN NP</code></pre>
             <section class="content-section" id="sentence-1">
                 <h2>Sentence 1: The Government Raised Interest Rates</h2>
                 <p>A plain transitive clause with the canonical shape S &#8594; NP VP. The subject noun phrase is <em>The government</em>, and the verb phrase is <em>raised interest rates</em>. Within the verb phrase, <em>interest rates</em> is a compound noun phrase (NP &#8594; NN NNS) in which <em>interest</em> modifies <em>rates</em>, and the compound as a whole is the direct object of <em>raised</em>.</p>
+                <p>Structurally it is the simplest of the three. The one subtlety sits outside the tree: <em>The government</em> is a <strong>metonymy</strong>, a single phrase standing in for an institution of many people, and the syntax neither notices that nor knows whether the government is really the body that sets interest rates.</p>
                 <figure>
                     <div class="fig-scroll"><svg class="ptree" viewBox="0 0 412 248" role="img" aria-labelledby="s1-t s1-d" xmlns="http://www.w3.org/2000/svg">
   <title id="s1-t">Constituency parse tree for The government raised interest rates</title>
@@ -256,18 +257,19 @@ PP &#8594; IN NP</code></pre>
                     <figcaption>Figure 2. Constituency tree for sentence 2.</figcaption>
                 </figure>
 <pre><code>[S [NP [DT The] [NN internet]] [VP [VBZ gives] [NP [NN everyone]] [NP [DT a] [NN voice]]]]</code></pre>
+                <p>The structure is literal even though the sentence is not. <em>gives everyone a voice</em> is a <strong>metaphor</strong>, and it works by <strong>personification</strong>: the internet is inanimate and cannot literally give, and <em>voice</em> here means influence rather than the organ of speech. The tree stays the same whether the words are read literally or figuratively, which is the lesson. A constituency tree records how words combine, not what they are being used to mean.</p>
                 <p>One tagging choice is worth flagging. <em>everyone</em> is an indefinite pronoun, yet the Penn Treebank tags it <code>NN</code> rather than as a pronoun, because indefinite pronouns are treated as nouns in that scheme (Marcus, Santorini and Marcinkiewicz, 1993). I have kept <code>NN</code> for consistency with the rest of the notation, and note it here because it is the one label a reader might reasonably expect to differ.</p>
             </section>
 
             <section class="content-section" id="sentence-3">
                 <h2>Sentence 3: The Man Saw the Dog With the Telescope</h2>
-                <p>This sentence has two constituency analyses, and nothing in the words themselves decides between them. The difference lies in where the prepositional phrase <em>with the telescope</em> attaches, which is the classic case of prepositional-phrase attachment ambiguity. The highlighted branch in each diagram marks the single structural decision that separates the readings.</p>
+                <p>This sentence is the standard example of <strong>structural ambiguity</strong>, and of prepositional-phrase attachment in particular: <em>with the telescope</em> could in principle attach in two places. The two are not on equal footing. One gives the reading the sentence actually has; the other is a structure the grammar allows but the meaning of the words rules out. The highlighted branch in each diagram marks where the prepositional phrase attaches.</p>
 
-                <h3>Reading A: instrument</h3>
-                <p>The prepositional phrase attaches to the verb phrase (VP &#8594; VBD NP PP), so <em>with the telescope</em> modifies the act of seeing. The man used the telescope to see the dog.</p>
+                <h3>The instrument reading</h3>
+                <p>Here <em>with the telescope</em> attaches to the verb phrase (VP &#8594; VBD NP PP) and says how the seeing was done: the man used the telescope to see the dog. This is what the sentence means.</p>
                 <figure>
                     <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 296" role="img" aria-labelledby="s3a-t s3a-d" xmlns="http://www.w3.org/2000/svg">
-  <title id="s3a-t">Constituency parse tree, reading A, instrument</title>
+  <title id="s3a-t">Constituency parse tree, the instrument reading</title>
   <desc id="s3a-d">The prepositional phrase with the telescope attaches to the verb phrase, modifying the act of seeing.</desc>
   <line class="branch" x1="216.0" y1="37.0" x2="86.0" y2="63.0"/>
   <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
@@ -313,16 +315,16 @@ PP &#8594; IN NP</code></pre>
   <text class="phrase" x="346.0" y="78.0" text-anchor="middle">VP</text>
   <text class="phrase" x="216.0" y="30.0" text-anchor="middle">S</text>
 </svg></div>
-                    <figcaption>Figure 3a. Reading A, the PP attaches to the verb phrase.</figcaption>
+                    <figcaption>Figure 3a. The prepositional phrase attaches to the verb phrase.</figcaption>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]</code></pre>
 
-                <h3>Reading B: accompaniment</h3>
-                <p>The prepositional phrase attaches inside the object noun phrase (NP &#8594; NP PP), so it modifies <em>the dog</em>. Grammatically this is the same shape as <em>the dog with the collar</em>: <em>with the telescope</em> describes the dog rather than the seeing. What makes this reading strange is not its structure but its content, since a telescope is not something a dog plausibly carries or owns.</p>
+                <h3>The structure the meaning rules out</h3>
+                <p>The grammar also allows <em>with the telescope</em> to attach inside the object noun phrase (NP &#8594; NP PP), which would make it describe the dog rather than the seeing, the same shape as <em>the dog with the collar</em>. The words block that reading, since a dog does not carry or own a telescope. The second tree is worth drawing all the same, not as a rival reading, but to show a structure the grammar builds and the meaning then throws out.</p>
                 <figure>
                     <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 344" role="img" aria-labelledby="s3b-t s3b-d" xmlns="http://www.w3.org/2000/svg">
-  <title id="s3b-t">Constituency parse tree, reading B, accompaniment</title>
-  <desc id="s3b-d">The prepositional phrase with the telescope attaches inside the object noun phrase, modifying the dog.</desc>
+  <title id="s3b-t">Constituency parse tree, the structure the grammar allows but the meaning rules out</title>
+  <desc id="s3b-d">The prepositional phrase with the telescope attaches inside the object noun phrase, which would modify the dog.</desc>
   <line class="branch" x1="198.5" y1="37.0" x2="86.0" y2="63.0"/>
   <line class="branch" x1="86.0" y1="85.0" x2="46.0" y2="111.0"/>
   <line class="branch" x1="46.0" y1="133.0" x2="46.0" y2="159.0"/>
@@ -369,24 +371,24 @@ PP &#8594; IN NP</code></pre>
   <text class="phrase" x="311.0" y="78.0" text-anchor="middle">VP</text>
   <text class="phrase" x="198.5" y="30.0" text-anchor="middle">S</text>
 </svg></div>
-                    <figcaption>Figure 3b. Reading B, the PP attaches inside the object NP.</figcaption>
+                    <figcaption>Figure 3b. The prepositional phrase attaches inside the object NP, a structure the meaning rules out.</figcaption>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]]</code></pre>
 
-                <p>Both trees are grammatical, yet they are not equally plausible. A dog is an unlikely companion for a telescope, so a reader draws on world knowledge and settles almost without noticing on reading A, the instrument. Syntax cannot make that judgement on its own: it offers both parses and ranks neither. This gap, between what the grammar permits and what the world makes likely, is the obstacle a language-using agent has to cross. An information-extraction agent reading the same words must decide whether to record an instrument or an attribute of the dog, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not fix the answer, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The reading a person discards without noticing is the one a parser has to be taught to rank last.</p>
+                <p>This is where the exercise earns its place. The grammar produces both structures and prefers neither; only knowledge of the world tells you that a dog holding a telescope is not what the sentence means. Syntax on its own cannot make that call, and that is the obstacle a language-using agent has to cross. An information-extraction agent reading these words still has to decide what to record, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not settle the meaning, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The structure a person discards without noticing is the one a parser has to be taught to rank last.</p>
             </section>
 
             <section class="content-section" id="conclusion">
                 <h2>Conclusion: Where the Tree Runs Out</h2>
                 <p>A constituency tree records how words group into phrases, and that is all it records. Across the three sentences, meaning outruns the structure in three different ways, and each is worth naming, because each is a place a purely syntactic agent would come unstuck.</p>
-                <p>Sentence 1 parses cleanly, yet <em>the government</em> stands by metonymy for an institution of many people, and whether the government is even the body that sets interest rates is a question of fact that sits entirely outside the tree. Sentence 2 has a single, unambiguous structure, but that structure is identical whether the sentence is read literally or as the metaphor it plainly is: the internet gives nobody a physical voice, and <em>voice</em> here means influence. Sentence 3 is the opposite case, one string with two grammatical trees, where only world knowledge rejects the reading on which the dog, rather than the seeing, is the thing paired with the telescope. Reference and metonymy, figurative meaning, and structural ambiguity: three ways a correct parse still under-determines what a sentence means.</p>
+                <p>Sentence 1 parses cleanly, yet <em>the government</em> stands by metonymy for an institution of many people, and whether the government is even the body that sets interest rates is a question of fact that sits entirely outside the tree. Sentence 2 has a single, unambiguous structure, but that structure is identical whether the sentence is read literally or as the metaphor it plainly is: the internet gives nobody a physical voice, and <em>voice</em> here means influence. Sentence 3 is the opposite case, one string for which the grammar builds two structures, where only world knowledge rules out the one on which the dog, rather than the seeing, is paired with the telescope. Reference and metonymy, figurative meaning, and structural ambiguity: three ways a correct parse still under-determines what a sentence means.</p>
                 <p>That is the practical limit of the technique. Constituency parsing is a transparent and reproducible foundation, which is exactly why it is worth doing by hand, but a language-using agent has to layer semantics and world knowledge on top of it before the structure becomes an interpretation (Russell and Norvig, 2022, ch. 23).</p>
             </section>
 
             <section class="content-section" id="reflection">
                 <h2>Reflection</h2>
-                <p>Drawing sentence 3 twice, once for each attachment, did more than meet the brief: two diagrams that differ by a single branch commit an agent to different facts about the world. Sentence 2 taught the same lesson from the other side, since its one tree stays the same whether the giving is read literally or as a metaphor. Taken together they made a small point concrete. A parse can be correct and still leave the meaning open, so I have started to read a parser's output as one hypothesis among several rather than as the analysis. That is the same move from a single point of judgement towards continuous disclosure that the first collaborative discussion argued me into earlier in the module.</p>
-                <p>This was also a new kind of exercise for me, since I had not built a syntax tree before, and as a non-native English speaker parts of it took an extra step. The bare noun-noun compound in <em>interest rates</em> is one, where French would link the two nouns with a preposition (<em>taux d'int&eacute;r&ecirc;t</em>), and the double-object construction in <em>gives everyone a voice</em> is another, since French marks the indirect object with <em>&agrave;</em> (<em>donne une voix &agrave; chacun</em>) rather than leaving it bare. What helped more than it hindered is that the core phrase structure is close to French. The same S, NP, VP and PP building blocks carry over, and the telescope ambiguity survives translation intact, since <em>l'homme a vu le chien avec le t&eacute;lescope</em> is ambiguous in exactly the same way. The vocabulary looked harder at the outset than the analysis turned out to be.</p>
+                <p>Sentence 3 is where the exercise became interesting. Its natural reading is the instrument one, yet the grammar quietly builds a second structure that the meaning of the words then rules out, and watching those two come apart was the useful part. Sentence 2 makes the point from the other direction, since its single tree holds whether the giving is literal or a metaphor. A parse can be correct and still leave the meaning open. I now read a parser's output as one hypothesis rather than the answer, which is the same shift towards treating a single result as provisional that the first collaborative discussion pushed me to earlier in the module.</p>
+                <p>This was also a new kind of exercise for me, since I had not drawn a syntax tree before. Working in a non-native language added some friction, mostly where English builds a phrase differently from French, but the core proved familiar: French rests on the same phrase-structure building blocks, so the analysis carried over more easily than the vocabulary first suggested.</p>
                 <p><a href="intelligent-agents.html#reflective-piece"><strong>The module's running reflections carry the wider learning across units</strong></a></p>
             </section>
 
