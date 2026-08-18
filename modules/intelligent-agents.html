@@ -383,6 +383,26 @@
                         <p>Wooldridge, M.J. (2009) <em>An introduction to multiagent systems</em>. 2nd edn. Chichester: John Wiley &amp; Sons. Available via the VitalSource Bookshelf (Accessed: 5 August 2026).</p>
                     </div>
                 </div>
+
+                <div class="assignment-box">
+                    <h3>Unit 8: when the tree ran out</h3>
+                    <p class="deadline">Written 18 August 2026 &middot; <a href="ia-unit08-parse-trees.html">Creating Parse Trees</a></p>
+
+                    <p><strong>What.</strong> Unit 8 asked for constituency parse trees of three sentences. I built each from a small phrase-structure grammar and drew it out, then let the third, <em>The man saw the dog with the telescope</em>, carry the work. One early step was noticing that the set reading demonstrates dependency parsing in spaCy, whereas the brief wanted constituency trees, since the two describe the same grammar from different angles (Zimmerman, 2019). My first pass treated the third sentence as an even ambiguity and drew both attachments. The version I kept does not: the instrument reading is the one the sentence has, and the other structure is left as a note on what the grammar will build but the meaning refuses.</p>
+
+                    <p><strong>So what.</strong> Drawing both trees and then throwing one away is what taught me the point. A parse can be perfectly well formed and still be the wrong reading, since a dog does not carry a telescope and no amount of syntax knows that; ranking the two structures is something a parser has to learn from data rather than from the grammar (Collins, 2003). The second sentence made the same case from the other side, because <em>the internet gives everyone a voice</em> has one tidy tree whether the giving is literal or a metaphor, so the structure records how the words combine and nothing about what they mean. What caught me off guard was how little the diagram holds once you look for meaning in it, which I had not expected from an exercise I had filed as mechanical.</p>
+
+                    <p>The exercise was new in a plainer sense too. I had not drawn a syntax tree before, and I am neither an engineer nor a native English speaker, so I expected the notation to be the obstacle. It was not. The friction sat in the few places where English builds a phrase differently from French, and the core proved to be shared ground, since French rests on the same building blocks and even the telescope ambiguity survives translation. The vocabulary looked harder at the outset than the analysis turned out to be.</p>
+
+                    <p><strong>Now what.</strong> Two things carry forward. Meet an unfamiliar formalism as a vocabulary problem first and a reasoning problem second, since here the reasoning was closer to hand than the labels suggested. And hold on to the distinction the exercise made concrete, between a structure that is well formed and an interpretation that is correct, going into the deep-learning units, where a model that produces fluent output is making exactly that claim and has to be checked against it.</p>
+
+                    <div class="reflist">
+                        <h4>References for this entry</h4>
+                        <p>Collins, M. (2003) &lsquo;Head-driven statistical models for natural language parsing&rsquo;, <em>Computational Linguistics</em>, 29(4), pp. 589-637. Available at: <a href="https://doi.org/10.1162/089120103322753356">https://doi.org/10.1162/089120103322753356</a></p>
+                        <p>Rolfe, G., Freshwater, D. and Jasper, M. (2001) <em>Critical reflection in nursing and the helping professions: a user&rsquo;s guide</em>. Basingstoke: Palgrave Macmillan.</p>
+                        <p>Zimmerman, V. (2019) &lsquo;Getting to grips with parse trees&rsquo;, <em>Towards Data Science</em>, 12 November. Available at: <a href="https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/">https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/</a> (Accessed: 18 August 2026).</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Team Meeting Notes -->
