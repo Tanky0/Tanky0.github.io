@@ -81,7 +81,7 @@
         <div class="wrap">
             <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#assignment-team-project">Development Team Project</a> · Group B</p>
             <h1>Team Working Log</h1>
-            <p class="lede">Team formation, the contract, the domain decision and the forum exchanges that produced them, recorded as the project runs rather than reconstructed afterwards.</p>
+            <p class="lede">Team formation, the contract, the domain decision, and the drafting and version history that followed, recorded as the project runs rather than reconstructed afterwards.</p>
         </div>
     </header>
 
@@ -94,9 +94,9 @@
             <section class="content-section" id="scope">
                 <h2>Scope</h2>
 
-                <p class="deadline"><strong>Covers Units 1 and 2</strong> &middot; Updated as the project runs &middot; Evidences learning outcomes 1 to 4</p>
+                <p class="deadline"><strong>Covers Units 1 to 4</strong> &middot; Updated as the project runs &middot; Evidences learning outcomes 1 to 4</p>
 
-                <p>The assignment is on the <a href="intelligent-agents.html#assignment-team-project">module page</a>. This log records Group B&rsquo;s decisions and my part in them to the end of Unit 2.</p>
+                <p>The assignment is on the <a href="intelligent-agents.html#assignment-team-project">module page</a>. This log records Group B&rsquo;s decisions and my part in them to the end of Unit 4.</p>
             </section>
 
             <section class="content-section" id="use-case">
@@ -140,9 +140,12 @@
                         <tr><td>3 Aug</td><td>Section B first draft circulated by F.B. My review returned the same day, and requirements input sent to A.N.</td></tr>
                         <tr><td>5 Aug</td><td>F.B. reissues Section B acting on the review. A.B. assembles a full draft report; my structural review returned the same day</td></tr>
                         <tr><td>6 Aug</td><td>LangChain and Python agreed for implementation</td></tr>
-                        <tr><td>11 Aug</td><td>A.N. returns feedback on Section A, settling the domain and locking the architecture</td></tr>
-                        <tr><td>14 Aug</td><td>Team meeting, 16:00 UK: individual sections discussed, combined version reviewed if ready</td></tr>
-                        <tr><td>to 4 Sep</td><td>Iteration on the merged draft</td></tr>
+                        <tr><td>11 Aug</td><td>A.N. circulates the Section A draft: requirements, success criteria mapping, and the tools, libraries and models list</td></tr>
+                        <tr><td>12 Aug</td><td>v12 issued. I combined the three sections into one document, cut 1,314 words to 1,088, brought the formatting to the handbook standard and rewrote the success criteria as measurable tests. A change log went out with it, every edit given a reason</td></tr>
+                        <tr><td>13 Aug</td><td>Team meeting, 16:00 UK. v12 reviewed at a high level; Figure 2 colours to be aligned with Figure 1; review window set to the end of the following week; submission on 4 September confirmed</td></tr>
+                        <tr><td>14 Aug</td><td>v13 issued, carrying A.N.&rsquo;s three comments on v12 and the decisions from the meeting. 1,061 words</td></tr>
+                        <tr><td>21 Aug</td><td>v14 issued after the Unit 4 seminar on agent architectures. Section 3 rewritten to argue each design choice against the alternative rejected. Roughly 1,084 words</td></tr>
+                        <tr><td>1 Sep</td><td>Seminar. The final version is held until after it, in case further guidance follows</td></tr>
                         <tr><td>4 Sep</td><td>Internal deadline, three days ahead of the official date</td></tr>
                         <tr><td>7 Sep</td><td>Official submission deadline, 23:55</td></tr>
                     </tbody>
@@ -153,26 +156,39 @@
             <section class="content-section" id="my-contribution">
                 <h2>My Contribution</h2>
 
-                <p>As Group Coordinator I track the schedule, wrote the kick-off minutes, and put the team&rsquo;s scope and word-count questions to the tutor. My own section is not drafted yet, since the challenges depend on what Section A settles and I would rather wait than write it twice.</p>
+                <p>As Group Coordinator I track the schedule, wrote the kick-off minutes, and put the team&rsquo;s scope and word-count questions to the tutor. From 12 August the role widened, since combining the drafted sections into one document left me editing the report as well as coordinating it.</p>
 
                 <p>What I have given so far is review and clinical-domain input across other people&rsquo;s sections, a role F.B. proposed so the use case would reflect real practice rather than guesswork. To A.N. I sent five requirements carried from clinical operations, among them traceability as a pass-or-fail criterion and an explicit exclusion of clinical decision support, and argued against claiming free-tier capability we cannot build.</p>
 
                 <p>Two reviews carried weight. On Section B I checked the cited sources rather than the argument, and found that the Morrison review covers clinical trial matching rather than literature curation, so its 31 studies are not literature pipelines, whilst the error rates quoted from Wang <em>et al.</em> (2026) come from clinical documentation. LEADS (Wang, Z. <em>et al.</em>, 2025) fitted better and replaced it. Belief-Desire-Intention was named without doing work in the design, producing an explicit mapping onto the system.</p>
 
                 <p>On the assembled report the problem was scale, roughly 2,188 body words against a limit of 1,000. I flagged inconsistent diagram numbering, a section built on a superseded draft, an open API conflated with open access, and a 90-second latency target with nothing behind it.</p>
+
+                <h3>Combining and editing the report, v12 to v14</h3>
+
+                <p>Much of the first pass was arithmetic rather than judgement. The merged draft ran to 1,314 words against a limit that costs ten grade points above 1,100, so it would have dropped a band before a marker reached a sentence. The architecture was restated across Sections 1, 3, 5 and 8, and cutting that repetition recovered about 110 words on its own. The rest was formatting the handbook already specifies: Arial 12pt, one-inch margins, italics on source titles and on <em>et al.</em>, and eleven em and en dashes taken out of the prose. One en dash stayed inside a published title, where reproducing the source correctly takes priority.</p>
+
+                <p>Two substantive problems surfaced in the same pass. The report claimed a free-tier toolchain in Section 1, then relied on a paid fallback two paragraphs later, so the claim was untrue as written; removing the paid option made it true. The three success criteria were aims rather than tests. Retrieval quality was to be confirmed by the reviewer, which makes the acceptance test the same person the system exists to help, so it passes whenever that person is content. It now reads as recall of at least 0.80 against a hand-screened sample of fifty abstracts, set just below the 0.81 LEADS reports so the target is benchmarked rather than invented. Traceability now names what happens when a claim fails to resolve, and fidelity is a twenty-record audit.</p>
+
+                <p>v13 and v14 were argument rather than compliance. Section 3 became seven bullets, each giving the decision, the alternative rejected and the reason, which keeps the reasoning that a checklist format tends to flatten into assertion. v14 carried that further after the Unit 4 seminar: why a hybrid agent rather than a purely reactive or deliberative one, why a validated JSON buffer rather than a KQML-style communication language, and why two agents rather than one for every operation. Belief-desire-intention is now described as a conceptual model rather than something formally implemented, which is the more honest account of an LLM system, and two citations moved so each sits beside the claim it supports, Wooldridge (2009) with the hybrid architecture.</p>
+
+                <p>Three things were argued out and deliberately left out. The MCP institutional database connector sat outside the fixed domain and contradicted our own no-patient-data assumption. PRISMA-S was not added, since one PRISMA reference is proportionate at this length. The publisher litigation angle went because no citable source supported it.</p>
+
+                <p>One thing belongs in the record plainly. Since the combined version went out, F.B. is the only teammate to have commented, so every edit from v12 onwards is mine. I have kept a change log giving each edit and its reason precisely so the others can disagree with any of it, though a log nobody answers is not the same as agreement.</p>
             </section>
 
             <section class="content-section" id="open-items">
-                <h2>Open at the End of Unit 2</h2>
+                <h2>Open at the End of Unit 4</h2>
 
                 <ul>
-                    <li>Section A from A.N., confirmed in progress.</li>
-                    <li>My own section, once requirements are settled.</li>
-                    <li>Cutting the assembled draft from roughly 2,188 words to 1,000.</li>
+                    <li>Comments on the combined report from A.N. and A.B., neither of whom has responded since v12 was circulated on 12 August.</li>
+                    <li>Word count. v14 sits at roughly 1,084 against a 1,000 target, accepted by the team and still above it, with the penalty starting at 1,100.</li>
+                    <li>The final version, held until after the seminar on 1 September in case further guidance follows.</li>
+                    <li>The individual peer review submission, due alongside the report.</li>
                 </ul>
 
                 <div class="placeholder">
-                    <p><strong>Placeholder:</strong> Outcome of the 14 August meeting, then Units 3 onwards.</p>
+                    <p><strong>Placeholder:</strong> Units 5 onwards, then the internal deadline on 4 September and submission on 7 September.</p>
                 </div>
             </section>
 
@@ -181,6 +197,7 @@
 
                 <div class="reflist">
                     <p>Wang, G., Zhang, K., Jiang, J., Wang, C., Bi, H., Liang, H., Qi, Z., Huang, Y., Li, Y. and Yang, X. (2026) &lsquo;Human-large language model collaboration in clinical medicine: a systematic review and meta-analysis&rsquo;, <em>npj Digital Medicine</em>, 9, 195. Available at: https://doi.org/10.1038/s41746-026-02382-2</p>
+                    <li>Wooldridge, M.J. (2009) <em>An introduction to multiagent systems</em>. 2nd edn. Chichester: John Wiley &amp; Sons.</li>
                     <p>Wang, Z. <em>et al.</em> (2025) &lsquo;A foundation model for human-AI collaboration in medical literature mining&rsquo;, <em>Nature Communications</em>, 16(1), 8361. Available at: https://doi.org/10.1038/s41467-025-62058-5</p>
                 </div>
             </section>
