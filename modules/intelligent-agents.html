@@ -122,9 +122,13 @@
                 <div class="assignment-box">
                     <h3>Individual Project: Presentation</h3>
                     <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
-                    <p><strong>Brief Description:</strong> To be added once the brief is released.</p>
+                    <p><strong>Brief Description:</strong> Implement, individually, the LLM-powered planning agent the group designed in Unit 6, with evidence of development progress across the module, testing activities and any remediation undertaken. Submitted as source code and documentation, testing outputs, a README, and a presentation of up to ten slides with a narration transcript. The Unit 6 design is not a fixed specification: justified and documented changes are acceptable where technical constraints require them, provided the system remains an agent that takes a goal, plans a sequence of actions, retrieves and processes data, and produces a meaningful output.</p>
 
-                    <p><span class="status-badge status-pending">Status: Not yet submitted</span></p>
+                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate public repository so that the code history is itself part of the evidence. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. The two agents themselves are not yet built.</p>
+
+                    <p><span class="status-badge status-pending">Status: In development</span></p>
+
+                    <a href="https://github.com/Tanky0/research-agent" class="download-link" target="_blank" rel="noopener noreferrer">View the repository on GitHub</a>
                 </div>
 
                 <div class="assignment-box">
@@ -424,7 +428,32 @@
                         <p>Zimmerman, V. (2019) &lsquo;Getting to grips with parse trees&rsquo;, <em>Towards Data Science</em>, 12 November. Available at: <a href="https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/">https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c/</a> (Accessed: 18 August 2026).</p>
                     </div>
                 </div>
-            </section>
+                            <div class="assignment-box">
+                    <h3>Unit 11: building the thing I had only ever specified</h3>
+                    <p class="deadline">Written 29 August 2026 &middot; <a href="https://github.com/Tanky0/research-agent" target="_blank" rel="noopener noreferrer">Development Project, individual implementation</a> &middot; In progress</p>
+
+                    <p><strong>What.</strong> Development started on 26 August, once the tutor confirmed that evidence of progress has to accumulate across the module rather than appear at the end. Four days in, the repository holds a requirements table written before any code, the shared HTTP layer, four source adapters, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand. The two agents themselves are not built. This entry is written now because the finished version will not remember any of it.</p>
+
+                    <p><strong>So what.</strong> Twenty years alongside developers taught me what a planning agent is for, what a retrieval layer does, and why state has to live somewhere that can be inspected. None of that told me what to type into an empty file, or in what order. Theory gave me the shape and nothing about sequence, and sequence turned out to be most of the difficulty. The Python has been the hardest work of the programme by a distance, R included, and the difficulty is not syntax. It is that every decision I would previously have handed to somebody else now has to be made by me, in writing, in a form that either runs or does not.</p>
+
+                    <p>Three things I did not expect are worth recording. The first was diagnostic rather than technical. All three services failed identically on the first day, and identical failure across three independent things points at one local cause rather than three faults; it was the antivirus intercepting HTTPS. That reasoning is the part of my professional judgement that transferred intact, and it is the only part that did.</p>
+
+                    <p>The second was that measurement can be broken before anything is measured. I drew fifty abstracts at random and screened them by hand, and three came back relevant. With three, each is worth a third of the recall figure, so the only score clearing our 0.80 criterion is a perfect one, and missing a single paper fails it outright. That is a property of the sample rather than of the search. A second fifty was drawn as a check, and the design's figure of fifty stays as the reported basis rather than being quietly replaced by a number that flatters the result.</p>
+
+                    <p>The third is where I have been most wrong, and it concerns my own carelessness rather than the code. Invented replies reached the folder the demonstration plays back from, twice, and on neither occasion was it a check that caught them. The guard test looked for the identifiers this project's own tests use, so it recognised contamination whose shape it already knew, and the second incident used different identifiers and passed straight through. Capture and publication are now two separate things, and each approved reply carries a fingerprint in a manifest, so a file nobody approved is refused whatever it contains. A check that only detects the failure you have already seen is not a control, and I would not have accepted one at work.</p>
+
+                    <p>One decision sits outside the code and matters more than any of it. The repository's early history was reconstructed, and the reconstruction is a tidier record of the same files rather than a record of when the work happened. Rather than let the commit dates imply a diligence they cannot evidence, the development log says so plainly, the original history is kept on a separate branch, and the dated files under <em>evidence</em> are named as the real record. The assessment asks for evidence of development progress, and evidence that overstates itself is worth less than evidence that declares its own limits.</p>
+
+                    <p><strong>Now what.</strong> Three things carry forward. Write the two agents against the record formats already fixed, since the formats were written first precisely so that everything after them takes its shape from something settled. Keep the standard set out in my development plan, which is to explain each line unaided rather than assemble working code from assisted fragments, because the parts of this build I could not currently defend line by line are the parts I would not sign off from a supplier. And keep reporting the limitations beside the numbers: two of the relevant papers were judged on information the agent will never see, and that belongs next to the recall figure rather than in a footnote after it.</p>
+
+                    <div class="references">
+                        <p><strong>References for this entry</strong></p>
+                        <p>Finin, T. <em>et al.</em> (1994) &lsquo;KQML as an agent communication language&rsquo;, <em>Proceedings of the Third International Conference on Information and Knowledge Management</em>, Gaithersburg, MD, 29 November to 2 December. New York: Association for Computing Machinery, pp. 456-463. Available at: https://doi.org/10.1145/191246.191322</p>
+                        <p>Rolfe, G., Freshwater, D. and Jasper, M. (2001) <em>Critical reflection in nursing and the helping professions: a user&rsquo;s guide</em>. Basingstoke: Palgrave Macmillan.</p>
+                    </div>
+                </div>
+
+</section>
 
             <!-- Team Meeting Notes -->
             <section class="content-section">
