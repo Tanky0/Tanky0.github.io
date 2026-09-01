@@ -124,7 +124,7 @@
                     <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
                     <p><strong>Brief Description:</strong> Implement, individually, the LLM-powered planning agent the group designed in Unit 6, with evidence of development progress across the module, testing activities and any remediation undertaken. Submitted as source code and documentation, testing outputs, a README, and a presentation of up to ten slides with a narration transcript. The Unit 6 design is not a fixed specification: justified and documented changes are acceptable where technical constraints require them, provided the system remains an agent that takes a goal, plans a sequence of actions, retrieves and processes data, and produces a meaningful output.</p>
 
-                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate public repository so that the code history is itself part of the evidence. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. The two agents themselves are not yet built.</p>
+                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate public repository so that the code history is itself part of the evidence. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests. Neither is finished, and the interface, the storage layer and the functional test run remain ahead, with that run planned for 17 to 18 September.</p>
 
                     <p><span class="status-badge status-pending">Status: In development</span></p>
 
@@ -489,6 +489,11 @@
                             <td><strong>4</strong></td>
                             <td>Agent architectures</td>
                             <td>Reactive, deliberative and hybrid designs set against each other. This is the material v14 of the team report was rewritten against, since the brief asks us to differentiate between architectures and the design section had until then stated our choices without arguing them against what we rejected</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>KQML and agent communication</td>
+                            <td>Why an agent communication language is needed at all: systems built independently, in different languages, that must still cooperate. Then message anatomy, dialogue patterns and the facilitator as broker. Our two agents are neither independent nor heterogeneous, so the shared buffer stands in place of KQML</td>
                         </tr>
                     </tbody>
                 </table>
