@@ -1,1 +1,4 @@
 .claude/
+
+# Build scraps: fragments left over from assembling a page
+*.tmp
