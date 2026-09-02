@@ -106,9 +106,9 @@
                 <div class="assignment-box" id="assignment-team-project">
                     <h3>Development Team Project: Project Report and Peer Review</h3>
                     <p class="deadline"><strong>Unit 6</strong> &middot; Group B &middot; Deadline: 23:55, Monday 7 September 2026 &middot; Evidences learning outcomes 1 to 4</p>
-                    <p><strong>Brief Description:</strong> To be added once the brief is released. Two components are submitted: the team project report and an individual peer review submission. The team-working outcome is evidenced alongside them by the working log below, which is kept as the project runs rather than reconstructed at the end.</p>
+                    <p><strong>Brief Description:</strong> Design, as a team, an LLM-powered planning agent for a chosen application domain, and submit a report setting out the use case, the requirements, the architecture and the design decisions behind it. Two components are submitted: the team project report, worth 20% of the module, and an individual peer review submission. The working log below evidences the team-working outcome alongside them, kept as the project runs and not written up afterwards.</p>
 
-                    <p>Group B is building an agent for a clinical and health-sciences research team, to help them screen literature faster for systematic reviews. I hold the <strong>Group Coordinator</strong> role. My contribution so far has been review and clinical-domain input across the sections others have drafted.</p>
+                    <p>Group B is building an agent for a clinical and health-sciences research team, to help them screen literature faster for systematic reviews. I hold the <strong>Group Coordinator</strong> role. I put the group&rsquo;s scope questions to the tutor, and brought five requirements from clinical operations into the specification. On 12 August I combined three separately drafted sections into a single report and have carried the document since, through versions 12 to 15: cutting the merged draft back inside the word limit, rewriting the success criteria as measurable tests, restructuring the design section to argue each choice against the alternative we rejected, and issuing a change log with every version so that any decision can be reopened. Reviewing a teammate&rsquo;s section, I went to the cited sources instead of the argument, and found two the report would otherwise have rested on.</p>
 
                     <h4>Team Working Log</h4>
 
@@ -167,7 +167,7 @@
                             <td>5&ndash;7</td>
                             <td><a href="#activity-cd2">Collaborative Discussion 2: Agent Communication Languages</a></td>
                             <td>End of Unit 7</td>
-                            <td><span class="skill-rating">Not yet submitted</span></td>
+                            <td><span class="skill-rating">In progress</span></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -203,7 +203,7 @@
 
                     <p><strong>Discussion question:</strong> What are the potential advantages and disadvantages of the use of agent communication languages such as KQML? How do they compare with method invocation in Python or Java?</p>
 
-                    <p><strong>Structure:</strong> Initial post of at least 200 words in Unit 5, labelled <em>Initial Post</em>. Two peer responses in Unit 6 of 200&ndash;300 words each, labelled <em>Peer Response</em>, focusing on the measures that could have prevented the incidents peers raise. A 300-word <em>Summary Post</em> in Unit 7 drawing on the initial post, the peer feedback and the content of all three units. UoEO Harvard referencing throughout.</p>
+                    <p><strong>Structure:</strong> Initial post of at least 200 words in Unit 5, labelled <em>Initial Post</em>. Two peer responses in Unit 6 of 200&ndash;300 words each, labelled <em>Peer Response</em>, engaging with the positions classmates take on where an agent communication language earns its cost. A 300-word <em>Summary Post</em> in Unit 7 drawing on the initial post, the peer feedback and the content of all three units. UoEO Harvard referencing throughout.</p>
 
                     <div class="placeholder">
                         <p><strong>In progress:</strong> Both peer responses are posted, one to K.D. and one to L.K., each pressing the same point from a different direction: that KQML&rsquo;s openness was never the difficulty, since Finin <em>et al.</em> (1994, p. 460) allow agents to add performatives by agreement, and what was never enforced was that two systems read them the same way. The summary post follows in Unit 7, and all four pieces will then be added together on their own page, as for Collaborative Discussion 1.</p>
@@ -271,16 +271,23 @@
                             <td>8</td>
                             <td><strong>LO1, LO2</strong></td>
                             <td>Constituency trees for three sentences in Penn Treebank notation, each derived from an explicit phrase-structure grammar; sentence 3 given both prepositional-phrase attachment readings; the ambiguity tied to statistical parsing and to disambiguation in a language-using agent</td>
-                            <td>Drawing one sentence two ways made structural ambiguity concrete. A parser&rsquo;s output now reads to me as one hypothesis among several rather than as the analysis, which is the same move from a single point of sign-off towards continuous disclosure that Collaborative Discussion 1 argued me into</td>
+                            <td>Drawing one sentence two ways made structural ambiguity concrete. A parser&rsquo;s output now reads to me as one hypothesis among several, not as the analysis, which is the same move from a single point of sign-off towards continuous disclosure that Collaborative Discussion 1 argued me into</td>
                         </tr>
                         <tr>
-                            <td colspan="5"><em>Rows added as each remaining component completes: Collaborative Discussion 2, Deep Learning in Action, Collaborative Discussion 3, and the individual presentation.</em></td>
+                            <td><a href="https://github.com/Tanky0/research-agent" target="_blank" rel="noopener noreferrer">Individual implementation (in progress)</a></td>
+                            <td>11</td>
+                            <td><strong>LO2, LO3</strong></td>
+                            <td>A public repository, with the work committed as it happened: a requirements table written before any code, a shared HTTP layer, four source adapters, schema-validated record formats, two agents connected over a buffer with the hand-over covered by integration tests, and a hundred passing tests. A hundred abstracts screened by hand to measure recall against. Design decisions, data boundaries and every fault found, all written up at the time</td>
+                            <td>Specifying a system and building one are not the same skill, and I had only ever done the first. Two things changed how I work. A sample of fifty gave three relevant papers, which makes any recall figure move in thirds, so I now check whether a measurement can carry the claim before running it, not after. And the antivirus intercepting HTTPS was found by noticing that three unrelated services failed identically, which is the professional judgement that did transfer, so I now start with the environment before suspecting the code</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><em>Rows added as each remaining component completes: Collaborative Discussion 2, Deep Learning in Action, Collaborative Discussion 3, and the presentation that accompanies the implementation.</em></td>
                         </tr>
                     </tbody>
                 </table>
                 </div>
 
-                <p>Read down the outcomes column and the coverage so far is uneven by design. <strong>LO1</strong> and <strong>LO4</strong> are the best evidenced, since both the discussion and the team project bear on them directly. <strong>LO2</strong> has been met in analysis rather than in deployment. <strong>LO3</strong> is not yet evidenced at all, because nothing has been implemented, and closing that is what the coding units are for.</p>
+                <p>Read down the outcomes column and the coverage is uneven, which is what a module half run should look like. <strong>LO1</strong> and <strong>LO4</strong> are the best evidenced, since both the discussion and the team project bear on them directly. <strong>LO2</strong> was met in analysis first and is being met in deployment now, as the individual build turns the group&rsquo;s design into something that runs. <strong>LO3</strong> opened latest and is moving fastest. Nothing was implemented before 26 August, and the repository now holds a tested retrieval layer, a schema-validated buffer and two agents connected over it, with the hand-over between them covered by integration tests. No finished system yet, so the claim stays partial until the interface, the storage layer and the functional test run are done.</p>
             </section>
 
             <!-- Reflective Piece -->
@@ -297,7 +304,7 @@
 
                 <h3>Running reflections</h3>
 
-                <p>Kept as the module proceeds and ordered by unit rather than by date of writing, so the sequence reads as the learning happened. Each entry follows Rolfe, Freshwater and Jasper (2001): What / So what / Now what. They are written to be drawn on directly when the final reflective piece is assembled, which is why each one states not only what was done but how the work felt at the time and what that feeling did to the work. Points already made in an earlier entry are not restated in a later one.</p>
+                <p>Kept as the module proceeds and ordered by unit and not by date of writing, so the sequence reads as the learning happened. Each entry follows Rolfe, Freshwater and Jasper (2001): What / So what / Now what. They are written to be drawn on directly when the final reflective piece is assembled, which is why each one states not only what was done but how the work felt at the time and what that feeling did to the work. Points already made in an earlier entry are not restated in a later one.</p>
 
                 <div class="assignment-box">
                     <h3>Units 1 and 2: what the exchanges gave back</h3>
@@ -311,9 +318,9 @@
 
                     <p>The Zhan <em>et al.</em> (2026) figures moved my own position, and that is the more valuable outcome. I had assumed the risk in a planning agent sat in cascade, a poor plan corrupting everything downstream of it. Error propagation runs at 0.002 to 0.017, whilst restriction neglect, where a stated constraint is silently dropped during decomposition, runs from 0.04 to 0.29. Being wrong by an order of magnitude about where the risk sits was uncomfortable in a productive way. It is now the reason I argue for oversight at decomposition in our own design rather than at the output.</p>
 
-                    <p>The team side has been straightforwardly generative. The use case we adopted came from a teammate&rsquo;s proposal rather than either of the two I had put forward, and it is the better idea. Saying early what I am strongest at, and what I would rather leave to someone else, is something I do routinely as a manager, and it did here what it usually does, which is move work to whoever is best placed for it. Flagging the unverified parts of my own input, a Crossref capability I had not checked and a position I had revised between drafts, is ordinary practice rather than an admission.</p>
+                    <p>The team side has been straightforwardly generative. The use case we adopted came from a teammate&rsquo;s proposal, not either of the two I had put forward, and it is the better idea. Saying early what I am strongest at, and what I would rather leave to someone else, is something I do routinely as a manager, and it did here what it usually does, which is move work to whoever is best placed for it. Flagging the unverified parts of my own input, a Crossref capability I had not checked and a position I had revised between drafts, is ordinary practice rather than an admission.</p>
 
-                    <p><strong>Now what.</strong> Three things carry forward. Keep flagging what is unverified, since it costs a sentence and protects the argument the report rests on. Keep checking figures against their source before building on them, in my own drafts as much as in anyone else&rsquo;s. And in the challenges section, hold the position the evidence supports, because naming what we cannot build on a free tier is more defensible than claiming coverage we cannot deliver.</p>
+                    <p><strong>Now what.</strong> Keep flagging what is unverified, since it costs a sentence and protects the argument the report rests on. Keep checking figures against their source before building on them, in my own drafts as much as in anyone else&rsquo;s. And in the challenges section, hold the position the evidence supports, because naming what we cannot build on a free tier is more defensible than claiming coverage we cannot deliver.</p>
 
                     <div class="reflist">
                         <h4>References for this entry</h4>
@@ -357,7 +364,7 @@
 
                     <p>Three units of theory and nothing built yet. I am impatient, and it has changed how I work. What I have done instead is treat every written artefact as though it were a specification for something real, asking whether the design would hold rather than whether the paragraph reads well.</p>
 
-                    <p><strong>Now what.</strong> Two things. Treat the implementation units as the test of whether any of this is real, since a design I cannot build is a design I have not understood. And point the judgement I bring from work at the technical material rather than keeping it separate. The risk for someone in my position is not failing to learn the tooling. It is carrying on as though governance and implementation were two conversations.</p>
+                    <p><strong>Now what.</strong> Treat the implementation units as the test of whether any of this is real, since a design I cannot build is a design I have not understood. And point the judgement I bring from work at the technical material instead of keeping it separate. The risk for someone in my position is not failing to learn the tooling. It is carrying on as though governance and implementation were two conversations.</p>
 
                     <div class="reflist">
                         <h4>References for this entry</h4>
@@ -378,7 +385,7 @@
 
                     <p>What made the editing workable was a realignment we made deliberately. Agreement on scope and structure came early, so the others could turn to their own components and to the module activities running in parallel while the writing adjustments stayed with me. Dividing work by strength rather than by equal shares is how I would run it professionally, and it is more efficient than four people editing one document. It also concentrates judgement in one place, which is the reason the change log matters: every edit carries its reason, so any of it can be reopened rather than simply inherited.</p>
 
-                    <p><strong>Now what.</strong> Three things. Ask about one decision at a time rather than sending the whole document round, because a specific question gets answered and an open invitation does not when everyone is busy with their own part. Keep writing criteria that can actually fail. A criterion nobody can fail is a sentence, not a control, and I write these at work as well. And read the design section again after the 1 September seminar before we lock it, since v14 only improved because material arrived after v13 was already finished.</p>
+                    <p><strong>Now what.</strong> Ask about one decision at a time instead of sending the whole document round, because a specific question gets answered and an open invitation does not when everyone is busy with their own part. Keep writing criteria that can actually fail. A criterion nobody can fail is a sentence, not a control, and I write these at work as well. And read the design section again after the 1 September seminar before we lock it, since v14 only improved because material arrived after v13 was already finished.</p>
 
                     <div class="references">
                         <p><strong>References for this entry</strong></p>
@@ -393,13 +400,13 @@
 
                     <p><strong>What.</strong> Unit 6 asked for a KQML and KIF dialogue between Alice, who procures stock, and Bob, who controls stock levels for a warehouse. My first attempt ran to four messages and met the brief. The artefact I kept runs to nine, preceded by the ontology the exchange depends on, and adds two failure branches: a <code>sorry</code> where Alice asks for a term the shared vocabulary does not define, and an <code>achieve</code> that has no matching commitment.</p>
 
-                    <p><strong>So what.</strong> Four messages proved nothing beyond an ability to copy a syntax, which is not what a portfolio is for. The exercise only became worth doing once I asked what would have to be true before Alice and Bob could understand one another at all, and saw how little of that ever reaches the messages. Take <code>:ontology warehouse-stock</code>. It reads as a guarantee and it is a claim, unverifiable, since neither agent can inspect the other&rsquo;s vocabulary. That single line made me more uneasy than anything in the dialogue itself, and the unease is why the ontology took longer to write than the nine messages did. Two commitments buried inside it, a marketing screen size rather than a measured one and a port count blind to revision, are the kind of thing I have watched surface late, once an integration has already produced numbers nobody trusts.</p>
+                    <p><strong>So what.</strong> Four messages proved nothing beyond an ability to copy a syntax, which is not what a portfolio is for. The exercise only became worth doing once I asked what would have to be true before Alice and Bob could understand one another at all, and saw how little of that ever reaches the messages. Take one line of it, <code>:ontology warehouse-stock</code>. It reads as a guarantee and it is a claim, unverifiable, because neither agent can inspect the other&rsquo;s vocabulary. That one line made me more uneasy than anything in the dialogue, which is why the ontology took longer to write than the nine messages did.</p>
 
-                    <p>The parallel with my own work is direct. Central laboratory operations exchange data with sponsor systems daily, across organisational boundaries, and what breaks is hardly ever the pipe. It is two parties using one term for two things, undetected until a reconciliation refuses to balance. Recognising a familiar failure in unfamiliar dress slowed me down. That was the right response, since it stopped me treating the exercise as a syntax problem and sent me back to the definitions. Payne and Tamma (2014) frame the constraint as disclosure, since agents may have to align vocabularies neither side will publish. I had filed ontology alignment under schema matching, and read properly it looks at least as much like a negotiation problem, though I gave their remedy more enthusiasm than it has earned: their dialogue was tested on benchmark ontologies rather than in anyone&rsquo;s warehouse.</p>
+                    <p>Central laboratory operations exchange data with sponsor systems daily, across organisational boundaries, and what breaks is hardly ever the pipe. It is two parties using one term for two things, undetected until a reconciliation refuses to balance. My own ontology carried two of those. A marketing screen size where a measured one was meant, and a port count blind to revision. It is the same failure in miniature, and I had written both myself without noticing. Recognising it in unfamiliar dress slowed me down, and stopped me treating the exercise as a syntax problem. Payne and Tamma (2014) frame the constraint as disclosure, since agents may have to align vocabularies neither side is willing to publish, which is the position two companies are actually in when their systems meet. I had filed ontology alignment under schema matching; read properly it looks at least as much like a negotiation. Their remedy I gave more enthusiasm than it has earned, because the dialogue was tested on benchmark ontologies and not in anyone&rsquo;s warehouse.</p>
 
-                    <p>The commissive gap is where the exercise changed my thinking. Bob&rsquo;s <code>tell</code> is true at the moment of sending and worthless as an assurance, and my first move was to hunt for the performative I had overlooked. There is none. Being wrong about that was more useful than being right would have been. It stopped me reading a specification as complete and made me look for what it declines to do, which is now how I read any protocol I am asked to rely on. Wooldridge (2009) arrives at the same criticism, and it is why FIPA exists rather than a patched KQML. Writing the dialogue rather than coding it is also the concession I owe the module&rsquo;s sequencing, since I would almost certainly have implemented straight past the missing commitment.</p>
+                    <p>The commissive gap is where the exercise changed my thinking. Bob&rsquo;s <code>tell</code> is true at the moment of sending and worthless as an assurance, and my first move was to hunt for the performative I had overlooked. There is no such performative in KQML. Being wrong about that was more useful than being right would have been. It stopped me reading a specification as complete and sent me looking for what it declines to do, which is now how I read any protocol I am asked to rely on. Wooldridge (2009) arrives at the same criticism, and it is why FIPA exists instead of a patched KQML.</p>
 
-                    <p><strong>Now what.</strong> Three things carry forward. Read a specification for its silences before its vocabulary, because the missing act taught me more than the nine present ones. Treat a declared shared vocabulary as an assertion to be tested rather than a fact, here and at work. And implement M2 to M9 as a plain message-passing exercise in Python before Unit 12, where a lost <code>eos</code> or an unhandled <code>sorry</code> fails visibly instead of becoming another paragraph in a reflection. My confidence that the KIF is well formed currently rests on resemblance to published examples rather than on having run it, and I would not accept that standard of assurance from a supplier.</p>
+                    <p><strong>Now what.</strong> Read a specification for its silences before its vocabulary, because the missing act taught me more than the nine present ones. Treat a declared shared vocabulary as an assertion to be tested, here and at work. And implement M2 to M9 as a plain message-passing exercise in Python before Unit 12, where a lost <code>eos</code> or an unhandled <code>sorry</code> fails visibly instead of becoming another paragraph in a reflection. My confidence that the KIF is well formed rests on its resemblance to published examples, not on having run it, and I would not accept that standard of assurance from a supplier.</p>
 
                     <div class="reflist">
                         <h4>References for this entry</h4>
@@ -415,11 +422,11 @@
 
                     <p><strong>What.</strong> Unit 8 asked for constituency parse trees of three sentences. I built each from a small phrase-structure grammar and drew it out, then let the third, <em>The man saw the dog with the telescope</em>, carry the work. One early step was noticing that the set reading demonstrates dependency parsing in spaCy, whereas the brief wanted constituency trees, since the two describe the same grammar from different angles (Zimmerman, 2019). My first pass treated the third sentence as an even ambiguity and drew both attachments. The version I kept does not: the instrument reading is the one the sentence has, and the other structure is left as a note on what the grammar will build but the meaning refuses.</p>
 
-                    <p><strong>So what.</strong> Drawing both trees and then throwing one away is what taught me the point. A parse can be perfectly well formed and still be the wrong reading, since a dog does not carry a telescope and no amount of syntax knows that; ranking the two structures is something a parser has to learn from data rather than from the grammar (Collins, 2003). The second sentence made the same case from the other side, because <em>the internet gives everyone a voice</em> has one tidy tree whether the giving is literal or a metaphor, so the structure records how the words combine and nothing about what they mean. What caught me off guard was how little the diagram holds once you look for meaning in it, which I had not expected from an exercise I had filed as mechanical.</p>
+                    <p><strong>So what.</strong> Drawing both trees and then throwing one away is what taught me the point. A parse can be perfectly well formed and still be the wrong reading, since a dog does not carry a telescope and no amount of syntax knows that; ranking the two structures is something a parser has to learn from data and not from the grammar (Collins, 2003). The second sentence made the same case from the other side, because <em>the internet gives everyone a voice</em> has one tidy tree whether the giving is literal or a metaphor, so the structure records how the words combine and nothing about what they mean. What caught me off guard was how little the diagram holds once you look for meaning in it, which I had not expected from an exercise I had filed as mechanical.</p>
 
                     <p>The exercise was new in a plainer sense too. I had not drawn a syntax tree before, and I am neither an engineer nor a native English speaker, so I expected the notation to be the obstacle. It was not. The friction sat in the few places where English builds a phrase differently from French, and the core proved to be shared ground, since French rests on the same building blocks and even the telescope ambiguity survives translation. The vocabulary looked harder at the outset than the analysis turned out to be.</p>
 
-                    <p><strong>Now what.</strong> Two things. When a formalism is unfamiliar, treat the labels as the first obstacle and the reasoning as the second, because here the reasoning was nearer than the notation made it look. And carry the distinction into the deep-learning units: well formed is not the same as correct. A model producing fluent output is making exactly that claim about itself, and somebody has to check it.</p>
+                    <p><strong>Now what.</strong> When a formalism is unfamiliar, treat the labels as the first obstacle and the reasoning as the second, because here the reasoning was nearer than the notation made it look. And carry the distinction into the deep-learning units: well formed is not the same as correct. A model producing fluent output is making exactly that claim about itself, and somebody has to check it.</p>
 
                     <div class="reflist">
                         <h4>References for this entry</h4>
@@ -432,21 +439,19 @@
                     <h3>Unit 11: building the thing I had only ever specified</h3>
                     <p class="deadline">Written 29 August 2026 &middot; <a href="https://github.com/Tanky0/research-agent" target="_blank" rel="noopener noreferrer">Development Project, individual implementation</a> &middot; In progress</p>
 
-                    <p><strong>What.</strong> Development started on 26 August, the morning after the tutor confirmed that evidence of progress has to build up across the module rather than appear at the end. I had time off from work and used it on this, close to full working days for four days running. That was what the unfamiliarity demanded rather than what the schedule did. The repository now holds a requirements table written before any code, the shared HTTP layer, four source adapters, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand. The two agents themselves are not built. I am writing this now because the finished version will not remember any of it.</p>
+                    <p><strong>What.</strong> Development started on 26 August, the morning after the tutor confirmed that evidence of progress has to build up across the module instead of appearing at the end. I had time off work and gave it to this, close to full working days for four days running, which is what the unfamiliarity demanded. The repository now holds a requirements table written before any code, the shared HTTP layer, four source adapters, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand. The two agents themselves are not built. I am writing this now because the finished version will not remember any of it.</p>
 
-                    <p><strong>So what.</strong> I have been next to people who build things for a long time: fourteen years administering a new-technologies consultancy and developing the business for a 3D printing workshop, twenty-five in clinical operations and project management, and AI governance more recently. Between them I learnt what a planning agent is for, what a retrieval layer does, and why state has to sit somewhere you can inspect it. None of it told me what to type into an empty file, or in what order. Theory gave me the shape and nothing about sequence, and sequence turned out to be most of the difficulty.</p>
+                    <p><strong>So what.</strong> I have been next to people who build things for a long time: fourteen years administering a new-technologies consultancy and developing the business for a 3D printing workshop, twenty-five in clinical operations and project management, and AI governance more recently. Between them I learnt what a planning agent is for and why state has to sit somewhere you can inspect it. None of it told me what to type into an empty file, or in what order, and sequence turned out to be most of the difficulty.</p>
 
-                    <p>The Python has been the hardest work of the programme so far, R included. The syntax is a large part of that. So is knowing what already exists and which piece of it fits what I am trying to do, since there is nearly always a function that does the job and most of my time goes on finding it, working out what it actually does, and deciding whether it is the right one here. Four days at that pace was not enthusiasm. It was the only way to hold enough of the thing in my head at once to get anywhere with it.</p>
+                    <p>The Python has been the hardest work of the programme so far, R included. The syntax is a large part of that. So is knowing what already exists and which piece of it fits, since there is nearly always a function that does the job and most of my time goes on finding it, working out what it actually does, and deciding whether it belongs here. Four days at that pace was not enthusiasm. It was the only way to hold enough of the thing in my head at once to get anywhere.</p>
 
-                    <p>Three things I did not expect. The first was diagnostic rather than technical. All three services failed identically on the first day, and identical failure across three independent things points at one local cause rather than three faults; it was the antivirus intercepting HTTPS. That reasoning is the part of my professional judgement that transferred intact, and it is the only part that did.</p>
+                    <p>Three things I did not expect. The first surprise had nothing to do with code. All three services failed identically on the first day, and identical failure across three independent things points at one local cause; it was the antivirus intercepting HTTPS. That reasoning is the part of my professional judgement that transferred intact, and it is the only part that did.</p>
 
-                    <p>The second was that measurement can be broken before anything is measured. I drew fifty abstracts at random and screened them by hand, and three came back relevant. With three, each is worth a third of the recall figure, so the only score clearing our 0.80 criterion is a perfect one, and missing a single paper fails it outright. That is a property of the sample rather than of the search. A second fifty was drawn as a check, and the design's figure of fifty stays as the reported basis rather than being quietly replaced by a number that flatters the result.</p>
+                    <p>The second was that measurement can be broken before anything is measured. I drew fifty abstracts at random and screened them by hand, and three came back relevant. Each is then worth a third of the recall figure, so the only score clearing our 0.80 criterion is a perfect one, and one missed paper fails it outright. That is a property of the sample, not of the search. A second fifty was drawn as a check, and fifty stays as the reported basis so that the figure is not quietly replaced by one that flatters the result.</p>
 
-                    <p>The third is where I was most wrong, and it was my carelessness rather than the code. Invented replies reached the demonstration set twice, and neither time did a check catch them. Publishing one is now a deliberate step rather than an automatic one. A test that only finds the failure you have already seen is not a control, and I would not accept one at work.</p>
+                    <p>The third is where I was most wrong, and the fault was mine and not the code&rsquo;s. Invented replies reached the demonstration set twice, and neither time did a check catch them. Publishing one is now a deliberate step, no longer an automatic one. A test that only finds the failure you have already seen is not a control, and I would not accept one at work.</p>
 
-
-
-                    <p><strong>Now what.</strong> Three things carry forward. Write the two agents against the record formats already fixed, since the formats were written first precisely so that everything after them takes its shape from something settled. Carry on as I have been. Looking up how to do something is not the slow part. Understanding why it works, why that piece of syntax and not another, and proving with a test that it does what I think it does, is where the hours go. I expect that takes me a great deal longer than it would a programmer, and it is the part I am not willing to skip. And keep reporting the limitations beside the numbers: two of the relevant papers were judged on information the agent will never see, and that belongs next to the recall figure rather than in a footnote after it.</p>
+                    <p><strong>Now what.</strong> Write the two agents against the record formats already fixed, since the formats were written first precisely so that everything after them takes its shape from something settled. Then carry on as I have been. Looking up how to do something is not the slow part. Understanding why it works, why that piece of syntax and no other, and proving with a test that it does what I think it does, is where the hours go, and I expect that takes me far longer than it would a programmer. It is the part I am not willing to skip. And keep the limitations beside the numbers: two of the relevant papers were judged on information the agent will never see, and that belongs next to the recall figure, not in a footnote after it.</p>
 
                     <div class="references">
                         <p><strong>References for this entry</strong></p>
@@ -527,9 +532,41 @@
                 </table>
                 </div>
 
-                <p>Automated pain assessment sits inside laboratory operations, which is where I work. Familiar is not the same as socially consequential, and the brief asks for the second.</p>
+                <p>Automated pain assessment sits inside laboratory operations, which is where I work. I asked because it is easy to mistake something familiar for something important. The topic was approved, so it is the one I am taking into Unit 10. Asking was still worth it: animal welfare in research is argued in public and not only inside the industry, and I had not put that argument into words until I had to justify the topic.</p>
 
-                <p>The Unit 11 reply moved my dates rather than my thinking. Development evidence has to build up while the work happens, so the build started the next morning.</p>
+                <p>The Unit 11 reply moved my dates. Development evidence has to build up while the work happens, so the build started the next morning.</p>
+            </section>
+
+            <!-- Feedback Received -->
+            <section class="content-section" id="feedback-received">
+                <h2>Feedback Received</h2>
+
+                <p>A required component of the final e-portfolio. Peer feedback on this module arrives through the collaborative discussions, where classmates reply on my thread and I reply on theirs.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Source</th><th>Status</th><th>Where it is recorded, and what it changed</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Peers</strong><br>Collaborative Discussion 1</td>
+                            <td><span class="skill-rating">Received</span></td>
+                            <td>Three replies on my thread, held in full on the <a href="ia-cd1-agent-based-systems.html#feedback-received">activity page</a> with my answer to each. Two of them independently showed that a checkpoint at the plan stage cannot detect a stage lost after approval, and my position changed between the initial and summary posts as a result. That is the decision carried into the team project design</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Peers</strong><br>Collaborative Discussion 2</td>
+                            <td><span class="skill-rating">Received</span></td>
+                            <td>Replies received on my initial post. They are held back until the summary post completes the activity in Unit 7, so that the whole thread goes up at once instead of in pieces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tutor</strong></td>
+                            <td><span class="skill-rating">Not yet received</span></td>
+                            <td>No assessed work has been returned in this module. The team project and the individual implementation are both still to be marked. Guidance given before the work is a different thing, and that sits in the seminar and correspondence tables above</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </section>
 
             <!-- AI Acknowledgement -->
@@ -547,7 +584,7 @@
 
                 <div class="assignment-box">
                     <h3>Maintained on the About Me page</h3>
-                    <p>The professional skills matrix and personal development plan is kept as a single current record covering the whole programme, rather than repeated on each module page. It records, for each of the nine skills, the level assessed at module start and end, the evidence behind that assessment, the action plan, and progress against that plan during this module.</p>
+                    <p>The professional skills matrix and personal development plan is kept as a single current record covering the whole programme, instead of being repeated on each module page. It records, for each of the nine skills, the level assessed at module start and end, the evidence behind that assessment, the action plan, and progress against that plan during this module.</p>
 
                     <p>It is updated as Intelligent Agents proceeds and forms part of the final e-portfolio submission in Unit 12.</p>
 
