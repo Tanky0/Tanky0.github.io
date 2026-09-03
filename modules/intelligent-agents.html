@@ -124,11 +124,9 @@
                     <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
                     <p><strong>Brief Description:</strong> Implement, individually, the LLM-powered planning agent the group designed in Unit 6, with evidence of development progress across the module, testing activities and any remediation undertaken. Submitted as source code and documentation, testing outputs, a README, and a presentation of up to ten slides with a narration transcript. The Unit 6 design is not a fixed specification: justified and documented changes are acceptable where technical constraints require them, provided the system remains an agent that takes a goal, plans a sequence of actions, retrieves and processes data, and produces a meaningful output.</p>
 
-                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate public repository so that the code history is itself part of the evidence. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests. Neither is finished, and the interface, the storage layer and the functional test run remain ahead, with that run planned for 17 to 18 September.</p>
+                    <p><strong>Submission:</strong> In development since 26 August 2026. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests. Neither is finished, and the interface, the storage layer and the functional test run remain ahead, with that run planned for 17 to 18 September.</p>
 
-                    <p><span class="status-badge status-pending">Status: In development</span></p>
-
-                    <a href="https://github.com/Tanky0/research-agent" class="download-link" target="_blank" rel="noopener noreferrer">View the repository on GitHub</a>
+                    <p><span class="status-badge status-pending">Status: In progress</span></p>
                 </div>
 
                 <div class="assignment-box">
@@ -274,10 +272,10 @@
                             <td>Drawing one sentence two ways made structural ambiguity concrete. A parser&rsquo;s output now reads to me as one hypothesis among several, not as the analysis, which is the same move from a single point of sign-off towards continuous disclosure that Collaborative Discussion 1 argued me into</td>
                         </tr>
                         <tr>
-                            <td><a href="https://github.com/Tanky0/research-agent" target="_blank" rel="noopener noreferrer">Individual implementation (in progress)</a></td>
+                            <td>Individual implementation (in progress)</td>
                             <td>11</td>
                             <td><strong>LO2, LO3</strong></td>
-                            <td>A public repository, with the work committed as it happened: a requirements table written before any code, a shared HTTP layer, four source adapters, schema-validated record formats, two agents connected over a buffer with the hand-over covered by integration tests, and a hundred passing tests. A hundred abstracts screened by hand to measure recall against. Design decisions, data boundaries and every fault found, all written up at the time</td>
+                            <td>The system as built so far: a requirements table written before any code, a shared HTTP layer, four source adapters, schema-validated record formats, two agents connected over a buffer with the hand-over covered by integration tests, and a hundred passing tests. A hundred abstracts screened by hand to measure recall against. Design decisions, data boundaries and every fault found, documented as they happened</td>
                             <td>Specifying a system and building one are not the same skill, and I had only ever done the first. Two things changed how I work. A sample of fifty gave three relevant papers, which makes any recall figure move in thirds, so I now check whether a measurement can carry the claim before running it, not after. And the antivirus intercepting HTTPS was found by noticing that three unrelated services failed identically, which is the professional judgement that did transfer, so I now start with the environment before suspecting the code</td>
                         </tr>
                         <tr>
@@ -437,7 +435,7 @@
                 </div>
                             <div class="assignment-box">
                     <h3>Unit 11: building the thing I had only ever specified</h3>
-                    <p class="deadline">Written 29 August 2026 &middot; <a href="https://github.com/Tanky0/research-agent" target="_blank" rel="noopener noreferrer">Development Project, individual implementation</a> &middot; In progress</p>
+                    <p class="deadline">Written 29 August 2026 &middot; Development Project, individual implementation &middot; In progress</p>
 
                     <p><strong>What.</strong> Development started on 26 August, the morning after the tutor confirmed that evidence of progress has to build up across the module instead of appearing at the end. I had time off work and gave it to this, close to full working days for four days running, which is what the unfamiliarity demanded. The repository now holds a requirements table written before any code, the shared HTTP layer, four source adapters, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand. The two agents themselves are not built. I am writing this now because the finished version will not remember any of it.</p>
 
