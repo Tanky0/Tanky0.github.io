@@ -1,68 +1,93 @@
-# Anne Dayer — MSc AI ePortfolio
+# Anne Dayer, MSc Artificial Intelligence ePortfolio
 
-Professional ePortfolio documenting my learning journey through the MSc Artificial Intelligence programme at the University of Essex Online.
+Assessed ePortfolio for the MSc Artificial Intelligence at the University of Essex Online.
 
-Live at **https://tanky0.github.io/**
+**Live at https://tanky0.github.io/**
 
-## Structure
+## Programme
 
-- **index.html** — Homepage: programme modules, statuses and results
-- **about.html** — About Me, CV, and the Professional Skills Matrix (`#skills-matrix`)
-- **modules/** — Individual module pages
-  - `induction.html` — Completed
-  - `launch-into-computing.html` — Completed, 76% (Distinction)
-  - `understanding-ai.html` — Completed, 87% (Distinction)
-  - `numerical-analysis.html` — Completed, 81% (Distinction)
-  - `intelligent-agents.html` — In progress (started 28 July 2026)
-  - `machine-learning.html` — Planned
-  - `knowledge-reasoning.html` — Planned
-  - `research-methods.html` — Planned
-  - `msc-project.html` — Planned
-- **assets/**
-  - `css/site.css` — the whole design system, shared by every page
-  - `js/site.js` — theme toggle, reading progress, mobile menu, section navigation
-  - `documents/` — assignment outputs, transcripts, slides, recordings, CV
-  - `images/` — profile photo
+| Module | Status | Result |
+|---|---|---|
+| Induction | Completed | n/a |
+| Launch into Computing | Completed | 76, Distinction |
+| Understanding Artificial Intelligence | Completed | 87, Distinction |
+| Numerical Analysis | Completed | 81, Distinction |
+| Intelligent Agents | In progress, started 28 July 2026 | n/a |
+| Machine Learning | Planned | n/a |
+| Knowledge Representation and Reasoning | Planned | n/a |
+| Research Methods | Planned | n/a |
+| MSc Project | Planned | n/a |
 
-Module pages run Module Overview → Assignments, then whichever of Reflective Piece, e-Portfolio Activities, Artefacts, Team Meeting Notes and Peer/Tutor Feedback that module actually requires. The Professional Skills Matrix appears once only, on `about.html`.
+## Layout
+
+```
+index.html          Home: the nine modules, their status and results
+about.html          Profile, CV, and the Professional Skills Matrix (#skills-matrix)
+404.html            Custom not-found page
+modules/            One page per module, plus artefact pages for Intelligent Agents
+assets/css/         site.css, the whole design system
+assets/js/          site.js, progressive enhancement only
+assets/documents/   Submitted work: reports, slides, transcripts, recordings, CV
+assets/images/      Profile photo
+```
+
+Intelligent Agents carries four artefact pages of its own, linked from the module page:
+`ia-cd1-agent-based-systems.html`, `ia-unit06-agent-dialogues.html`,
+`ia-unit08-parse-trees.html` and `ia-team-project-log.html`.
+
+## How a module page is built
+
+Module Overview and Assignments first, then whichever of these that module requires:
+e-Portfolio Activities, Summary of Learning Outcomes, Reflective Piece, Team Meeting
+Notes, Feedback Received, AI Acknowledgement, and a link to the skills matrix.
+
+Two rules hold across the site. The **Professional Skills Matrix appears once only**, on
+`about.html`, and every module page links to it rather than repeating it. Substantial
+artefacts get their **own page** under `modules/` rather than expanding the module page.
 
 ## Design
 
-Hand-built static HTML with no framework or build step. One stylesheet and one small progressive-enhancement script serve all eleven pages — edit `assets/css/site.css` rather than adding styles to a page.
+Hand-written static HTML. No framework, no build step, no dependencies. One stylesheet
+and one small script serve every page, so styling changes belong in `assets/css/site.css`
+rather than in a page.
 
-- **Type** — Newsreader for headings, IBM Plex Sans for body, IBM Plex Mono for metadata
-- **Colour** — warm paper ground with a muted moss accent, defined as CSS custom properties
-- **Themes** — light and dark, following the system setting, with a toggle that persists
-- **Motion** — restrained, and disabled entirely under `prefers-reduced-motion`
-- **Accessibility** — skip link, visible focus rings, WCAG AA contrast in both themes, no horizontal overflow at 375px
+- **Type**: Newsreader for display, IBM Plex Sans for body, IBM Plex Mono for metadata
+- **Colour**: warm paper ground, muted moss accent, all as CSS custom properties
+- **Themes**: light and dark, following the system setting, with a toggle that persists
+- **Accessibility**: skip link, visible focus, WCAG AA contrast in both themes, no
+  horizontal overflow at 375px, motion disabled under `prefers-reduced-motion`
 
-## Updating Content
+`.nojekyll` is present, so GitHub Pages serves the files as written. Markdown in this
+repository is documentation only and is never rendered on the site.
 
-- **`EPORTFOLIO_UPDATE_GUIDE.md`** — full instructions: how the site is built, page structure, adding assignments and feedback, completing a module, maintaining the skills matrix, publishing, troubleshooting
-- **`QUICK_REFERENCE.md`** — copy-paste snippets
-- **`TEMPLATE_Assignment.html`** — assignment block
-- **`TEMPLATE_Module_Completion.html`** — module completion block
+## Writing conventions
 
-## Deployment
+- British English throughout
+- No em dashes or en dashes in prose; use commas, parentheses or semicolons
+- Harvard referencing, Cite Them Right, with a reference list on any page that cites
+- Every page carries its own AI acknowledgement
+- Dates written in full, as `4 September 2026`
 
-GitHub Pages, from `main`.
+## Editing and publishing
 
 ```bash
-cd "C:\Users\annes\Tanky0.github.io"
 git add .
-git commit -m "Description"
-git push origin main
+git commit -m "Short description of what changed"
+git push
 ```
 
-Pages rebuilds within a minute or two. If the site looks unchanged, hard-refresh with Ctrl+F5 — that is CDN caching, not a failed push.
+GitHub Pages rebuilds within a minute or two. If a change does not appear, hard-refresh
+with Ctrl+F5 before assuming the push failed; it is usually CDN caching.
 
-## Programme Information
+Before pushing, check that tags balance, that internal links and anchors resolve, and
+that no em dash has crept into the prose.
 
-- **Programme**: MSc Artificial Intelligence
-- **Institution**: University of Essex Online
-- **Started**: October 2025
-- **Total Modules**: 9
+## Templates
+
+`TEMPLATE_Assignment.html` and `TEMPLATE_Module_Completion.html` hold the two blocks that
+recur. `EPORTFOLIO_UPDATE_GUIDE.md` covers the longer procedures and
+`QUICK_REFERENCE.md` holds copy-paste snippets.
 
 ---
 
-&copy; 2025 Anne Dayer
+© 2025–2026 Anne Dayer
