@@ -31,9 +31,17 @@ assets/documents/   Submitted work: reports, slides, transcripts, recordings, CV
 assets/images/      Profile photo
 ```
 
-Intelligent Agents carries four artefact pages of its own, linked from the module page:
-`ia-cd1-agent-based-systems.html`, `ia-unit06-agent-dialogues.html`,
-`ia-unit08-parse-trees.html` and `ia-team-project-log.html`.
+Intelligent Agents carries six artefact pages of its own, each linked from the module
+page and reached only from there:
+
+| Page | What it holds |
+|---|---|
+| `ia-cd1-agent-based-systems.html` | Collaborative Discussion 1, both strands |
+| `ia-cd2-agent-communication-languages.html` | Collaborative Discussion 2, in progress |
+| `ia-unit06-agent-dialogues.html` | Creating Agent Dialogues, KQML and KIF |
+| `ia-unit08-parse-trees.html` | Creating Parse Trees |
+| `ia-team-project-log.html` | Development team project working log |
+| `ia-running-reflections.html` | Running reflections, unit by unit |
 
 ## How a module page is built
 
@@ -59,6 +67,29 @@ rather than in a page.
 
 `.nojekyll` is present, so GitHub Pages serves the files as written. Markdown in this
 repository is documentation only and is never rendered on the site.
+
+## Privacy
+
+This site is public and indexed by search engines. Three rules hold without exception.
+
+- **Fellow students are identified by initials only, never by name.** That applies inside
+  reproduced forum posts as well as in the surrounding commentary: a post that names
+  someone in its body is still naming them. Where two people would share initials,
+  disambiguate with a middle initial rather than inventing a label.
+- **Tutors are named in full.** They appear in a professional teaching capacity, which is
+  a different question from naming a classmate.
+- **No personal contact details anywhere**, in a page or in a published document: no email
+  addresses, telephone numbers or postal addresses, including the author's own.
+
+Check any file before adding it to `assets/documents/`. A report, transcript or forum
+export can carry names, addresses or contact details in places the page text never shows,
+and publishing the file publishes those too.
+
+Do not republish another student's work. The UoEO referencing guide asks you to check with
+your tutor before citing another student's assignment; summarising their argument in your
+own words and crediting them by initials avoids the question and reads better.
+
+`EPORTFOLIO_UPDATE_GUIDE.md` sets this out at greater length.
 
 ## Writing conventions
 
