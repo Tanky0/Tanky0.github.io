@@ -126,7 +126,9 @@
                     <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
                     <p><strong>Brief Description:</strong> Implement, individually, the LLM-powered planning agent the group designed in Unit 6, with evidence of development progress across the module, testing activities and any remediation undertaken. Submitted as source code and documentation, testing outputs, a README, and a presentation of up to ten slides with a narration transcript. The Unit 6 design is not a fixed specification: justified and documented changes are acceptable where technical constraints require them, provided the system remains an agent that takes a goal, plans a sequence of actions, retrieves and processes data, and produces a meaningful output.</p>
 
-                    <p><strong>Submission:</strong> In development since 26 August 2026. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, a hundred passing tests, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests. Neither is finished, and the interface, the storage layer and the functional test run remain ahead, with that run planned for 17 to 18 September.</p>
+                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate repository. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests.</p>
+
+                    <p><strong>Since then.</strong> The Planning Agent closed its decompose, search, decide and finish loop on 2 September. The Curation Agent followed on 8 September: records combined and shared out at the hand-over, papers screened and put in rank order, every extract checked against the paper it was taken from, and only approved records saved. Work on the reviewer interface started the same day. Of twenty functional requirements, eleven are done and seven part-built. Two have not been started: entering the research question through the interface, and the audit log. Nothing has yet been run end to end, which is what the functional test on 17 to 18 September is for.</p>
 
                     <p><span class="status-badge status-pending">Status: In progress</span></p>
                 </div>
@@ -167,7 +169,7 @@
                             <td>5&ndash;7</td>
                             <td><a href="ia-cd2-agent-communication-languages.html">Collaborative Discussion 2: Agent Communication Languages</a></td>
                             <td>End of Unit 7</td>
-                            <td><span class="skill-rating">In progress</span></td>
+                            <td><span class="skill-rating">Completed</span></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -244,6 +246,13 @@
                             <td><strong>LO1, LO2</strong></td>
                             <td>Constituency trees for three sentences in Penn Treebank notation, each derived from an explicit phrase-structure grammar; sentence 3 given both prepositional-phrase attachment readings; the ambiguity tied to statistical parsing and to disambiguation in a language-using agent</td>
                             <td>Drawing one sentence two ways made structural ambiguity concrete. A parser&rsquo;s output now reads to me as one hypothesis among several, not as the analysis, which is the same move from a single point of sign-off towards continuous disclosure that Collaborative Discussion 1 argued me into</td>
+                        </tr>
+                        <tr>
+                            <td><a href="ia-cd2-agent-communication-languages.html">Collaborative Discussion 2: Agent Communication Languages</a></td>
+                            <td>5&ndash;7</td>
+                            <td><strong>LO1, LO4</strong></td>
+                            <td>The receiver-decides distinction argued against method invocation; two peer responses read against Finin <em>et al.</em> (1994, p. 460); a summary that gave ground on the Payne and Tamma figures and named the cost neither reply accounted for, Searle&rsquo;s representatives disappearing if messages may only report checkable states</td>
+                            <td>A classmate and I interpreted the same paper differently because it presents its finding differently across sections. The abstract says &ldquo;up to 40%&rdquo;, the conclusion describes comparable performance, and the results give a range from -5.5% to +40.3%. Since identifying where each figure came from resolved the disagreement, I now make that clear when citing numerical results. Acknowledging the point directly in the summary was also more efficient than trying to defend the original wording</td>
                         </tr>
                         <tr>
                             <td>Individual implementation (in progress)</td>
@@ -378,7 +387,7 @@
                         <tr>
                             <td><strong>Peers</strong><br>Collaborative Discussion 2</td>
                             <td><span class="skill-rating">Received</span></td>
-                            <td>Replies received on my initial post. They are held back until the summary post completes the activity in Unit 7, so that the whole thread goes up at once instead of in pieces</td>
+                            <td>Two replies on my thread, and the activity closed with the summary post on 8 September. F.B. read Payne and Tamma from the results where I had read them from the conclusion, and the paper states its outcome at three different strengths, so the summary now reports the range rather than either single figure. Both replies argued that a message should be defined by what the sender can be held to rather than by what the sender believes, which the summary accepts while naming the cost neither reply accounts for. The <a href="ia-cd2-agent-communication-languages.html">activity page</a> records what each reply changed</td>
                         </tr>
                         <tr>
                             <td><strong>Tutor</strong></td>

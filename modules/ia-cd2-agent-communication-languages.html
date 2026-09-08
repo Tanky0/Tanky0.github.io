@@ -94,21 +94,118 @@
             <section class="content-section" id="the-activity">
                 <h2>The Activity</h2>
 
-    <p class="deadline"><strong>Units 5&ndash;7</strong> &middot; Due end of Unit 7 &middot; Evidences learning outcomes 1 and 4</p>
+                <p class="deadline"><strong>Units 5&ndash;7</strong> &middot; 25 August to 8 September 2026 &middot; Tutor: Dr Angesh Anupam &middot; Evidences learning outcomes 1 and 4</p>
 
-                        <p><strong>Discussion question:</strong> What are the potential advantages and disadvantages of the use of agent communication languages such as KQML? How do they compare with method invocation in Python or Java?</p>
+                <p><strong>Discussion question:</strong> what are the potential advantages and disadvantages of the use of agent communication languages such as KQML, and how do they compare with method invocation in Python or Java?</p>
 
-                        <p><strong>Structure:</strong> Initial post of at least 200 words in Unit 5, labelled <em>Initial Post</em>. Two peer responses in Unit 6 of 200&ndash;300 words each, labelled <em>Peer Response</em>, engaging with the positions classmates take on where an agent communication language earns its cost. A 300-word <em>Summary Post</em> in Unit 7 drawing on the initial post, the peer feedback and the content of all three units. UoEO Harvard referencing throughout.</p>
+                <p><strong>Structure set by the brief:</strong> an initial post of at least 200 words in Unit 5, two peer responses of 200 to 300 words in Unit 6, and a 300-word summary post in Unit 7 drawing on the initial post, the peer feedback and the content of all three units.</p>
 
-                        <div class="placeholder">
-                            <p><strong>In progress:</strong> Both peer responses are posted, one to K.D. and one to L.K., each pressing the same point from a different direction: that KQML&rsquo;s openness was never the difficulty, since Finin <em>et al.</em> (1994, p. 460) allow agents to add performatives by agreement, and what was never enforced was that two systems read them the same way. The summary post follows in Unit 7, and all four pieces will then be added together on their own page, as for Collaborative Discussion 1.</p>
-                        </div>
+                <p>The forum contribution is not individually marked. It is a component of the e-portfolio submitted in Unit 12, which is where the assessment happens.</p>
+            </section>
+
+            <section class="content-section" id="initial-post">
+                <h2>My Thread: Initial Post</h2>
+                <p class="deadline">Unit 5 &middot; Posted 25 August 2026 &middot; 331 words</p>
+
+                <p>Wooldridge illustrates the difference with two Java objects. If o2 invokes o1.m1(arg), the decision to execute m1 belongs to o2, and o1 has no say in it. An agent cannot be commanded in that way, since it decides for itself whether to act (2009, pp. 131-132). So KQML puts the performative first, fixing what kind of act is being performed, and leaves the content to whatever language the sender declares (Finin <em>et al.</em>, 1994; Wooldridge, 2009, p. 137).</p>
+
+                <p>What this separation buys is not flexibility but selective disclosure. Payne and Tamma (2014) let two agents negotiate an alignment between private ontologies, each disclosing on average 16.76% of its correspondences and reaching 95% of the central optimum, though they claim only parity with existing methods. A method call offers nothing comparable: its signature fixes the vocabulary before any call, whilst these agents settle theirs as they go. In drug discovery, the data model is itself competitive information, so publishing an interface gives part of it away.</p>
+
+                <p>Nobody closed the performative set, so two systems could both claim KQML and still fail to interoperate. Finin <em>et al.</em> (1994, p. 460) admit as much, calling the reserved set &ldquo;neither a minimal required set nor a closed one&rdquo;. Wooldridge (2009, p. 140) adds undefined transport, informal semantics, and no commitment mechanism, so an agent cannot promise anything.</p>
+
+                <p>Verification is where I get stuck. A <code>tell</code> commits its sender to believing what it says, and no one can check that from outside, short of reasoning about the mental states of a Java program (Wooldridge, 1998, cited in Wooldridge, 2009, pp. 146-147). A method signature promises nothing about belief, so there is nothing to verify. Of eighteen protocols Yuan <em>et al.</em> (2026) reviewed, verification still falls to application code.</p>
+
+                <p>I would keep method calls within a bounded context and messages across boundaries. Should an agent language define a message by what the sender believes, or only by what the sender can be held to?</p>
+            </section>
+
+            <section class="content-section" id="feedback-received">
+                <h2>My Thread: Feedback Received</h2>
+                <p class="deadline">Unit 6 &middot; 25 to 28 August 2026 &middot; Two classmates replied to my initial post</p>
+
+                <p>Summarised in my own words rather than reproduced. The UoEO referencing guide asks students to check with their tutor before formally citing another student&rsquo;s work, so each contribution below is credited by initials and by argument, with nothing republished.</p>
+
+                <h3>K.D.: a message cannot carry its own guarantee</h3>
+
+                <p>Syntactic agreement is not semantic agreement, and FIPA shows why: meaning depends on ontology, language, protocol and conversation identifiers, not on the performative alone. K.D. drew out the consequence I had left implicit. The effects of a communicative act rest on the private mental attitudes of both parties, so communication cannot by itself guarantee the truth of what is sent. The point lands hardest on language-model agents, which state things confidently without holding evidence for them. What K.D. proposed is to carry provenance, evidence, confidence and validation alongside the message.</p>
+
+                <p><strong>What I did with it.</strong> This answers my own closing question, and I took it. What an agent can be held to is checkable; what it believes is not. It is also what our team project already does, although I had not made that connection clear in my text.</p>
+
+                <h3>F.B.: the result I cited is stronger than I reported</h3>
+
+                <p>My post said Payne and Tamma claim only parity with existing methods. F.B. went to the results and showed that is not what the paper reports. Precision rises significantly against a randomly selected baseline, by up to 40.3% on some ontology pairs, the f-measure is higher across most of the threshold range, and recall drops slightly at low thresholds. Their own framing is an increase in precision whilst only slightly affecting recall. He also read the verification gap through Searle, where an institutional fact holds only because the rules make it hold, and answered my closing question from our own build: a buffer marked ready is a state he can check.</p>
+
+                <p><strong>What I did with it.</strong> The disagreement was more useful than the correction itself. I had taken the finding from the authors&rsquo; conclusion, while F.B. went back to the results. The paper presents the outcome differently across sections: the abstract says &ldquo;up to 40%&rdquo;, the conclusion describes comparable performance, and the results give a range from -5.5% to +40.3%. Those sections do not carry the same weight, which explains why two careful readers reached different figures. In the summary, I therefore report the full range and the associated recall cost.</p>
+            </section>
+
+            <section class="content-section" id="summary-post">
+                <h2>My Thread: Summary Post</h2>
+                <p class="deadline">Unit 7 &middot; Posted 8 September 2026 &middot; 310 words</p>
+
+                <p>A method call leaves the decision with the caller; an agent message with the receiver. That was where my post started. Overhead was never the real objection. Verification was, since nobody outside can check what a sender believes.</p>
+
+                <p>F.B. corrected my reading of Payne and Tamma. Measured against a randomly selected alignment, their precision runs from -5.5% to a 40.3% increase across ontology pairs, and recall from -12% to 19% (Payne and Tamma, 2014, p. 523). He quoted the top of that range. Parity is what their conclusion claims. Selective disclosure is worth more than I said, and it also costs recall. The abstract, the conclusion and the results here do not carry the same force.</p>
+
+                <p>My closing question asked whether a message should be defined by what the sender believes or by what the sender can be held to. Both replies came down on the second. K.D. would attach provenance, evidence and confidence, noting from FIPA&rsquo;s specification that a communicative act&rsquo;s effects rest on private mental attitudes and cannot guarantee content. F.B. answered from practice: a buffer marked ready is a state he can check.</p>
+
+                <p>I accept that, with one cost neither names. Searle&rsquo;s representatives commit a speaker to the truth of what is said, though not to doing anything about it (Wooldridge, 2009, pp. 133-134). If messages may only report checkable states, that act disappears. Losing it is an odd repair for a language already criticised for having no commissives (Wooldridge, 2009, p. 140).</p>
+
+                <p>Unit 7 shows the same difficulty elsewhere. Mikolov <em>et al.</em> (2013) derive word meaning from usage rather than agreement. The numbers are measurable, but nobody has promised anything by them.</p>
+
+                <p>Inside a bounded context, I would still use method calls. Across boundaries I would send the confidence and where it came from. A log records what was said, not what was believed.</p>
+            </section>
+
+            <section class="content-section" id="responses-written">
+                <h2>Responses I Wrote on Other Students&rsquo; Threads</h2>
+                <p class="deadline">Unit 6 &middot; Two responses, as the brief requires</p>
+
+                <h3>Response 1: on whether an agent communication language reduces coupling</h3>
+                <p class="deadline">293 words &middot; Peer post argued that an ACL loosens coupling between systems</p>
+
+                <p>L.K., I am not convinced an ACL reduces coupling. It may only move it somewhere harder to inspect.</p>
+
+                <p>The 1994 KQML paper is more open than I expected. Finin <em>et al.</em> (1994, p. 460) say the list of performatives is not a closed one, and that any group of agents may add their own, provided they agree what each one means and how it is used. So the wrapper problem you take from Christie, Singh and Chopra may not only be that <code>tell</code> is too general. Adding new words was always allowed. What was never enforced was that two systems read them the same way. Wooldridge (2009, p. 140) describes the outcome: systems that all claimed to speak KQML and still could not understand one another, because the meanings were written only in ordinary English.</p>
+
+                <p>I see the same thing in laboratory work. Two organisations use the same term, mean different things by it, and nothing in the message format catches the difference.</p>
+
+                <p>Payne and Tamma (2014) tackle exactly this. Their agents compare private vocabularies a piece at a time, each revealing on average 16.76% of what it holds, and each attaching a confidence score rather than declaring the match correct. Hearst (1992, p. 539) had shown much earlier that relations of that kind can be pulled from ordinary text rather than pre-encoded. Even so, both agents must settle the rules of the conversation first. Autonomy stays bounded, as you say.</p>
+
+                <p>The confidence score is what I would borrow. A number an agent puts on the record can be checked later, and a belief cannot (Wooldridge, 2009, pp. 146-147). Is that enough for the accountability Chopra puts at the centre of your argument, or is it only a number the agent chose itself?</p>
+
+                <h3>Response 2: on whether KQML delivered interoperability</h3>
+                <p class="deadline">302 words &middot; Peer post argued that interoperability under KQML is not automatic</p>
+
+                <p>K.D., I would go further than &ldquo;not automatic&rdquo;. In practice, KQML did not deliver interoperability across implementations.</p>
+
+                <p>Finin <em>et al.</em> (1994, p. 460) say the list of performatives is not closed, and that agents may add their own, provided they agree what the additions mean. Nothing obliged them to keep that agreement. Wooldridge (2009, p. 140) describes the result: systems that all said they spoke KQML and could not understand one another, since the meanings were written only in ordinary English. FIPA came out of those criticisms, among others.</p>
+
+                <p>FIPA tidied the outside of the message, agreeing who sent it, who receives it and which vocabulary is in use, but not what it means. When an agent sends an <code>inform</code>, the language says it believes what it is telling you. Wooldridge (2009, pp. 146-147) says checking that would mean looking inside the mind of a Java program. KQML gave you even less, having no commissive, no way for an agent to promise anything (Wooldridge, 2009, p. 140).</p>
+
+                <p>Your own example shows the difference. <code>account.getBalance()</code> gives me a number I can hold against the ledger. So does the content of a <code>tell</code>. But the <code>tell</code> also says something about the sender that I can never test. Parsing and transmission are real costs, as you say. The bigger one is a promise the language cannot keep.</p>
+
+                <p>Payne and Tamma (2014, p. 517) get part of the way. Their agents work out a shared vocabulary between them, and rather than call a match correct, each puts a confidence figure on it, revealing on average 16.76% of what it holds. That figure is at least on the record, and still the agent&rsquo;s own.</p>
+
+                <p>Would you count unverifiable meaning as a disadvantage in its own right, or part of the complexity you mention?</p>
             </section>
 
             <section class="content-section" id="ai-acknowledgement">
                 <h2>AI Acknowledgement</h2>
 
-                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The argument, the sources and the positions taken are my own. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The argument, the sources read, the positions taken and the one I gave up are my own. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <p>Sources overlap across the four pieces, so one consolidated list replaces four near-identical ones. Sources my classmates brought into their replies are described in their own section above and deliberately left out of the list, since I have not read them.</p>
+
+                <div class="reflist">
+                    <p>Finin, T. <em>et al.</em> (1994) &lsquo;KQML as an agent communication language&rsquo;, <em>CIKM &rsquo;94: Proceedings of the third international conference on Information and knowledge management</em>, Gaithersburg, MD, 29 November - 2 December. New York: ACM, pp. 456-463. Available at: https://doi.org/10.1145/191246.191322</p>
+                    <p>Hearst, M.A. (1992) &lsquo;Automatic acquisition of hyponyms from large text corpora&rsquo;, <em>COLING 1992 Volume 2: The 14th International Conference on Computational Linguistics</em>, Nantes, 23-28 August, pp. 539-545. Available at: https://aclanthology.org/C92-2082/ (Accessed: 5 August 2026).</p>
+                    <p>Mikolov, T. <em>et al.</em> (2013) <em>Distributed representations of words and phrases and their compositionality</em>. arXiv:1310.4546. Available at: https://arxiv.org/abs/1310.4546 (Accessed: 5 August 2026).</p>
+                    <p>Payne, T.R. and Tamma, V. (2014) &lsquo;Negotiating over ontological correspondences with asymmetric and incomplete knowledge&rsquo;, <em>Proceedings of the 13th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2014)</em>, Paris, 5-9 May. Richland, SC: IFAAMAS, pp. 517-524.</p>
+                    <p>Wooldridge, M.J. (2009) <em>An introduction to multiagent systems</em>. 2nd edn. Chichester: John Wiley &amp; Sons. Available via the VitalSource Bookshelf (Accessed: 5 August 2026).</p>
+                    <p>Yuan, D. <em>et al.</em> (2026) <em>Beyond message passing: a semantic view of agent communication protocols</em>. arXiv:2604.02369. Available at: https://arxiv.org/abs/2604.02369 (Accessed: 5 August 2026).</p>
+                </div>
             </section>
         </div>
     </main>

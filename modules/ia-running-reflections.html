@@ -216,6 +216,23 @@
 
                 </div>
             
+                <div class="assignment-box">
+                    <h3>Unit 11 continued: three ways to publish what you never decided to publish</h3>
+                    <p class="deadline">Written 8 September 2026 &middot; Development Project, individual implementation &middot; In progress</p>
+
+                    <p><strong>What.</strong> The Planning Agent closed its loop on 2 September and the Curation Agent went in on 8 September, so the path from a goal to stored records exists in pieces, though nothing has been run end to end yet. Alongside that, three separate problems were found in the repository, and it took all three before I saw they were one problem.</p>
+
+                    <p><strong>So what.</strong> Ninety-one researchers&rsquo; email addresses had been published, carried inside the papers the agent fetched. Saved service replies had been published without anyone asking whether their contents were mine to republish. And the hand-screened sample carried the abstracts of eighty-seven papers in a column nobody had looked at. Different mechanisms, one shape: something reached a public repository that no one had decided to publish.</p>
+
+                    <p>None of them was a bug. The code did what it was written to do, and the tests passed throughout. What was missing was a decision point. Capturing data and publishing it were the same act, so anything the application received went out with it, and the only thing standing between a service reply and the public was whether I happened to look at that file.</p>
+
+                    <p>The repair I trust is the one that closes the class rather than the instance. Publication now goes through a single function that rebuilds a record from a list of what may be kept, so a field nobody anticipated cannot travel by simply being present. That is the opposite of a list of things to remove, which only ever holds the problems somebody has already had, and both of these were files nobody had thought about. I had written that principle into the module&rsquo;s design report weeks earlier and still did not apply it here until it had cost me three incidents.</p>
+
+                    <p>Removing the addresses meant rewriting the repository history, which invalidates every commit identifier in a record I am submitting as evidence. That was the uncomfortable part, and the reason it was still right is that the people affected were not me. They never agreed to anything and cannot act on it themselves, which is where a cost to my own convenience stops being the thing being weighed.</p>
+
+                    <p><strong>Now what.</strong> Treat publication as a decision with a name on it, not as a side effect of capture, and write down who is affected when it goes wrong. Ask what a dataset carries beyond the column I am looking at, since the abstracts and the addresses were both hiding in plain sight. And finish the interface and the coverage report before the functional test run on 17 to 18 September, because a run that cannot report what it failed to reach is the failure the design named as the one that matters most.</p>
+                </div>
+
             </section>
 
             <section class="content-section reflist-section" id="references">
