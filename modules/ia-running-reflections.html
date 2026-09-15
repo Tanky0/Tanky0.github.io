@@ -197,6 +197,19 @@
 
                 </div>
                 <div class="assignment-box">
+                    <h3>Unit 8 seminar: what the numbers actually represent</h3>
+                    <p class="deadline">Written 15 September 2026 &middot; Seminar on NLP foundations and Word2Vec</p>
+
+                    <p><strong>What.</strong> The tutor trained a small Word2Vec model live in Gensim using ten sentences, twenty dimensions and one hundred epochs. When <em>cat</em> was used as the reference word, <em>milk</em> came out closest at 0.384, followed by <em>eats</em> and <em>meat</em>. <em>Kitten</em> was fourth at 0.191, while <em>dog</em> and <em>puppy</em> scored -0.055. Watching this happen live made more sense to me than just reading about embeddings and similarity scores.</p>
+
+                    <p><strong>So what.</strong> Word2Vec was familiar in principle, but I had not really thought through what the numbers actually represent. The surprising ranking made that clearer. A similarity score to three decimal places looks precise, but it only describes the relationship between vectors learned from that particular corpus. With ten sentences, the training data is doing most of the talking. In the second discussion I had written that the numbers Word2Vec produces are measurable, but that nobody has promised anything by them. The demonstration showed what that means in practice.</p>
+
+                    <p>The telescope example came back on slide five as the standard case of ambiguity. The same kind of sentence can support two valid parses and two different interpretations, which is another reminder that language does not always resolve neatly into one meaning.</p>
+
+                    <p><strong>Now what.</strong> This links directly to our Curation Agent, which asks a language model whether a paper is relevant. A confident-looking output does not necessarily mean the model has strong grounds for it. That is why the recall benchmark matters. The Word2Vec demonstration was a small example, but it made the same point clearly: similarity or relevance scores need to be checked against something judged by a person before too much meaning is attached to them.</p>
+                </div>
+
+                <div class="assignment-box">
                     <h3>Unit 11: building the thing I had only ever specified</h3>
                     <p class="deadline">Written 29 August 2026 &middot; Development Project, individual implementation &middot; In progress</p>
 
