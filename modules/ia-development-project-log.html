@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Project: Working Log - Anne Dayer</title>
+    <meta name="description" content="Working log for the Intelligent Agents individual development project: what is being built, what has been done against the plan, and what the first measurements showed, recorded as the work proceeds.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-development-project-log.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Development Project: Working Log - Anne Dayer">
+    <meta property="og:description" content="Working log for the Intelligent Agents individual development project: what is being built, what has been done against the plan, and what the first measurements showed, recorded as the work proceeds.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-development-project-log.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    .artefact .entry {
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        background: var(--paper-2);
+        padding: 1.3rem 1.5rem 1rem;
+        margin: 1.5rem 0;
+    }
+    .artefact .entry > :first-child { margin-top: 0; }
+    .artefact .entry > :last-child { margin-bottom: 0; }
+    .artefact .entry-meta {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 0.8rem;
+    }
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact .reflist p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.7rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot; <a href="intelligent-agents.html#assignment-individual-project">Individual Project</a> &middot; Unit 11</p>
+            <h1>Development Project: Working Log</h1>
+            <p class="lede">What is being built, what has been done against the plan, and what the first measurements showed, recorded as the work proceeds rather than reconstructed for the submission.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Development Project Log</span>
+            </div>
+
+            <section class="content-section" id="scope">
+                <h2>Scope</h2>
+
+                <p class="deadline"><strong>Unit 11</strong> &middot; In development since 26 August 2026 &middot; Log covers 26 August to 15 September &middot; Evidences learning outcomes 2 and 3</p>
+
+                <p>The assignment is on the <a href="intelligent-agents.html#assignment-individual-project">module page</a>. This log records the individual implementation of the agent Group B designed in Unit 6, in the order the work happened. The code, its versions, the tests and the record of every fault found are kept in a separate private repository, and that material is what this log draws on.</p>
+            </section>
+
+            <section class="content-section" id="what-is-being-built">
+                <h2>What Is Being Built</h2>
+
+                <p>Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. The Planning Agent takes a research question and its criteria, breaks it into search subgoals, runs them against PubMed, PubMed Central, Semantic Scholar and Crossref, and decides after each retrieval whether to continue, refine, drop or finish. The Curation Agent takes the papers handed over, screens each against the criteria, ranks them, and asks for a summary with a supporting extract that is then checked against the paper it came from. A human reviewer approves, rejects or flags each record, and only approved records are stored.</p>
+            </section>
+
+            <section class="content-section" id="progress">
+                <h2>Progress Against the Plan</h2>
+
+                <h3>26 August to 1 September: the retrieval layer</h3>
+
+                <p>Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests.</p>
+
+                <h3>2 to 8 September: both agents</h3>
+
+                <p>The Planning Agent closed its decompose, search, decide and finish loop on 2 September. The Curation Agent followed on 8 September: records combined and shared out at the hand-over, papers screened and put in rank order, every extract checked against the paper it was taken from, and only approved records saved. Work on the reviewer interface started the same day. Of twenty functional requirements, eleven are done and seven part-built. Two have not been started: entering the research question through the interface, and the audit log. Nothing has yet been run end to end, which is what the functional test run is for, and that is next.</p>
+
+                <h3>14 and 15 September: the tutor&rsquo;s three points, and the first measurement</h3>
+
+                <p>I completed the tutor&rsquo;s three points from the team report on 14 September, the day after receiving the feedback: a class diagram of the records carried through a run, a sequence diagram showing one run and its error paths, and a test plan against the CLEF 2019 systematic review CD011571, with a script to measure performance against it. The sequence diagram also exposed a fault the existing tests had missed: the refusal of a corrupted record at the hand-over reached the screen with nothing to handle it. I fixed it the same day. Nine functional tests were then written and passed. Nothing is now unstarted: eleven of twenty requirements are implemented and nine are in progress. The first dataset run on 15 September gave retrieval recall of 0.67 against the 0.80 criterion. Curation precision was 1.0 for the four papers judged include, while four relevant papers were judged exclude and seven remained uncertain. The next step is to repeat the run from the saved records.</p>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement on this log. The design decisions, the code, the measurements and the judgements recorded here are my own. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025–2026 Anne Dayer · MSc Artificial Intelligence · University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>

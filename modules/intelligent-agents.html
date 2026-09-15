@@ -121,18 +121,18 @@
                     <a href="../assets/documents/IA_Unit06_Team_Project_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">View the Project Report (PDF)</a>
                 </div>
 
-                <div class="assignment-box">
+                <div class="assignment-box" id="assignment-individual-project">
                     <h3>Individual Project: Presentation</h3>
                     <p class="deadline"><strong>Unit 11</strong> &middot; Deadline: 23:55, Monday 12 October 2026</p>
                     <p><strong>Brief Description:</strong> Implement, individually, the LLM-powered planning agent the group designed in Unit 6, with evidence of development progress across the module, testing activities and any remediation undertaken. Submitted as source code and documentation, testing outputs, a README, and a presentation of up to ten slides with a narration transcript. The Unit 6 design is not a fixed specification: justified and documented changes are acceptable where technical constraints require them, provided the system remains an agent that takes a goal, plans a sequence of actions, retrieves and processes data, and produces a meaningful output.</p>
 
-                    <p><strong>Submission:</strong> In development since 26 August 2026, in a separate repository. Two cooperating agents over a schema-validated JSON buffer, with deduplication, validation and storage deliberately outside the model. Built so far: the requirements table, the shared HTTP layer, four source adapters for PubMed, PubMed Central, Semantic Scholar and Crossref, the record formats both agents exchange, and a hundred abstracts screened by hand to measure recall against. Since 1 September the two agents are connected into a single run, with the hand-over between them covered by integration tests.</p>
+                    <h4>Development Log</h4>
 
-                    <p><strong>Since then.</strong> The Planning Agent closed its decompose, search, decide and finish loop on 2 September. The Curation Agent followed on 8 September: records combined and shared out at the hand-over, papers screened and put in rank order, every extract checked against the paper it was taken from, and only approved records saved. Work on the reviewer interface started the same day. Of twenty functional requirements, eleven are done and seven part-built. Two have not been started: entering the research question through the interface, and the audit log. Nothing has yet been run end to end, which is what the functional test run is for, and that is next.</p>
+                    <p>What is being built, what has been done against the plan, and what the first measurements showed. Recorded as the work proceeds, so the log is the evidence of development progress the brief asks for.</p>
 
-                    <p><strong>By 15 September.</strong> I completed the tutor&rsquo;s three points from the team report on 14 September, the day after receiving the feedback: a class diagram of the records carried through a run, a sequence diagram showing one run and its error paths, and a test plan against the CLEF 2019 systematic review CD011571, with a script to measure performance against it. The sequence diagram also exposed a fault the existing tests had missed: the refusal of a corrupted record at the hand-over reached the screen with nothing to handle it. I fixed it the same day. Nine functional tests were then written and passed. Nothing is now unstarted: eleven of twenty requirements are implemented and nine are in progress. The first dataset run on 15 September gave retrieval recall of 0.67 against the 0.80 criterion. Curation precision was 1.0 for the four papers judged include, while four relevant papers were judged exclude and seven remained uncertain. The next step is to repeat the run from the saved records.</p>
+                    <p><a href="ia-development-project-log.html"><strong>Read the development log</strong></a></p>
 
-                    <p><span class="status-badge status-pending">Status: In progress</span></p>
+                    <p><span class="status-badge status-pending">Status: In progress &middot; log covers 26 August to 15 September</span></p>
                 </div>
 
                 <div class="assignment-box">
@@ -257,7 +257,7 @@
                             <td>A classmate and I interpreted the same paper differently because it presents its finding differently across sections. The abstract says &ldquo;up to 40%&rdquo;, the conclusion describes comparable performance, and the results give a range from -5.5% to +40.3%. Since identifying where each figure came from resolved the disagreement, I now make that clear when citing numerical results. Acknowledging the point directly in the summary was also more efficient than trying to defend the original wording</td>
                         </tr>
                         <tr>
-                            <td>Individual implementation (in progress)</td>
+                            <td><a href="ia-development-project-log.html">Individual implementation (in progress)</a></td>
                             <td>11</td>
                             <td><strong>LO2, LO3</strong></td>
                             <td>The system as built so far: a requirements table written before any code, a shared HTTP layer, four source adapters, schema-validated record formats, two agents connected over a buffer with the hand-over covered by integration tests. A hundred abstracts screened by hand to measure recall against. Design decisions, data boundaries and every fault found, documented as they happened</td>
