@@ -236,6 +236,18 @@
                     <p><strong>Now what.</strong> I need to treat publication as a deliberate design decision rather than a side effect of capture, and to look at everything a dataset carries, not only the field I am currently using. The next step is to finish the interface and coverage report before the functional test, so that a run cannot look successful while silently missing part of the evidence base.</p>
                 </div>
 
+                <div class="assignment-box">
+                    <h3>Unit 11: the benchmark does its job</h3>
+                    <p class="deadline">Written 15 September 2026 &middot; Development Project, individual implementation &middot; In progress</p>
+
+                    <p><strong>What.</strong> I ran the recall benchmark for the first time on 15 September against a published systematic review containing fifteen relevant papers. The Planning Agent retrieved ten, giving recall of 0.67 against the 0.80 criterion set in the report.</p>
+
+                    <p><strong>So what.</strong> In August I changed this criterion because the earlier version depended on the reviewer confirming that the results looked relevant. That meant the test could pass simply because the reviewer was satisfied. The numerical criterion that replaced it has now failed, which is exactly what I wanted it to be capable of doing. The 0.67 is not a clean final result: PubMed dropped one identifier, Semantic Scholar limits a search to one hundred results, and two attempts were also lost, one to a background process and one to a live 503 error. I have kept those problems in the record rather than cleaning the run up afterwards.</p>
+
+                    <p>The other useful result came from something I had thought of mainly as documentation. Drawing the sequence diagram exposed a path where the refusal of a corrupted record at the hand-over reached the screen with nothing to handle it. The tests had not found it. That made the diagram more useful than I expected: it did not just describe the system, it forced me to follow the hand-over closely enough to find a fault.</p>
+
+                    <p><strong>Now what.</strong> I need to complete the repeat run from the saved records before deciding what the 0.67 actually tells me: whether retrieval needs improving, whether 0.80 is too ambitious under the free-tier constraints, or some combination of both. I also need to keep using diagrams as a way of checking the design, rather than treating them as something added once the design is already understood.</p>
+                </div>
             </section>
 
             <section class="content-section reflist-section" id="references">
