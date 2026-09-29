@@ -41,7 +41,6 @@ page and reached only from there:
 | `ia-unit06-agent-dialogues.html` | Creating Agent Dialogues, KQML and KIF |
 | `ia-unit08-parse-trees.html` | Creating Parse Trees |
 | `ia-team-project-log.html` | Development team project working log |
-| `ia-development-project-log.html` | Individual development project working log |
 | `ia-running-reflections.html` | Running reflections, unit by unit |
 
 ## How a module page is built
