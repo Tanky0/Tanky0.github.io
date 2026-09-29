@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Discussion 3: Deep Learning - Anne Dayer</title>
+    <meta name="description" content="Intelligent Agents Units 9 to 11 e-portfolio activity: whether generative deep learning raises ethical issues, argued from provenance marking, with two peer responses on bias and on training data.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-cd3-deep-learning.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Collaborative Discussion 3: Deep Learning - Anne Dayer">
+    <meta property="og:description" content="Intelligent Agents Units 9 to 11 e-portfolio activity: whether generative deep learning raises ethical issues, argued from provenance marking, with two peer responses on bias and on training data.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-cd3-deep-learning.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    .artefact .entry {
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        background: var(--paper-2);
+        padding: 1.3rem 1.5rem 1rem;
+        margin: 1.5rem 0;
+    }
+    .artefact .entry > :first-child { margin-top: 0; }
+    .artefact .entry > :last-child { margin-bottom: 0; }
+    .artefact .entry-meta {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 0.8rem;
+    }
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact .reflist p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.7rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot; <a href="intelligent-agents.html#eportfolio-activities">Units 9&ndash;11 e-Portfolio Activity</a></p>
+            <h1>Collaborative Discussion 3: Deep Learning</h1>
+            <p class="lede">Whether generative deep learning raises ethical issues worth considering, argued from what a provenance mark can and cannot settle, with two peer responses on bias and on training data.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Collaborative Discussion 3</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Units 9&ndash;11</strong> &middot; Tutor: Dr Angesh Anupam &middot; Evidences learning outcome 3</p>
+
+                <p><strong>Discussion question:</strong> new technologies supported by deep learning models make it possible to generate new content, for example DALL-E to generate images or ChatGPT to create prose. Do you think that these new technologies offer any ethical issues that should be considered, and if not, why not?</p>
+
+                <p><strong>Structure set by the brief:</strong> an initial post of at least 200 words in Unit 9, responses to at least two peers&rsquo; posts in Unit 10 of 200 to 300 words each, focusing on the measures that could have prevented the issues those peers raise, and a 300-word summary post in Unit 11 drawing on the initial post, the peer feedback and the content of all three units. UoEO Harvard referencing throughout.</p>
+
+                <p>The forum contribution is not individually assessed; the tutor posts group feedback by module announcement. It is a component of the e-portfolio submitted in Unit 12, which is where the assessment happens.</p>
+
+                <p><strong>Status:</strong> In progress.</p>
+            </section>
+
+            <section class="content-section" id="initial-post">
+                <h2>My Thread: Initial Post</h2>
+                <p class="deadline">295 words &middot; Provenance marking answers a narrow question and is treated as settling the rest</p>
+
+                <p>Yes. Provenance marking answers a real question, but a narrow one, and is treated as though it settled the rest.</p>
+
+                <p>Since 2 August 2026, Article 50 of the AI Act has required generative output to be marked machine-readably as synthetic (European Union, 2024), and Anthropic says future Claude models will carry a watermark at launch (Anthropic, 2026).</p>
+
+                <p>Golaszewski <em>et al.</em> (2026) put the distinction sharply: despite the word in its name, C2PA is a mechanism for provenance, not authenticity. Origin is not veracity. The same holds for text. Claude&rsquo;s mark is a version of SynthID-Text (Dathathri <em>et al.</em>, 2024), which Anthropic says works poorly on factual passages and is largely absent from code, because exact wording leaves few choices free (Anthropic, 2026).</p>
+
+                <p>Such marks are also removable. An open implementation of SynthID-Text lost its watermark in 98.3% of paraphrase runs (Tamim and Khan, 2026), though fragility is the smaller worry.</p>
+
+                <p>Even a flawless mark would leave the ethics untouched, because correctness is not by itself a moral property. What carries weight is whether anyone was warranted in putting something forward, and who answers if it turns out wrong. Provenance settles neither.</p>
+
+                <p>Consider a synthetic intimate image of a real person. A credential would report only that a model made it, and not who created it, who published it, or that its subject never consented.</p>
+
+                <p>So should provenance name the person generating content, and not only the model? It would give the affected person someone to hold responsible. Yet C2PA&rsquo;s own identity specification concedes that an attacker can lift a valid identity assertion and attach it to another asset, falsely attributing illegal content to an innocent person (Kaye and Dixon, 2025). I am not sure which risk I would rather run. Where would you?</p>
+            </section>
+
+            <section class="content-section" id="responses-written">
+                <h2>Responses I Wrote on Other Students&rsquo; Threads</h2>
+                <p class="deadline">Unit 10 &middot; Two responses, as the brief requires</p>
+
+                <h3>Response 1: on where a fairness target comes from</h3>
+                <p class="deadline">276 words &middot; Peer post narrowed to bias, arguing that generative models intensify inequalities in their training data rather than merely reflecting them</p>
+
+                <p>L.K., I think narrowing to bias was the right call. Sun <em>et al.</em> (2024) is careful work too: 15,300 images, 153 occupations, set against 2021 US labour statistics and Google Images. I had to reread their method to be sure, but both are benchmarks. Neither is DALL-E 2&rsquo;s training distribution, and the authors say as much themselves, describing what they found as potential amplification. Until OpenAI releases the training data, I cannot see how the stronger claim gets tested.</p>
+
+                <p>Which leaves your closing question without a purely technical answer. The categories are already a choice, since Sun <em>et al.</em> treat gender as binary. So is the target: match the census and you reproduce occupational segregation, aim for parity and you override the distribution you just measured. Neither looks neutral to me. Gallegos <em>et al.</em> (2024), whom you cite, call fairness value-dependent, and tuning cannot settle a value.</p>
+
+                <p>Friedrich <em>et al.</em> (2025) make that harder to put off, since diffusion outputs can be steered to specified demographic proportions without retraining. The capability is there; the principle is not.</p>
+
+                <p>Your multi-stage framing points the same way. Mitigation at any stage needs a criterion to be judged against, so the decisive choice sits before data preparation. Gebru <em>et al.</em> (2021) would have dataset composition and collection documented at release, which at least permits the comparison Sun <em>et al.</em> could not run. The National Institute of Standards and Technology (2024) goes further and recommends engaging potentially impacted communities directly.</p>
+
+                <p>Article 10(2)(f) and (g) require providers to examine datasets for bias (European Union, 2024), though only for high-risk systems, and a general-purpose image generator is not one by default.</p>
+
+                <p>Would you set one target across a model, or let it vary by deployment?</p>
+
+                <h3>Response 2: on whether upstream or downstream controls carry the weight</h3>
+                <p class="deadline">276 words &middot; Peer post surveyed bias, copyright and authorship, and memorisation, calling for holistic governance</p>
+
+                <p>L.M.F., the range here is useful, and there is one place where two of your issues meet. Moore and Frankel (2024) name them: the problem of the inputs, whether artists&rsquo; work can rightfully train a system, and the problem of the outputs, whether anyone can claim credit for the result. Your copyright and memorisation concerns intersect at the training-data boundary, since what enters training can later shape what comes out. The credit question sits apart from both.</p>
+
+                <p>Carlini <em>et al.</em> (2023) repay close reading. They extracted over a thousand training examples from state-of-the-art diffusion models, and those images were often duplicated more than a hundred times in the training data. Better deduplication is among their recommendations, matching on image similarity rather than identical URLs. Their finding, though, is that existing techniques, deduplication and differentially private training among them, did not reach an acceptable privacy-utility tradeoff in their experiments.</p>
+
+                <p>That does not close off the output end. It does mean downstream safeguards cannot be assumed to remove memorisation, which argues for giving upstream controls more weight inside the governance you propose: screening insufficiently consented material before training, while keeping generation-stage filtering in place. Longpre <em>et al.</em> (2024), treating consent and provenance as broken infrastructure, help explain why downstream measures alone fall short.</p>
+
+                <p>Article 53 has required providers of general-purpose AI models to act since August 2025 (European Union, 2024). Its training-content summary, under 53(1)(d), is disclosure. Its copyright policy, under 53(1)(c), must identify and respect rights reservations, which makes it an upstream control.</p>
+
+                <p>Your call for holistic governance persuades me. What it leaves open is how each harm maps onto a specific, measurable control. Would you give upstream controls the greater weight, or hold them equal with downstream safeguards?</p>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The argument, the sources read and the positions taken are my own. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <p>Sources overlap across the three pieces, so one consolidated list replaces three near-identical ones. Sources my classmates brought into their own posts are described where I answer them and deliberately left out of the list, except where I read and cited them myself.</p>
+
+                <div class="reflist">
+                    <p>Anthropic (2026) <em>How Claude&rsquo;s text watermarking works</em>, 14 August. Available at: https://www.anthropic.com/news/claude-text-watermark (Accessed: 19 August 2026).</p>
+                    <p>Carlini, N. <em>et al.</em> (2023) &lsquo;Extracting training data from diffusion models&rsquo;, <em>Proceedings of the 32nd USENIX Security Symposium</em>, Anaheim, CA, 9-11 August. Berkeley, CA: USENIX Association, pp. 5253-5270. Available at: https://www.usenix.org/conference/usenixsecurity23/presentation/carlini (Accessed: 29 September 2026).</p>
+                    <p>Dathathri, S. <em>et al.</em> (2024) &lsquo;Scalable watermarking for identifying large language model outputs&rsquo;, <em>Nature</em>, 634(8035), pp. 818-823. Available at: https://doi.org/10.1038/s41586-024-08025-4</p>
+                    <p>European Union (2024) <em>Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)</em>. OJ L, 2024/1689, 12 July. Available at: https://eur-lex.europa.eu/eli/reg/2024/1689/oj (Accessed: 29 September 2026).</p>
+                    <p>Friedrich, F. <em>et al.</em> (2025) &lsquo;Auditing and instructing text-to-image generation models on fairness&rsquo;, <em>AI and Ethics</em>, 5, pp. 2103-2123. Available at: https://doi.org/10.1007/s43681-024-00531-5</p>
+                    <p>Gallegos, I.O. <em>et al.</em> (2024) &lsquo;Bias and fairness in large language models: a survey&rsquo;, <em>Computational Linguistics</em>, 50(3), pp. 1097-1179. Available at: https://doi.org/10.1162/coli_a_00524</p>
+                    <p>Gebru, T. <em>et al.</em> (2021) &lsquo;Datasheets for datasets&rsquo;, <em>Communications of the ACM</em>, 64(12), pp. 86-92. Available at: https://doi.org/10.1145/3458723</p>
+                    <p>Golaszewski, E. <em>et al.</em> (2026) <em>Verifying provenance of digital media: security analysis of C2PA and its implementation</em>. Maryland Shared Open Access Repository. Available at: https://doi.org/10.13016/m2u1qh-txb8 (Accessed: 19 August 2026).</p>
+                    <p>Kaye, K. and Dixon, P. (2025) <em>Privacy, identity and trust in C2PA: a technical review and analysis of the C2PA digital media provenance framework</em>. San Diego, CA: World Privacy Forum. Available at: https://worldprivacyforum.org/posts/privacy-identity-and-trust-in-c2pa/ (Accessed: 19 August 2026).</p>
+                    <p>Longpre, S. <em>et al.</em> (2024) &lsquo;Position: data authenticity, consent, and provenance for AI are all broken: what will it take to fix them?&rsquo;, <em>Proceedings of the 41st International Conference on Machine Learning</em>, 235, pp. 32711-32725. Available at: https://proceedings.mlr.press/v235/longpre24b.html (Accessed: 29 September 2026).</p>
+                    <p>Moore, J.G. and Frankel, S.J. (2024) &lsquo;Creativity, credit, and copyright in the age of artificial art&rsquo;, <em>The Journal of Aesthetics and Art Criticism</em>, 82(3), pp. 265-277. Available at: https://doi.org/10.1093/jaac/kpae034</p>
+                    <p>National Institute of Standards and Technology (2024) <em>Artificial intelligence risk management framework: generative artificial intelligence profile</em>. NIST AI 600-1. Gaithersburg, MD: NIST. Available at: https://doi.org/10.6028/NIST.AI.600-1 (Accessed: 29 September 2026).</p>
+                    <p>Sun, L. <em>et al.</em> (2024) &lsquo;Smiling women pitching down: auditing representational and presentational gender biases in image-generative AI&rsquo;, <em>Journal of Computer-Mediated Communication</em>, 29(1), zmad045. Available at: https://doi.org/10.1093/jcmc/zmad045</p>
+                    <p>Tamim, S.R. and Khan, A.L. (2026) &lsquo;AI watermark evidence fails forensic readiness: an empirical evaluation&rsquo;, <em>arXiv</em> [Preprint]. Available at: https://arxiv.org/abs/2607.16010 (Accessed: 19 August 2026).</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025–2026 Anne Dayer · MSc Artificial Intelligence · University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>

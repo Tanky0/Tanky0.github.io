@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning in Action - Anne Dayer</title>
+    <meta name="description" content="Intelligent Agents Unit 10 e-portfolio activity: automated pain assessment in laboratory animals, what the networks are actually trained on, and the regulatory consequences of a false negative.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ia-unit10-deep-learning-in-action.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer — MSc AI ePortfolio">
+    <meta property="og:title" content="Deep Learning in Action - Anne Dayer">
+    <meta property="og:description" content="Intelligent Agents Unit 10 e-portfolio activity: automated pain assessment in laboratory animals, what the networks are actually trained on, and the regulatory consequences of a false negative.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ia-unit10-deep-learning-in-action.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/avatar.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no tree, code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+    /* parse-tree diagram, tokens so it follows the light/dark toggle */
+    .artefact svg.ptree { display: block; width: 100%; height: auto; min-width: 340px; }
+    .ptree .branch { stroke: var(--rule-strong); stroke-width: 1.3; }
+    .ptree .branch.hi { stroke: var(--accent); stroke-width: 1.9; }
+    .ptree .phrase { fill: var(--ink); font-family: var(--mono); font-weight: 600; font-size: 14.5px; }
+    .ptree .pos { fill: var(--ink-3); font-family: var(--mono); font-size: 12px; }
+    .ptree .word { fill: var(--ink); font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 14.5px; }
+    .ptree .phrase.hi, .ptree .pos.hi { fill: var(--accent); }
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> &middot; <a href="intelligent-agents.html#eportfolio-activities">Unit 10 e-Portfolio Activity</a></p>
+            <h1>Deep Learning in Action</h1>
+            <p class="lede">Automated pain assessment in laboratory animals: what the networks are actually trained on, and what a false negative means when the score feeds a regulatory severity classification.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="intelligent-agents.html">Intelligent Agents</a> / <span>Deep Learning in Action</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 10</strong> &middot; Posted 29 September 2026 &middot; Tutor: Dr Angesh Anupam &middot; Evidences learning outcomes 1 and 2</p>
+
+                <p><strong>Activity guidance:</strong> research an application of deep learning that will have an impact on society, whether positive or negative, and post on the discussion forum an overview of the technology, a brief synopsis of how it works, and the potential impacts in terms of ethics, privacy, social good or any other socio-technical aspects.</p>
+
+                <p><strong>Where and how long.</strong> The brief refers to a forum without naming one, so I asked. The activity is posted in the Unit 9 Collaborative Discussion forum, the same forum being used the following week for the summary, at around 200 words each. I also asked whether automated pain assessment satisfied the requirement for societal impact or was too close to my own professional domain, and the topic was approved to proceed. Both exchanges are recorded in the <a href="intelligent-agents.html#tutor-correspondence">tutor correspondence</a> on the module page.</p>
+
+                <p>The post below is 221 words, excluding headings and references. It is not individually marked. It is a component of the e-portfolio submitted in Unit 12, which is where the assessment happens.</p>
+            </section>
+
+            <section class="content-section" id="my-post">
+                <h2>My Post</h2>
+                <p class="deadline">Automated pain assessment in laboratory animals</p>
+
+                <h3>Overview</h3>
+
+                <p>GrimACE scores mouse pain cage-side, combining the Mouse Grimace Scale with pose estimation (Sturman <em>et al.</em>, 2026). It rates five facial action units, 0 to 2, but manual scoring is laborious, limiting uptake (Andresen <em>et al.</em>, 2020; Tuttle <em>et al.</em>, 2018).</p>
+
+                <h3>How it works</h3>
+
+                <p>Networks train on cropped facial images labelled by scorers or treatment condition, learning their own features (Kobayashi <em>et al.</em>, 2025). Architectures scaled from InceptionV3 on 6,862 images (Tuttle <em>et al.</em>, 2018) to 545,000 (Kobayashi <em>et al.</em>, 2025), then transformers (Sturman <em>et al.</em>, 2026). These are perception components, not autonomous agents pursuing delegated objectives (Wooldridge, 2009, p. 21).</p>
+
+                <h3>Impacts</h3>
+
+                <p>Neither system learns pain directly: Tuttle <em>et al.</em> (2018) treat the human rating as truth, reporting 84% accuracy, reaching 94% only by discarding a third of images; Kobayashi <em>et al.</em> (2025) make treatment the proxy, labelling pre-injection images as no-pain. False negatives leave suffering undetected, yet such scores inform severity classification under Directive 2010/63/EU (2010), covering 3.56 million mice annually (European Commission, 2024). Benefits are real: it detected pain 48 hours post-craniotomy and found meloxicam alone sufficient (Sturman <em>et al.</em>, 2026). Automation displaces the observer best placed to contest a score, and attributing responsibility is difficult (Ammanath and Firth-Butterfield, 2022). Refinement may substitute for replacement as the Commission targets phase-out for chemical safety assessments (European Commission, 2026).</p>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading and clarity refinement. The topic, the argument, the sources read and the judgements about what the evidence supports are my own. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>Ammanath, B. and Firth-Butterfield, K. (2022) &lsquo;How deep learning can improve productivity and boost business&rsquo;, <em>World Economic Forum</em>. Available at: https://www.weforum.org/stories/forum-institutional/deep-learning-business-productivity-revenue/ (Accessed: 24 August 2026).</p>
+                    <p>Andresen, N. <em>et al.</em> (2020) &lsquo;Towards a fully automated surveillance of well-being status in laboratory mice using deep learning: starting with facial expression analysis&rsquo;, <em>PLOS ONE</em>, 15(4), e0228059. Available at: https://doi.org/10.1371/journal.pone.0228059</p>
+                    <p><em>Directive 2010/63/EU of the European Parliament and of the Council of 22 September 2010 on the protection of animals used for scientific purposes</em> (2010). Available at: https://eur-lex.europa.eu/eli/dir/2010/63/oj (Accessed: 24 August 2026).</p>
+                    <p>European Commission (2024) <em>ALURES statistics &ndash; Section 1: numbers of animals used for research, testing, routine production and education and training purposes</em>. Available at: https://webgate.ec.europa.eu/envdataportal/content/alures/section1_number-of-animals.html (Accessed: 24 August 2026).</p>
+                    <p>European Commission (2026) <em>Roadmap towards phasing out animal testing for chemical safety assessments</em>. Available at: https://single-market-economy.ec.europa.eu/sectors/chemicals/reach/roadmap-towards-phasing-out-animal-testing_en (Accessed: 24 August 2026).</p>
+                    <p>Kobayashi, K. <em>et al.</em> (2025) &lsquo;Automated pain assessment based on facial expression of free-moving mice&rsquo;, <em>PNAS Nexus</em>, 4(11), pgaf352. Available at: https://doi.org/10.1093/pnasnexus/pgaf352</p>
+                    <p>Sturman, O. <em>et al.</em> (2026) &lsquo;GrimACE: automated, multimodal cage-side assessment of pain and well-being in mice&rsquo;, <em>Lab Animal</em>, 55(4), pp. 137-146. Available at: https://doi.org/10.1038/s41684-026-01695-9</p>
+                    <p>Tuttle, A.H. <em>et al.</em> (2018) &lsquo;A deep neural network to assess spontaneous pain from mouse facial expressions&rsquo;, <em>Molecular Pain</em>, 14, 1744806918763658. Available at: https://doi.org/10.1177/1744806918763658</p>
+                    <p>Wooldridge, M.J. (2009) <em>An introduction to multiagent systems</em>. 2nd edn. Chichester: John Wiley &amp; Sons.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>

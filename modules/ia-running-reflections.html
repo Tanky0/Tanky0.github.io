@@ -206,7 +206,26 @@
 
                     <p>The telescope example came back on slide five as the standard case of ambiguity. The same kind of sentence can support two valid parses and two different interpretations, which is another reminder that language does not always resolve neatly into one meaning.</p>
 
-                    <p><strong>Now what.</strong> This links directly to our Curation Agent, which asks a language model whether a paper is relevant. A confident-looking output does not necessarily mean the model has strong grounds for it. That is why the recall benchmark matters. The Word2Vec demonstration was a small example, but it made the same point clearly: similarity or relevance scores need to be checked against something judged by a person before too much meaning is attached to them.</p>
+                    <p><strong>Now what.</strong> This links directly to our Curation Agent, which asks a language model whether a paper is relevant. A confident-looking output does not necessarily mean the model has strong grounds for it. That is why its include and exclude decisions are checked against relevance judgements made by people, rather than read off the score it returns. The Word2Vec demonstration was a small example, but it made the same point clearly: similarity or relevance scores need to be checked against something judged by a person before too much meaning is attached to them.</p>
+                </div>
+
+                <div class="assignment-box">
+                    <h3>Unit 10: what the label actually records</h3>
+                    <p class="deadline">Written 29 September 2026 &middot; <a href="ia-unit10-deep-learning-in-action.html">Deep Learning in Action</a>, Unit 10 forum activity</p>
+
+                    <p><strong>What.</strong> The activity asked for a deep learning application with a societal impact, how it works, and its socio-technical consequences. I chose automated pain assessment in laboratory mice, where deep-learning systems infer pain-related states from facial images and, in some cases, other behavioural measures. I checked the topic with the tutor before starting. Another part of my company works in this area and I only know the high-level description of the tool, so I wanted to make sure proximity was not being mistaken for expertise.</p>
+
+                    <p>I was also drawn to the topic because I believe research should move towards workable non-animal alternatives wherever this is scientifically possible, with the longer-term aim of replacing animal testing altogether. Where replacement is not yet feasible, methods that can reduce suffering still matter. That made automated pain assessment particularly relevant to me, since it sits between those two concerns.</p>
+
+                    <p><strong>So what.</strong> Reading the papers I found on the topic changed what I thought these tools were actually doing. I had assumed that a system described as automated pain assessment was getting closer to capturing pain itself. I had overestimated that. Tuttle <em>et al.</em> (2018) report 84% accuracy on the full validation set and 94% after restricting assessment to high-confidence images. Their reference is human-scored mouse images. Kobayashi <em>et al.</em> (2025) take a different route, training on untreated mice and mice subjected to acetic-acid-induced pain. Their model generalises to other pain-inducing stimuli, so it is doing more than recognising one experimental treatment.</p>
+
+                    <p>What changed for me is the meaning of the label. In one case, pain is what a trained human scorer judged from the mouse&rsquo;s face; in the other, it is defined by the experimental condition. These systems can learn signals associated with pain, but they still infer it through proxies. They do not measure the animal&rsquo;s experience directly. That distinction feels obvious now, but it was not what I had assumed when I started. The part that felt familiar from my work was that the reported number matters less if it is unclear what the model was actually being asked to reproduce.</p>
+
+                    <p>The issue matters in a regulatory setting. Directive 2010/63/EU classifies procedures according to expected pain, suffering, distress or lasting harm, and ALURES records 3,560,004 mice used for the first time in the EU and Norway in 2023. A false negative from an automated assessment does not mean nothing else will detect the animal&rsquo;s condition, but it does create a risk that this tool misses a pain-related signal. If automation replaces rather than supports human observation, that risk becomes harder for me to dismiss.</p>
+
+                    <p>One thing about how I worked. When a paper I wanted sat behind a paywall, I left it out and built the argument on what I could read rather than on an abstract.</p>
+
+                    <p><strong>Now what.</strong> I took the labelling question back to the Unit 11 build and checked what our figures are measured against. Recall is based on human-labelled relevance in my screened sample and the CLEF judgements, while screening is assessed separately against the same references. The Curation Agent therefore measures agreement with written criteria, not relevance in a broader sense. The remaining gap is the uncalibrated 0 to 10 relevance score, which needs to be explained more clearly in the write-up.</p>
                 </div>
 
                 <div class="assignment-box">
