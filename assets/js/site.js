@@ -78,9 +78,12 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
 
         Array.prototype.forEach.call(revealables, function (el, i) {
+            // A section taller than the window never arrives as one piece, so
+            // fading it in would only risk hiding it. Leave those alone.
+            if (el.getBoundingClientRect().height > window.innerHeight) { return; }
             el.setAttribute('data-reveal', '');
             if (el.classList.contains('module-card')) {
                 el.style.transitionDelay = Math.min(i, 6) * 0.045 + 's';
