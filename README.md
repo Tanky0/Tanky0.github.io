@@ -37,11 +37,10 @@ page and reached only from there:
 | Page | What it holds |
 |---|---|
 | `ia-cd1-agent-based-systems.html` | Collaborative Discussion 1, both strands |
-| `ia-cd2-agent-communication-languages.html` | Collaborative Discussion 2, in progress |
+| `ia-cd2-agent-communication-languages.html` | Collaborative Discussion 2, both strands |
 | `ia-unit06-agent-dialogues.html` | Creating Agent Dialogues, KQML and KIF |
 | `ia-unit08-parse-trees.html` | Creating Parse Trees |
 | `ia-team-project-log.html` | Development team project working log |
-| `ia-running-reflections.html` | Running reflections, unit by unit |
 
 ## How a module page is built
 
