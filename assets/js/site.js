@@ -1,21 +1,44 @@
-/* Anne Dayer — ePortfolio interaction layer.
+/* Anne Dayer, ePortfolio interaction layer.
    Progressive enhancement only: every page reads and works without this file. */
 
 (function () {
     'use strict';
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var root = document.documentElement;
 
     /* ---------------------------------------------------------- theme --- */
 
     var toggle = document.querySelector('.theme-toggle');
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+
+    function labelToggle(theme) {
+        if (toggle) {
+            toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        if (themeColor) {
+            themeColor.setAttribute('content', theme === 'dark' ? '#0E1216' : '#FBFAF7');
+        }
+    }
+
+    labelToggle(root.getAttribute('data-theme'));
 
     if (toggle) {
         toggle.addEventListener('click', function () {
-            var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            toggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+            var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+            // Switch every colour in the same frame. Without this each element
+            // cross-fades on its own transition and the bar lags the page.
+            root.setAttribute('data-theme-switching', '');
+            root.setAttribute('data-theme', next);
+            labelToggle(next);
             try { localStorage.setItem('theme', next); } catch (e) {}
+
+            window.requestAnimationFrame(function () {
+                window.requestAnimationFrame(function () {
+                    root.removeAttribute('data-theme-switching');
+                });
+            });
         });
     }
 
@@ -51,7 +74,7 @@
 
         if (progress) {
             var max = document.documentElement.scrollHeight - window.innerHeight;
-            progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+            progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
         }
 
         ticking = false;
@@ -68,9 +91,10 @@
 
     /* --------------------------------------------------------- reveal --- */
 
-    var revealables = document.querySelectorAll('.content-section, .intro-section, .module-card');
+    // Only the module cards on the home page; prose is never hidden.
+    var cards = document.querySelectorAll('.module-card');
 
-    if (!reduceMotion && 'IntersectionObserver' in window) {
+    if (!reduceMotion && cards.length && 'IntersectionObserver' in window) {
         var revealObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -78,16 +102,18 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+        }, { threshold: 0 });
 
-        Array.prototype.forEach.call(revealables, function (el, i) {
-            // A section taller than the window never arrives as one piece, so
-            // fading it in would only risk hiding it. Leave those alone.
-            if (el.getBoundingClientRect().height > window.innerHeight) { return; }
+        var staggered = 0;
+
+        Array.prototype.forEach.call(cards, function (el) {
+            var box = el.getBoundingClientRect();
+            // Anything already on screen at load, or taller than the window,
+            // is shown as it is. Hiding it would only delay the reader.
+            if (box.top < window.innerHeight || box.height > window.innerHeight) { return; }
             el.setAttribute('data-reveal', '');
-            if (el.classList.contains('module-card')) {
-                el.style.transitionDelay = Math.min(i, 6) * 0.045 + 's';
-            }
+            el.style.transitionDelay = Math.min(staggered, 4) * 0.04 + 's';
+            staggered += 1;
             revealObserver.observe(el);
         });
     }
@@ -146,7 +172,10 @@
             var active = items.filter(function (it) { return visible.has(it.section); })[0];
 
             items.forEach(function (it) {
-                it.link.classList.toggle('is-active', !!active && it === active);
+                var isActive = !!active && it === active;
+                it.link.classList.toggle('is-active', isActive);
+                if (isActive) it.link.setAttribute('aria-current', 'location');
+                else it.link.removeAttribute('aria-current');
             });
         }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
 

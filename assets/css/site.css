@@ -1,7 +1,7 @@
 /* ==========================================================================
    Anne Dayer — MSc Artificial Intelligence ePortfolio
    Design system: editorial-academic. Serif display, hairline rules,
-   monospace metadata, warm paper ground, deep teal accent.
+   monospace metadata, warm paper ground, muted moss accent.
    ========================================================================== */
 
 /* --------------------------------------------------------------- tokens  */
@@ -48,6 +48,11 @@
     --step-3:  clamp(1.95rem, 1.7rem + 1.25vw, 2.8rem);
     --step-4:  clamp(2.4rem, 1.95rem + 2.25vw, 4.2rem);
 
+    /* One size for every tracked-caps monospace label (eyebrow, brand line,
+       pills, table headers, breadcrumb, deadline, footer). 11.5px at a 16px
+       root: the floor below which small caps stop being legible on a phone. */
+    --label: 0.72rem;
+
     --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -87,7 +92,11 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
+    /* No blue flash on tap; the :active states below give the feedback. */
+    -webkit-tap-highlight-color: transparent;
 }
+
+a, button { touch-action: manipulation; }
 
 body {
     font-family: var(--sans);
@@ -116,13 +125,17 @@ body::before {
 
 img { max-width: 100%; display: block; }
 
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
-a:hover { color: var(--accent-hover); }
+a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--accent-line);
+}
+a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
 
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 2px;
 }
 
 .skip-link {
@@ -136,6 +149,21 @@ a:hover { color: var(--accent-hover); }
     font: 500 var(--step--1)/1 var(--mono);
 }
 .skip-link:focus { left: 0; }
+.skip-link:hover { color: var(--paper); }
+
+/* Text for screen readers only: "(opens in new tab)", table captions,
+   the module name inside a "View Module" link. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 /* --------------------------------------------------------------- layout  */
 
@@ -161,12 +189,15 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     background: transparent;
 }
 
+/* Scaled on the compositor rather than resized, so it tracks the scroll
+   position exactly instead of lagging a frame behind it. */
 .reading-progress span {
     display: block;
     height: 100%;
-    width: 0;
+    width: 100%;
     background: var(--accent);
-    transition: width 0.1s linear;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .topbar {
@@ -177,7 +208,7 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     backdrop-filter: saturate(140%) blur(12px);
     -webkit-backdrop-filter: saturate(140%) blur(12px);
     border-bottom: 1px solid var(--rule);
-    transition: box-shadow 0.3s var(--ease), background 0.3s var(--ease);
+    transition: box-shadow 0.25s var(--ease);
 }
 
 .topbar.is-stuck {
@@ -213,8 +244,8 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 
 .brand__meta {
     font-family: var(--mono);
-    font-size: 0.64rem;
-    letter-spacing: 0.16em;
+    font-size: var(--label);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-3);
 }
@@ -243,8 +274,6 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     transition: color 0.2s var(--ease), background 0.2s var(--ease);
 }
 
-.navlinks a:hover { color: var(--ink); background: var(--paper-2); }
-
 .navlinks a.active {
     color: var(--accent);
     background: var(--accent-soft);
@@ -253,21 +282,19 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 .icon-btn {
     display: grid;
     place-items: center;
-    width: 2.35rem;
-    height: 2.35rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border: 1px solid var(--rule);
     border-radius: 999px;
     background: transparent;
     color: var(--ink-2);
     cursor: pointer;
-    transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+    user-select: none;
+    -webkit-user-select: none;
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease), transform 0.12s var(--ease);
 }
 
-.icon-btn:hover {
-    color: var(--accent);
-    border-color: var(--accent-line);
-    background: var(--accent-soft);
-}
+.icon-btn:active { transform: scale(0.95); }
 
 .icon-btn svg { width: 1.05rem; height: 1.05rem; }
 
@@ -289,7 +316,9 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
         align-items: stretch;
         gap: 0;
         padding: 0.5rem clamp(1.25rem, 4vw, 3rem) 1rem;
-        background: var(--paper);
+        background: color-mix(in srgb, var(--paper) 92%, transparent);
+        backdrop-filter: saturate(140%) blur(12px);
+        -webkit-backdrop-filter: saturate(140%) blur(12px);
         border-bottom: 1px solid var(--rule);
         display: none;
     }
@@ -322,8 +351,8 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 
 .eyebrow {
     font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
+    font-size: var(--label);
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1.1rem;
@@ -359,7 +388,8 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
     font-size: var(--step-1);
     color: var(--ink-2);
     max-width: 54ch;
-    font-weight: 300;
+    font-weight: 400;
+    text-wrap: pretty;
 }
 
 .masthead .lede strong { font-weight: 500; color: var(--ink); }
@@ -446,7 +476,7 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 
 .epigraph cite {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: var(--label);
     font-style: normal;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -467,7 +497,7 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 .reflist h4,
 .assignment-box .reflist h4 {
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: var(--label);
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -496,7 +526,7 @@ div.reflist {
 
 .breadcrumb {
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: var(--label);
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--ink-3);
@@ -508,22 +538,25 @@ div.reflist {
 
 /* -------------------------------------------------------- module cards   */
 
+/* Hairlines are drawn by each card (a 1px shadow into the 1px gap), not by
+   the grid background, so the empty ninth cell at two columns stays paper
+   instead of rendering as a solid slab. */
 .modules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 1px;
-    background: var(--rule);
     border: 1px solid var(--rule);
     margin-top: 2.5rem;
 }
 
 .module-card {
     background: var(--paper);
+    box-shadow: 0 0 0 1px var(--rule);
     padding: 2rem 1.85rem 1.85rem;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: background 0.35s var(--ease);
+    transition: background 0.18s var(--ease);
 }
 
 .module-card::before {
@@ -534,15 +567,15 @@ div.reflist {
     background: var(--accent);
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 0.4s var(--ease);
+    transition: transform 0.2s var(--ease);
 }
 
-.module-card:hover { background: var(--paper-2); }
-.module-card:hover::before { transform: scaleY(1); }
+.module-card:focus-within { background: var(--paper-2); }
+.module-card:focus-within::before { transform: scaleY(1); }
 
 .module-card h3 {
     font-family: var(--display);
-    font-size: 1.42rem;
+    font-size: var(--step-1);
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.015em;
@@ -552,7 +585,7 @@ div.reflist {
 
 .module-tutor {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: var(--label);
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--ink-3);
@@ -566,18 +599,25 @@ div.reflist {
     margin-bottom: 1.25rem;
 }
 
-.module-card br { display: none; }
-
-.module-status {
+/* One pill for every status, on the home grid and on module pages alike.
+   The right padding gives back the trailing letter-space, so the label sits
+   centred instead of a hair to the left. */
+.module-status,
+.status-badge,
+.grade-badge {
     display: inline-block;
-    align-self: flex-start;
-    padding: 0.3rem 0.7rem;
+    padding: 0.34rem 0.8rem;
+    padding-right: calc(0.8rem - 0.08em);
     border-radius: 999px;
     font-family: var(--mono);
-    font-size: 0.65rem;
+    font-size: var(--label);
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.module-status {
+    align-self: flex-start;
     margin-top: auto;
 }
 
@@ -606,12 +646,30 @@ div.reflist {
     color: var(--accent);
 }
 
-.module-link::after {
-    content: '→';
-    transition: transform 0.3s var(--ease);
+/* The whole card is the link: the hover already promised that, and a 23px
+   line of text is no tap target on a phone. */
+.module-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
 }
 
-.module-card:hover .module-link::after { transform: translateX(4px); }
+.module-link::after {
+    content: '→';
+    transition: transform 0.2s var(--ease);
+}
+
+.module-card:focus-within .module-link::after { transform: translateX(4px); }
+
+/* Focus ring on the card rather than on the small link inside it. Browsers
+   without :has() keep the ring on the link. */
+@supports selector(:has(a)) {
+    .module-link:focus-visible { outline: none; }
+    .module-card:has(.module-link:focus-visible) {
+        outline: 2px solid var(--accent);
+        outline-offset: -2px;
+    }
+}
 
 /* ------------------------------------------------------ assignment box   */
 
@@ -621,10 +679,7 @@ div.reflist {
     background: var(--paper-2);
     padding: clamp(1.35rem, 3vw, 2rem);
     margin: 1.75rem 0;
-    transition: border-left-color 0.35s var(--ease);
 }
-
-.assignment-box:hover { border-left-color: var(--accent); }
 
 .assignment-box h3,
 .assignment-box h4 {
@@ -643,7 +698,7 @@ div.reflist {
 .deadline,
 .assignment-box .deadline {
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: var(--label);
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--ink-3);
@@ -654,15 +709,9 @@ div.reflist {
 
 /* ------------------------------------------------------------- badges    */
 
+/* Shape and type come from the shared pill rule in the module-card block. */
 .status-badge,
 .grade-badge {
-    display: inline-block;
-    padding: 0.42rem 0.85rem;
-    border-radius: 999px;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
     background: var(--ok-bg);
     color: var(--ok-fg);
     margin: 0.35rem 0;
@@ -715,15 +764,11 @@ div.reflist {
     font-weight: 500;
     text-decoration: none;
     margin: 0.4rem 0.5rem 0.4rem 0;
-    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.12s var(--ease);
 }
 
-.download-link:hover,
-.cv-link:hover {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    transform: translateY(-1px);
-}
+.download-link:active,
+.cv-link:active { transform: scale(0.97); }
 
 .cv-link { margin-top: 1.25rem; }
 
@@ -763,12 +808,10 @@ table {
 }
 
 thead th {
-    position: sticky;
-    top: 0;
     background: var(--paper-3);
     color: var(--ink);
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: var(--label);
     font-weight: 500;
     letter-spacing: 0.11em;
     text-transform: uppercase;
@@ -787,7 +830,6 @@ td {
 
 tbody tr:last-child td { border-bottom: 0; }
 tbody tr { transition: background 0.2s var(--ease); }
-tbody tr:hover { background: var(--paper-2); }
 
 td strong { color: var(--ink); font-weight: 600; }
 
@@ -827,7 +869,7 @@ td strong { color: var(--ink); font-weight: 600; }
 
     .section-nav__title {
         font-family: var(--mono);
-        font-size: 0.64rem;
+        font-size: var(--label);
         letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--ink-3);
@@ -879,18 +921,90 @@ footer {
     padding-block: 2.5rem;
     color: var(--ink-3);
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: var(--label);
     letter-spacing: 0.06em;
 }
 
 footer .container { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
+/* ------------------------------------------------------ artefact pages   */
+
+/* Shared by the Intelligent Agents artefact pages (discussion threads and
+   the team log). Lived in page-local <style> blocks before it moved here. */
+
+.artefact .entry {
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--accent-line);
+    background: var(--paper-2);
+    padding: 1.3rem 1.5rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.artefact .entry > :first-child { margin-top: 0; }
+.artefact .entry > :last-child { margin-bottom: 0; }
+
+.artefact .entry-meta {
+    font-family: var(--mono);
+    font-size: var(--label);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.8rem;
+}
+
+.artefact :not(pre) > code {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+}
+
+.artefact .reflist p {
+    max-width: var(--prose);
+    padding-left: 2.2rem;
+    text-indent: -2.2rem;
+    margin-bottom: 0.7rem;
+    font-size: var(--step--1);
+}
+
+/* --------------------------------------------------------------- hover   */
+
+/* Hover states only where a pointer can hover. On a touch screen a tapped
+   card or pill would otherwise keep its hover look until the next tap. */
+@media (hover: hover) and (pointer: fine) {
+    .navlinks a:hover { color: var(--ink); background: var(--paper-2); }
+
+    .icon-btn:hover {
+        color: var(--accent);
+        border-color: var(--accent-line);
+        background: var(--accent-soft);
+    }
+
+    .module-card:hover { background: var(--paper-2); }
+    .module-card:hover::before { transform: scaleY(1); }
+    .module-card:hover .module-link::after { transform: translateX(4px); }
+
+    .download-link:hover,
+    .cv-link:hover {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+        transform: translateY(-1px);
+    }
+
+    tbody tr:hover { background: var(--paper-2); }
+}
+
 /* --------------------------------------------------------------- motion  */
 
+/* Module cards on the home page rise in as they enter the viewport. Prose
+   sections do not: a reader scrolling to a section should never wait for
+   it. Cards already in view at load are shown at once (see site.js). */
 [data-reveal] {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transform: translateY(8px);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
 [data-reveal].is-visible { opacity: 1; transform: none; }
@@ -898,15 +1012,23 @@ footer .container { display: flex; justify-content: space-between; gap: 1rem; fl
 .masthead .eyebrow,
 .masthead h1,
 .masthead .lede {
-    animation: rise 0.85s var(--ease) backwards;
+    animation: rise 0.45s var(--ease) backwards;
 }
 
-.masthead h1    { animation-delay: 0.07s; }
-.masthead .lede { animation-delay: 0.14s; }
+.masthead h1    { animation-delay: 0.05s; }
+.masthead .lede { animation-delay: 0.1s; }
 
 @keyframes rise {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: none; }
+}
+
+/* A theme switch is one change, not a dozen cross-fades. site.js sets this
+   attribute for two frames around the switch. */
+[data-theme-switching] *,
+[data-theme-switching] *::before,
+[data-theme-switching] *::after {
+    transition: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -929,4 +1051,5 @@ footer .container { display: flex; justify-content: space-between; gap: 1rem; fl
     body::before { display: none; }
     .content-section { break-inside: avoid; border-bottom: 1px solid #ccc; }
     a { color: #000; }
+    [data-reveal] { opacity: 1; transform: none; }
 }
