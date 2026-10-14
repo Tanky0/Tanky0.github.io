@@ -118,7 +118,7 @@
         <div class="wrap">
             <p class="eyebrow"><a href="intelligent-agents.html">Intelligent Agents</a> · <a href="intelligent-agents.html#learning-outcomes">Unit 8 e-Portfolio Activity</a></p>
             <h1>Creating Parse Trees</h1>
-            <p class="lede">Constituency-based parse trees for three sentences, each derived from an explicit phrase-structure grammar, with one sentence carried through both of its valid readings.</p>
+            <p class="lede">Constituency-based parse trees for three sentences, each derived from an explicit phrase-structure grammar, with the two attachments of the third sentence discussed.</p>
         </div>
     </header>
 
@@ -269,10 +269,10 @@ PP &#8594; IN NP</code></pre>
 
             <section class="content-section" id="sentence-3">
                 <h2>Sentence 3: The Man Saw the Dog With the Telescope</h2>
-                <p>This sentence is the standard example of <strong>structural ambiguity</strong>, and of prepositional-phrase attachment in particular: <em>with the telescope</em> could in principle attach in two places. The two are not on equal footing. One gives the reading the sentence actually has; the other is a structure the grammar allows but the meaning of the words rules out. In the tree below, the highlighted branch marks where the prepositional phrase attaches.</p>
+                <p>This sentence is the standard example of <strong>structural ambiguity</strong>, and of prepositional-phrase attachment in particular: <em>with the telescope</em> could in principle attach in two places. The two are not equally likely. One is the reading most readers take; the other is a structure the grammar allows but context makes unlikely. In the tree below, the highlighted branch marks where the prepositional phrase attaches.</p>
 
                 <h3>The instrument reading</h3>
-                <p>Here <em>with the telescope</em> attaches to the verb phrase (VP &#8594; VBD NP PP) and says how the seeing was done: the man used the telescope to see the dog. This is what the sentence means.</p>
+                <p>Here <em>with the telescope</em> attaches to the verb phrase (VP &#8594; VBD NP PP) and says how the seeing was done: the man used the telescope to see the dog. This is the reading most readers take.</p>
                 <figure>
                     <div class="fig-scroll"><svg class="ptree" viewBox="0 0 652 296" role="img" aria-labelledby="s3a-t s3a-d" xmlns="http://www.w3.org/2000/svg">
   <title id="s3a-t">Constituency parse tree, the instrument reading</title>
@@ -321,26 +321,27 @@ PP &#8594; IN NP</code></pre>
   <text class="phrase" x="346.0" y="78.0" text-anchor="middle">VP</text>
   <text class="phrase" x="216.0" y="30.0" text-anchor="middle">S</text>
 </svg></div>
-                    <figcaption>Figure 3. The prepositional phrase attaches to the verb phrase, the reading the sentence has.</figcaption>
+                    <figcaption>Figure 3. The prepositional phrase attaches to the verb phrase, the more likely reading.</figcaption>
                 </figure>
 <pre><code>[S [NP [DT The] [NN man]] [VP [VBD saw] [NP [DT the] [NN dog]] [PP [IN with] [NP [DT the] [NN telescope]]]]]</code></pre>
 
-                <h3>The structure the meaning rules out</h3>
-                <p>The grammar could also attach <em>with the telescope</em> inside the object noun phrase (NP &#8594; NP PP), which would make it describe the dog rather than the seeing, the same shape as <em>the dog with the collar</em>. The words block that reading, since a dog does not carry or own a telescope. It is a structure the grammar can build and the meaning then throws out, so it is worth naming but not worth drawing as though it were a genuine second reading.</p>
+                <h3>The less likely attachment</h3>
+                <p>The grammar could also attach <em>with the telescope</em> inside the object noun phrase (NP &#8594; NP PP), which would make it describe the dog rather than the seeing, the same shape as <em>the dog with the collar</em>. That reading is unlikely rather than impossible. A dog with a telescope is odd, but a context could make it the right one. The grammar builds both structures and prefers neither, so the second is named here rather than drawn, since the point is the choice between them.</p>
 
-                <p>This is where the exercise earns its place. The grammar produces both structures and prefers neither; only knowledge of the world tells you that a dog holding a telescope is not what the sentence means. Syntax on its own cannot make that call, and that is the obstacle a language-using agent has to cross. An information-extraction agent reading these words still has to decide what to record, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not settle the meaning, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The structure a person discards without noticing is the one a parser has to be taught to rank last.</p>
+                <p>This is where the exercise earns its place. The grammar produces both structures and prefers neither; only context and knowledge of the world tell you which one the speaker meant. Syntax on its own cannot make that call, and that is the obstacle a language-using agent has to cross. An information-extraction agent reading these words still has to decide what to record, and a dialogue agent given an instruction of this shape can act on the wrong object if it guesses. Because structure does not settle the meaning, modern parsers attach a probability to each analysis and rank them, learning the likelier attachment from annotated corpora rather than from grammar rules alone (Collins, 2003; Russell and Norvig, 2022, ch. 23). The structure a person discards without noticing is the one a parser has to be taught to rank last.</p>
             </section>
 
             <section class="content-section" id="conclusion">
                 <h2>Conclusion: Where the Tree Runs Out</h2>
                 <p>A constituency tree records how words group into phrases, and that is all it records. Across the three sentences, meaning outruns the structure in three different ways, and each is worth naming, because each is a place a purely syntactic agent would come unstuck.</p>
-                <p>Sentence 1 parses cleanly, yet <em>the government</em> stands by metonymy for an institution of many people, and whether the government is even the body that sets interest rates is a question of fact that sits entirely outside the tree. Sentence 2 has a single, unambiguous structure, but that structure is identical whether the sentence is read literally or as the metaphor it plainly is: the internet gives nobody a physical voice, and <em>voice</em> here means influence. Sentence 3 is the opposite case, one string for which the grammar builds two structures, where only world knowledge rules out the one on which the dog, rather than the seeing, is paired with the telescope. Reference and metonymy, figurative meaning, and structural ambiguity: three ways a correct parse still under-determines what a sentence means.</p>
+                <p>Sentence 1 parses cleanly, yet <em>the government</em> stands by metonymy for an institution of many people, and whether the government is even the body that sets interest rates is a question of fact that sits entirely outside the tree. Sentence 2 has a single, unambiguous structure, but that structure is identical whether the sentence is read literally or as the metaphor it plainly is: the internet gives nobody a physical voice, and <em>voice</em> here means influence. Sentence 3 is the opposite case, one string for which the grammar builds two structures, where only context and world knowledge decide whether the telescope goes with the seeing or with the dog. Reference and metonymy, figurative meaning, and structural ambiguity: three ways a correct parse still under-determines what a sentence means.</p>
                 <p>That is the practical limit of the technique. Constituency parsing is a transparent and reproducible foundation, which is exactly why it is worth doing by hand, but a language-using agent has to layer semantics and world knowledge on top of it before the structure becomes an interpretation (Russell and Norvig, 2022, ch. 23).</p>
             </section>
 
             <section class="content-section" id="ai-acknowledgement">
                 <h2>AI Acknowledgement</h2>
                 <p>Generative AI tools (Grammarly and Claude) were used for proofreading, language refinement, and formatting support on this artefact. The parse trees, the grammar, the analysis and the source checking are my own work. The <a href="intelligent-agents.html#ai-acknowledgement">module-level acknowledgement</a> states the same position for the e-portfolio as a whole.</p>
+                <p>Revised 14 October 2026. This page first said that meaning rules out the second attachment. It is the less likely reading, not an impossible one, and the text above now says so.</p>
             </section>
 
             <section class="content-section reflist" id="references">
