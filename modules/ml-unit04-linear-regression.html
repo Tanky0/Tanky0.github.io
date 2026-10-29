@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>Linear Regression with Scikit-Learn - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 4 e-portfolio activity: the supplied fuel-consumption demo corrected and rerun, then a regression of mean GDP per person on mean population across 201 economies.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit04-linear-regression.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="Linear Regression with Scikit-Learn - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 4 e-portfolio activity: the supplied fuel-consumption demo corrected and rerun, then a regression of mean GDP per person on mean population across 201 economies.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit04-linear-regression.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 4 e-Portfolio Activity</a></p>
+            <h1>Linear Regression with Scikit-Learn</h1>
+            <p class="lede">The supplied fuel-consumption demo corrected and rerun, then Tasks A and B, where mean population explained almost none of the difference in GDP per person between 201 economies.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>Linear Regression with Scikit-Learn</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 4</strong> &middot; Run 29 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
+
+                <p><strong>Activity guidance:</strong> run each step of the supplied fuel-consumption demo, then use Global_Population.csv and Global_GDP.csv to correlate (Task A) and regress (Task B) the mean population of each country against its mean GDP per person from 2001 to 2021.</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Step (n)</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Fuel demo (1,067 cars)</td><td>Made five corrections, then fitted CO&#8322; on engine size with a seeded 80/20 split</td><td>Test R&sup2; 0.778; mean absolute error 22.58 g/km, against 51.50 for always predicting the training mean.</td></tr>
+                        <tr><td>Data preparation</td><td>Divided each year&rsquo;s total GDP by that year&rsquo;s population before averaging</td><td>The supplied GDP was total GDP and stopped at 2020; 49 regional and income-group totals and 16 economies without 21 complete years were removed.</td></tr>
+                        <tr><td>Task A (201 economies)</td><td>Pearson correlation of mean population with mean GDP per person, 2001 to 2021</td><td>r = &minus;0.0667: almost no straight-line relationship.</td></tr>
+                        <tr><td>Task B (201 economies)</td><td>Linear regression of mean GDP per person on mean population</td><td>Slope &minus;US$11.66 per million residents; R&sup2; 0.00445 on the fitted data.</td></tr>
+                        <tr><td>Holdout check (160 / 41)</td><td>Refitted on 160 economies and predicted the other 41</td><td>Test R&sup2; &minus;0.038; mean absolute error US$14,531 against US$14,860 for the training mean: no useful gain.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit04-population-gdp.png" alt="Two scatter plots of mean GDP per person against mean population for 201 economies, 2001 to 2021. On the raw axis most points crowd near zero population and the fitted line is almost flat; on a log population axis the points spread out with no clear trend." width="1960" height="773" loading="lazy">
+                    <figcaption>Figure 1. Mean GDP per person against mean population, 2001 to 2021, on a raw and a log population axis.</figcaption>
+                </figure>
+
+                <p>Population alone says almost nothing about GDP per person: the line is nearly flat, and on held-out countries it predicts no better than the average. The main lesson was in the preparation. The supplied GDP file held total GDP, not GDP per person, and a default load would not have shown it. Keeping only complete records may favour countries with better reporting, and World Bank data must be credited under its CC BY 4.0 licence (World Bank, 2026b).</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>I ran the notebook on my own computer. Its first code cell records the run, and all 29 code cells completed without errors:</p>
+<pre><code>Run by Anne Dayer (student 39359) on my computer on 29 October 2026 at 17:16 UTC</code></pre>
+
+                <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit04_Linear_Regression_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
+                <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit04_Linear_Regression_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
+                <a href="../assets/documents/ML_Unit04_Linear_Regression_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Seminar report (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Codex was used to assist in identifying appropriate code solutions and to proofread and refine the code I produced. Claude and Grammarly supported proofreading, language refinement, and formatting of my written text. All final decisions, analyses, interpretations, conclusions, and recommendations are my own.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>World Bank (2026a) <em>World Development Indicators: GDP (current US$), population and economy metadata</em> [Dataset]. Indicator codes NY.GDP.MKTP.CD and SP.POP.TOTL. Data update 8 October 2026. Available at: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD and https://data.worldbank.org/indicator/SP.POP.TOTL (Accessed: 24 October 2026).</p>
+                    <p>World Bank (2026b) <em>GDP (current US$): licence CC BY 4.0</em>. Available at: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD (Accessed: 24 October 2026).</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
