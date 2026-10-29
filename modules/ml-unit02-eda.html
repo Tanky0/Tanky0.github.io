@@ -110,7 +110,7 @@
         <div class="wrap">
             <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 2 e-Portfolio Activity</a></p>
             <h1>Exploratory Data Analysis</h1>
-            <p class="lede">The Ames housing tutorial, then the five seminar tasks on the Auto MPG data, where six question marks hid missing values from a default load.</p>
+            <p class="lede">The EDA tutorial from the brief on the Ames house-price data, then the five seminar tasks on the Auto MPG data, where six question marks hid missing values from a default load.</p>
         </div>
     </header>
 
@@ -125,7 +125,7 @@
 
                 <p class="deadline"><strong>Unit 2</strong> &middot; Run 28 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcome 2</p>
 
-                <p><strong>Activity guidance:</strong> complete the exploratory data analysis tutorial on the Ames house-price data, then undertake similar analysis of the Auto MPG dataset: identify missing values, estimate skewness and kurtosis, draw a correlation heat map and scatter plots, and replace the categorical origin values with numbers.</p>
+                <p><strong>Activity guidance:</strong> complete the EDA tutorial set in the brief, using the Ames house-price data, then undertake similar analysis of the Auto MPG dataset: identify missing values, estimate skewness and kurtosis, draw a correlation heat map and scatter plots, and replace the categorical origin values with numbers.</p>
             </section>
 
             <section class="content-section" id="findings">
@@ -146,7 +146,7 @@
 
                 <figure>
                     <img src="../assets/images/ml-unit02-missingness.png" alt="Two panels. Left: a bar chart of missing values per Auto MPG column after parsing the question mark, with six for horsepower and none elsewhere. Right: a row-by-row map in which the six missing horsepower rows appear as black lines." width="1626" height="581" loading="lazy">
-                    <figcaption>Figure 1. Missing values after parsing the &lsquo;?&rsquo; token: only horsepower has gaps, in six rows.</figcaption>
+                    <figcaption>Figure 1. Missing values after parsing the &lsquo;?&rsquo; token; only horsepower has gaps, in six rows.</figcaption>
                 </figure>
 
                 <p>The main finding is that a column loaded as text can hide missing values behind a token, so parsing types and checking ranges come before modelling. The data also carry obligations: the UCI release is licensed under CC BY 4.0 and needs attributing (Quinlan, 1993), as the house data need De Cock (2011). The cars are US-market models from 1970 to 1982, so fuel-economy claims for today&rsquo;s cars would be an extrapolation.</p>

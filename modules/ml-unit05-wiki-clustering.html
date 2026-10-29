@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>Wiki Activity: Clustering - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 5 wiki activity: two k-means animations and a short Python check, showing that k-means finds groups even in evenly spread data.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit05-wiki-clustering.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="Wiki Activity: Clustering - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 5 wiki activity: two k-means animations and a short Python check, showing that k-means finds groups even in evenly spread data.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit05-wiki-clustering.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 5 e-Portfolio Activity</a></p>
+            <h1>Wiki Activity: Clustering</h1>
+            <p class="lede">Two k-means animations and a short Python check, showing that k-means finds groups even in evenly spread data.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>Wiki Activity: Clustering</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 5</strong> &middot; Posted 29 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
+
+                <p><strong>Activity guidance:</strong> watch two clustering animations and relate each to the logic of the k-means algorithm, starting the second with &lsquo;I&rsquo;ll Choose&rsquo; followed by &lsquo;Uniform Points&rsquo;; share thoughts on both in the module wiki and comment on peers&rsquo; posts.</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Activity</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Animation 1 (Shabalin, no date)</td><td>All four centres started at the leftmost points</td><td>One group split and two merged: a local optimum, a stable answer that is not the best one (G&eacute;ron, 2025).</td></tr>
+                        <tr><td>Animation 2 (Harris, 2014)</td><td>Ten centres bunched in the middle of evenly spread points</td><td>K-means still produced ten tidy regions; restarts cannot fix this.</td></tr>
+                        <tr><td>Python check (250 points, 3 samples)</td><td>SSE and silhouette for k = 1 to 8, on even points and on four simulated groups</td><td>Even points: silhouette 0.36 to 0.42 for every k. Four groups: 0.76 to 0.78 at k = 4.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit05-harris-uniform.png" alt="Ten coloured regions that k-means produced on evenly spread points in Harris&rsquo;s animation, with ten centres started in the middle." width="2250" height="1171" loading="lazy">
+                    <figcaption>Figure 1. My run of Harris&rsquo;s (2014) animation with &lsquo;I&rsquo;ll Choose&rsquo; and &lsquo;Uniform Points&rsquo;.</figcaption>
+                </figure>
+
+                <p>K-means almost always returns the number of groups it is asked for, so a tidy result is not proof that the groups exist. The elbow plot alone was not enough: the even data seemed to bend at four, while the silhouette stayed near 0.4. If an insurer made one offer per cluster, near-identical customers on either side of an invented boundary could get different deals (University of Essex Online, 2026).</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>I ran the notebook in Google Colab before writing the post. Its first code cell records the run:</p>
+<pre><code>Run by Anne Dayer on 27 October 2026 16:07 CET with scikit-learn 1.6.1</code></pre>
+
+                <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit05_KMeans_Check_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
+                <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit05_KMeans_Check_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
+                <a href="../assets/documents/ML_Unit05_Wiki_Clustering.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Wiki post (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Codex was used to assist in identifying appropriate code solutions and to proofread and refine the code I produced. Claude and Grammarly supported proofreading, language refinement, and formatting of my written text. All final decisions, analyses, interpretations, conclusions, and recommendations are my own.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>
+                    <p>Harris, N. (2014) &lsquo;Visualizing k-means clustering&rsquo;, <em>Naftali Harris</em> [Blog], 19 January. Available at: https://www.naftaliharris.com/blog/visualizing-k-means-clustering/ (Accessed: 27 October 2026).</p>
+                    <p>Shabalin, A.A. (no date) <em>K-means clustering, starting with 4 left-most points</em> [Animation]. Available at: https://shabal.in/visuals/kmeans/2.html (Accessed: 27 October 2026).</p>
+                    <p>University of Essex Online (2026) &lsquo;Unit 5 Lecturecast: Clustering&rsquo; [Lecturecast]. ML_PCOM7E: Machine Learning October 2026. University of Essex Online. Available at: https://www.my-course.co.uk/mod/scorm/view.php?id=1434575 (Accessed: 25 October 2026).</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
