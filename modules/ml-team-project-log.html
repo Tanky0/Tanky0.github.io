@@ -78,9 +78,11 @@
 
                 <p>The submission has two parts with the same deadline: one team report of up to 1,000 words, and an individual peer review of each teammate.</p>
 
-                <div class="placeholder">
-                    <p>Not started. The business question and the working method will be recorded once the group agrees them.</p>
-                </div>
+                <p>Group B agreed its question at the kick-off on 29 October: &ldquo;Which listing characteristics are linked to guest demand across New York neighbourhoods, and how does this change for listings with a minimum stay of 30 nights or more, given New York&rsquo;s longstanding short-term rental restrictions and the registration requirements enforced from September 2023?&rdquo;</p>
+
+                <p>We predict one thing only, reviews per month, as a stand-in for demand. Days available was rejected as a target because the data cannot separate nights booked from nights the host closed: 72% of listings with no availability had no review in the year before the snapshot. A neural network will be compared with a simple guess and a simpler comparison model on the same test split, and we agreed to fix what counts as a real improvement before seeing any results.</p>
+
+                <p>Day-to-day points go through WhatsApp, the report is drafted in a shared Google Doc, and the code is kept in a private GitHub repository, with one notebook per person and a shared log of every model run. Nobody edits a file owned by someone else, which keeps the history traceable.</p>
             </section>
 
             <section class="content-section" id="team-and-roles">
@@ -91,16 +93,16 @@
                     <caption class="visually-hidden">Team, Contract and Roles</caption>
                     <thead><tr><th scope="col">Member</th><th scope="col">Contribution</th><th scope="col">Team role</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Anne Dayer (me)</strong></td><td>To be agreed</td><td>To be agreed</td></tr>
-                        <tr><td>A.A.</td><td>To be agreed</td><td>To be agreed</td></tr>
-                        <tr><td>S.M.</td><td>To be agreed</td><td>To be agreed</td></tr>
-                        <tr><td>S.N.</td><td>To be agreed</td><td>To be agreed</td></tr>
-                        <tr><td>E.S.</td><td>To be agreed</td><td>To be agreed</td></tr>
+                        <tr><td><strong>Anne Dayer (me)</strong></td><td>Coordination, minutes, tutor contact, merging and submitting the report</td><td>Lead and integration</td></tr>
+                        <tr><td>S.M.</td><td>Data cleaning, features, exploration figures and the test split</td><td>Data and exploration</td></tr>
+                        <tr><td>S.N.</td><td>Comparison model and evaluation</td><td>Modelling: baseline</td></tr>
+                        <tr><td>A.A.</td><td>Main neural network and the final test</td><td>Modelling: neural network</td></tr>
+                        <tr><td>E.S.</td><td>Business narrative, final charts and the recommendation</td><td>Business narrative and visuals</td></tr>
                     </tbody>
                 </table>
                 </div>
 
-                <p>The team contract was signed and sent to the tutor on 24 October. Roles will be recorded as they are allocated.</p>
+                <p>All five members had signed the team contract by 26 October, and I sent it to the tutor. Roles were agreed at the kick-off on 29 October, by strengths and what each of us wants to practise, and can be swapped after the first fortnight. Each area reviews the one next to it.</p>
             </section>
 
             <section class="content-section" id="decisions">
@@ -111,8 +113,16 @@
                     <caption class="visually-hidden">Timeline</caption>
                     <thead><tr><th scope="col">Date</th><th scope="col">Event</th></tr></thead>
                     <tbody>
-                        <tr><td>24 Oct</td><td>Groups announced at the first seminar: Group B, five members, deep learning track</td></tr>
-                        <tr><td>24 Oct</td><td>Team contract signed and sent to the tutor</td></tr>
+                        <tr><td>21 Oct</td><td>Groups pre-allocated: Group B, five members, deep learning track. First contact, WhatsApp group created and draft contract shared</td></tr>
+                        <tr><td>23 Oct</td><td>First proposal posted: business question, work split, tools and timeline</td></tr>
+                        <tr><td>24 Oct</td><td>First seminar. Its notes, the question, roles and a draft timeline put into a shared Google Doc</td></tr>
+                        <tr><td>25 Oct</td><td>Four questions sent to the tutor: extra data, the comparison model, the cross-track session and how the report is identified</td></tr>
+                        <tr><td>26 Oct</td><td>Contract signed by all five and sent to the tutor</td></tr>
+                        <tr><td>26 to 27 Oct</td><td>Private GitHub repository and Colab access set up, invitations sent</td></tr>
+                        <tr><td>27 Oct</td><td>First look at the data shared, with a first test split. One target agreed: reviews per month</td></tr>
+                        <tr><td>29 Oct</td><td>Kick-off on Zoom: question, roles and ways of working agreed; S.M.&rsquo;s test split frozen from 2 November</td></tr>
+                        <tr><td>29 Oct</td><td>Follow-up on the 25 October questions sent through Student Support</td></tr>
+                        <tr><td>30 Oct</td><td>Minutes and decision record published in the shared Doc</td></tr>
                         <tr><td>30 Nov</td><td>Submission deadline for the team report and the peer review, 23:55</td></tr>
                     </tbody>
                 </table>
@@ -122,9 +132,7 @@
             <section class="content-section" id="my-contribution">
                 <h2>My Contribution</h2>
 
-                <div class="placeholder">
-                    <p>Not started.</p>
-                </div>
+                <p>As lead and integrator I hold the deadlines, the minutes and the contact with the tutor, and I will merge and submit the report. So far, I have posted the first proposal on 23 October, gathered the five signatures on the contract and sent it to the tutor, put four scope questions to her, and set up the shared Doc, the GitHub repository and the Colab route. My first look at the data (notebook 01-load-and-inspect-ad.ipynb) covered 48,895 listings, 21% of them never reviewed, and showed why availability could not serve as a target. I proposed a first test split, kept for the record once S.M.&rsquo;s better-balanced split replaced it, and I chaired the kick-off and wrote the minutes. My own sections, the introduction and the conclusion, are due with the first drafts on 13 November.</p>
             </section>
 
             <section class="content-section" id="feedback-received">
