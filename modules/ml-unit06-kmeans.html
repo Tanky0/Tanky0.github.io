@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>K-Means Clustering Tutorial - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 6 seminar preparation: the supplied k-means demo corrected and rerun, then clustering of the iris, wine and Australian weather data.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit06-kmeans.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="K-Means Clustering Tutorial - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 6 seminar preparation: the supplied k-means demo corrected and rerun, then clustering of the iris, wine and Australian weather data.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit06-kmeans.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 6 Seminar Preparation</a></p>
+            <h1>K-Means Clustering Tutorial</h1>
+            <p class="lede">The supplied k-means demo corrected and rerun, then Tasks A, B and C, where the best-scoring number of clusters and the real number of groups did not always agree.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>K-Means Clustering Tutorial</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 6</strong> &middot; Run 31 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
+
+                <p><strong>Activity guidance:</strong> run the supplied k-means demo, then cluster at least one of three datasets: iris and wine at k = 3, compared with their labels (Tasks A and B), and weatherAUS for k = 2 to 6, shown on two-dimensional scatter plots (Task C).</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Step (n)</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Demo (850 customers)</td><td>Made five corrections, then refitted k = 3 on the scaled data</td><td>The clusters now come from scaled data with a fixed seed; the 150 missing default values are counted rather than hidden.</td></tr>
+                        <tr><td>Task A: iris (150 flowers)</td><td>Tried k = 2 to 8, then compared k = 3 with the species</td><td>134 of 150 matched (89.3%), adjusted Rand index 0.730 (Hubert and Arabie, 1985, cited in Arabie and Hubert, 1992). Z-scores lowered this to 83.3% and range scaling to 88.7%; the silhouette score was highest at k = 2.</td></tr>
+                        <tr><td>Task B: wine (178 wines)</td><td>Compared k = 3 with the three cultivars, on raw, z-scored and range-scaled measurements</td><td>Z-scores: 172 of 178 matched (96.6%), index 0.897. Range: 94.9%. Raw: 70.2%, index 0.371, although its silhouette score was higher.</td></tr>
+                        <tr><td>Task C: weather (120,381 days)</td><td>Removed the rain columns and incomplete rows, standardised, then tried k = 2 to 6</td><td>Silhouette scores of 0.16 to 0.24 at every k; k = 2 split warmer, less humid days from cooler, more humid ones. Filling gaps with medians instead gave almost the same k = 3 clusters (index 0.968).</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit06-iris-clusters.png" alt="Two scatter plots of iris petal length against petal width. Left, coloured by true species: setosa sits apart, while versicolor and virginica overlap. Right, coloured by the three k-means clusters, which follow the species except where versicolor and virginica meet." width="990" height="370" loading="lazy">
+                    <figcaption>Figure 1. Iris petal measurements by true species (left) and by k = 3 cluster (right), from my notebook run.</figcaption>
+                </figure>
+
+                <p>A tidy set of clusters is not proof that the groups exist. The silhouette score (Rousseeuw, 1987) disagreed with the labels twice: it preferred two iris groups although three species are present, and raw wine scored higher than z-scored wine while matching far worse. Scaling decided the wine result, yet z-scores, although Géron (2025) says scaling generally helps, lowered the iris match. Dividing by the range, which Milligan and Cooper (1988, cited in Arabie and Hubert, 1992) found better, came close to the best on both. Without location or date, the weather clusters cannot be interpreted by station or season. I would record scaling and missing-data choices for whoever acts on the clusters.</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>I ran the notebook in Google Colab. Its first code cell records the run, and all 28 code cells completed without errors:</p>
+<pre><code>Run by Anne Dayer (student 39359) in Google Colab on 31 October 2026 at 15:11 UTC</code></pre>
+
+                <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit06_KMeans_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
+                <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit06_KMeans_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
+                <a href="../assets/documents/ML_Unit06_KMeans_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Seminar report (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Codex was used to assist in identifying appropriate code solutions and to proofread and refine the code I produced. Claude and Grammarly supported proofreading, language refinement, and formatting of my written text. All final decisions, analyses, interpretations, conclusions, and recommendations are my own.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>Arabie, P. and Hubert, L.J. (1992) &lsquo;Combinatorial data analysis&rsquo;, <em>Annual Review of Psychology</em>, 43, pp. 169&ndash;203. Available at: https://doi.org/10.1146/annurev.ps.43.020192.001125</p>
+                    <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>
+                    <p>Rousseeuw, P.J. (1987) &lsquo;Silhouettes: a graphical aid to the interpretation and validation of cluster analysis&rsquo;, <em>Journal of Computational and Applied Mathematics</em>, 20, pp. 53&ndash;65. Available at: https://doi.org/10.1016/0377-0427(87)90125-7</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
