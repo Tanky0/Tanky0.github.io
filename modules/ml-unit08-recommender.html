@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>Machine Learning, Deep Learning and Ethical Impact - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 8 seminar preparation: Yu et al. (2024) compared with my team’s demand estimate, SHAP explanations judged as a stakeholder would, and the supplied MovieLens recommender corrected and rerun.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit08-recommender.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="Machine Learning, Deep Learning and Ethical Impact - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 8 seminar preparation: Yu et al. (2024) compared with my team’s demand estimate, SHAP explanations judged as a stakeholder would, and the supplied MovieLens recommender corrected and rerun.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit08-recommender.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 8 Seminar Preparation</a></p>
+            <h1>Machine Learning, Deep Learning and Ethical Impact</h1>
+            <p class="lede">The supplied recommender corrected and rerun: most test users were new to the model, a list of the most-rated films ranked better, and SHAP described the model&rsquo;s arithmetic, not a user&rsquo;s taste.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>Machine Learning, Deep Learning and Ethical Impact</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 8</strong> &middot; Run 3 November 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 3 and 4</p>
+
+                <p><strong>Activity guidance:</strong> read Yu et al. (2024), who compare a convolutional neural network with conventional models, and weigh the trade-offs for one domain relevant to the team project&rsquo;s track (Task 1); reflect as a stakeholder on what is lost when a model cannot explain its decisions, and on SHAP, LIME or visual explanations (Task 2); run the supplied recommender notebook on MovieLens 100K (Harper and Konstan, 2015) and use SHAP on a film known to be good and a film predicted low (Task 3). For Task 1 I compare the paper with my team&rsquo;s Track 2 project, which estimates reviews per month as a stand-in for demand. Task 2 explains the model built in Task 3, so I take Task 3 first.</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Step</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Supplied exercise (100,000 ratings)</td><td>Corrected the ranking score, then ran the notebook as supplied</td><td>The top-10 ranking score (NDCG at 10) had compared each list with an ideal built only from its own hits. Corrected to use all of a user&rsquo;s relevant films (J&auml;rvelin and Kek&auml;l&auml;inen, 2002), it fell from 0.304 to 0.149. Test RMSE was 1.040.</td></tr>
+                        <tr><td>Who the test set contains</td><td>Counted test users with no training ratings</td><td>97 of 166 test users, giving 8,582 of the 10,000 test ratings. The model&rsquo;s advantage over a bias-only baseline was larger on users it knew (RMSE 1.023 against 1.119) than overall (1.040 against 1.045); on new users it did worse (1.043 against 1.032).</td></tr>
+                        <tr><td>Overfitting</td><td>Read the training history, then retrained with early stopping</td><td>Validation error was lowest at epoch 5 (1.0301) and 1.0429 by epoch 30, yet the bias baseline still had the lower validation error (1.0191).</td></tr>
+                        <tr><td>Ranking</td><td>Compared the top-10 lists with the most-rated films each user had not rated</td><td>The most-rated list scored 0.209 against 0.149, but covered 4.5% of films against 14.6%. The supplied cold-user slice held 1 test user.</td></tr>
+                        <tr><td>Task 3: SHAP</td><td>Explained Blade Runner (1982) and the lowest prediction for user 13, through a ridge regression surrogate of the model (G&eacute;ron, 2025)</td><td>Blade Runner: 3.80 (user 13 rated it 4), mostly from the film&rsquo;s bias (+0.424); the 32 hidden terms netted +0.033. Bio-Dome (1996): 0.30, below the 1 to 5 scale. The surrogate matches the model closely on the rows it was fitted to (RMSE 0.0027).</td></tr>
+                        <tr><td>Task 1: Yu et al. (2024)</td><td>Checked how the paper compares the CNN with four conventional models</td><td>The test table favours the CNN over a decision tree (RMSE 0.518 against 1.372), but the abstract quotes the CNN&rsquo;s training figures (0.528, R&sup2; 0.953) as test results. Computational efficiency is claimed without reported timings.</td></tr>
+                        <tr><td>Task 2: explaining to a stakeholder</td><td>Read the supplied SHAP example against the user&rsquo;s training history</td><td>User 90 has no training ratings, yet SHAP credited the user bias with +0.159, because it measures against the average, and the average user bias is negative.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit08-recommender-rmse.png" alt="Line chart of RMSE against epoch for the 30 supplied epochs. Training RMSE falls steadily from about 0.96 to 0.55. Validation RMSE stays near 1.03 to 1.04, lowest at epoch 5, marked by a dashed line, and rising slowly after it." width="630" height="390" loading="lazy">
+                    <figcaption>Figure 1. Training and validation RMSE over the 30 supplied epochs, from my notebook run.</figcaption>
+                </figure>
+
+                <p>The figures were sounder than the claims built on them. Most test users were new to the model, so the test mostly measured cold start, and validation error rose after epoch 5, the overfitting early stopping targets (G&eacute;ron, 2025). SHAP split a surrogate&rsquo;s near-copy of each score into contributions measured from the average prediction (Molnar, 2025): correct arithmetic that says nothing about taste. LIME or a chart would show the same unnamed terms (Molnar, 2025), and named features (M and K.P., 2025) still need validating. My team estimates, not forecasts, reviews per month; I would tell Airbnb&rsquo;s executives that the target is review activity, not bookings.</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>I ran the notebook in Google Colab. Its first code cell records the run, and all 18 code cells completed without errors:</p>
+<pre><code>Run by Anne Dayer (student 39359) in Google Colab on 03 November 2026 at 14:47 UTC</code></pre>
+
+                <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit08_Recommender_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
+                <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit08_Recommender_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
+                <a href="../assets/documents/ML_Unit08_Recommender_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Seminar report (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Codex was used to assist in identifying appropriate code solutions and to proofread and refine the code I produced. Claude and Grammarly supported proofreading, language refinement, and formatting of my written text. All final decisions, analyses, interpretations, conclusions, and recommendations are my own.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>
+                    <p>Harper, F.M. and Konstan, J.A. (2015) &lsquo;The MovieLens datasets: history and context&rsquo;, <em>ACM Transactions on Interactive Intelligent Systems</em>, 5(4), article 19. Available at: https://doi.org/10.1145/2827872</p>
+                    <p>J&auml;rvelin, K. and Kek&auml;l&auml;inen, J. (2002) &lsquo;Cumulated gain-based evaluation of IR techniques&rsquo;, <em>ACM Transactions on Information Systems</em>, 20(4), pp. 422&ndash;446. Available at: https://doi.org/10.1145/582415.582418</p>
+                    <p>M, N.R. and K.P., M.B. (2025) &lsquo;A hybrid explainability framework for recommender systems using SHAP with natural language interpretations&rsquo;, <em>International Journal of Innovative Research and Scientific Studies</em>, 8(6), pp. 687&ndash;703. Available at: https://doi.org/10.53894/ijirss.v8i6.9669</p>
+                    <p>Molnar, C. (2025) <em>Interpretable Machine Learning: A Guide for Making Black Box Models Explainable</em>. 3rd edn. Available at: https://christophm.github.io/interpretable-ml-book/ (Accessed: 3 November 2026).</p>
+                    <p>Yu, X., Tang, L., Long, L. and Sina, M. (2024) &lsquo;Comparison of deep and conventional machine learning models for prediction of one supply chain management distribution cost&rsquo;, <em>Scientific Reports</em>, 14, article 24195. Available at: https://doi.org/10.1038/s41598-024-75114-9</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
