@@ -149,7 +149,7 @@
                     <figcaption>Figure 1. Mean absolute error of the multi-layer perceptron on XOR, from my notebook run.</figcaption>
                 </figure>
 
-                <p>A single perceptron draws one straight line, so it could not learn XOR, which no linear function of the two inputs can produce (Goodfellow, Bengio and Courville, 2016). Its NAND failure had a different cause: with threshold 1 and no trainable bias, it always outputs 0 for (0, 0), and with a trainable bias the same rule learnt NAND in 6 epochs. The multi-layer perceptron learnt XOR with the sigmoid, but by the end half its hidden activations and all its outputs sat near 0 or 1, the saturation for which Goodfellow, Bengio and Courville (2016) say sigmoid hidden units are now discouraged. Four rows of logic data leave nothing unseen to test, so this shows learning, not generalisation.</p>
+                <p>A single perceptron draws one straight line, so it could not learn XOR (Goodfellow, Bengio and Courville, 2016). Its NAND failure had a different cause: with threshold 1 and no trainable bias, it always outputs 0 for (0, 0); with a trainable bias it learnt NAND in 6 epochs. The multi-layer perceptron learnt XOR, but its sigmoid hidden units saturated, as Goodfellow, Bengio and Courville (2016) warn. Four rows leave nothing unseen to test, so this shows learning, not generalisation.</p>
             </section>
 
             <section class="content-section" id="evidence">

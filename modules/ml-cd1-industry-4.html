@@ -113,7 +113,7 @@
 
             <section class="content-section" id="summary-post">
                 <h2>My Thread: Summary Post</h2>
-                <p class="deadline">Unit 3 &middot; Posted 3 November 2026 &middot; 319 words</p>
+                <p class="deadline">Unit 3 &middot; Posted 3 November 2026 &middot; 319 words, within the 10% tolerance</p>
                 <div class="assignment-box">
                     <p>My initial post argued that the 2024 ransomware attack on South Africa&rsquo;s National Health Laboratory Service (NHLS) slowed results and could later degrade records used for machine learning (ML), raising Unit 1&rsquo;s veracity problem (University of Essex Online, 2026a). My source expects the 40-day outage&rsquo;s results, captured by hand afterwards, to contain unentered data and errors (Cassim and Chapanduka, 2024, pp. 20, 22).</p>
                     <p>A.B. proposed anomaly detection plus an agent that isolates systems and prepares failover for human approval. He warned that with rare attacks, false alarms limit detection (Axelsson, 2000, p. 186). Isolation can also stop analysers, so, to his question: isolation within thresholds pre-agreed with clinical and IT leads; failover only with human approval.</p>
@@ -129,7 +129,7 @@
                 <p>The brief asks each response to concentrate on the measures that could have prevented the incident raised. Both incidents are security failures, and in both I argue that conventional controls came first and machine learning second.</p>
                 <div class="assignment-box">
                     <h3>Response 1: on the 2024 CrowdStrike outage</h3>
-                    <p class="deadline">308 words &middot; A.B.&rsquo;s post read the outage as an input-schema mismatch</p>
+                    <p class="deadline">308 words, within the 10% tolerance &middot; A.B.&rsquo;s post read the outage as an input-schema mismatch</p>
                     <p>A.B., your reading of the outage as an input-schema mismatch, an ML pipeline&rsquo;s problem with unexpected features, is the idea I found most useful. CrowdStrike&rsquo;s own report adds a twist: the new content was checked, but against a definition the sensor&rsquo;s code did not match.</p>
                     <p>The definition listed 21 input fields, but the sensor supplied only 20 (CrowdStrike, 2024). The 12 automated tests, chosen to represent normal use, missed it too: each left the 21st field as a wildcard that matched anything (CrowdStrike, 2024, p. 4). The fix was a test that sets a real value for every field. The nearest ML parallel is the input monitoring you cite, such as G&eacute;ron&rsquo;s (2025, ch. 2) alert when &lsquo;a categorical feature starts containing new categories&rsquo;, though that catches drift in values, not a missing field.</p>
                     <p>I would push back on one phrase: &lsquo;release governance rather than technology&rsquo;. You list stronger input validation yourself, and the report treats a missing safety check in the sensor&rsquo;s code as a separate finding (CrowdStrike, 2024). Staging would have capped the spread. Stopping each crash took code: a checker that blocked the faulty content, or a sensor that would not read past its 20 inputs.</p>
@@ -156,18 +156,23 @@
                 <p>Screenshots of my own posts in the forum. Classmates&rsquo; names are covered, and their replies appear above as summaries only.</p>
 
                 <figure class="forum-shot">
+                    <img src="../assets/images/ml-cd1-initial-post.png" alt="Forum screenshot of my initial post, posted on Thursday 22 October 2026 at 10:54, on the 2024 ransomware attack on South Africa&rsquo;s National Health Laboratory Service." width="1440" height="729" loading="lazy">
+                    <figcaption>Screenshot 1. My initial post of 22 October 2026.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
                     <img src="../assets/images/ml-cd1-peer-response-1.png" alt="Forum screenshot of my peer response posted on Tuesday 27 October 2026 at 10:23, on the CrowdStrike outage. The classmate&rsquo;s name at the start is covered by a grey box." width="1440" height="733" loading="lazy">
-                    <figcaption>Screenshot 1. My peer response of 27 October 2026 on the CrowdStrike outage.</figcaption>
+                    <figcaption>Screenshot 2. My peer response of 27 October 2026 on the CrowdStrike outage.</figcaption>
                 </figure>
 
                 <figure class="forum-shot">
                     <img src="../assets/images/ml-cd1-peer-response-2.png" alt="Forum screenshot of my peer response posted on Tuesday 27 October 2026 at 10:28, on the British Airways breach. The classmate&rsquo;s name at the start is covered by a grey box." width="1440" height="736" loading="lazy">
-                    <figcaption>Screenshot 2. My peer response of 27 October 2026 on the British Airways breach.</figcaption>
+                    <figcaption>Screenshot 3. My peer response of 27 October 2026 on the British Airways breach.</figcaption>
                 </figure>
 
                 <figure class="forum-shot">
                     <img src="../assets/images/ml-cd1-summary-post.png" alt="Forum screenshot of my summary post posted on Tuesday 3 November 2026 at 08:46. A classmate&rsquo;s name and the citation of their reply are covered by grey boxes." width="1440" height="734" loading="lazy">
-                    <figcaption>Screenshot 3. My summary post of 3 November 2026.</figcaption>
+                    <figcaption>Screenshot 4. My summary post of 3 November 2026.</figcaption>
                 </figure>
             </section>
 

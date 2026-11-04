@@ -123,7 +123,7 @@
             <section class="content-section" id="the-activity">
                 <h2>The Activity</h2>
 
-                <p class="deadline"><strong>Unit 2</strong> &middot; Run 28 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcome 2</p>
+                <p class="deadline"><strong>Unit 2</strong> &middot; Run 28 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
 
                 <p><strong>Activity guidance:</strong> complete the EDA tutorial set in the brief, using the Ames house-price data, then undertake similar analysis of the Auto MPG dataset: identify missing values, estimate skewness and kurtosis, draw a correlation heat map and scatter plots, and replace the categorical origin values with numbers.</p>
             </section>
@@ -149,7 +149,7 @@
                     <figcaption>Figure 1. Missing values after parsing the &lsquo;?&rsquo; token; only horsepower has gaps, in six rows.</figcaption>
                 </figure>
 
-                <p>The main finding is that a column loaded as text can hide missing values behind a token, so parsing types and checking ranges come before modelling. The data also carry obligations: the UCI release is licensed under CC BY 4.0 and needs attributing (Quinlan, 1993), as the house data need De Cock (2011). The cars are US-market models from 1970 to 1982, so fuel-economy claims for today&rsquo;s cars would be an extrapolation.</p>
+                <p>The main finding is that a column loaded as text can hide missing values behind a token, so parsing types and checking ranges come before modelling. In central laboratory data, the same trap appears when a result field holds a comment such as &ldquo;QNS&rdquo; (quantity not sufficient) instead of a number: the file still loads. The data also carry obligations: the UCI release is licensed under CC BY 4.0 and needs attributing (Quinlan, 1993), as the house data need De Cock (2011). The cars are US-market models from 1970 to 1982, so fuel-economy claims for today&rsquo;s cars would be an extrapolation.</p>
             </section>
 
             <section class="content-section" id="evidence">

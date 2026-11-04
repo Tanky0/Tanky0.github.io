@@ -137,7 +137,7 @@
                     <thead><tr><th scope="col">Step (n)</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
                     <tbody>
                         <tr><td>Fuel demo (1,067 cars)</td><td>Made five corrections, then fitted CO&#8322; on engine size with a seeded 80/20 split</td><td>Test R&sup2; 0.778; mean absolute error 22.58 g/km, against 51.50 for always predicting the training mean.</td></tr>
-                        <tr><td>Data preparation</td><td>Divided each year&rsquo;s total GDP by that year&rsquo;s population before averaging</td><td>The supplied GDP was total GDP and stopped at 2020; 49 regional and income-group totals and 16 economies without 21 complete years were removed.</td></tr>
+                        <tr><td>Data preparation</td><td>Divided each year&rsquo;s total GDP by that year&rsquo;s population before averaging</td><td>The supplied GDP was total GDP and stopped at 2020; 49 regional and income-group totals and 16 economies without 21 complete years were removed (World Bank, 2026a).</td></tr>
                         <tr><td>Task A (201 economies)</td><td>Pearson correlation of mean population with mean GDP per person, 2001 to 2021</td><td>r = &minus;0.0667: almost no straight-line relationship.</td></tr>
                         <tr><td>Task B (201 economies)</td><td>Linear regression of mean GDP per person on mean population</td><td>Slope &minus;US$11.66 per million residents; R&sup2; 0.00445 on the fitted data.</td></tr>
                         <tr><td>Holdout check (160 / 41)</td><td>Refitted on 160 economies and predicted the other 41</td><td>Test R&sup2; &minus;0.038; mean absolute error US$14,531 against US$14,860 for the training mean: no useful gain.</td></tr>
@@ -150,7 +150,7 @@
                     <figcaption>Figure 1. Main 2001&ndash;2021 analysis. The OLS line uses raw population; the right panel changes only the display scale. GDP is measured in current US dollars per person.</figcaption>
                 </figure>
 
-                <p>Population alone says almost nothing about GDP per person: the line is nearly flat, and on held-out countries it predicts no better than the average. The main lesson was in the preparation. The supplied GDP file held total GDP, not GDP per person, and a default load would not have shown it. Keeping only complete records may favour countries with better reporting, and World Bank data must be credited under its CC BY 4.0 licence (World Bank, 2026b).</p>
+                <p>Population alone says almost nothing about GDP per person: the line is nearly flat, and on held-out countries it predicts no better than the average. The main lesson was in the preparation. The supplied GDP file held total GDP, not GDP per person, and a default load would not have shown it. In multi-site trials, results reported in different units can look equally clean until the definition is read. Keeping only complete records may favour countries with better reporting, and World Bank data must be credited under its CC BY 4.0 licence (World Bank, 2026b).</p>
             </section>
 
             <section class="content-section" id="evidence">

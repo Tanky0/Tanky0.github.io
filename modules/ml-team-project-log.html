@@ -25,6 +25,31 @@
     <script src="../assets/js/site.js" defer></script>
     <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
 
+    <style>
+    .forum-shot {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .forum-shot figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+    .forum-shot img { display: block; max-width: 100%; height: auto; }
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
 </head>
 
 <body>
@@ -74,15 +99,17 @@
             <section class="content-section" id="use-case">
                 <h2>Business Question and Working Method</h2>
 
-                <p>The brief fixes the data to the Airbnb New York City 2019 listings from Kaggle and the audience to Airbnb&rsquo;s executive team, who want clear insights rather than models. Group B works on the <strong>deep learning track</strong>: neural networks and convolutional networks, applied to image-based property analysis, text sentiment or demand forecasting. Each group works independently, and results are compared across the three tracks afterwards.</p>
+                <p>The brief fixes the data to the Airbnb New York City 2019 listings from Kaggle (Gomonov, 2019) and the audience to Airbnb&rsquo;s executive team, who want clear insights rather than models. Group B works on the <strong>deep learning track</strong>: neural networks and convolutional networks, applied to image-based property analysis, text sentiment or demand forecasting. Each group works independently, and results are compared across the three tracks afterwards.</p>
 
                 <p>The submission has two parts with the same deadline: one team report of up to 1,000 words, and an individual peer review of each teammate.</p>
 
-                <p>Group B agreed its question at the kick-off on 29 October: &ldquo;Which listing characteristics are linked to guest demand across New York neighbourhoods, and how does this change for listings with a minimum stay of 30 nights or more, given New York&rsquo;s longstanding short-term rental restrictions and the registration requirements enforced from September 2023?&rdquo;</p>
+                <p>Group B agreed its question at the kick-off on 29 October: &ldquo;Which listing characteristics are linked to guest demand across New York neighbourhoods, and how does this change for listings with a minimum stay of 30 nights or more, given New York&rsquo;s longstanding short-term rental restrictions and the registration requirements enforced from September 2023?&rdquo; The city sets out the registration law and the start of its enforcement (New York City Mayor&rsquo;s Office of Special Enforcement, no date).</p>
 
                 <p>We predict one thing only, reviews per month, as a stand-in for demand. Days available was rejected as a target because the data cannot separate nights booked from nights the host closed: 72% of listings with no availability had no review in the year before the snapshot. A neural network will be compared with a simple guess and a simpler comparison model on the same test split, and we agreed to fix what counts as a real improvement before seeing any results.</p>
 
                 <p>Day-to-day points go through WhatsApp, the report is drafted in a shared Google Doc, and the code is kept in a private GitHub repository, with one notebook per person and a shared log of every model run. Nobody edits a file owned by someone else, which keeps the history traceable.</p>
+
+                <p>The report will describe segments by minimum stay and room type, never as legal or illegal, because the file has no registration, building or host-presence data. Host names stay out of all outputs. I raised both in my first look at the data.</p>
             </section>
 
             <section class="content-section" id="team-and-roles">
@@ -102,7 +129,33 @@
                 </table>
                 </div>
 
-                <p>All five members had signed the team contract by 26 October, and I sent it to the tutor. Roles were agreed at the kick-off on 29 October, by strengths and what each of us wants to practise, and can be swapped after the first fortnight. Each area reviews the one next to it.</p>
+                <p>All five members had signed the team contract by 26 October, and I sent it to the tutor. We agreed roles at the kick-off on 29 October, by strengths and what each of us wants to practise, and can be swapped after the first fortnight. Each area reviews the one next to it.</p>
+            </section>
+
+            <section class="content-section" id="kick-off-minutes">
+                <h2>Kick-off Minutes</h2>
+
+                <p>Zoom, 29 October 2026, 18:30 London time. I chaired and wrote these minutes from my notes, and put them in the shared Doc on 30 October.</p>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Kick-off Minutes</caption>
+                    <thead><tr><th scope="col">No.</th><th scope="col">Decision</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Business question agreed as worded above</td></tr>
+                        <tr><td>2</td><td>One target, reviews per month; availability for description only</td></tr>
+                        <tr><td>3</td><td>Roles and work split agreed</td></tr>
+                        <tr><td>4</td><td>Never-reviewed listings count as 0, plus one check on reviewed listings only</td></tr>
+                        <tr><td>5</td><td>S.M.&rsquo;s test split frozen for everyone from 2 November; every model run logs the split file name</td></tr>
+                        <tr><td>6</td><td>WhatsApp as main channel, Google Doc for the report, GitHub for code; first drafts 13 November, second call 17 November</td></tr>
+                        <tr><td>7</td><td>Nobody edits a file owned by someone else; suggestions go to the owner</td></tr>
+                        <tr><td>8</td><td>A short progress update on WhatsApp every Friday</td></tr>
+                        <tr><td>9</td><td>Submit by 27 November at the latest</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <p>Left open: what counts as &ldquo;good&rdquo;, accepted unless someone objects by 6 November. My action: follow up on the tutor&rsquo;s answers.</p>
             </section>
 
             <section class="content-section" id="decisions">
@@ -113,18 +166,19 @@
                     <caption class="visually-hidden">Timeline</caption>
                     <thead><tr><th scope="col">Date</th><th scope="col">Event</th></tr></thead>
                     <tbody>
-                        <tr><td>21 Oct</td><td>Groups pre-allocated: Group B, five members, deep learning track. First contact, WhatsApp group created and draft contract shared</td></tr>
-                        <tr><td>23 Oct</td><td>First proposal posted: business question, work split, tools and timeline</td></tr>
-                        <tr><td>24 Oct</td><td>First seminar. Its notes, the question, roles and a draft timeline put into a shared Google Doc</td></tr>
-                        <tr><td>25 Oct</td><td>Four questions sent to the tutor: extra data, the comparison model, the cross-track session and how the report is identified</td></tr>
-                        <tr><td>26 Oct</td><td>Contract signed by all five and sent to the tutor</td></tr>
-                        <tr><td>26 to 27 Oct</td><td>Private GitHub repository and Colab access set up, invitations sent</td></tr>
-                        <tr><td>27 Oct</td><td>First look at the data shared, with a first test split. One target agreed: reviews per month</td></tr>
-                        <tr><td>29 Oct</td><td>Kick-off on Zoom: question, roles and ways of working agreed; S.M.&rsquo;s test split frozen from 2 November</td></tr>
-                        <tr><td>29 Oct</td><td>Follow-up on the 25 October questions sent through Student Support</td></tr>
-                        <tr><td>30 Oct</td><td>Minutes and decision record published in the shared Doc</td></tr>
+                        <tr><td>21 Oct</td><td>Groups pre-allocated: Group B, five members, deep learning track. I made first contact, created the WhatsApp group and shared a draft contract</td></tr>
+                        <tr><td>23 Oct</td><td>I posted the first proposal: business question, work split, tools and timeline</td></tr>
+                        <tr><td>24 Oct</td><td>First seminar. I put its notes, the question, roles and a draft timeline into a shared Google Doc</td></tr>
+                        <tr><td>24 Oct</td><td>I created the private GitHub repository, with the README, folder structure, experiment log and raw data</td></tr>
+                        <tr><td>25 Oct</td><td>I sent four questions to the tutor: extra data, the comparison model, the cross-track session and how the report is identified</td></tr>
+                        <tr><td>26 Oct</td><td>All five signed the contract, and I sent it to the tutor</td></tr>
+                        <tr><td>26 to 27 Oct</td><td>I set up Colab access and sent invitations</td></tr>
+                        <tr><td>27 Oct</td><td>I shared a first look at the data, with a first test split. We agreed one target: reviews per month</td></tr>
+                        <tr><td>29 Oct</td><td>Kick-off on Zoom: we agreed the question, roles and ways of working; S.M.&rsquo;s test split frozen from 2 November</td></tr>
+                        <tr><td>29 Oct</td><td>I sent a follow-up on the 25 October questions through Student Support</td></tr>
+                        <tr><td>30 Oct</td><td>I published the minutes and decision record in the shared Doc</td></tr>
                         <tr><td>31 Oct</td><td>Tutor replied to the 25 October questions, copying the group (see Feedback Received)</td></tr>
-                        <tr><td>31 Oct</td><td>Four follow-up questions sent to the tutor on the text input, word count, appendices and code; answered the same afternoon</td></tr>
+                        <tr><td>31 Oct</td><td>I sent four follow-up questions to the tutor on the text input, word count, appendices and code; answered the same afternoon</td></tr>
                         <tr><td>30 Nov</td><td>Submission deadline for the team report and the peer review, 23:55</td></tr>
                     </tbody>
                 </table>
@@ -148,7 +202,7 @@
                     <thead><tr><th scope="col">Topic</th><th scope="col">Tutor&rsquo;s guidance</th><th scope="col">Our response</th></tr></thead>
                     <tbody>
                         <tr><td>Team contract</td><td>No need to send it, as this is a group assessment; make sure everyone knows their role and contributes.</td><td>Roles were agreed at the kick-off on 29 October and are listed above.</td></tr>
-                        <tr><td>Extra data</td><td>Use AB_NYC_2019.csv as the main source. Any extra data must be justified, compatible with it and credited, and must help answer the business question.</td><td>E.S. first raised the September 2026 Inside Airbnb snapshot. On 31 October I proposed keeping to the Kaggle file: the snapshot is seven years newer, many listings changed after the 2023 rules, justifying it would cost words and time we do not have, and the listing titles already give us text. The group decides by 6 November.</td></tr>
+                        <tr><td>Extra data</td><td>Use AB_NYC_2019.csv as the main source. Any extra data must be justified, compatible with it and credited, and must help answer the business question.</td><td>E.S. first raised the September 2026 Inside Airbnb snapshot (Inside Airbnb, 2026). On 31 October I proposed keeping to the Kaggle file: the snapshot is seven years newer, many listings changed after the 2023 rules, justifying it would cost words and time we do not have, and the listing titles already give us text. The group decides by 6 November.</td></tr>
                         <tr><td>Comparison model</td><td>A simple linear regression baseline is allowed; Track 2 must still apply deep learning. The comparison can show what the network adds and its limits.</td><td>Matches our plan: S.N.&rsquo;s comparison model and A.A.&rsquo;s network are tested on the same split.</td></tr>
                         <tr><td>Cross-track discussion</td><td>Part of the module&rsquo;s group discussion activities, with details to follow. It is not marked; be ready to explain our approach, findings and how the method compares.</td><td>Our focus stays on the analysis and the report.</td></tr>
                         <tr><td>Report identification</td><td>Name the group and all its members; one member submits for the team.</td><td>The report will carry Group B and our five names, and I will submit it.</td></tr>
@@ -162,11 +216,45 @@
                 </div>
             </section>
 
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>Screenshots of my own contributions. Classmates&rsquo; names are covered.</p>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-first-proposal.png" alt="WhatsApp screenshot of the Group B chat, showing my first proposal to the group, sent on 23 October 2026 at 10:45. Classmates&rsquo; names are covered by grey boxes." width="1440" height="627" loading="lazy">
+                    <figcaption>Screenshot 1. My first proposal to the group on WhatsApp, 23 October 2026, 10:45. Classmates&rsquo; names are covered.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-minutes-history.png" alt="Version history of the shared Google Doc, with the top version named Anne: restructure and kick-off minutes, 30 Oct, saved by Anne Dayer on 30 October at 09:31. The line listing members&rsquo; names is covered by a grey box." width="1440" height="733" loading="lazy">
+                    <figcaption>Screenshot 2. Version history of the shared Doc: my restructure and kick-off minutes, saved under my name on 30 October at 09:31. Members&rsquo; names are covered.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-commit-name.png" alt="GitHub page for commit 8ee0924 in the team repository, with the author card open showing Tanky0, Anne Dayer." width="1440" height="299" loading="lazy">
+                    <figcaption>Screenshot 3. My commit of the data exploration notebook and train/test split to the team repository, showing my name.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-commit-time.png" alt="GitHub page for commit 8ee0924, titled Add first data exploration notebook and train/test split, showing the time as 27 October 2026, 11:01 GMT+1." width="1440" height="308" loading="lazy">
+                    <figcaption>Screenshot 4. The same commit, made on 27 October 2026 at 11:01.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-commit-history.png" alt="GitHub commit history of the team repository under the username Tanky0. On 27 October 2026, Add first data exploration notebook and train/test split. On 24 October 2026, Add raw Kaggle dataset, Add folder structure, experiment log and ignore rules, Write README for project info, and Initial commit." width="1440" height="452" loading="lazy">
+                    <figcaption>Screenshot 5. My commits to the team repository on 24 and 27 October 2026, setting it up and adding the data exploration notebook.</figcaption>
+                </figure>
+
+            </section>
+
             <section class="content-section reflist-section" id="references">
                 <h2>References</h2>
 
-                <div class="placeholder">
-                    <p>None yet.</p>
+                <div class="reflist">
+                    <p>Gomonov, D. (2019) <em>New York City Airbnb Open Data</em> [Dataset]. Kaggle. Available at: https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data (Accessed: 24 October 2026).</p>
+                    <p>Inside Airbnb (2026) <em>Get the Data</em>. Available at: https://insideairbnb.com/get-the-data/ (Accessed: 4 November 2026).</p>
+                    <p>New York City Mayor&rsquo;s Office of Special Enforcement (no date) <em>Registration Law</em>. Available at: https://www.nyc.gov/site/specialenforcement/registration-law/registration.page (Accessed: 4 November 2026).</p>
                 </div>
             </section>
 

@@ -151,7 +151,7 @@
                     <figcaption>Figure 1. Cost during the first 300 iterations for four learning rates, from my notebook run.</figcaption>
                 </figure>
 
-                <p>A larger learning rate shortened the descent only up to a limit set by the most curved direction of the cost, here 70 times as curved as the flattest; Goodfellow, Bengio and Courville (2016) explain why a rate safe for that direction makes slow progress along the flatter one. The cost is convex, with one global minimum (G&eacute;ron, 2025): 0.085 failed by exceeding the limit, not by missing a minimum. Standardising x, as G&eacute;ron (2025) recommends, raised the limit. Changing one target separated what the data control: the inputs set the safe learning rate, and the targets set the lowest reachable cost, so a cost stuck above zero may mean that no line fits rather than that the optimiser failed. Five constructed points leave nothing unseen to test.</p>
+                <p>A larger learning rate shortened the descent only up to a limit set by the cost&rsquo;s most curved direction (Goodfellow, Bengio and Courville, 2016). The cost is convex (G&eacute;ron, 2025): 0.085 failed by exceeding the limit, not by missing a minimum. Standardising x raised the limit. The inputs set the safe learning rate and the targets the lowest reachable cost, so a cost stuck above zero may mean no line fits. Five constructed points leave nothing unseen to test.</p>
             </section>
 
             <section class="content-section" id="evidence">

@@ -148,7 +148,7 @@
                     <figcaption>Figure 1. From my notebook run in Google Colab on 30 October 2026.</figcaption>
                 </figure>
 
-                <p>Jack and Mary are the most similar pair, while Jim and Mary are the least similar, consistent with Han, Kamber and Pei (2012). Checking the results helped me understand that Jaccard ignores shared zeros, making it important to know whether a zero means a negative result or simply that no test was performed. If these were real patient records, removing names alone would not guarantee anonymity. Before clustering such data, I would first clarify what the value A represents and ensure that the selected attributes and similarity measure are appropriate for the analysis.</p>
+                <p>Jack and Mary are the most similar pair, and Jim and Mary the least, consistent with Han, Kamber and Pei (2012). Checking the results showed me that Jaccard ignores shared zeros, so it matters whether a zero means a negative result or no test. In laboratory data, a blank can mean not ordered, not resulted or sample rejected: three different facts that Jaccard would treat alike. If these were real patient records, removing names alone would not guarantee anonymity. Before clustering such data, I would clarify what the value A represents and check that the attributes and similarity measure suit the analysis.</p>
             </section>
 
             <section class="content-section" id="evidence">

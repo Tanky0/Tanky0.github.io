@@ -136,10 +136,10 @@
                     <caption class="visually-hidden">Findings</caption>
                     <thead><tr><th scope="col">Step (n)</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
                     <tbody>
-                        <tr><td>Demo (850 customers)</td><td>Made five corrections, then refitted k = 3 on the scaled data</td><td>The clusters now come from scaled data with a fixed seed; the 150 missing default values are counted rather than hidden.</td></tr>
-                        <tr><td>Task A: iris (150 flowers)</td><td>Tried k = 2 to 8, then compared k = 3 with the species</td><td>134 of 150 matched (89.3%), adjusted Rand index 0.730 (Hubert and Arabie, 1985, cited in Arabie and Hubert, 1992). Z-scores lowered this to 83.3% and range scaling to 88.7%; the silhouette score was highest at k = 2.</td></tr>
-                        <tr><td>Task B: wine (178 wines)</td><td>Compared k = 3 with the three cultivars, on raw, z-scored and range-scaled measurements</td><td>Z-scores: 172 of 178 matched (96.6%), index 0.897. Range: 94.9%. Raw: 70.2%, index 0.371, although its silhouette score was higher.</td></tr>
-                        <tr><td>Task C: weather (120,381 days)</td><td>Removed the rain columns and incomplete rows, standardised, then tried k = 2 to 6</td><td>Silhouette scores of 0.16 to 0.24 at every k; k = 2 split warmer, less humid days from cooler, more humid ones. Filling gaps with medians instead gave almost the same k = 3 clusters (index 0.968).</td></tr>
+                        <tr><td>Demo (850 customers; IBM, no date)</td><td>Made five corrections, then refitted k = 3 on the scaled data</td><td>The clusters now come from scaled data with a fixed seed; the 150 missing default values are counted rather than hidden.</td></tr>
+                        <tr><td>Task A: iris (150 flowers; Fisher, 1936)</td><td>Tried k = 2 to 8, then compared k = 3 with the species</td><td>134 of 150 matched (89.3%), adjusted Rand index 0.730 (Hubert and Arabie, 1985, cited in Arabie and Hubert, 1992). Z-scores lowered this to 83.3% and range scaling to 88.7%; the silhouette score was highest at k = 2.</td></tr>
+                        <tr><td>Task B: wine (178 wines; Aeberhard and Forina, 1992)</td><td>Compared k = 3 with the three cultivars, on raw, z-scored and range-scaled measurements</td><td>Z-scores: 172 of 178 matched (96.6%), index 0.897. Range: 94.9%. Raw: 70.2%, index 0.371, although its silhouette score was higher.</td></tr>
+                        <tr><td>Task C: weather (120,381 days; Young, 2020)</td><td>Removed the rain columns and incomplete rows, standardised, then tried k = 2 to 6</td><td>Silhouette scores of 0.16 to 0.24 at every k; k = 2 split warmer, less humid days from cooler, more humid ones. Filling gaps with medians instead gave almost the same k = 3 clusters (index 0.968).</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -149,7 +149,7 @@
                     <figcaption>Figure 1. Iris petal measurements by true species (left) and by k = 3 cluster (right), from my notebook run.</figcaption>
                 </figure>
 
-                <p>A tidy set of clusters is not proof that the groups exist. The silhouette score (G&eacute;ron, 2025) disagreed with the labels twice: it preferred two iris groups although three species are present, and raw wine scored higher than z-scored wine while matching far worse. Scaling decided the wine result, yet z-scores, although Géron (2025) says scaling generally helps, lowered the iris match. Dividing by the range, which Milligan and Cooper (1988, cited in Arabie and Hubert, 1992) found better, came close to the best on both. Without location or date, the weather clusters cannot be interpreted by station or season. I would record scaling and missing-data choices for whoever acts on the clusters.</p>
+                <p>Clusters that look tidy do not show that real groups exist. The silhouette score (G&eacute;ron, 2025) preferred two iris groups although three species are present, and rated raw wine above z-scored wine, which matched far better. Z-scores, although G&eacute;ron (2025) says scaling generally helps, lowered the iris match; range scaling came close to the best on both. In a laboratory panel, an analyte reported in large numbers, such as platelets, would dominate unscaled clusters, as one measurement did in the raw wine data. Without location or date, the weather clusters cannot be interpreted. I would record scaling and missing-data choices for whoever acts on them.</p>
             </section>
 
             <section class="content-section" id="evidence">
@@ -173,8 +173,13 @@
                 <h2>References</h2>
 
                 <div class="reflist">
+                    <p>Aeberhard, S. and Forina, M. (1992) <em>Wine</em> [Dataset]. UCI Machine Learning Repository. Available at: https://doi.org/10.24432/C5PC7J</p>
                     <p>Arabie, P. and Hubert, L.J. (1992) &lsquo;Combinatorial data analysis&rsquo;, <em>Annual Review of Psychology</em>, 43, pp. 169&ndash;203. Available at: https://doi.org/10.1146/annurev.ps.43.020192.001125</p>
-                    <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>                </div>
+                    <p>Fisher, R.A. (1936) <em>Iris</em> [Dataset]. UCI Machine Learning Repository. Available at: https://doi.org/10.24432/C56C76</p>
+                    <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>
+                    <p>IBM (no date) <em>Customer Segmentation Teaching Dataset</em> [Dataset]. Available at: https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/ML0101ENv3/labs/Cust_Segmentation.csv (Accessed: 31 October 2026).</p>
+                    <p>Young, J. (2020) <em>Rain in Australia</em> [Dataset]. Kaggle. Observations from the Australian Bureau of Meteorology. Available at: https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package (Accessed: 31 October 2026).</p>
+                </div>
             </section>
         </div>
     </main>
