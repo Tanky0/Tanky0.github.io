@@ -136,7 +136,7 @@
                     <caption class="visually-hidden">Findings</caption>
                     <thead><tr><th scope="col">Task</th><th scope="col">Result</th></tr></thead>
                     <tbody>
-                        <tr><td>Missing values</td><td>A default load reported none. Six horsepower entries held &lsquo;?&rsquo;, so the column loaded as text. Parsed, they were left missing (392 of 398 rows); a median fill moved the horsepower to mpg correlation by only 0.005.</td></tr>
+                        <tr><td>Missing values</td><td>A default load reported none. Six horsepower entries held &lsquo;?&rsquo;, so the column loaded as text. Parsed, they were left missing rather than dropped, so the other columns keep all 398 cars (392 for horsepower); a median fill moved the horsepower to mpg correlation by only 0.005. Dropping them, as the seminar did, would remove four American and two European cars.</td></tr>
                         <tr><td>Skewness and kurtosis</td><td>All seven skewness estimates are positive; horsepower is the most skewed (1.09, excess kurtosis 0.70). Ames SalePrice skews 1.88, and 0.12 after a log transform.</td></tr>
                         <tr><td>Correlation and scatter plots</td><td>Weight, displacement and horsepower correlate with mpg at &minus;0.78 or stronger, and with each other at 0.86 or more, a collinearity to assess before regression. For horsepower, Spearman&rsquo;s rho (&minus;0.85) exceeds Pearson&rsquo;s r (&minus;0.78), which suggests a curved relationship.</td></tr>
                         <tr><td>Encoding</td><td>Origin arrives coded 1, 2, 3. The labels were restored and one-hot encoded, since a model would otherwise read the codes as an order.</td></tr>
@@ -149,7 +149,7 @@
                     <figcaption>Figure 1. Missing values after parsing the &lsquo;?&rsquo; token; only horsepower has gaps, in six rows.</figcaption>
                 </figure>
 
-                <p>The main finding is that a column loaded as text can hide missing values behind a token, so parsing types and checking ranges come before modelling. In central laboratory data, the same trap appears when a result field holds a comment such as &ldquo;QNS&rdquo; (quantity not sufficient) instead of a number: the file still loads. The data also carry obligations: the UCI release is licensed under CC BY 4.0 and needs attributing (Quinlan, 1993), as the house data need De Cock (2011). The cars are US-market models from 1970 to 1982, so fuel-economy claims for today&rsquo;s cars would be an extrapolation.</p>
+                <p>A column loaded as text can hide missing values behind a token, so parsing types and checking ranges come before modelling. In central laboratory data, the same trap appears when a result field holds a comment such as &ldquo;QNS&rdquo; (quantity not sufficient) instead of a number: the file still loads. The data also carry obligations: the UCI release is licensed under CC BY 4.0 and needs attributing (Quinlan, 1993), as the house data need De Cock (2011). The cars are US-market models from 1970 to 1982, so fuel-economy claims for today&rsquo;s cars would be an extrapolation.</p>
             </section>
 
             <section class="content-section" id="evidence">

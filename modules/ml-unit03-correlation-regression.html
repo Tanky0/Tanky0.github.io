@@ -139,7 +139,7 @@
                         <tr><td>Correlation (1,000)</td><td>Noise SD from 10 to 40</td><td>r fell from 0.888 to 0.446; covariance barely moved, 389.75 to 403.02.</td></tr>
                         <tr><td>Correlation (1,000)</td><td>y + 500; y &times; 10</td><td>r unchanged in both; covariance unchanged, then multiplied by 10.</td></tr>
                         <tr><td>Simple regression (13)</td><td>One point moved from (17, 86) to (17, 150)</td><td>Slope reversed from &minus;1.75 to +1.12; R&sup2; fell from 0.58 to 0.06.</td></tr>
-                        <tr><td>Multiple regression (36)</td><td>Lightest car&rsquo;s CO&#8322; + 50 g/km, refit</td><td>Weight coefficient from +0.0076 to &minus;0.0046 g/km per kg. Both supplied prediction cases weigh more than the heaviest observed car (1,746 kg).</td></tr>
+                        <tr><td>Multiple regression (36)</td><td>Lightest car&rsquo;s CO&#8322; + 50 g/km, refit</td><td>Weight coefficient from +0.0076 to &minus;0.0046 g/km per kg. Both supplied prediction cases weigh more than the heaviest observed car (1,746 kg). Weight and Volume also rise together (r = 0.75), a moderate overlap rather than the near-duplicates Seminar 2 warned about (0.84 to 0.95), so the small sample and weak fit (R&sup2; 0.38) probably matter more.</td></tr>
                         <tr><td>Polynomial (18)</td><td>Degree 6 against the cubic</td><td>Training R&sup2; 0.980 against 0.943, yet leave-one-out RMSE 6.38 against 4.23: the cubic predicts better.</td></tr>
                     </tbody>
                 </table>
@@ -150,7 +150,7 @@
                     <figcaption>Figure 1. Simple regression under a shift, added noise and one outlier.</figcaption>
                 </figure>
 
-                <p>The sign reversals came from single edge points: one outlier, one CO&#8322; value. A bioanalytical calibration curve is also a fitted line: one faulty standard at the top of the range could tilt every result read from it, which is why labs set acceptance criteria for each standard. A model this sensitive should state its observed range and validation error, not its fit, before use. Two notebooks failed as supplied, one calling an undefined name and one expecting a missing file, yet both held saved outputs; no output counts until a clean rerun. The substituted cars data are W3Schools&rsquo; teaching example, reusable for non-profit teaching but &lsquo;for testing purposes only&rsquo; (W3Schools, no date a, b).</p>
+                <p>The sign reversals came from single edge points: one outlier, one CO&#8322; value. A bioanalytical calibration curve is also a fitted line: one faulty standard at the top could tilt every result read from it, which is why labs set acceptance criteria for each standard. A model this sensitive should report its observed range and validation error before use. Two notebooks failed as supplied yet held saved outputs; no output counts until a clean rerun. The substituted cars data are W3Schools&rsquo; teaching example, reusable for non-profit teaching but &lsquo;for testing purposes only&rsquo; (W3Schools, no date a, b).</p>
             </section>
 
             <section class="content-section" id="evidence">

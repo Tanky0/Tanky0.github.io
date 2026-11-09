@@ -142,7 +142,7 @@
                         <tr><td>Ranking</td><td>Compared the top-10 lists with the most-rated films each user had not rated</td><td>The most-rated list scored 0.209 against 0.149, but covered 4.5% of films against 14.6%. The supplied cold-user slice held 1 test user.</td></tr>
                         <tr><td>Task 3: SHAP</td><td>Explained Blade Runner (1982) and the lowest prediction for user 13, through a ridge regression surrogate of the model (G&eacute;ron, 2025)</td><td>Blade Runner: 3.80 (user 13 rated it 4), mostly from the film&rsquo;s bias (+0.424); the 32 hidden terms netted +0.033. Bio-Dome (1996): 0.30, below the 1 to 5 scale. The surrogate matches the model closely on the rows it was fitted to (RMSE 0.0027).</td></tr>
                         <tr><td>Task 1: Yu et al. (2024)</td><td>Checked how the paper compares the CNN with four conventional models</td><td>The test table favours the CNN over a decision tree (RMSE 0.518 against 1.372), but the abstract quotes the CNN&rsquo;s training figures (0.528, R&sup2; 0.953) as test results. Computational efficiency is claimed without reported timings.</td></tr>
-                        <tr><td>Task 2: explaining to a stakeholder</td><td>Read the supplied SHAP example against the user&rsquo;s training history</td><td>User 90 has no training ratings, yet SHAP credited the user bias with +0.159, because it measures against the average, and the average user bias is negative.</td></tr>
+                        <tr><td>Task 2: explaining to a stakeholder</td><td>Read the supplied SHAP example against the user&rsquo;s training history</td><td>User 90 has no training ratings, yet SHAP credited the user bias with +0.159, because it measures against the average, and the average user bias is negative. LIME or a chart would show the same unnamed terms (Molnar, 2025).</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -152,7 +152,7 @@
                     <figcaption>Figure 1. Training and validation RMSE over the 30 supplied epochs, from my notebook run.</figcaption>
                 </figure>
 
-                <p>The figures were sounder than the claims built on them. Most test users were new, so the test mostly measured cold start, and validation error rose after epoch 5, overfitting (G&eacute;ron, 2025). A laboratory model trained on existing trial sites knows nothing about a new site, so one overall score cannot show how it will perform there; I would test it on sites it has not seen. SHAP split a surrogate&rsquo;s near-copy of each score into contributions (Molnar, 2025): correct arithmetic saying nothing about taste, and LIME or a chart would show the same unnamed terms. My team estimates, not forecasts, reviews per month; I would tell executives the target is review activity, not bookings.</p>
+                <p>The figures were sounder than the claims built on them. Most test users had no training ratings, and validation error rose after epoch 5, a sign of overfitting (G&eacute;ron, 2025). A laboratory model trained on existing trial sites knows nothing about a new site, so one overall score cannot show how it performs there; I would test it on sites it has not seen. SHAP split a surrogate&rsquo;s near-copy of each score into contributions (Molnar, 2025): correct arithmetic saying nothing about taste. My team estimates reviews per month, so I would tell executives the target is review activity, not bookings.</p>
             </section>
 
             <section class="content-section" id="evidence">
