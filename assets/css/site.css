@@ -453,6 +453,28 @@ main { padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem; }
 .content-section li,
 .intro-section li { margin-bottom: 0.5rem; padding-left: 0.3rem; }
 
+/* Home intros: once the module grid shows three columns, the heading takes
+   the first column and the text starts with the second card's text, so the
+   width is used without stretching lines past the reading measure. */
+@media (min-width: 68rem) {
+    .intro-split {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+    }
+    .intro-split > h2 {
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        margin-bottom: 0;
+        padding-right: 2rem;
+    }
+    .intro-split > :not(h2) {
+        grid-column: 2;
+        padding-left: 1.85rem;
+    }
+    .intro-split > .cv-link { justify-self: start; margin-left: 1.85rem; padding-left: 1.15rem; }
+}
+
 .content-section li::marker { color: var(--accent); }
 
 .content-section em { color: var(--ink-2); }
