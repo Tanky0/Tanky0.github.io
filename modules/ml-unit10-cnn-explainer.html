@@ -138,7 +138,7 @@
                     <tbody>
                         <tr><td>Built-in examples</td><td>Ran the ten CNN Explainer examples through the same weights, as a reference group</td><td>10 of 10 correct, with scores from 0.786 to 0.995.</td></tr>
                         <tr><td>Trained and related class</td><td>A synthetic sports car and a synthetic teacup</td><td>The car was called ladybug (0.876), with bell pepper and orange next. The teacup was called espresso (0.974).</td></tr>
-                        <tr><td>Outside the label set</td><td>Three photos of my cat, our New Year table and a synthetic wrench, with my expected class for each photo written before my first run</td><td>The wrench was called espresso (0.983), the cats espresso (0.795 to 0.916) and the table koala (0.466). Of my seven guesses, only the teacup held.</td></tr>
+                        <tr><td>Outside the label set</td><td>Three photos of my two cats, our New Year table and a synthetic wrench, with my expected class for each photo written before my first run</td><td>The wrench was called espresso (0.983), the cats espresso (0.795 to 0.916) and the table koala (0.466). Of my seven guesses, only the teacup held.</td></tr>
                         <tr><td>Layers</td><td>Compared the share of positive values after the final ReLU layer</td><td>61.8% for the built-in examples and 59.7% for the images outside the label set: little separation on this measure.</td></tr>
                         <tr><td>Preparation</td><td>Centre crop, padding and a browser-like resize for each image</td><td>The top class changed for every photo and for none of the synthetic images. Replacing the resizing routine in Colab changed the blanket cat from espresso to pizza; CNN Explainer also said pizza.</td></tr>
                         <tr><td>Threshold</td><td>Counted what a minimum score would accept</td><td>Any threshold high enough to reject the wrench would also reject six of the ten built-in examples. At 0.90, seven are kept while two, one or none of the five outside images pass, depending on the preparation.</td></tr>
@@ -151,7 +151,7 @@
                     <figcaption>Figure 1. Each image and its three 64 &times; 64 inputs, with the top class and score. From my notebook run.</figcaption>
                 </figure>
 
-                <p>I expected confusion with things of a similar type, shape or colour: red panda for my two ginger cats and koala for my grey one. The teacup was labelled espresso, as I expected, but fur colour led to neither red panda nor koala: all three cats became espresso. With no &ldquo;unknown&rdquo; class, the highest softmax score always wins (Wang et al., 2021), and no threshold separated familiar from unfamiliar images here; detecting unfamiliar inputs is a separate task (Yang et al., 2024). Before sign-off, I would ask how often an abstention rule accepts outside images and rejects valid ones, with one fixed input pipeline.</p>
+                <p>I expected confusion with things of a similar type, shape or colour: red panda for my golden-brown tabby, in two photos, and koala for my grey cat. The teacup was labelled espresso, as I expected, but fur colour led to neither red panda nor koala: all three cat photos became espresso. With no &ldquo;unknown&rdquo; class, the highest softmax score always wins (Wang et al., 2021), and no threshold separated familiar from unfamiliar images here; detecting unfamiliar inputs is a separate task (Yang et al., 2024). Before sign-off, I would ask how often an abstention rule accepts outside images and rejects valid ones, with one fixed input pipeline.</p>
             </section>
 
             <section class="content-section" id="evidence">
@@ -160,11 +160,10 @@
                 <p>I ran the notebook in Google Colab on the CPU. It loads the CNN Explainer weights and built-in examples from the tool&rsquo;s repository, fixed to one commit (Polo Club of Data Science, 2023). Its first code cell records the run, and all 14 code cells completed without errors:</p>
 <pre><code>Run by Anne Dayer (student 39359) in Google Colab on 12 November 2026 at 18:58 UTC</code></pre>
 
-                <p>The report adds the threshold table, the layer maps, the browser screenshots and the Unit 9 comparison. The synthetic images were generated for this exercise, not photographed, and the tool does not say whether its built-in examples were training images.</p>
+                <p>The synthetic images were generated for this exercise, not photographed, and the tool does not say whether its built-in examples were training images.</p>
 
                 <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit10_CNN_Explainer_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
                 <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit10_CNN_Explainer_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
-                <a href="../assets/documents/ML_Unit10_CNN_Report.pdf" class="download-link" target="_blank" rel="noopener noreferrer">e-Portfolio report (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
             </section>
 
             <section class="content-section" id="ai-acknowledgement">

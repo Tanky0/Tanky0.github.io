@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>Model Performance Measurement - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 11 e-portfolio activity: the supplied model performance notebook run and repaired, with parameters changed to see their effect on AUC and R2, and what one AUC leaves out.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit11-model-performance.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="Model Performance Measurement - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 11 e-portfolio activity: the supplied model performance notebook run and repaired, with parameters changed to see their effect on AUC and R2, and what one AUC leaves out.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit11-model-performance.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 11 e-Portfolio Activity</a></p>
+            <h1>Model Performance Measurement</h1>
+            <p class="lede">The supplied metrics notebook repaired and retested fairly: one AUC of 0.992 covered both 4 missed cancers and 1, depending on the threshold.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>Model Performance Measurement</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 11</strong> &middot; Run 13 November 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
+
+                <p><strong>Activity guidance:</strong> run the supplied <code>model_Performance_Measurement.ipynb</code>, change different parameters and observe the impact on AUC and R&sup2;. I wrote down three expectations before my first run, then reran the notebook so that C and alpha were chosen by cross-validation on the training data and each chosen model evaluated once on held-out data; other settings are shown on the same held-out cases for comparison only (Jordan, 2017). Two expectations held and one did not.</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Step</th><th scope="col">What I did</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Supplied notebook</td><td>Ran every supplied cell in order</td><td>Three cells needed a change: a stray space, a solver newer scikit-learn versions no longer accept for three classes, and a cell headed RMSE that returns the MSE (0.375, where the RMSE is 0.612).</td></tr>
+                        <tr><td>Where AUC is measured</td><td>Breast-cancer data (Wolberg et al., 1993): one fixed, unscaled model fitted on 70% of the cases</td><td>0.993 on its training data and 0.996 on the 30% held out, so my expectation of a lower held-out figure did not hold for that model. A separate, cross-validation-selected model gave its own held-out estimate of 0.992.</td></tr>
+                        <tr><td>C and scaling</td><td>Five-fold cross-validation on the training cases only, then one final test</td><td>C = 1 with scaled features chosen; held-out AUC 0.992, against 0.5 for a baseline giving every case the same score.</td></tr>
+                        <tr><td>Thresholds</td><td>Malignant as the positive class, thresholds 0.5, 0.3 and 0.1 fixed before the test</td><td>Same AUC of 0.992 throughout; cancers missed 4, 3 and 1 of 64, false alarms 4, 10 and 14.</td></tr>
+                        <tr><td>Noise features</td><td>Iris data (Fisher, 1936) with 0 to 800 random features, five random draws</td><td>Mean class-2 AUC fell from 0.995 to 0.847, 0.822 and 0.765, as I expected; the ranges at 40 and 200 overlapped.</td></tr>
+                        <tr><td>Ridge alpha and degree</td><td>Diabetes data (Efron et al., 2004), alpha chosen by cross-validation</td><td>Alpha 0.1 gave a held-out R&sup2; of 0.402, against 0.00 for the training mean. At degree 3 (286 columns, rank 275, 309 training cases), training R&sup2; was 0.947 and held-out R&sup2; &minus;65.9.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit11-thresholds.png" alt="A held-out ROC curve for the chosen breast-cancer model, rising steeply near the top-left corner, with an area under the curve of 0.992 and a dashed diagonal baseline at 0.5. Three points mark thresholds of 0.5, 0.3 and 0.1, which miss 4, 3 and 1 cancers and give 4, 10 and 14 false alarms." width="497" height="470" loading="lazy">
+                    <figcaption>Figure 1. Held-out ROC curve for the chosen breast-cancer model, malignant as positive, with the three thresholds and the constant-score baseline marked. From my notebook run.</figcaption>
+                </figure>
+
+                <p>One AUC is not enough. The chosen model, with a held-out AUC of 0.992, missed 4 of 64 cancers at a threshold of 0.5 and 1 at 0.1, while false alarms rose from 4 to 14. In a real pathway, more false alarms could mean patient anxiety and follow-up demand, while a missed case could delay assessment. If such a model were used on patients, a missed cancer and a false alarm would not cost the same (Novakovi&cacute; et al., 2017), and training it on patients&rsquo; records would mean processing identifiable patient health data under the UK GDPR, which needs a lawful basis under article 6 and a separate condition under article 9 (Information Commissioner&rsquo;s Office, 2026). Before sign-off, I would ask that metrics come from data the model did not see, that each sits beside a baseline, that each label means what it says, and that the chosen threshold comes with its counts of missed cases and false alarms.</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>I ran the notebook in Google Colab on the CPU. All three data sets ship with scikit-learn. Its first code cell records the run, and all 28 code cells completed without errors, in order:</p>
+<pre><code>Run by Anne Dayer (student 39359) in Google Colab on 13 November 2026 at 12:45 UTC</code></pre>
+
+                <a href="https://github.com/Tanky0/Tanky0.github.io/blob/main/assets/documents/ML_Unit11_Model_Performance_Notebook.ipynb" class="download-link">Notebook with outputs (GitHub)</a>
+                <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit11_Model_Performance_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Codex was used to assist in identifying appropriate code solutions and to proofread and refine the code I produced. Claude and Grammarly supported proofreading, language refinement, and formatting of my written text. All final decisions, analyses, interpretations, conclusions, and recommendations are my own.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>Efron, B., Hastie, T., Johnstone, I. and Tibshirani, R. (2004) &lsquo;Least angle regression&rsquo;, <em>The Annals of Statistics</em>, 32(2), pp. 407&ndash;499. Available at: https://doi.org/10.1214/009053604000000067.</p>
+                    <p>Fisher, R.A. (1936) &lsquo;The use of multiple measurements in taxonomic problems&rsquo;, <em>Annals of Eugenics</em>, 7(2), pp. 179&ndash;188. Available at: https://doi.org/10.1111/j.1469-1809.1936.tb02137.x.</p>
+                    <p>Information Commissioner&rsquo;s Office (2026) <em>Special category data</em>. Available at: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/ (Accessed: 13 November 2026).</p>
+                    <p>Jordan, J. (2017) &lsquo;Evaluating a machine learning model&rsquo;, <em>Jeremy Jordan</em>, 21 July. Available at: https://www.jeremyjordan.me/evaluating-a-machine-learning-model/ (Accessed: 20 October 2026).</p>
+                    <p>Novakovi&cacute;, J.Dj., Veljovi&cacute;, A., Ili&cacute;, S.S., Papi&cacute;, &Zcaron;. and Tomovi&cacute;, M. (2017) &lsquo;Evaluation of classification models in machine learning&rsquo;, <em>Theory and Applications of Mathematics &amp; Computer Science</em>, 7(1), pp. 39&ndash;46.</p>
+                    <p>Wolberg, W., Mangasarian, O., Street, N. and Street, W. (1993) <em>Breast Cancer Wisconsin (Diagnostic)</em> [Dataset]. UCI Machine Learning Repository. Available at: https://doi.org/10.24432/C5DW2B.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>

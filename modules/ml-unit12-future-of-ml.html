@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBFAF7">
+    <title>Future of Machine Learning - Anne Dayer</title>
+    <meta name="description" content="Machine Learning Unit 12 seminar preparation: self-supervised learning, Neural Architecture Search, Edge AI and the ethics and sustainability of AI, worked through one predictive-maintenance case.">
+    <meta name="author" content="Anne Dayer">
+    <link rel="canonical" href="https://tanky0.github.io/modules/ml-unit12-future-of-ml.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Anne Dayer - MSc AI ePortfolio">
+    <meta property="og:title" content="Future of Machine Learning - Anne Dayer">
+    <meta property="og:description" content="Machine Learning Unit 12 seminar preparation: self-supervised learning, Neural Architecture Search, Edge AI and the ethics and sustainability of AI, worked through one predictive-maintenance case.">
+    <meta property="og:url" content="https://tanky0.github.io/modules/ml-unit12-future-of-ml.html">
+    <meta property="og:image" content="https://tanky0.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <script src="../assets/js/site.js" defer></script>
+    <script>(function(){var t=null;try{t=localStorage.getItem("theme");}catch(e){}if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m){m.setAttribute("content",t==="dark"?"#0E1216":"#FBFAF7");}})();</script>
+
+    <style>
+    /* Artefact-local styles, scoped to .artefact and built from the existing
+       site tokens. The site stylesheet has no code or figure rules. */
+
+    .artefact pre {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-left: 2px solid var(--accent-line);
+        padding: 0.9rem 1.1rem;
+        margin: 1rem 0 1.4rem;
+        overflow-x: auto;
+        white-space: pre;
+        tab-size: 2;
+    }
+    .artefact pre::-webkit-scrollbar { height: 8px; }
+    .artefact pre::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 99px; }
+
+    .artefact :not(pre) > code {
+        font-family: var(--mono);
+        font-size: 0.86em;
+        background: var(--accent-soft);
+        color: var(--ink);
+        padding: 0.08em 0.34em;
+        border-radius: 2px;
+    }
+    .artefact pre code { background: none; padding: 0; font-size: inherit; }
+
+    .artefact figure {
+        margin: 1.6rem 0 0.6rem;
+        border: 1px solid var(--rule);
+        background: var(--paper-2);
+        padding: 1.1rem 1rem 0.8rem;
+    }
+    .artefact figure .fig-scroll { overflow-x: auto; }
+    .artefact figcaption {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-top: 0.85rem;
+        text-align: center;
+    }
+
+
+    .artefact .reflist > p {
+        max-width: var(--prose);
+        padding-left: 2.2rem;
+        text-indent: -2.2rem;
+        margin-bottom: 0.85rem;
+        font-size: var(--step--1);
+    }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+    <nav class="topbar" aria-label="Primary">
+        <div class="wrap topbar__inner">
+            <a class="brand" href="../index.html">
+                <span class="brand__name">Anne Dayer</span>
+                <span class="brand__meta">MSc Artificial Intelligence</span>
+            </a>
+            <div class="topbar__right">
+                <ul class="navlinks" id="primary-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Me</a></li>
+                    <li><a href="../index.html#modules">Modules</a></li>
+                </ul>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"></path></svg></button>
+                <button class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="wrap">
+            <p class="eyebrow"><a href="machine-learning.html">Machine Learning</a> &middot; <a href="machine-learning.html#learning-outcomes">Unit 12 Seminar Preparation</a></p>
+            <h1>Future of Machine Learning</h1>
+            <p class="lede">Four seminar topics, one maintenance case: each technique solves a real problem but usually moves the risk somewhere else.</p>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container artefact">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / <a href="machine-learning.html">Machine Learning</a> / <span>Future of Machine Learning</span>
+            </div>
+
+            <section class="content-section" id="the-activity">
+                <h2>The Activity</h2>
+
+                <p class="deadline"><strong>Unit 12</strong> &middot; Prepared 13 November 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 to 4</p>
+
+                <p><strong>Seminar brief:</strong> review and discuss how AI-driven automation is reshaping industries, through self-supervised learning, Neural Architecture Search, Edge AI, and the future of AI ethics, scalability and sustainability. I prepared by working all four topics through one case, predictive maintenance of induction motors, which the unit&rsquo;s required reading surveys (Drakaki et al., 2022). No code was run for this activity.</p>
+            </section>
+
+            <section class="content-section" id="findings">
+                <h2>Findings</h2>
+
+                <div class="table-scroll">
+                <table>
+                    <caption class="visually-hidden">Findings</caption>
+                    <thead><tr><th scope="col">Topic</th><th scope="col">What I looked at</th><th scope="col">What I found</th></tr></thead>
+                    <tbody>
+                        <tr><td>Self-supervised learning</td><td>Motor current and vibration (Gopalakrishnan et al., 2026)</td><td>94.2% accuracy against 89.1% for the strongest centralised model without SSL, but each site still fine-tuned on labelled data. The useful test is rare-fault recall on unseen machines at the same label budget.</td></tr>
+                        <tr><td>Neural Architecture Search</td><td>ENAS on microcontrollers (Khan, Srivastava and Arjunan, 2026)</td><td>Mean search time fell from 102.2 to 42.4 minutes with no significant accuracy difference, but the chosen models used more Flash and computation, and energy was only estimated.</td></tr>
+                        <tr><td>Edge AI</td><td>Alarms on the device; EU refrigeration incidents since October 2026 (ENISA, 2026)</td><td>Local alarms keep working when the network fails, but connected controllers open a new route for attacks. Since September 2026, manufacturers must report actively exploited vulnerabilities under the EU Cyber Resilience Act.</td></tr>
+                        <tr><td>Ethics, scalability and sustainability</td><td>Zhou et al. (2023), Morales, Nousala and Ghobakhloo (2024), the International Energy Agency (2026) and GOV.UK guidance</td><td>Efficiency gains make AI more widely used, so total AI electricity use is still expected to rise. Alert histories that identify operators become staff records, so monitoring must be justified and staff told.</td></tr>
+                        <tr><td>Remote team</td><td>A proposed rollout decision</td><td>The device lead and the maintenance lead record their evidence in one shared log, and one named person signs the decision.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <figure>
+                    <img src="../assets/images/ml-unit12-workflow.png" alt="A six-step workflow drawn as boxes with arrows: 1 define the decision and split the data, holding the test set aside; 2 pretrain on unlabelled training data; 3 search and fine-tune using development data; 4 device checks for latency, energy and safe fallback; 5 a locked test on new machines or future periods; 6 a human decision, with versions monitored and rolled back if needed." width="1386" height="803" loading="lazy">
+                    <figcaption>Figure 1. My proposed workflow for motor maintenance. The test data are kept apart from pretraining and model selection. No model or digital twin was built.</figcaption>
+                </figure>
+
+                <p>Before a wider rollout, I would want to see three things. The model should find rare faults on machines it has never seen. Measured on the device, it should be fast enough, its energy use should be known, and it should do better than the current maintenance routine. Finally, one named person should sign the decision and keep the log.</p>
+            </section>
+
+            <section class="content-section" id="evidence">
+                <h2>Evidence</h2>
+
+                <p>Khan, Srivastava and Arjunan&rsquo;s (2026) resource table, reproduced here under its CC BY-SA 4.0 licence, is the evidence for the Neural Architecture Search row above.</p>
+
+                <figure>
+                    <div class="table-scroll">
+                    <table>
+                        <caption class="visually-hidden">Resource footprint of models selected by ENAS and NanoNAS</caption>
+                        <thead><tr><th scope="col">Dataset</th><th scope="col">Method</th><th scope="col">RAM (KB)</th><th scope="col">Flash (KB)</th><th scope="col">MACC (M)</th></tr></thead>
+                        <tbody>
+                            <tr><td>VWW</td><td>NanoNAS</td><td>40.4 &plusmn; 28.6</td><td>14.0 &plusmn; 4.6</td><td>1.77 &plusmn; 1.49</td></tr>
+                            <tr><td></td><td>ENAS</td><td>12.1 &plusmn; 5.5</td><td>53.8 &plusmn; 37.8</td><td>2.56 &plusmn; 2.44</td></tr>
+                            <tr><td>Cancer</td><td>NanoNAS</td><td>37.0 &plusmn; 27.3</td><td>9.4 &plusmn; 2.4</td><td>0.86 &plusmn; 0.86</td></tr>
+                            <tr><td></td><td>ENAS</td><td>7.6 &plusmn; 4.1</td><td>50.7 &plusmn; 42.0</td><td>1.85 &plusmn; 1.72</td></tr>
+                            <tr><td>Ratio (all, VWW / Cancer)</td><td></td><td>0.30 / 0.21</td><td>3.84 / 5.40</td><td>1.44 / 2.15</td></tr>
+                            <tr><td>Ratio (matched acc.)</td><td></td><td>0.38 / 0.38</td><td>2.85 / 5.73</td><td>1.39 / 3.94</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <figcaption>Table 1. Reproduced from Khan, Srivastava and Arjunan (2026, Table 3), licensed under CC BY-SA 4.0: measured resource footprint of selected models, mean &plusmn; std over the 53 feasible cells (RAM and Flash measured with stm32tflm; MACC analytical). The final two rows give the ENAS/NanoNAS ratio over all cells and restricted to matched-accuracy cells (|&Delta;acc| &le; 1 pp). VWW is Visual Wake Words; Cancer is the authors&rsquo; melanoma image dataset.</figcaption>
+                </figure>
+
+            </section>
+
+            <section class="content-section" id="ai-acknowledgement">
+                <h2>AI Acknowledgement</h2>
+
+                <p>Generative AI tools (Grammarly and Claude) were used for proofreading, language refinement, and formatting support. All analyses, interpretations, conclusions and recommendations are my own work.</p>
+            </section>
+
+            <section class="content-section reflist-section" id="references">
+                <h2>References</h2>
+
+                <div class="reflist">
+                    <p>Chowdhery, A., Warden, P., Shlens, J., Howard, A. and Rhodes, R. (2019) &lsquo;Visual Wake Words dataset&rsquo;, <em>arXiv</em> [Preprint]. Available at: https://doi.org/10.48550/arXiv.1906.05721.</p>
+                    <p>Drakaki, M., Karnavas, Y.L., Tziafettas, I.A., Linardos, V. and Tzionas, P. (2022) &lsquo;Machine learning and deep learning based methods toward Industry 4.0 predictive maintenance in induction motors: state of the art survey&rsquo;, <em>Journal of Industrial Engineering and Management</em>, 15(1), pp. 31&ndash;57. Available at: https://doi.org/10.3926/jiem.3597.</p>
+                    <p>ENISA (2026) <em>Joint statement on cyber incidents in refrigeration systems across the EU</em>, 4 November. Available at: https://www.enisa.europa.eu/news/joint-statement-on-cyber-incidents-in-refrigeration-systems-across-the-eu (Accessed: 13 November 2026).</p>
+                    <p>Gopalakrishnan, T., Shanmugasundaram, N., Simon, D., Chan, C.K., Sonawane, C., Dixit, S. and Bongale, A. (2026) &lsquo;Data-driven predictive maintenance of induction motors using self-supervised and federated learning on noisy current and vibration signals&rsquo;, <em>Scientific Reports</em>, 16, article 16396. Available at: https://doi.org/10.1038/s41598-026-46550-6.</p>
+                    <p>GOV.UK (no date) <em>Data protection and your business: monitoring staff at work</em>. Available at: https://www.gov.uk/data-protection-your-business/monitoring-staff-at-work (Accessed: 13 November 2026).</p>
+                    <p>International Energy Agency (2026) <em>Key questions on energy and AI</em>. Paris: IEA. Available at: https://www.iea.org/reports/key-questions-on-energy-and-ai (Accessed: 13 November 2026).</p>
+                    <p>Khan, M.M., Srivastava, N. and Arjunan, P. (2026) &lsquo;ENAS: an efficient hardware-aware neural architecture search framework for TinyML on resource-constrained microcontrollers&rsquo;, <em>arXiv</em> [Preprint]. Available at: https://doi.org/10.48550/arXiv.2609.30272.</p>
+                    <p>Morales, M., Nousala, S. and Ghobakhloo, M. (2024) &lsquo;The complexity of sustainable innovation, transitional impacts of Industry 4.0 to 5.0 for our societies: circular society exploring the systemic nexus of socioeconomic transitions&rsquo;, in Nousala, S., Metcalf, G. and Ing, D. (eds) <em>Industry 4.0 to Industry 5.0: explorations in the transition from a techno-economic to a socio-technical future</em>. Singapore: Springer, pp. 31&ndash;56. Available at: https://doi.org/10.1007/978-981-99-9730-5_2.</p>
+                    <p>Zhou, M., Qiao, Y., Liu, B., Vogel-Heuser, B. and Kim, H. (2023) &lsquo;Machine learning for Industry 4.0 [From the Guest Editors]&rsquo;, <em>IEEE Robotics &amp; Automation Magazine</em>, 30(2), pp. 8&ndash;9. Available at: https://doi.org/10.1109/MRA.2023.3266618.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025&ndash;2026 Anne Dayer &middot; MSc Artificial Intelligence &middot; University of Essex Online</p>
+        </div>
+    </footer>
+</body>
+</html>
