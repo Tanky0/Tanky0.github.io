@@ -120,10 +120,10 @@
                     <caption class="visually-hidden">Team, Contract and Roles</caption>
                     <thead><tr><th scope="col">Member</th><th scope="col">Contribution</th><th scope="col">Team role</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Anne Dayer (me)</strong></td><td>Coordination, minutes, tutor contact, merging and submitting the report</td><td>Lead and integration</td></tr>
+                        <tr><td><strong>Anne Dayer (me)</strong></td><td>Coordination, minutes, tutor contact, the final test, merging and submitting the report</td><td>Lead and integration</td></tr>
                         <tr><td>S.M.</td><td>Data cleaning, features, exploration figures and the test split</td><td>Data and exploration</td></tr>
                         <tr><td>S.N.</td><td>Comparison model and evaluation</td><td>Modelling: baseline</td></tr>
-                        <tr><td>A.A.</td><td>Main neural network and the final test</td><td>Modelling: neural network</td></tr>
+                        <tr><td>A.A.</td><td>Main neural network, with S.N. on evaluation</td><td>Modelling: neural network</td></tr>
                         <tr><td>E.S.</td><td>Business narrative, final charts and the recommendation</td><td>Business narrative and visuals</td></tr>
                     </tbody>
                 </table>
@@ -180,16 +180,28 @@
                         <tr><td>31 Oct</td><td>Tutor replied to the 25 October questions, copying the group (see Feedback Received)</td></tr>
                         <tr><td>31 Oct</td><td>I sent four follow-up questions to the tutor on the text input, word count, appendices and code; answered the same afternoon</td></tr>
                         <tr><td>10 Nov</td><td>Tutor set out the cross-track discussion: Student Lounge, after the deadline (see Feedback Received)</td></tr>
+                        <tr><td>11 Nov</td><td>I booked the second and last call for 17 November on Zoom</td></tr>
+                        <tr><td>13 Nov</td><td>First drafts due. I posted each member&rsquo;s next steps and drafted the introduction</td></tr>
+                        <tr><td>15 Nov</td><td>The network rerun, both tables and the final test moved to 17 November. I moved the second call to 18 November and offered to pick up whatever was left by 8am that day</td></tr>
+                        <tr><td>16 Nov</td><td>Second call confirmed for 18 November, as no one objected</td></tr>
+                        <tr><td>17 Nov</td><td>A.A. pushed the network rerun and both tables (notebook 06); E.S. added Figure 1</td></tr>
+                        <tr><td>18 Nov</td><td>I ran the final test once in notebook 07 and posted the results to the group and the run log. I added review comments on every section for the second call</td></tr>
                         <tr><td>30 Nov</td><td>Submission deadline for the team report and the peer review, 23:55</td></tr>
                     </tbody>
                 </table>
                 </div>
             </section>
 
+            <section class="content-section" id="results">
+                <h2>Results</h2>
+
+                <p>On the 9,781 hidden listings, the average error was 1.05 reviews per month for the median guess, 1.01 for the straight-line model and 0.93 for the network. In the five practice rounds, the network&rsquo;s error was lower than the straight-line model&rsquo;s every time, but 0 of 5 rounds reached our agreed bar of a 10% cut.</p>
+            </section>
+
             <section class="content-section" id="my-contribution">
                 <h2>My Contribution</h2>
 
-                <p>As lead and integrator I hold the deadlines, the minutes and the contact with the tutor, and I will merge and submit the report. So far, I have posted the first proposal on 23 October, gathered the five signatures on the contract and sent it to the tutor, put four scope questions to her, and set up the shared Doc, the GitHub repository and the Colab route. My first look at the data (notebook 01-load-and-inspect-ad.ipynb) covered 48,895 listings, 21% of them never reviewed, and showed why availability could not serve as a target. I proposed a first test split, kept for the record once S.M.&rsquo;s better-balanced split replaced it, and I chaired the kick-off and wrote the minutes. My own sections, the introduction and the conclusion, are due with the first drafts on 13 November.</p>
+                <p>As lead and integrator I hold the deadlines, the minutes and the contact with the tutor, and I will merge and submit the report. So far, I have posted the first proposal on 23 October, gathered the five signatures on the contract and sent it to the tutor, put four scope questions to her, and set up the shared Doc, the GitHub repository and the Colab route. My first look at the data (notebook 01-load-and-inspect-ad.ipynb) covered 48,895 listings, 21% of them never reviewed, and showed why availability could not serve as a target. I proposed a first test split, kept for the record once S.M.&rsquo;s better-balanced split replaced it, and I chaired the kick-off and wrote the minutes. I drafted the introduction for the first drafts on 13 November and rewrote the conclusion around the final results on 18 November. I ran the final test myself, once, in notebook 07 on 18 November: each model was refitted on all 39,114 development listings and scored once on the 9,781 hidden ones, with the network&rsquo;s training length fixed beforehand at 34 epochs from the practice rounds.</p>
             </section>
 
             <section class="content-section" id="feedback-received">
@@ -245,6 +257,21 @@
                 <figure class="forum-shot">
                     <img src="../assets/images/ml-team-commit-history.png" alt="GitHub commit history of the team repository under the username Tanky0. On 27 October 2026, Add first data exploration notebook and train/test split. On 24 October 2026, Add raw Kaggle dataset, Add folder structure, experiment log and ignore rules, Write README for project info, and Initial commit." width="1440" height="452" loading="lazy">
                     <figcaption>Screenshot 5. My commits to the team repository on 24 and 27 October 2026, setting it up and adding the data exploration notebook.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-final-test-commit-name.png" alt="GitHub page for commit b2191c5 in the team repository, with the author card open showing Tanky0, Anne Dayer, owner of the repository." width="1440" height="356" loading="lazy">
+                    <figcaption>Screenshot 6. My commit of the final test notebook (b2191c5) to the team repository, showing my name.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-final-test-commit-time.png" alt="GitHub page for commit b2191c5, titled Add final test notebook 07 and record held-out results, made on 18 November 2026 at 10:16 GMT+1. Its message records held-out average errors of 1.0510 for the median benchmark, 1.0088 for linear regression and 0.9289 for the network, with the network trained for 34 epochs." width="1440" height="353" loading="lazy">
+                    <figcaption>Screenshot 7. The same commit, made on 18 November 2026 at 10:16, with the held-out results in its message.</figcaption>
+                </figure>
+
+                <figure class="forum-shot">
+                    <img src="../assets/images/ml-team-report-history.png" alt="Version history of the shared Google Doc on 18 November 2026 at 12:07, current version saved by Anne Dayer. The Report tab shows the new title block, Review activity and minimum stays in New York Airbnb listings: what does a neural network add?, Group B, Track 2: Deep Learning, and the edited introduction. The line listing members&rsquo; names is covered by a grey box." width="1440" height="732" loading="lazy">
+                    <figcaption>Screenshot 8. Version history of the shared Doc on 18 November at 12:07: my title block and introduction edits, saved under my name. Members&rsquo; names are covered.</figcaption>
                 </figure>
 
             </section>
