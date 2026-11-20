@@ -123,7 +123,7 @@
             <section class="content-section" id="the-activity">
                 <h2>The Activity</h2>
 
-                <p class="deadline"><strong>Unit 5</strong> &middot; Posted 29 October 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
+                <p class="deadline"><strong>Unit 5</strong> &middot; Posted 29 October 2026, peer reply 20 November 2026 &middot; Tutor: Dr Elizabeth Oladapo &middot; Evidences learning outcomes 1 and 2</p>
 
                 <p><strong>Activity guidance:</strong> watch two clustering animations and relate each to the logic of the k-means algorithm, starting the second with &lsquo;I&rsquo;ll Choose&rsquo; followed by &lsquo;Uniform Points&rsquo;; share thoughts on both in the module wiki and comment on peers&rsquo; posts.</p>
             </section>
@@ -139,6 +139,7 @@
                         <tr><td>Animation 1 (Shabalin, no date)</td><td>All four centres started at the leftmost points</td><td>One group split and two merged: a local optimum, a stable answer that is not the best one (G&eacute;ron, 2025).</td></tr>
                         <tr><td>Animation 2 (Harris, 2014)</td><td>Ten centres bunched in the middle of evenly spread points</td><td>K-means still produced ten tidy regions; restarts cannot fix this.</td></tr>
                         <tr><td>Python check (250 points, 3 samples)</td><td>SSE and silhouette for k = 1 to 8, on even points and on four simulated groups</td><td>Even points: silhouette 0.36 to 0.42 for every k. Four groups: 0.76 to 0.78 at k = 4.</td></tr>
+                        <tr><td>Peer reply (20 November)</td><td>Replied to a peer&rsquo;s post on the same animations</td><td>The silhouette is defined only for two or more groups (Rousseeuw, 1987), so it cannot compare a split with one group; in real patient data the checks found no clear number of groups (Lugner et al., 2021).</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -151,6 +152,24 @@
                 <p>K-means almost always returns the number of groups it is asked for, so a tidy result is not proof that the groups exist. The elbow plot alone was not enough: the even data seemed to bend at four, while the silhouette stayed near 0.4. If an insurer made one offer per cluster, near-identical customers on either side of an invented boundary could get different deals (University of Essex Online, 2026).</p>
             </section>
 
+            <section class="content-section" id="peer-exchange">
+                <h2>Peer Exchange</h2>
+
+                <h3>My reply to a peer&rsquo;s post, 20 November 2026</h3>
+
+                <p>Thank you for your post on the two animations. I found it helpful that you treated them as two separate problems. Your first example shows why starting positions matter. The second one is harder, because k-means will still split the data into as many groups as you ask for, even when the groups are not real (Rousseeuw, 1987, p. 55).</p>
+
+                <p>I agree with you that the silhouette score cannot check whether one single group is the best answer. Rousseeuw (1987, p. 56) only defines it for two or more groups, because each point has to be compared with the next closest group. I saw the same thing in the notebook linked in my original post. With evenly spread points, the score stayed around 0.4 for 2 to 8 groups. With four clear groups, it went up to about 0.77, but only when I asked for four. So the score helps to compare different splits, but it cannot directly compare them with having just one group.</p>
+
+                <p>Real data seems to be even harder. Lugner et al. (2021) used k-means on 114,231 Swedish patients with type 2 diabetes. The checks gave no clear number of groups, and in a subset of 20,000 patients the gap statistic only slightly pointed to one group. When they predicted death, models using the clinical measures did better than models using the groups.</p>
+
+                <p>So before clusters are used to make decisions about people, I think we should check what they add for the job they are meant to do, compared with a simpler method. We should also think about what happens to the people affected. Do you think clusters can still be useful when the evidence for real groups is this weak?</p>
+
+                <h3>Feedback on my post, 15 November 2026</h3>
+
+                <p>L.K. commented that my notebook test raised the question of whether validation methods can show that meaningful clusters exist at all, and suggested trying the gap statistic in my notebook. Answering my closing question, L.K. would treat customer segments as working categories only if they stay stable across samples and show real differences in behaviour.</p>
+            </section>
+
             <section class="content-section" id="evidence">
                 <h2>Evidence</h2>
 
@@ -161,7 +180,7 @@
                 <a href="https://github.com/Tanky0/Tanky0.github.io/commits/main/assets/documents/ML_Unit05_KMeans_Check_Notebook.ipynb" class="download-link">Commit history (GitHub)</a>
                 <a href="../assets/documents/ML_Unit05_Wiki_Clustering.pdf" class="download-link" target="_blank" rel="noopener noreferrer">Wiki post (PDF)<span class="visually-hidden"> (opens in new tab)</span></a>
 
-                <p>The module wiki does not keep the author&rsquo;s name or the date of a post, so my commit of the post and this page is the record of both.</p>
+                <p>The module wiki does not keep the author&rsquo;s name or the date of a post, so my commit of the post and this page is the record of both. Comments do show both, so Screenshot 3 records my reply directly.</p>
 
                 <figure>
                     <img src="../assets/images/ml-unit05-wiki-commit-name.png" alt="GitHub page for commit 33f53ce, with the author card open showing Tanky0, Anne Dayer." width="1440" height="301" loading="lazy">
@@ -171,6 +190,11 @@
                 <figure>
                     <img src="../assets/images/ml-unit05-wiki-commit-time.png" alt="GitHub page for commit 33f53ce, titled Add Unit 5 wiki and align Units 2 to 4, showing the time as 29 October 2026, 19:25 GMT+1." width="1440" height="267" loading="lazy">
                     <figcaption>Screenshot 2. The same commit, made on 29 October 2026 at 19:25.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="../assets/images/ml-unit05-wiki-peer-reply.png" alt="Module wiki on the University of Essex Online site, showing a comment by Anne Dayer posted on Friday 20 November 2026 at 9:53 AM: my reply to a peer&rsquo;s post, with its references to Lugner et al. (2021) and Rousseeuw (1987)." width="1440" height="735" loading="lazy">
+                    <figcaption>Screenshot 3. My reply to a peer&rsquo;s post in the module wiki, shown under my name on 20 November 2026 at 9:53.</figcaption>
                 </figure>
 
             </section>
@@ -187,6 +211,8 @@
                 <div class="reflist">
                     <p>G&eacute;ron, A. (2025) <em>Hands-On Machine Learning with Scikit-Learn and PyTorch</em>. Santa Rosa: O&rsquo;Reilly.</p>
                     <p>Harris, N. (2014) &lsquo;Visualizing k-means clustering&rsquo;, <em>Naftali Harris</em> [Blog], 19 January. Available at: https://www.naftaliharris.com/blog/visualizing-k-means-clustering/ (Accessed: 27 October 2026).</p>
+                    <p>Lugner, M. <em>et al.</em> (2021) &lsquo;Comparison between data-driven clusters and models based on clinical features to predict outcomes in type 2 diabetes: nationwide observational study&rsquo;, <em>Diabetologia</em>, 64(9), pp. 1973&ndash;1981. Available at: https://doi.org/10.1007/s00125-021-05485-5.</p>
+                    <p>Rousseeuw, P.J. (1987) &lsquo;Silhouettes: a graphical aid to the interpretation and validation of cluster analysis&rsquo;, <em>Journal of Computational and Applied Mathematics</em>, 20, pp. 53&ndash;65. Available at: https://doi.org/10.1016/0377-0427(87)90125-7.</p>
                     <p>Shabalin, A.A. (no date) <em>K-means clustering, starting with 4 left-most points</em> [Animation]. Available at: https://shabal.in/visuals/kmeans/2.html (Accessed: 27 October 2026).</p>
                     <p>University of Essex Online (2026) &lsquo;Unit 5 Lecturecast: Clustering&rsquo; [Lecturecast]. ML_PCOM7E: Machine Learning October 2026. University of Essex Online. Available at: https://www.my-course.co.uk/mod/scorm/view.php?id=1434575 (Accessed: 25 October 2026).</p>
                 </div>
